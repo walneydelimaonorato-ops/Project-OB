@@ -57,19 +57,25 @@ func _ready():
 	Player_State_Update("SPC", "NULL")
 
 func _process(delta: float) -> void:
+    # When the player is alive, the mouse is captured
 	if Alive == true:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	
+    # Sets the minimum and maximum for "Health" and "Stamina"
 	Health = clamp(Health, 0, Health_Max)
 	Stamina = clamp(Stamina, 0, Stamina_Max)
 	Menu_Depth = clamp(Menu_Depth, 0, Menu_Depth_Max)
+    # When the player's health reaches 0, it dies
 	if Health == 0:
 		Alive = false
 
 func Menu_Forward(Constraint, Menu_Path, Menu_Slot):
+    # Constraint: Checks what depth the player is
+    # Menu Path: What menu the player is going to
+    # Menu Slot: ???
 	if Menu_Depth == Constraint:
 		Menu_Depth += 1
 	Item_Menu_To = Menu_Path
@@ -78,11 +84,14 @@ func Menu_Forward(Constraint, Menu_Path, Menu_Slot):
 	One_Time = true
 
 func Menu_Backwards(Depth_Level):
+    # Depth Level: How deep in the menus the player is
 	if Menu_Depth == Depth_Level:
 		Menu_Depth -= 1
 		One_Time = true
 
 func Player_State_Update(Type, Player_State):
+    # Type: type of player state to be updated
+    # Player State: new player state
 	if Type == "MVM":
 		PLayer_State_Movement = str("Player State MVM: ", Player_State, "\r")
 	elif Type == "ACT":
