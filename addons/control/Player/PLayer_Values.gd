@@ -1,8 +1,9 @@
 extends Node3D
 
-var PLayer_State_Movement
-var PLayer_State_Action
-var PLayer_State_Special
+# These are debug variables to detect the state the Player is in
+var PLayer_State_Movement # Reflect player movement 
+var PLayer_State_Action # Reflect player action
+var PLayer_State_Special # Reflect a special type of state
 var Player_State
 
 var Health_Max = 10
