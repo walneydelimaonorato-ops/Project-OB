@@ -6,14 +6,14 @@ var PLayer_State_Action # Reflect player action
 var PLayer_State_Special # Reflect a special type of state
 var Player_State
 
-var Health_Max = 10
-var Health = 10
+var Health_Max = 10 # Maximum amount of health
+var Health = 10 # Current amount of health the player has
 
-var Stamina_Max = 20.0
-var Stamina = 20
-var Reg_Amount = 2.0
-var Reg_Rate = 5
-var Reg_Delay_Timer
+var Stamina_Max = 20.0 # Maximum amount of stamina the player can have
+var Stamina = 20 # Current amount of stamina the player has
+var Reg_Amount = 2.0 # Amount of time (in seconds) needed for the stamina regeneration to begin
+var Reg_Rate = 5 # Amount of points of Stamina regenerated
+var Reg_Delay_Timer # Timer related to the time needed before stamina begins regenerating
 
 var R_Hand_In_Use = 0 # Tool in right hand
 var L_Hand_In_Use = 0 # Tool in lrft hand
