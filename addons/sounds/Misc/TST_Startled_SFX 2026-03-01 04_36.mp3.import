@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgemn4008dlg"
+path="res://.godot/imported/TST_Startled_SFX 2026-03-01 04_36.mp3-19ef6c1f294ff9d2b1cd9cfb776ceb7e.mp3str"
+
+[deps]
+
+source_file="res://addons/sounds/Misc/TST_Startled_SFX 2026-03-01 04_36.mp3"
+dest_files=["res://.godot/imported/TST_Startled_SFX 2026-03-01 04_36.mp3-19ef6c1f294ff9d2b1cd9cfb776ceb7e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dlg7kxdqdyt23"
+path="res://.godot/imported/Gun_Sfx_Reload.mp3-24038e6d6b5759f8eafd2c32ac10dcbd.mp3str"
+
+[deps]
+
+source_file="res://addons/sounds/Player sfx/Tool sfx/Gun_Sfx_Reload.mp3"
+dest_files=["res://.godot/imported/Gun_Sfx_Reload.mp3-24038e6d6b5759f8eafd2c32ac10dcbd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbyfmf5pq8nps"
+path="res://.godot/imported/JSR SFX 1.mp3-90b17a832cf0043d473969391d72a3cc.mp3str"
+
+[deps]
+
+source_file="res://addons/sounds/Player sfx/General sfx/JSR SFX 1.mp3"
+dest_files=["res://.godot/imported/JSR SFX 1.mp3-90b17a832cf0043d473969391d72a3cc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

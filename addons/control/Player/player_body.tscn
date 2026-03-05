@@ -1,0 +1,1244 @@
+[gd_scene load_steps=101 format=3 uid="uid://pk1seghcippn"]
+
+[ext_resource type="Script" uid="uid://boqkeglydnx0g" path="res://addons/control/Player/Tool_Script.gd" id="1_3a0aq"]
+[ext_resource type="Script" uid="uid://dt0yl082n2oqn" path="res://addons/control/Player/PLayer_Values.gd" id="1_6m8h1"]
+[ext_resource type="Script" uid="uid://bi601vlc1j2ja" path="res://addons/control/Player/Player_Main.gd" id="1_oevhw"]
+[ext_resource type="Script" uid="uid://nutiukyae4e8" path="res://addons/control/Player/Animation_Script.gd" id="2_0b6ky"]
+[ext_resource type="Script" uid="uid://dgmq1edxkpfyf" path="res://addons/control/Player/CLR.gd" id="4_eg1qv"]
+[ext_resource type="Texture2D" uid="uid://bmqlkkf7u8d12" path="res://addons/sprites/crosshairs/Untitled163_20260206042559.png" id="5_6m8h1"]
+[ext_resource type="Texture2D" uid="uid://bj6tysjlasdjk" path="res://addons/sprites/TST_heal_part/TST_heart3.png" id="6_ewymf"]
+[ext_resource type="Texture2D" uid="uid://dqx5nhplbq5yh" path="res://addons/sprites/crosshairs/Untitled163_20260206042605.png" id="6_oevhw"]
+[ext_resource type="Texture2D" uid="uid://c0h2qm51gv7uj" path="res://addons/sprites/crosshairs/Untitled163_20260206042612.png" id="7_ewymf"]
+[ext_resource type="Texture2D" uid="uid://26ejaj1c5fru" path="res://addons/sprites/hand misc/Untitled158_20260130084622.png" id="8_7472i"]
+[ext_resource type="AudioStream" uid="uid://mqfuet5bgnn5" path="res://addons/sounds/Misc/TST_LVL_UP_SFX 2026-03-01 04_30.mp3" id="8_g5euh"]
+[ext_resource type="AudioStream" uid="uid://dvytfvf03ifne" path="res://addons/sounds/Misc/TST_Damage_SFX 2026-03-01 04_35.mp3" id="9_amtkd"]
+[ext_resource type="Texture2D" uid="uid://blj34s5s6kohk" path="res://addons/sprites/hand misc/Untitled158_20260130084625.png" id="9_x3uxl"]
+[ext_resource type="AudioStream" uid="uid://daejcce0m12f1" path="res://addons/sounds/Misc/TST_Death_Jingle_SFX 2026-03-01 04_25.mp3" id="10_55p2l"]
+[ext_resource type="Texture2D" uid="uid://c65te1k7ddwv1" path="res://addons/sprites/hand misc/Untitled158_20260130084608.png" id="10_g5euh"]
+[ext_resource type="Texture2D" uid="uid://bmdu2n8te6pcp" path="res://addons/sprites/TST_blood_part/TST_Pain_Overlay.png" id="11_7472i"]
+[ext_resource type="Texture2D" uid="uid://c1edydia0cyfj" path="res://addons/sprites/hand misc/Untitled158_20260130084628.png" id="11_amtkd"]
+[ext_resource type="Texture2D" uid="uid://b2tmd2v8mswfx" path="res://addons/sprites/hand misc/Untitled158_20260130084631.png" id="12_55p2l"]
+[ext_resource type="Texture2D" uid="uid://bg2ax3xprcx3b" path="res://addons/sprites/TST_UItems/TST_Glass_Flask.png" id="12_g5euh"]
+[ext_resource type="Texture2D" uid="uid://cwdiwaswft4gp" path="res://addons/sprites/TST_UItems/TST_Wild_gold_Petal.png" id="13_amtkd"]
+[ext_resource type="Texture2D" uid="uid://cnjqnh3glnolk" path="res://addons/sprites/hand misc/Untitled158_20260130084633.png" id="13_b15k8"]
+[ext_resource type="LabelSettings" uid="uid://bourldudvh84a" path="res://Main Font.tres" id="13_xrtut"]
+[ext_resource type="Texture2D" uid="uid://dvn5818kfpqpe" path="res://addons/sprites/hand misc/Untitled158_20260130084635.png" id="14_qyaaf"]
+[ext_resource type="Texture2D" uid="uid://pfkscrkgifqu" path="res://addons/sprites/hand misc/Untitled158_20260130084637.png" id="15_o8f1u"]
+[ext_resource type="Texture2D" uid="uid://c0b6834tbt6n4" path="res://addons/sprites/hand misc/Untitled158_20260130084639.png" id="16_xrtut"]
+[ext_resource type="Texture2D" uid="uid://dhay6khowovd2" path="res://addons/sprites/hand misc/Untitled158_20260130085139.png" id="17_ahfle"]
+[ext_resource type="StyleBox" uid="uid://dlt754n4isxye" path="res://No_Button_Outline.tres" id="17_cl7el"]
+[ext_resource type="Texture2D" uid="uid://clf5m35pnxqi4" path="res://addons/sprites/hand misc/Untitled158_20260130085145.png" id="18_cl7el"]
+[ext_resource type="LabelSettings" uid="uid://dbs43wfge46ty" path="res://Menu_Variation.tres" id="18_cnjxu"]
+[ext_resource type="Texture2D" uid="uid://dayocp1gf7s5n" path="res://addons/sprites/hand sprite/Untitled158_20260129155729.png" id="19_77qxm"]
+[ext_resource type="Texture2D" uid="uid://b8e8isryqjg20" path="res://addons/sprites/hand sprite/Untitled158_20260129155732.png" id="20_c4f71"]
+[ext_resource type="Texture2D" uid="uid://4aw1mw01f4cx" path="res://addons/sprites/hand sprite/Untitled158_20260129155734.png" id="21_kno47"]
+[ext_resource type="Texture2D" uid="uid://bvumms68aed0k" path="res://addons/sprites/hand sprite/Untitled158_20260129155736.png" id="22_po8uy"]
+[ext_resource type="Texture2D" uid="uid://y8qcs2808vw" path="res://addons/sprites/hand sprite/Untitled158_20260129155739.png" id="23_nmjaf"]
+[ext_resource type="Texture2D" uid="uid://d30dcy4oshmvy" path="res://addons/sprites/hand sprite/Untitled158_20260129155744.png" id="24_8vfy7"]
+[ext_resource type="Texture2D" uid="uid://c7abtsrhbirql" path="res://addons/sprites/gun sprite/Untitled158_20260129154014.png" id="25_7b302"]
+[ext_resource type="Texture2D" uid="uid://58m4ahi3cgal" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191854.png" id="26_yyg4w"]
+[ext_resource type="Texture2D" uid="uid://dpg4qsw23ld8m" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191852.png" id="27_iuap3"]
+[ext_resource type="Texture2D" uid="uid://ys5jbiy5kfv5" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191850.png" id="28_3w3mv"]
+[ext_resource type="Texture2D" uid="uid://b5dl26wjfaocy" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191849.png" id="29_ot6f4"]
+[ext_resource type="Texture2D" uid="uid://y80ny8gcgum8" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191847.png" id="30_qeoev"]
+[ext_resource type="Texture2D" uid="uid://skicdh1y8nk5" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191845.png" id="31_ihwk7"]
+[ext_resource type="Texture2D" uid="uid://cvs02552mf6c6" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191843.png" id="32_v20xx"]
+[ext_resource type="Texture2D" uid="uid://owaivbo68x7u" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191841.png" id="33_erado"]
+[ext_resource type="Texture2D" uid="uid://861k88les2l4" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191840.png" id="34_lkfud"]
+[ext_resource type="Texture2D" uid="uid://blo1yt327vlmn" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191838.png" id="35_ae75m"]
+[ext_resource type="Texture2D" uid="uid://nqnpirpihe2w" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191835.png" id="36_l8u5l"]
+[ext_resource type="Texture2D" uid="uid://c6dhsrtwu6iqx" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191834.png" id="37_cnjxu"]
+[ext_resource type="Texture2D" uid="uid://cq6vy72ylk60a" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191831.png" id="38_qp06t"]
+[ext_resource type="Texture2D" uid="uid://diqtl7kng7w7y" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191829.png" id="39_t4you"]
+[ext_resource type="Texture2D" uid="uid://b5ia0ccxw38cw" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191827.png" id="40_cuybu"]
+[ext_resource type="Texture2D" uid="uid://n2tvnkxxt8om" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191826.png" id="41_vf2vc"]
+[ext_resource type="Texture2D" uid="uid://de64rl74uh33l" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191824.png" id="42_7fko7"]
+[ext_resource type="Texture2D" uid="uid://cl0qjku1y46lt" path="res://addons/sprites/gun sprite/reload/Untitled159_20260130191822.png" id="43_3ygbg"]
+[ext_resource type="Texture2D" uid="uid://cw3o16ugg38jp" path="res://addons/sprites/gun sprite/Untitled158_20260129154018.png" id="44_me1jc"]
+[ext_resource type="Texture2D" uid="uid://c2avvgsoee20v" path="res://addons/sprites/gun sprite/Untitled158_20260129154021.png" id="45_y812o"]
+[ext_resource type="Texture2D" uid="uid://dchjiomyubkqt" path="res://addons/sprites/gun sprite/Untitled158_20260129154023.png" id="46_32bis"]
+[ext_resource type="Texture2D" uid="uid://beejxne86vkb3" path="res://addons/sprites/gun sprite/Untitled158_20260129154025.png" id="47_bpvmm"]
+[ext_resource type="Texture2D" uid="uid://bk77i661qt4eq" path="res://addons/sprites/gun sprite/Untitled158_20260129154028.png" id="48_ajnlh"]
+[ext_resource type="AudioStream" uid="uid://dlg7kxdqdyt23" path="res://addons/sounds/Player sfx/Tool sfx/Gun_Sfx_Reload.mp3" id="49_8u18b"]
+[ext_resource type="AudioStream" uid="uid://buajyevd6ov5j" path="res://addons/sounds/Player sfx/Tool sfx/Gun_Sfx_Shoot.mp3" id="50_adols"]
+[ext_resource type="AudioStream" uid="uid://dvemw4de8fcox" path="res://addons/sounds/Player sfx/Tool sfx/Gun_Sfx_Click.mp3" id="51_d0hka"]
+[ext_resource type="Script" uid="uid://bba6o0h5a5r4u" path="res://addons/control/debug.gd" id="52_odvgq"]
+[ext_resource type="Texture2D" uid="uid://ieh1ly2bannk" path="res://addons/control/Player/Menus/Menu visuals/V1/Inventory_Bag_Frame.png" id="62_l8u5l"]
+[ext_resource type="Script" uid="uid://bpe1ggu15lx14" path="res://addons/control/Player/Menus/Ready_Menu.gd" id="64_77qxm"]
+[ext_resource type="Texture2D" uid="uid://byklp0m81321d" path="res://addons/control/Player/Menus/Menu visuals/V1/Inventory_Options_Frame.png" id="64_cnjxu"]
+[ext_resource type="Texture2D" uid="uid://c3hq8xwt3x7tb" path="res://addons/control/Player/Menus/Menu visuals/Item_Selection_Menu.png" id="65_77qxm"]
+[ext_resource type="Texture2D" uid="uid://b26nda3wjtu6i" path="res://addons/control/Player/Menus/Menu visuals/V1/Inventory_Braces_Frame.png" id="65_qp06t"]
+[ext_resource type="Script" uid="uid://bgysdiwh5k0db" path="res://addons/control/Player/Menus/Item_Selection.gd" id="66_kno47"]
+[ext_resource type="Texture2D" uid="uid://c3dkoem8b73i5" path="res://addons/control/Player/Menus/Menu visuals/UItem_Blank.png" id="66_ot6f4"]
+[ext_resource type="Texture2D" uid="uid://vrfksoxp8byy" path="res://addons/control/Player/Menus/Menu visuals/V1/Inventory_Armor_Frame.png" id="66_t4you"]
+[ext_resource type="Texture2D" uid="uid://dp0l1lyik773b" path="res://addons/control/Player/Menus/Menu visuals/V1/Inventory_ToolL_Frame.png" id="67_cuybu"]
+[ext_resource type="Texture2D" uid="uid://bd8fo0afy4sj7" path="res://addons/control/Player/Menus/Menu visuals/V1/Inventory_ToolR_Frame.png" id="68_vf2vc"]
+[ext_resource type="Texture2D" uid="uid://kc2lbapx43uy" path="res://addons/control/Player/Menus/Menu visuals/V1/Inventory_Item_Frame.png" id="69_7fko7"]
+[ext_resource type="Texture2D" uid="uid://djm8g4vcs0b3c" path="res://addons/control/Player/Menus/Menu visuals/Wear_1.png" id="69_yyg4w"]
+[ext_resource type="Texture2D" uid="uid://c044mrkh06hgn" path="res://addons/control/Player/Menus/Menu visuals/V1/Inventory_Spell_Frame.png" id="70_ae75m"]
+[ext_resource type="Texture2D" uid="uid://dknhmqcwx0bto" path="res://addons/control/Player/Menus/Menu visuals/Inventory_Item1_Highlight.png" id="70_iuap3"]
+[ext_resource type="Texture2D" uid="uid://bdmrd3xxaq58a" path="res://addons/control/Player/Menus/Menu visuals/Wear_2.png" id="71_3w3mv"]
+[ext_resource type="Texture2D" uid="uid://qua4cq3ubssm" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_Ico_True_Blank.png" id="71_lkfud"]
+[ext_resource type="Texture2D" uid="uid://cd2235chx0lj" path="res://addons/control/Player/Menus/Menu visuals/Wear_3.png" id="72_ot6f4"]
+[ext_resource type="Texture2D" uid="uid://cghnfx3fnlbwp" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_HGN_Ico.png" id="78_qp06t"]
+[ext_resource type="Texture2D" uid="uid://ycxs4lydaikk" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_ASR_Ico.png" id="79_t4you"]
+[ext_resource type="Texture2D" uid="uid://bd8c3rjv2otqc" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_SWR_Ico.png" id="80_cuybu"]
+[ext_resource type="Texture2D" uid="uid://cqa0f10rlk8ev" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_GLD_Ico.png" id="82_vf2vc"]
+[ext_resource type="Texture2D" uid="uid://dmhxwwkghxw7m" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_CLG_Ico.png" id="83_7fko7"]
+[ext_resource type="Texture2D" uid="uid://cqd7wvqmn5he5" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_CRP_Ico.png" id="84_3ygbg"]
+[ext_resource type="Texture2D" uid="uid://c6fdoyrnbyujt" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_FTN_Ico.png" id="85_me1jc"]
+[ext_resource type="Texture2D" uid="uid://y7ovo63qd4dr" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_PWR_Ico.png" id="86_y812o"]
+[ext_resource type="Texture2D" uid="uid://ckgmnt62ffif8" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_RTT_Ico.png" id="87_32bis"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nuu8y"]
+transparency = 1
+albedo_color = Color(0, 0, 1, 0.5882353)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hxvt8"]
+material = SubResource("StandardMaterial3D_nuu8y")
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1lwjd"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="Curve" id="Curve_ewymf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.19343066, 1), 5.828275, 5.828275, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7472i"]
+curve = SubResource("Curve_ewymf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7472i"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(530, 280, 1)
+angle_min = -29.99999
+angle_max = 30.000011
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 600, 0)
+scale_min = 0.19999999
+scale_max = 0.29999998
+alpha_curve = SubResource("CurveTexture_7472i")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_55p2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_g5euh")
+}],
+"loop": false,
+"name": &"Glass flask",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_amtkd")
+}],
+"loop": false,
+"name": &"Wild Gold Petal",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eacfl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_7472i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_x3uxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_g5euh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_amtkd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_55p2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_b15k8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qyaaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_o8f1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xrtut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ahfle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ahfle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ahfle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ahfle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ahfle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ahfle")
+}],
+"loop": false,
+"name": &"hand_misc_change_gun",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_g5euh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7472i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_x3uxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_amtkd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_55p2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_b15k8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qyaaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_o8f1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xrtut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cl7el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cl7el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cl7el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cl7el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cl7el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_cl7el")
+}],
+"loop": false,
+"name": &"hand_misc_change_sword",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nuu8y"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"hand_alt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_77qxm")
+}],
+"loop": false,
+"name": &"hand_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_77qxm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_c4f71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_kno47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_po8uy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_nmjaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_8vfy7")
+}],
+"loop": false,
+"name": &"hand_pointing",
+"speed": 25.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uwdqg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_7b302")
+}],
+"loop": false,
+"name": &"gun_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_yyg4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_iuap3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_3w3mv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ot6f4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_qeoev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ihwk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_v20xx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_erado")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_lkfud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_ae75m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_l8u5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_cnjxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_qp06t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_t4you")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_t4you")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_t4you")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_t4you")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_t4you")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_t4you")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_t4you")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_t4you")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_cuybu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_vf2vc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_7fko7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_3ygbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_qeoev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ot6f4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_3w3mv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_iuap3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_yyg4w")
+}],
+"loop": false,
+"name": &"gun_reload",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_7b302")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_me1jc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_y812o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_32bis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_bpvmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_ajnlh")
+}],
+"loop": false,
+"name": &"gun_shoot",
+"speed": 25.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dokmk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_qyaaf")
+}],
+"loop": false,
+"name": &"sword_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_kno47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_po8uy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_nmjaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_8vfy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qyaaf")
+}],
+"loop": false,
+"name": &"sword_swing",
+"speed": 15.0
+}]
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource("1_oevhw")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_hxvt8")
+
+[node name="Player Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_1lwjd")
+
+[node name="Player_Values" type="Node3D" parent="."]
+script = ExtResource("1_6m8h1")
+
+[node name="Tool_Node" type="Node3D" parent="."]
+script = ExtResource("1_3a0aq")
+
+[node name="Animation_Handler" type="Node3D" parent="."]
+script = ExtResource("2_0b6ky")
+
+[node name="Player_sfx" type="Node2D" parent="."]
+
+[node name="Gun sfx" type="Node2D" parent="Player_sfx"]
+visible = false
+position = Vector2(930, 425)
+scale = Vector2(2.5, 2.4555557)
+
+[node name="gun reload" type="AudioStreamPlayer2D" parent="Player_sfx/Gun sfx"]
+stream = ExtResource("49_8u18b")
+volume_db = -5.0
+
+[node name="gun shoot" type="AudioStreamPlayer2D" parent="Player_sfx/Gun sfx"]
+stream = ExtResource("50_adols")
+volume_db = -10.0
+
+[node name="gun click" type="AudioStreamPlayer2D" parent="Player_sfx/Gun sfx"]
+stream = ExtResource("51_d0hka")
+volume_db = -5.0
+
+[node name="General sfx" type="Node2D" parent="Player_sfx"]
+
+[node name="heal" type="AudioStreamPlayer2D" parent="Player_sfx/General sfx"]
+stream = ExtResource("8_g5euh")
+
+[node name="pain" type="AudioStreamPlayer2D" parent="Player_sfx/General sfx"]
+stream = ExtResource("9_amtkd")
+
+[node name="death jingle" type="AudioStreamPlayer2D" parent="Player_sfx/General sfx"]
+stream = ExtResource("10_55p2l")
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="Player_sfx/General sfx"]
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="Player_sfx/General sfx"]
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5563732, 0)
+
+[node name="CameraPlayer" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+fov = 90.0
+
+[node name="Gun_Ray" type="RayCast3D" parent="Head/CameraPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.054688573, 0.115)
+target_position = Vector3(0, 0, -200)
+collision_mask = 5
+
+[node name="Point_Ray" type="RayCast3D" parent="Head/CameraPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.054688573, 0.115)
+target_position = Vector3(0, 0, -3)
+collision_mask = 9
+collide_with_areas = true
+debug_shape_custom_color = Color(18.892157, 0, 0, 1)
+
+[node name="Player_Particles" type="Node2D" parent="Head"]
+
+[node name="Hearts" type="GPUParticles2D" parent="Head/Player_Particles"]
+texture_filter = 1
+position = Vector2(578, 323)
+emitting = false
+amount = 25
+texture = ExtResource("6_ewymf")
+process_material = SubResource("ParticleProcessMaterial_7472i")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Head"]
+layer = 2
+
+[node name="face" type="Control" parent="Head/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="GUI" type="CanvasLayer" parent="Head/CanvasLayer/face"]
+script = ExtResource("4_eg1qv")
+
+[node name="Control" type="Control" parent="Head/CanvasLayer/face/GUI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUD" type="Control" parent="Head/CanvasLayer/face/GUI/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UItem UI" type="Label" parent="Head/CanvasLayer/face/GUI/Control/HUD"]
+layout_mode = 0
+offset_left = -220.0
+offset_top = 235.0
+offset_right = -180.0
+offset_bottom = 260.0
+text = "IUI"
+label_settings = ExtResource("13_xrtut")
+
+[node name="Tool UI Left" type="Label" parent="Head/CanvasLayer/face/GUI/Control/HUD"]
+layout_mode = 0
+offset_left = -260.0
+offset_top = 75.0
+offset_right = -214.0
+offset_bottom = 111.0
+text = "TUIL"
+label_settings = ExtResource("13_xrtut")
+autowrap_mode = 2
+
+[node name="Tool UI Right" type="Label" parent="Head/CanvasLayer/face/GUI/Control/HUD"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 75.0
+offset_right = 242.0
+offset_bottom = 111.0
+text = "TUIR"
+label_settings = ExtResource("13_xrtut")
+autowrap_mode = 2
+
+[node name="cross hand" type="Sprite2D" parent="Head/CanvasLayer/face/GUI/Control/HUD/Tool UI Right"]
+visible = false
+position = Vector2(-195, -75)
+texture = ExtResource("5_6m8h1")
+
+[node name="cross gun" type="Sprite2D" parent="Head/CanvasLayer/face/GUI/Control/HUD/Tool UI Right"]
+visible = false
+position = Vector2(-195, -75)
+texture = ExtResource("6_oevhw")
+
+[node name="cross sword" type="Sprite2D" parent="Head/CanvasLayer/face/GUI/Control/HUD/Tool UI Right"]
+visible = false
+position = Vector2(-195, -75)
+texture = ExtResource("7_ewymf")
+
+[node name="Interact label" type="Label" parent="Head/CanvasLayer/face/GUI/Control/HUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -29.0
+offset_right = 54.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "test interact
+"
+label_settings = ExtResource("13_xrtut")
+horizontal_alignment = 1
+
+[node name="Health" type="ProgressBar" parent="Head/CanvasLayer/face/GUI/Control/HUD"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 410.0
+offset_top = -320.0
+offset_right = 540.0
+offset_bottom = -295.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 10.0
+show_percentage = false
+
+[node name="Energy" type="ProgressBar" parent="Head/CanvasLayer/face/GUI/Control/HUD"]
+visible = false
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 410.0
+offset_top = -290.0
+offset_right = 540.0
+offset_bottom = -263.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 20.0
+show_percentage = false
+
+[node name="Death Screen" type="Control" parent="Head/CanvasLayer/face/GUI/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Death Text" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Death Screen"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -419.0
+offset_top = -133.0
+offset_right = -159.0
+offset_bottom = -108.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(3, 3)
+focus_mode = 2
+theme_override_styles/focus = ExtResource("17_cl7el")
+text = "DEATH CONSUMES YOU"
+label_settings = ExtResource("18_cnjxu")
+horizontal_alignment = 1
+
+[node name="RespawnB" type="Button" parent="Head/CanvasLayer/face/GUI/Control/Death Screen"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -35.5
+offset_right = 22.5
+offset_bottom = -4.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_styles/focus = ExtResource("17_cl7el")
+text = "RESPAWN"
+flat = true
+
+[node name="Usable items" type="Control" parent="Head/CanvasLayer/face/GUI/Control"]
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="UItem" type="AnimatedSprite2D" parent="Head/CanvasLayer/face/GUI/Control/Usable items"]
+visible = false
+position = Vector2(-231, 283)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_55p2l")
+animation = &"Glass flask"
+
+[node name="Tools" type="Control" parent="Head/CanvasLayer/face/GUI/Control"]
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="hand miscR" type="AnimatedSprite2D" parent="Head/CanvasLayer/face/GUI/Control/Tools"]
+visible = false
+position = Vector2(356, 183)
+scale = Vector2(2.3666666, 2.1888888)
+sprite_frames = SubResource("SpriteFrames_eacfl")
+animation = &"hand_misc_change_gun"
+
+[node name="hand miscL" type="AnimatedSprite2D" parent="Head/CanvasLayer/face/GUI/Control/Tools"]
+visible = false
+position = Vector2(-356, 183)
+scale = Vector2(2.3666666, 2.1888888)
+sprite_frames = SubResource("SpriteFrames_eacfl")
+animation = &"hand_misc_change_gun"
+flip_h = true
+
+[node name="pointR" type="AnimatedSprite2D" parent="Head/CanvasLayer/face/GUI/Control/Tools"]
+texture_filter = 1
+position = Vector2(348.48578, 70.5)
+scale = Vector2(2.7498415, 3.038889)
+sprite_frames = SubResource("SpriteFrames_nuu8y")
+animation = &"hand_idle"
+
+[node name="pointL" type="AnimatedSprite2D" parent="Head/CanvasLayer/face/GUI/Control/Tools"]
+texture_filter = 1
+position = Vector2(-348.486, 70.5)
+scale = Vector2(2.7498415, 3.038889)
+sprite_frames = SubResource("SpriteFrames_nuu8y")
+animation = &"hand_idle"
+flip_h = true
+
+[node name="gunR" type="AnimatedSprite2D" parent="Head/CanvasLayer/face/GUI/Control/Tools"]
+visible = false
+texture_filter = 1
+position = Vector2(374, 121)
+scale = Vector2(2.5, 2.4555557)
+sprite_frames = SubResource("SpriteFrames_uwdqg")
+animation = &"gun_reload"
+autoplay = "gun_idle"
+
+[node name="gunL" type="AnimatedSprite2D" parent="Head/CanvasLayer/face/GUI/Control/Tools"]
+visible = false
+texture_filter = 1
+position = Vector2(-374, 121)
+scale = Vector2(2.5, 2.4555557)
+sprite_frames = SubResource("SpriteFrames_uwdqg")
+animation = &"gun_reload"
+autoplay = "gun_idle"
+flip_h = true
+
+[node name="swordR" type="AnimatedSprite2D" parent="Head/CanvasLayer/face/GUI/Control/Tools"]
+visible = false
+position = Vector2(393.25, 171.25)
+scale = Vector2(2.358333, 2.425)
+sprite_frames = SubResource("SpriteFrames_dokmk")
+animation = &"sword_swing"
+autoplay = "sword_idle"
+
+[node name="swordL" type="AnimatedSprite2D" parent="Head/CanvasLayer/face/GUI/Control/Tools"]
+visible = false
+position = Vector2(-393.25, 171.25)
+scale = Vector2(2.358333, 2.425)
+sprite_frames = SubResource("SpriteFrames_dokmk")
+animation = &"sword_swing"
+autoplay = "sword_idle"
+flip_h = true
+
+[node name="Menus" type="Control" parent="Head/CanvasLayer/face/GUI/Control"]
+anchors_preset = 0
+offset_left = -28.0
+offset_top = 124.0
+offset_right = 12.0
+offset_bottom = 164.0
+
+[node name="Ready Menu" type="Control" parent="Head/CanvasLayer/face/GUI/Control/Menus"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("64_77qxm")
+
+[node name="Ready Menu Grid" type="GridContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu"]
+layout_mode = 0
+offset_left = -261.0
+offset_top = -4.0
+offset_right = 569.0
+offset_bottom = 604.0
+scale = Vector2(0.3, 0.3)
+
+[node name="Tecnical Grid" type="HBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid"]
+layout_mode = 2
+
+[node name="Tecnical Slot 1" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Tecnical Grid"]
+layout_mode = 2
+texture_normal = ExtResource("62_l8u5l")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Tecnical Slot 2" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Tecnical Grid"]
+layout_mode = 2
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("64_cnjxu")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Wear_Tool Grid" type="HBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Wear Slot 1" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Wear_Tool Grid"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Wear Slot 2")
+texture_normal = ExtResource("65_qp06t")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Wear Slot 2" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Wear_Tool Grid"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Wear Slot 1")
+texture_normal = ExtResource("66_t4you")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Tool Slot 1" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Wear_Tool Grid"]
+layout_mode = 2
+texture_normal = ExtResource("67_cuybu")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Tool Slot 2" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Wear_Tool Grid"]
+layout_mode = 2
+texture_normal = ExtResource("68_vf2vc")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="UItems_Spell Grid" type="HBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Spell Slot" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/UItems_Spell Grid"]
+layout_mode = 2
+texture_normal = ExtResource("70_ae75m")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="UItem Slot 1" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/UItems_Spell Grid"]
+layout_mode = 2
+texture_normal = ExtResource("69_7fko7")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="UItem Slot 2" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/UItems_Spell Grid"]
+layout_mode = 2
+texture_normal = ExtResource("69_7fko7")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="UItem Slot 3" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/UItems_Spell Grid"]
+layout_mode = 2
+texture_normal = ExtResource("69_7fko7")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Ready Menu Icons" type="GridContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu"]
+layout_mode = 0
+offset_left = -261.0
+offset_top = 57.0
+offset_right = 569.0
+offset_bottom = 461.0
+scale = Vector2(0.3, 0.3)
+
+[node name="Wear_Tool Grid" type="HBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Icons"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Wear_Icon_1" type="TextureRect" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Icons/Wear_Tool Grid"]
+layout_mode = 2
+texture = ExtResource("71_lkfud")
+
+[node name="Wear_Icon_2" type="TextureRect" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Icons/Wear_Tool Grid"]
+layout_mode = 2
+texture = ExtResource("71_lkfud")
+
+[node name="Tool_Icon_1" type="TextureRect" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Icons/Wear_Tool Grid"]
+layout_mode = 2
+texture = ExtResource("71_lkfud")
+
+[node name="Tool_Icon_2" type="TextureRect" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Icons/Wear_Tool Grid"]
+layout_mode = 2
+texture = ExtResource("71_lkfud")
+
+[node name="UItems_Spell Grid" type="HBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Icons"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Spell_Icon" type="TextureRect" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Icons/UItems_Spell Grid"]
+layout_mode = 2
+texture = ExtResource("66_ot6f4")
+
+[node name="UItem_Icon_1" type="TextureRect" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Icons/UItems_Spell Grid"]
+layout_mode = 2
+texture = ExtResource("66_ot6f4")
+
+[node name="UItem_Icon_2" type="TextureRect" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Icons/UItems_Spell Grid"]
+layout_mode = 2
+texture = ExtResource("66_ot6f4")
+
+[node name="UItem_Icon_3" type="TextureRect" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Icons/UItems_Spell Grid"]
+layout_mode = 2
+texture = ExtResource("66_ot6f4")
+
+[node name="Item Selection" type="Control" parent="Head/CanvasLayer/face/GUI/Control/Menus"]
+anchors_preset = 0
+offset_left = -9.575012
+offset_top = 8.0
+offset_right = 30.424988
+offset_bottom = 48.0
+script = ExtResource("66_kno47")
+
+[node name="Item Selection Box" type="TextureRect" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("65_77qxm")
+
+[node name="Label" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection"]
+layout_mode = 0
+offset_left = -54.424988
+offset_top = 26.0
+offset_right = -4.424988
+offset_bottom = 49.0
+text = "aassss"
+
+[node name="Tools Scroller" type="ScrollContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection"]
+layout_mode = 0
+offset_left = 9.575012
+offset_top = 8.0
+offset_right = 1124.575
+offset_bottom = 778.0
+scale = Vector2(0.2, 0.2)
+focus_mode = 2
+follow_focus = true
+vertical_scroll_mode = 2
+
+[node name="Tools Grid" type="GridContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller"]
+clip_contents = true
+layout_mode = 2
+columns = 2
+
+[node name="Tools Icons" type="VBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="Tool_Sword_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons"]
+layout_mode = 2
+texture_normal = ExtResource("80_cuybu")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Tool_HandG_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons"]
+layout_mode = 2
+texture_normal = ExtResource("78_qp06t")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Tool_AssaltR_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons"]
+layout_mode = 2
+texture_normal = ExtResource("79_t4you")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Tool Icons Name" type="VBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="Empty Space_1" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name"]
+layout_mode = 2
+
+[node name="Tool_Sword_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Sword"
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Empty Space_2" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name"]
+layout_mode = 2
+text = "
+"
+
+[node name="Tool_HandGun_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Hand Gun"
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Empty Space_3" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name"]
+layout_mode = 2
+text = "
+"
+
+[node name="Tool_AssalrRifle_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Assalt Rifle"
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Wear Icons" type="VBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
+visible = false
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = -10
+
+[node name="Wear_1_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons"]
+layout_mode = 2
+texture_normal = ExtResource("69_yyg4w")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="wear_2_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons"]
+layout_mode = 2
+texture_normal = ExtResource("71_3w3mv")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="wear_3_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons"]
+layout_mode = 2
+texture_normal = ExtResource("72_ot6f4")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Wear Icons Name" type="VBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
+visible = false
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="Wear_1_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons Name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = ":1"
+
+[node name="Wear_2_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons Name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = ":2"
+
+[node name="Wear_3_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons Name"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = ":3"
+
+[node name="Braces Icons" type="VBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
+visible = false
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = -10
+
+[node name="Brace_Gold_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Braces Icons"]
+layout_mode = 2
+texture_normal = ExtResource("82_vf2vc")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Brace_Cling_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Braces Icons"]
+layout_mode = 2
+texture_normal = ExtResource("83_7fko7")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Brace_Clorophyl_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Braces Icons"]
+layout_mode = 2
+texture_normal = ExtResource("84_3ygbg")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Brace_Fortune_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Braces Icons"]
+layout_mode = 2
+texture_normal = ExtResource("85_me1jc")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Brace_Power_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Braces Icons"]
+layout_mode = 2
+texture_normal = ExtResource("86_y812o")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Brace_Rotten_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Braces Icons"]
+layout_mode = 2
+texture_normal = ExtResource("87_32bis")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Brace Icon Name" type="VBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 35
+
+[node name="Empty Space_1" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
+layout_mode = 2
+
+[node name="Tool_Sword_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Braces: Golden"
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Empty Space_2" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
+layout_mode = 2
+text = "
+"
+
+[node name="Tool_HandGun_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Braces: Cling"
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Empty Space_3" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
+layout_mode = 2
+text = "
+"
+
+[node name="Tool_AssalrRifle_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Brace: Clorophyl"
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Empty Space_4" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
+layout_mode = 2
+text = "
+"
+
+[node name="Tool_AssalrRifle_Nam2" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Brace: Fortune"
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Empty Space_5" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
+layout_mode = 2
+text = "
+"
+
+[node name="Tool_AssalrRifle_Nam3" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Brace: Power"
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Empty Space_6" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
+layout_mode = 2
+text = "
+"
+
+[node name="Tool_AssalrRifle_Nam4" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Brace: Rotten"
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Pain" type="Sprite2D" parent="Head/CanvasLayer/face/GUI/Control"]
+visible = false
+scale = Vector2(5.72, 3.2000005)
+texture = ExtResource("11_7472i")
+
+[node name="Debug Panel" type="PanelContainer" parent="Head/CanvasLayer/face"]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = -532.0
+offset_top = -280.0
+offset_right = -332.0
+offset_bottom = -240.0
+script = ExtResource("52_odvgq")
+
+[node name="DB Insight" type="MarginContainer" parent="Head/CanvasLayer/face/Debug Panel"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="DB_List" type="VBoxContainer" parent="Head/CanvasLayer/face/Debug Panel/DB Insight"]
+layout_mode = 2
+
+[node name="PLayer State" type="PanelContainer" parent="Head/CanvasLayer/face"]
+visible = false
+layout_mode = 0
+offset_left = -298.0
+offset_top = -280.0
+offset_right = -258.0
+offset_bottom = -255.0
+
+[node name="PS Insight" type="MarginContainer" parent="Head/CanvasLayer/face/PLayer State"]
+layout_mode = 2
+
+[node name="PS_List" type="VBoxContainer" parent="Head/CanvasLayer/face/PLayer State/PS Insight"]
+layout_mode = 2
+
+[node name="PS_Label" type="Label" parent="Head/CanvasLayer/face/PLayer State/PS Insight/PS_List"]
+layout_mode = 2
+
+[connection signal="button_down" from="Head/CanvasLayer/face/GUI/Control/Death Screen/RespawnB" to="Head/CanvasLayer/face/GUI" method="_on_respawnb_button_down"]
+[connection signal="animation_finished" from="Head/CanvasLayer/face/GUI/Control/Tools/hand miscR" to="Animation_Handler" method="_on_hand_misc_r_animation_finished"]
+[connection signal="animation_finished" from="Head/CanvasLayer/face/GUI/Control/Tools/hand miscL" to="Animation_Handler" method="_on_hand_misc_l_animation_finished"]
+[connection signal="animation_finished" from="Head/CanvasLayer/face/GUI/Control/Tools/pointR" to="Animation_Handler" method="_on_point_r_animation_finished"]
+[connection signal="animation_finished" from="Head/CanvasLayer/face/GUI/Control/Tools/pointL" to="Animation_Handler" method="_on_point_l_animation_finished"]
+[connection signal="animation_finished" from="Head/CanvasLayer/face/GUI/Control/Tools/gunR" to="Animation_Handler" method="_on_gun_r_animation_finished"]
+[connection signal="animation_finished" from="Head/CanvasLayer/face/GUI/Control/Tools/gunL" to="Animation_Handler" method="_on_gun_l_animation_finished"]
+[connection signal="animation_finished" from="Head/CanvasLayer/face/GUI/Control/Tools/swordR" to="Animation_Handler" method="_on_sword_r_animation_finished"]
+[connection signal="animation_finished" from="Head/CanvasLayer/face/GUI/Control/Tools/swordL" to="Animation_Handler" method="_on_sword_l_animation_finished"]
+[connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Wear_Tool Grid/Wear Slot 1" to="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu" method="_on_wear_slot_1_pressed"]
+[connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Wear_Tool Grid/Wear Slot 2" to="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu" method="_on_wear_slot_2_pressed"]
+[connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Wear_Tool Grid/Tool Slot 1" to="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu" method="_on_tool_slot_1_pressed"]
+[connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Wear_Tool Grid/Tool Slot 2" to="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu" method="_on_tool_slot_2_pressed"]
+[connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_Sword_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_tool_sword_ico_pressed"]
+[connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_HandG_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_tool_hand_g_ico_pressed"]
+[connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_AssaltR_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_tool_assalt_r_ico_pressed"]
+[connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons/Wear_1_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_wear_1_ico_pressed"]
+[connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons/wear_2_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_wear_2_ico_pressed"]
+[connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons/wear_3_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_wear_3_ico_pressed"]

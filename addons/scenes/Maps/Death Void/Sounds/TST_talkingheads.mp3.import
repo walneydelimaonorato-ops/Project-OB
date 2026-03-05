@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c40bur0g8yvfn"
+path="res://.godot/imported/TST_talkingheads.mp3-6b5b42f3d11bbd141b11745d5d4d021a.mp3str"
+
+[deps]
+
+source_file="res://addons/scenes/Maps/Death Void/Sounds/TST_talkingheads.mp3"
+dest_files=["res://.godot/imported/TST_talkingheads.mp3-6b5b42f3d11bbd141b11745d5d4d021a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

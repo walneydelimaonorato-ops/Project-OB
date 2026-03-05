@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://beia75rubvsw2"]
+
+[ext_resource type="Texture2D" uid="uid://kje2pkbfv84h" path="res://addons/textures/Dark/texture_05.png" id="1_asuey"]
+[ext_resource type="PackedScene" uid="uid://pk1seghcippn" path="res://addons/control/Player/player_body.tscn" id="2_asuey"]
+[ext_resource type="Script" uid="uid://bi601vlc1j2ja" path="res://addons/control/Player/Player_Main.gd" id="3_26cdq"]
+[ext_resource type="PackedScene" uid="uid://dtaeo6o0gyar1" path="res://addons/control/Int item/item_obj.tscn" id="4_26cdq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26cdq"]
+albedo_texture = ExtResource("1_asuey")
+uv1_scale = Vector3(50, 150, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_y4tvb"]
+material = SubResource("StandardMaterial3D_26cdq")
+size = Vector2(50, 150)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u7h10"]
+data = PackedVector3Array(25, 0, 75, -25, 0, 75, 25, 0, -75, -25, 0, 75, -25, 0, -75, 25, 0, -75)
+
+[node name="main" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.97347516, -0.22879264, 0, 0.22879264, 0.97347516, 0, 0, 0)
+mesh = SubResource("PlaneMesh_y4tvb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_u7h10")
+
+[node name="Player" parent="." instance=ExtResource("2_asuey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.718954, 9.344264, -39.758312)
+script = ExtResource("3_26cdq")
+Joy_C = true
+
+[node name="item" parent="." instance=ExtResource("4_26cdq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.759824, 10.268303, -42.90172)
+IT_AmmoA = true
+AmmoA_Refill = 2

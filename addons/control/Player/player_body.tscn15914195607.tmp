@@ -1,0 +1,144 @@
+[gd_scene load_steps=10 format=3 uid="uid://pk1seghcippn"]
+
+[ext_resource type="Texture2D" uid="uid://c8jspknhcauts" path="res://addons/sprites/gun_idle.png" id="1_nuu8y"]
+[ext_resource type="Texture2D" uid="uid://dnptt3n53258m" path="res://addons/sprites/gun_shoot.png" id="2_7653i"]
+[ext_resource type="Texture2D" uid="uid://dhtvk4lubo66b" path="res://addons/sprites/Untitled157_20260128211526.png" id="3_7653i"]
+[ext_resource type="Script" uid="uid://bba6o0h5a5r4u" path="res://addons/control/debug.gd" id="4_hxvt8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nuu8y"]
+transparency = 1
+albedo_color = Color(0, 0, 1, 0.5882353)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hxvt8"]
+material = SubResource("StandardMaterial3D_nuu8y")
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1lwjd"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uwdqg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nuu8y")
+}],
+"loop": true,
+"name": &"gun_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7653i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_nuu8y")
+}],
+"loop": true,
+"name": &"gun_shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nuu8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7653i")
+}],
+"loop": true,
+"name": &"hand_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7653i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7653i")
+}],
+"loop": true,
+"name": &"hand_pointing",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_hxvt8")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_1lwjd")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5563732, 0)
+
+[node name="CameraPlayer" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="Gun_Ray" type="RayCast3D" parent="Head/CameraPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.054688573, 0.115)
+target_position = Vector3(0, 0, -200)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Head"]
+layer = 2
+
+[node name="face" type="Control" parent="Head/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="gun" type="AnimatedSprite2D" parent="Head/CanvasLayer/face"]
+visible = false
+position = Vector2(405, 206)
+sprite_frames = SubResource("SpriteFrames_uwdqg")
+animation = &"gun_idle"
+autoplay = "gun_idle"
+
+[node name="point" type="AnimatedSprite2D" parent="Head/CanvasLayer/face"]
+position = Vector2(374, 293)
+scale = Vector2(1.1441281, 1.1666666)
+sprite_frames = SubResource("SpriteFrames_nuu8y")
+animation = &"hand_pointing"
+
+[node name="cross" type="ColorRect" parent="Head/CanvasLayer/face"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Debug Panel" type="PanelContainer" parent="Head/CanvasLayer/face"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = -532.0
+offset_top = -280.0
+offset_right = -332.0
+offset_bottom = -240.0
+script = ExtResource("4_hxvt8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Head/CanvasLayer/face/Debug Panel"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Head/CanvasLayer/face/Debug Panel/MarginContainer"]
+layout_mode = 2

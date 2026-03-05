@@ -1,0 +1,160 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx776q338sc4n"]
+
+[ext_resource type="Texture2D" uid="uid://swbd01x57sa" path="res://addons/sprites/title screen/Untitled164.png" id="2_aokim"]
+[ext_resource type="Script" uid="uid://cnvp2y40e3mcy" path="res://addons/scenes/Maps/Title Screen/STARTING_SCREEN.gd" id="2_bedyp"]
+[ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="3_7g7i4"]
+[ext_resource type="StyleBox" uid="uid://dlt754n4isxye" path="res://No_Button_Outline.tres" id="4_8861c"]
+[ext_resource type="LabelSettings" uid="uid://bourldudvh84a" path="res://Main Font.tres" id="4_c6qp3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c6qp3"]
+texture = ExtResource("2_aokim")
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_bedyp")
+
+[node name="Main menu texture" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 650.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_c6qp3")
+
+[node name="Main Container" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 60.0
+offset_top = 200.0
+offset_right = 100.0
+offset_bottom = 240.0
+
+[node name="Start btn" type="Button" parent="Main Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 0.9019608, 0, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_fonts/font = ExtResource("3_7g7i4")
+theme_override_styles/focus = ExtResource("4_8861c")
+text = "Start game"
+flat = true
+
+[node name="Option btn" type="Button" parent="Main Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9019608, 0, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_fonts/font = ExtResource("3_7g7i4")
+theme_override_styles/focus = ExtResource("4_8861c")
+text = "Options"
+flat = true
+alignment = 0
+
+[node name="Menu type start" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 60.0
+offset_top = 200.0
+offset_right = 235.0
+offset_bottom = 240.0
+
+[node name="Map select 1" type="Button" parent="Menu type start"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92156863, 0, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_fonts/font = ExtResource("3_7g7i4")
+theme_override_styles/focus = ExtResource("4_8861c")
+text = "TST_MAIN_MAP
+"
+flat = true
+alignment = 0
+
+[node name="Map select 2" type="Button" parent="Menu type start"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92156863, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_7g7i4")
+theme_override_styles/focus = ExtResource("4_8861c")
+text = "TST_CASTLEV_3.1_MAP"
+flat = true
+
+[node name="Map select 3" type="Button" parent="Menu type start"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92156863, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_7g7i4")
+theme_override_styles/focus = ExtResource("4_8861c")
+text = "TST_FOUNTAIN_MAP"
+flat = true
+alignment = 0
+
+[node name="Map select 4" type="Button" parent="Menu type start"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9019608, 0, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_fonts/font = ExtResource("3_7g7i4")
+theme_override_styles/focus = ExtResource("4_8861c")
+text = "TST_FOREST"
+flat = true
+alignment = 0
+
+[node name="Menu type options node" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Menu type options" type="VBoxContainer" parent="Menu type options node"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 200.0
+offset_right = 260.0
+offset_bottom = 324.0
+theme_override_constants/separation = 6
+
+[node name="Control type" type="CheckButton" parent="Menu type options node/Menu type options"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92156863, 0, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_fonts/font = ExtResource("3_7g7i4")
+theme_override_styles/focus = ExtResource("4_8861c")
+text = "Control type"
+flat = true
+
+[node name="Sensitivity" type="Label" parent="Menu type options node/Menu type options"]
+self_modulate = Color(1, 0.9019608, 0, 1)
+layout_mode = 2
+text = "Sensitivity:"
+label_settings = ExtResource("4_c6qp3")
+
+[node name="Control type track" type="Label" parent="Menu type options node"]
+self_modulate = Color(1, 0.9019608, 0, 1)
+layout_mode = 0
+offset_left = 260.0
+offset_top = 200.0
+offset_right = 460.0
+offset_bottom = 225.0
+text = ": Keyboard"
+label_settings = ExtResource("4_c6qp3")
+
+[node name="Exit btn" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 60.0
+offset_top = 570.0
+offset_right = 97.0
+offset_bottom = 601.0
+theme_override_colors/font_color = Color(1, 0.9019608, 0, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_fonts/font = ExtResource("3_7g7i4")
+theme_override_styles/focus = ExtResource("4_8861c")
+text = "Exit"
+flat = true
+
+[connection signal="pressed" from="Main Container/Start btn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Main Container/Option btn" to="." method="_on_option_btn_pressed"]
+[connection signal="pressed" from="Menu type start/Map select 1" to="." method="_on_map_select_1_pressed"]
+[connection signal="pressed" from="Menu type start/Map select 2" to="." method="_on_map_select_2_pressed"]
+[connection signal="pressed" from="Menu type start/Map select 3" to="." method="_on_map_select_3_pressed"]
+[connection signal="pressed" from="Menu type start/Map select 4" to="." method="_on_map_select_4_pressed"]
+[connection signal="toggled" from="Menu type options node/Menu type options/Control type" to="." method="_on_control_type_toggled"]
+[connection signal="pressed" from="Exit btn" to="." method="_on_exit_btn_pressed"]

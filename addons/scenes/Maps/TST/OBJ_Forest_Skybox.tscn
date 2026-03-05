@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=4 uid="uid://b3nfwi0yef8ir"]
+
+[ext_resource type="Texture2D" uid="uid://cpr8kjii4bu4r" path="res://addons/scenes/Maps/TST/OBJ_Forest_Skybox_Untitled178_20260302150045.png" id="1_ncof7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ndi3p"]
+resource_name = "Material"
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_ncof7")
+texture_filter = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fh7uv"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAAAAP////8AAAAA//8AAAAAAAAAAP//AAD///////8AAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qq3aa"]
+resource_name = "OBJ_Forest_Skybox_Cube"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("XvmMtIjO5Yle+eWJiM6MtBqA6v9NwO+/TcDq/xqA779hwPm//38egGHAHoD/f/m////L1CnVc/8p1cvU//9z/w2A9f9DwPu/Q8D1/w2A+7//f///QcD4v0HA////f/i/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_ndi3p"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(1.9921045, 2.000608, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAAVNUAAP////9U1QAA//8AAFTV////////VNX//wAA////vwAA//////+//////////78AAAAA////vwAAAAD///+/AAD//wAA/78AAP//////vwAAAAAAAP+/AAAAAAAA/////wAA////////AAAAAP//AAAAAP///////wAAAABU1f///////1TV/////wAAVNX//wAA//9U1QAAAAAAAP///////wAA//8AAP//AAD/////AAAAAP//VNWqKlTVqipU1aoqVNWqKv//////////////////////f/7//3/+//9//v//f/7//3//P/9//z//f/8//3//P6oqqiqqKqoqqiqqKqoqqir/v/+//7//v/+//7//v/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fh7uv")
+
+[node name="OBJ_Forest_Skybox" type="Node3D"]
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8899144, 0)
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_qq3aa")
+skeleton = NodePath("")

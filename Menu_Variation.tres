@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dbs43wfge46ty"]
+
+[ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="1_a5ed8"]
+
+[resource]
+resource_local_to_scene = true
+font = ExtResource("1_a5ed8")
+font_size = 50

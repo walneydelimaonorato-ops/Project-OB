@@ -1,0 +1,186 @@
+[gd_scene load_steps=19 format=3 uid="uid://pk1seghcippn"]
+
+[ext_resource type="Texture2D" uid="uid://blggb58crro7n" path="res://Addons/sprites/gun sprite/Untitled158_20260129154014.png" id="1_b8hus"]
+[ext_resource type="Texture2D" uid="uid://43ywqr37rh7a" path="res://Addons/sprites/gun sprite/Untitled158_20260129154018.png" id="2_erbhw"]
+[ext_resource type="Texture2D" uid="uid://b86jxirspn2o2" path="res://Addons/sprites/gun sprite/Untitled158_20260129154021.png" id="3_boaku"]
+[ext_resource type="Texture2D" uid="uid://cogo84os4agah" path="res://Addons/sprites/gun sprite/Untitled158_20260129154023.png" id="4_36dar"]
+[ext_resource type="Script" uid="uid://bba6o0h5a5r4u" path="res://Elements/scripts/debug.gd" id="4_hxvt8"]
+[ext_resource type="Texture2D" uid="uid://cptodprbw5s53" path="res://Addons/sprites/gun sprite/Untitled158_20260129154025.png" id="5_gsrd4"]
+[ext_resource type="Texture2D" uid="uid://gp4uygao68hj" path="res://Addons/sprites/gun sprite/Untitled158_20260129154028.png" id="6_ks14q"]
+[ext_resource type="Texture2D" uid="uid://bmlairktv3ag2" path="res://Addons/sprites/hand sprite/Untitled158_20260129155729.png" id="7_aesy8"]
+[ext_resource type="Texture2D" uid="uid://rf5flbhqe2hf" path="res://Addons/sprites/hand sprite/Untitled158_20260129155732.png" id="8_seqps"]
+[ext_resource type="Texture2D" uid="uid://bwvl22urokkfq" path="res://Addons/sprites/hand sprite/Untitled158_20260129155734.png" id="9_hlyhn"]
+[ext_resource type="Texture2D" uid="uid://c3kknebye1b1y" path="res://Addons/sprites/hand sprite/Untitled158_20260129155736.png" id="10_8vp00"]
+[ext_resource type="Texture2D" uid="uid://b3sj2r5cp3jaq" path="res://Addons/sprites/hand sprite/Untitled158_20260129155739.png" id="11_v1c0p"]
+[ext_resource type="Texture2D" uid="uid://chi2s3vwkvpco" path="res://Addons/sprites/hand sprite/Untitled158_20260129155744.png" id="12_7xxb4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nuu8y"]
+transparency = 1
+albedo_color = Color(0, 0, 1, 0.5882353)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hxvt8"]
+material = SubResource("StandardMaterial3D_nuu8y")
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1lwjd"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nuu8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_aesy8")
+}],
+"loop": true,
+"name": &"hand_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_aesy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_seqps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hlyhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8vp00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_v1c0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7xxb4")
+}],
+"loop": false,
+"name": &"hand_pointing",
+"speed": 25.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uwdqg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b8hus")
+}],
+"loop": false,
+"name": &"gun_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b8hus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_erbhw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_boaku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_36dar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gsrd4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ks14q")
+}],
+"loop": false,
+"name": &"gun_shoot",
+"speed": 25.0
+}]
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_hxvt8")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_1lwjd")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5563732, 0)
+
+[node name="CameraPlayer" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="Gun_Ray" type="RayCast3D" parent="Head/CameraPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.054688573, 0.115)
+target_position = Vector3(0, 0, -200)
+
+[node name="Point_Ray" type="RayCast3D" parent="Head/CameraPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.054688573, 0.115)
+target_position = Vector3(0, 0, -3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Head"]
+layer = 2
+
+[node name="face" type="Control" parent="Head/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="point" type="AnimatedSprite2D" parent="Head/CanvasLayer/face"]
+visible = false
+texture_filter = 1
+position = Vector2(348.48578, 70.499985)
+scale = Vector2(2.7498415, 3.038889)
+sprite_frames = SubResource("SpriteFrames_nuu8y")
+animation = &"hand_idle"
+autoplay = "hand_idle"
+
+[node name="gun" type="AnimatedSprite2D" parent="Head/CanvasLayer/face"]
+visible = false
+texture_filter = 1
+position = Vector2(373.99997, 121.999985)
+scale = Vector2(2.5, 2.4555557)
+sprite_frames = SubResource("SpriteFrames_uwdqg")
+animation = &"gun_shoot"
+autoplay = "gun_idle"
+
+[node name="cross" type="ColorRect" parent="Head/CanvasLayer/face"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Debug Panel" type="PanelContainer" parent="Head/CanvasLayer/face"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = -532.0
+offset_top = -280.0
+offset_right = -332.0
+offset_bottom = -240.0
+script = ExtResource("4_hxvt8")
+
+[node name="MarginContainer" type="MarginContainer" parent="Head/CanvasLayer/face/Debug Panel"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Head/CanvasLayer/face/Debug Panel/MarginContainer"]
+layout_mode = 2

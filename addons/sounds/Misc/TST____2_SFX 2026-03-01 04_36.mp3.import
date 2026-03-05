@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://br4avrxo3i8lh"
+path="res://.godot/imported/TST____2_SFX 2026-03-01 04_36.mp3-7d58d65683caffd4005ea2b67af02365.mp3str"
+
+[deps]
+
+source_file="res://addons/sounds/Misc/TST____2_SFX 2026-03-01 04_36.mp3"
+dest_files=["res://.godot/imported/TST____2_SFX 2026-03-01 04_36.mp3-7d58d65683caffd4005ea2b67af02365.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
