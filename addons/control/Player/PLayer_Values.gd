@@ -11,23 +11,23 @@ var Health = 10 # Current amount of health the player has
 
 var Stamina_Max = 20.0 # Maximum amount of stamina the player can have
 var Stamina = 20 # Current amount of stamina the player has
-var Reg_Amount = 2.0 # Amount of time (in seconds) needed for the stamina regeneration to begin
+var Reg_Amount = 2.0 # Amount of time (in seconds) waited for the stamina regeneration to begin
 var Reg_Rate = 5 # Amount of points of Stamina regenerated
 var Reg_Delay_Timer # Timer related to the time needed before stamina begins regenerating
 
 var R_Hand_In_Use = 0 # Tool in right hand
-var L_Hand_In_Use = 0 # Tool in lrft hand
+var L_Hand_In_Use = 0 # Tool in left hand
 
-var Usable_Item_Selected = 1
-var UItem_Max = 3
-var Glass_flask_quantity = 6
-var Glass_flask_quantity_max = 6
-var Wild_gold_quantity = 10
+var Usable_Item_Selected = 1 # Usable items currently selected
+var UItem_Max = 3 # Maximum amount of usable items held
+var Glass_flask_quantity = 6 # Use quantity of Glass Flask
+var Glass_flask_quantity_max = 6 # Maximum use quantity of Glass Flask
+var Wild_gold_quantity = 10 # Use quantity of Wild Gold
 
-var Menu_Depth = 0
-var Menu_Depth_Max = 9
-var Item_Menu_To = ""
-var Item_Menu_Slot = ""
+var Menu_Depth = 0 # How deep in the menus the player is
+var Menu_Depth_Max = 9 # Arbitrary maximum depth of menus
+var Item_Menu_To = "" # Where from Ready Menu the player is going to
+var Item_Menu_Slot = "" # ???
 
 # Inventory related stuff
 var Inv_Brace_Equiped = ""
@@ -40,13 +40,13 @@ var Inv_Uitem2_Equiped = ""
 var Inv_Uitem3_Equiped = ""
 
 # Flags:
-var Alive = true
-var Undeath = false
-var Reg_Active = false
+var Alive = true # Checks if the player is alive
+var Undeath = false # Checks if the player is in the Undead state
+var Reg_Active = false # Checks if the stamina regeneration is active
 var Anim_HM_Done1 = false # Animation related to the Gun transition (triggered once)
 var Anim_HM_Done2 = false # Animation related to the Melee transition (triggered once)
-var Menu_mode = false
-var One_Time = true
+var Menu_mode = false # Checks if the player is currently in a menu
+var One_Time = true # Conditional integer flashed true only once per call
 
 var Stamina_Jump_Tax = 10
 var Stamina_Act1_Tax = 5
