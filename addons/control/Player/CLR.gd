@@ -64,6 +64,7 @@ func Debug_UI():
 	global.debug.add_property("Menu slot", player_value.Item_Menu_Slot, 11)
 	global.debug.add_property("One Time", player_value.One_Time, 12) 
 	global.debug.add_property("Focus node", $"Control/Menus/Ready Menu".Focused_Button, 13)
+	global.debug.add_property("Selected ICON", $"Control/Menus/Ready Menu".Selected_Icon, 14)
 	
 	$"../PLayer State/PS Insight/PS_List/PS_Label".text = "Player states:\r"
 	$"../PLayer State/PS Insight/PS_List/PS_Label".text += player_value.PLayer_State_Movement

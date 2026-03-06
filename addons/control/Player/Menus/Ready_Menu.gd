@@ -31,12 +31,11 @@ extends Control
 var Item_Menu_To = ""
 var Focused_Button = ""
 var Focused_Icon = ""
+var Selected_Icon = ""
+var Valid_Icon_Selected = true
 
 func _ready() -> void:
 	get_viewport().gui_focus_changed.connect(on_focus_change)
-
-func Menu_Locator():
-	pass
 
 func on_focus_change(control: Control) -> void:
 	if control != null:
@@ -58,10 +57,47 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		player_value.Menu_Backwards(1)
 
-func Remove_Item():
-	if Input.is_action_just_pressed("ui_end"):
-		pass
+	elif Input.is_action_just_pressed("ui_select") and player_value.Menu_Depth == 1:
+		Remove_Item()
 
+func Remove_Item():
+	match Focused_Button:
+		"Tecnical Slot 1":
+			Selected_Icon = "null"
+			Valid_Icon_Selected = false
+		"Tecnical Slot 2":
+			Selected_Icon = "null"
+			Valid_Icon_Selected = false
+		"Wear Slot 1":
+			Selected_Icon = wear_icon_1
+			Valid_Icon_Selected = true
+		"Wear Slot 2":
+			Selected_Icon = wear_icon_2
+			Valid_Icon_Selected = true
+		"Tool Slot 1":
+			Selected_Icon = tool_icon_1
+			Valid_Icon_Selected = true
+		"Tool Slot 2":
+			Selected_Icon = tool_icon_2
+			Valid_Icon_Selected = true
+		"Spell Slot":
+			Selected_Icon = spell_icon
+			Valid_Icon_Selected = true
+		"UItem Slot 1":
+			Selected_Icon = u_item_icon_1
+			Valid_Icon_Selected = true
+		"UItem Slot 2":
+			Selected_Icon = u_item_icon_2
+			Valid_Icon_Selected = true
+		"UItem Slot 3":
+			Selected_Icon = u_item_icon_3
+			Valid_Icon_Selected = true
+	
+	if Valid_Icon_Selected == true:
+		Selected_Icon.texture = load("res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_Ico_True_Blank.png")
+	else:
+		# Item_SLot_State = "Empty"
+		pass
 
 func Pause():
 	player_value.Menu_Forward(0, "", "")
