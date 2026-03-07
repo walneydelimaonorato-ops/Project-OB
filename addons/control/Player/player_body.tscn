@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://pk1seghcippn"]
+[gd_scene load_steps=104 format=3 uid="uid://pk1seghcippn"]
 
 [ext_resource type="Script" uid="uid://boqkeglydnx0g" path="res://addons/control/Player/Tool_Script.gd" id="1_3a0aq"]
 [ext_resource type="Script" uid="uid://dt0yl082n2oqn" path="res://addons/control/Player/PLayer_Values.gd" id="1_6m8h1"]
@@ -15,12 +15,15 @@
 [ext_resource type="Texture2D" uid="uid://blj34s5s6kohk" path="res://addons/sprites/hand misc/Untitled158_20260130084625.png" id="9_x3uxl"]
 [ext_resource type="AudioStream" uid="uid://daejcce0m12f1" path="res://addons/sounds/Misc/TST_Death_Jingle_SFX 2026-03-01 04_25.mp3" id="10_55p2l"]
 [ext_resource type="Texture2D" uid="uid://c65te1k7ddwv1" path="res://addons/sprites/hand misc/Untitled158_20260130084608.png" id="10_g5euh"]
+[ext_resource type="PackedScene" uid="uid://tak5irk2ed5k" path="res://addons/control/Player/Models/TST/TST_m1911.tscn" id="11_7fko7"]
 [ext_resource type="Texture2D" uid="uid://bmdu2n8te6pcp" path="res://addons/sprites/TST_blood_part/TST_Pain_Overlay.png" id="11_7472i"]
 [ext_resource type="Texture2D" uid="uid://c1edydia0cyfj" path="res://addons/sprites/hand misc/Untitled158_20260130084628.png" id="11_amtkd"]
+[ext_resource type="PackedScene" uid="uid://b6h4mka4wgrup" path="res://addons/control/Player/Models/TST/TST_m14.tscn" id="12_3ygbg"]
 [ext_resource type="Texture2D" uid="uid://b2tmd2v8mswfx" path="res://addons/sprites/hand misc/Untitled158_20260130084631.png" id="12_55p2l"]
 [ext_resource type="Texture2D" uid="uid://bg2ax3xprcx3b" path="res://addons/sprites/TST_UItems/TST_Glass_Flask.png" id="12_g5euh"]
 [ext_resource type="Texture2D" uid="uid://cwdiwaswft4gp" path="res://addons/sprites/TST_UItems/TST_Wild_gold_Petal.png" id="13_amtkd"]
 [ext_resource type="Texture2D" uid="uid://cnjqnh3glnolk" path="res://addons/sprites/hand misc/Untitled158_20260130084633.png" id="13_b15k8"]
+[ext_resource type="PackedScene" uid="uid://b1fx3k0uvqeob" path="res://addons/control/Player/Models/TST/TST_arm.tscn" id="13_me1jc"]
 [ext_resource type="LabelSettings" uid="uid://bourldudvh84a" path="res://Main Font.tres" id="13_xrtut"]
 [ext_resource type="Texture2D" uid="uid://dvn5818kfpqpe" path="res://addons/sprites/hand misc/Untitled158_20260130084635.png" id="14_qyaaf"]
 [ext_resource type="Texture2D" uid="uid://pfkscrkgifqu" path="res://addons/sprites/hand misc/Untitled158_20260130084637.png" id="15_o8f1u"]
@@ -511,15 +514,61 @@ fov = 90.0
 
 [node name="Gun_Ray" type="RayCast3D" parent="Head/CameraPlayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.054688573, 0.115)
+visible = false
 target_position = Vector3(0, 0, -200)
 collision_mask = 5
 
 [node name="Point_Ray" type="RayCast3D" parent="Head/CameraPlayer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.054688573, 0.115)
+visible = false
 target_position = Vector3(0, 0, -3)
 collision_mask = 9
 collide_with_areas = true
 debug_shape_custom_color = Color(18.892157, 0, 0, 1)
+
+[node name="Player_Model" type="Node3D" parent="Head/CameraPlayer"]
+
+[node name="Tool Gun" type="Node3D" parent="Head/CameraPlayer/Player_Model"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3.0000002, 0, -0.085, -0.215)
+
+[node name="TST_M1911" parent="Head/CameraPlayer/Player_Model/Tool Gun" instance=ExtResource("11_7fko7")]
+transform = Transform3D(-4.3711387e-10, -0.01, -4.3711387e-10, 0, -4.3711387e-10, 0.01, -0.01, 4.3711387e-10, 1.9106855e-17, 0, 0, 0)
+visible = false
+
+[node name="M1911 Body" parent="Head/CameraPlayer/Player_Model/Tool Gun/TST_M1911" index="0"]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="M1911 Slider" parent="Head/CameraPlayer/Player_Model/Tool Gun/TST_M1911" index="1"]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)
+
+[node name="M1911 Magazine" parent="Head/CameraPlayer/Player_Model/Tool Gun/TST_M1911" index="2"]
+transform = Transform3D(0.9999998, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="TST_M14" parent="Head/CameraPlayer/Player_Model/Tool Gun" instance=ExtResource("12_3ygbg")]
+transform = Transform3D(-4.3711387e-10, -0.01, -4.3711387e-10, 0, -4.3711387e-10, 0.01, -0.01, 4.3711387e-10, 1.9106855e-17, 0, 0, 0)
+visible = false
+
+[node name="TST_ArmR" parent="Head/CameraPlayer/Player_Model" instance=ExtResource("13_me1jc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.08, 0.135)
+visible = false
+
+[node name="Player_Arm R" parent="Head/CameraPlayer/Player_Model/TST_ArmR" index="0"]
+transform = Transform3D(-0.3368147, 0.30955094, 0.17618671, -0.20601329, -0.35806867, 0.26136157, 0.29731378, 0.10256637, 0.38069618, 0.058097318, -0.020720005, -0.40798315)
+
+[node name="Player_Arm L" parent="Head/CameraPlayer/Player_Model/TST_ArmR" index="1"]
+transform = Transform3D(0.4187765, -0.16400978, -0.20159353, -0.090635315, -0.44003952, 0.18466815, 0.24586058, 0.11714088, 0.41145313, 0.058097318, -0.020720005, -0.40798315)
+visible = false
+
+[node name="TST_ArmL" parent="Head/CameraPlayer/Player_Model" instance=ExtResource("13_me1jc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, -0.12, 0.135)
+visible = false
+
+[node name="Player_Arm R" parent="Head/CameraPlayer/Player_Model/TST_ArmL" index="0"]
+transform = Transform3D(-0.3368147, 0.30955094, 0.1761867, -0.20601329, -0.35806867, 0.26136154, 0.29731378, 0.10256637, 0.38069615, 0.058097318, -0.020720005, -0.40798315)
+visible = false
+
+[node name="Player_Arm L" parent="Head/CameraPlayer/Player_Model/TST_ArmL" index="1"]
+transform = Transform3D(0.41877645, -0.16400978, -0.20159353, -0.09063529, -0.44003955, 0.18466814, 0.24586053, 0.11714089, 0.4114531, 0.058097318, -0.020720005, -0.40798315)
 
 [node name="Player_Particles" type="Node2D" parent="Head"]
 
@@ -806,6 +855,7 @@ offset_right = 12.0
 offset_bottom = 164.0
 
 [node name="Ready Menu" type="Control" parent="Head/CanvasLayer/face/GUI/Control/Menus"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -932,6 +982,7 @@ layout_mode = 2
 texture = ExtResource("66_ot6f4")
 
 [node name="Item Selection" type="Control" parent="Head/CanvasLayer/face/GUI/Control/Menus"]
+visible = false
 anchors_preset = 0
 offset_left = -9.575012
 offset_top = 8.0
@@ -971,7 +1022,6 @@ layout_mode = 2
 columns = 2
 
 [node name="Tools Icons" type="VBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = -10
 
@@ -1189,6 +1239,21 @@ visible = false
 scale = Vector2(5.72, 3.2000005)
 texture = ExtResource("11_7472i")
 
+[node name="ColorRect" type="ColorRect" parent="Head/CanvasLayer/face/GUI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = 22.0
+offset_right = 3.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 0.2)
+
 [node name="Debug Panel" type="PanelContainer" parent="Head/CanvasLayer/face"]
 visible = false
 custom_minimum_size = Vector2(200, 0)
@@ -1209,10 +1274,10 @@ layout_mode = 2
 [node name="PLayer State" type="PanelContainer" parent="Head/CanvasLayer/face"]
 visible = false
 layout_mode = 0
-offset_left = -298.0
+offset_left = -328.0
 offset_top = -280.0
-offset_right = -258.0
-offset_bottom = -255.0
+offset_right = -288.0
+offset_bottom = -230.0
 
 [node name="PS Insight" type="MarginContainer" parent="Head/CanvasLayer/face/PLayer State"]
 layout_mode = 2
@@ -1223,6 +1288,13 @@ layout_mode = 2
 [node name="PS_Label" type="Label" parent="Head/CanvasLayer/face/PLayer State/PS Insight/PS_List"]
 layout_mode = 2
 
+[node name="PS_Label2" type="Label" parent="Head/CanvasLayer/face/PLayer State/PS Insight/PS_List"]
+layout_mode = 2
+
+[connection signal="animation_finished" from="Head/CameraPlayer/Player_Model/Tool Gun/TST_M1911/M1911 Anims" to="Animation_Handler" method="_on_m_1911_anims_animation_finished"]
+[connection signal="animation_finished" from="Head/CameraPlayer/Player_Model/Tool Gun/TST_M14/M14 Anims" to="Animation_Handler" method="_on_m_14_anims_animation_finished"]
+[connection signal="animation_finished" from="Head/CameraPlayer/Player_Model/TST_ArmR/Arm_Anims_R" to="Animation_Handler" method="_on_arm_anims_r_animation_finished"]
+[connection signal="animation_finished" from="Head/CameraPlayer/Player_Model/TST_ArmL/Arm_Anims_L" to="Animation_Handler" method="_on_arm_anims_l_animation_finished"]
 [connection signal="button_down" from="Head/CanvasLayer/face/GUI/Control/Death Screen/RespawnB" to="Head/CanvasLayer/face/GUI" method="_on_respawnb_button_down"]
 [connection signal="animation_finished" from="Head/CanvasLayer/face/GUI/Control/Tools/hand miscR" to="Animation_Handler" method="_on_hand_misc_r_animation_finished"]
 [connection signal="animation_finished" from="Head/CanvasLayer/face/GUI/Control/Tools/hand miscL" to="Animation_Handler" method="_on_hand_misc_l_animation_finished"]
@@ -1242,3 +1314,8 @@ layout_mode = 2
 [connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons/Wear_1_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_wear_1_ico_pressed"]
 [connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons/wear_2_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_wear_2_ico_pressed"]
 [connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons/wear_3_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_wear_3_ico_pressed"]
+
+[editable path="Head/CameraPlayer/Player_Model/Tool Gun/TST_M1911"]
+[editable path="Head/CameraPlayer/Player_Model/Tool Gun/TST_M14"]
+[editable path="Head/CameraPlayer/Player_Model/TST_ArmR"]
+[editable path="Head/CameraPlayer/Player_Model/TST_ArmL"]

@@ -1,7 +1,7 @@
 extends Control
 
 @onready var player_value : Node3D = $"../../../../../../../Player_Values"
-@onready var pause_menu: Control = $"."
+@onready var Ready_Menu: Control = $"."
 
 # Buttons
 @onready var tecnical_slot_1: TextureButton = $"Ready Menu Grid/Tecnical Grid/Tecnical Slot 1"
@@ -70,27 +70,35 @@ func Remove_Item():
 			Valid_Icon_Selected = false
 		"Wear Slot 1":
 			Selected_Icon = wear_icon_1
+			player_value.Ready_Menu_To_Item_Selection_Update("Brace", "null")
 			Valid_Icon_Selected = true
 		"Wear Slot 2":
 			Selected_Icon = wear_icon_2
+			player_value.Ready_Menu_To_Item_Selection_Update("Wear", "null")
 			Valid_Icon_Selected = true
 		"Tool Slot 1":
 			Selected_Icon = tool_icon_1
+			player_value.Ready_Menu_To_Item_Selection_Update("Tool L", "null")
 			Valid_Icon_Selected = true
 		"Tool Slot 2":
 			Selected_Icon = tool_icon_2
+			player_value.Ready_Menu_To_Item_Selection_Update("Tool R", "null")
 			Valid_Icon_Selected = true
 		"Spell Slot":
 			Selected_Icon = spell_icon
+			player_value.Ready_Menu_To_Item_Selection_Update("Spell", "null")
 			Valid_Icon_Selected = true
 		"UItem Slot 1":
 			Selected_Icon = u_item_icon_1
+			player_value.Ready_Menu_To_Item_Selection_Update("UItem 1", "null")
 			Valid_Icon_Selected = true
 		"UItem Slot 2":
 			Selected_Icon = u_item_icon_2
+			player_value.Ready_Menu_To_Item_Selection_Update("UItem 2", "null")
 			Valid_Icon_Selected = true
 		"UItem Slot 3":
 			Selected_Icon = u_item_icon_3
+			player_value.Ready_Menu_To_Item_Selection_Update("UItem 3", "null")
 			Valid_Icon_Selected = true
 	
 	if Valid_Icon_Selected == true:

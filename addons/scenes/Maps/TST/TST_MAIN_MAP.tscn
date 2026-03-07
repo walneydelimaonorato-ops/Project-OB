@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cjkynvbw2btb6"]
+[gd_scene load_steps=39 format=3 uid="uid://cjkynvbw2btb6"]
 
 [ext_resource type="Texture2D" uid="uid://bv2a14psp3a0a" path="res://addons/textures/Dark/texture_07.png" id="1_5ht51"]
 [ext_resource type="Texture2D" uid="uid://v27kj2e1ebe8" path="res://addons/textures/Green/texture_10.png" id="2_1e2ie"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://1buo0uexpora" path="res://addons/control/TST pfysics cube/cube.tscn" id="9_5o7rr"]
 [ext_resource type="Script" uid="uid://c732ttjgd20rr" path="res://addons/control/TST pfysics cube/cube.gd" id="10_6slk7"]
 [ext_resource type="AudioStream" uid="uid://b1iac3mtnmphn" path="res://addons/sounds/Ambient/BKGM_MLS.mp3" id="11_1p1lg"]
+[ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="12_4h3vi"]
 [ext_resource type="PackedScene" uid="uid://ieq1pr8p1mo" path="res://addons/control/Int rest/rest_obj.tscn" id="13_nhx8o"]
 [ext_resource type="PackedScene" uid="uid://dtaeo6o0gyar1" path="res://addons/control/Int item/item_obj.tscn" id="14_1e2ie"]
 [ext_resource type="PackedScene" uid="uid://pk1seghcippn" path="res://addons/control/Player/player_body.tscn" id="14_xbdi8"]
@@ -81,6 +82,11 @@ size = Vector3(1.5, 0.01, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ealrb"]
 albedo_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lqdda"]
+resource_local_to_scene = true
+font = ExtResource("12_4h3vi")
+font_size = 50
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ayb8k"]
 transparency = 1
@@ -264,7 +270,6 @@ stream = ExtResource("11_1p1lg")
 attenuation_model = 3
 volume_db = -20.0
 unit_size = 1.0
-autoplay = true
 
 [node name="Rest" parent="." instance=ExtResource("13_nhx8o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7944269, 0.2749985, -3.4779162)
@@ -272,6 +277,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7944269, 0.2749985, -3.477
 [node name="Player" parent="." instance=ExtResource("14_xbdi8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.587537, 0.025, 1.135807)
 collision_layer = 3
+
+[node name="Death Text" parent="Player/Head/CanvasLayer/face/GUI/Control/Death Screen" index="0"]
+label_settings = SubResource("LabelSettings_lqdda")
+
+[node name="Tool_Sword_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name" index="1"]
+label_settings = SubResource("LabelSettings_lqdda")
+
+[node name="Tool_HandGun_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name" index="3"]
+label_settings = SubResource("LabelSettings_lqdda")
+
+[node name="Tool_AssalrRifle_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name" index="5"]
+label_settings = SubResource("LabelSettings_lqdda")
+
+[node name="Tool_Sword_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name" index="1"]
+label_settings = SubResource("LabelSettings_lqdda")
+
+[node name="Tool_HandGun_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name" index="3"]
+label_settings = SubResource("LabelSettings_lqdda")
+
+[node name="Tool_AssalrRifle_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name" index="5"]
+label_settings = SubResource("LabelSettings_lqdda")
+
+[node name="Tool_AssalrRifle_Nam2" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name" index="7"]
+label_settings = SubResource("LabelSettings_lqdda")
+
+[node name="Tool_AssalrRifle_Nam3" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name" index="9"]
+label_settings = SubResource("LabelSettings_lqdda")
+
+[node name="Tool_AssalrRifle_Nam4" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name" index="11"]
+label_settings = SubResource("LabelSettings_lqdda")
 
 [node name="item" parent="." instance=ExtResource("14_1e2ie")]
 transform = Transform3D(0.9953071, 0, -0.09676648, 0, 1, 0, 0.09676648, 0, 0.9953071, 1.2678776, 0.17500001, -3.344183)
@@ -318,6 +353,14 @@ skeleton = NodePath("")
 [node name="OBJ_Vaporwave_Skybox" parent="." instance=ExtResource("15_1e2ie")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 
+[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/Tool Gun/TST_M1911/M1911 Anims" to="Player/Animation_Handler" method="_on_m_1911_anims_animation_finished"]
+[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/Tool Gun/TST_M14/M14 Anims" to="Player/Animation_Handler" method="_on_m_14_anims_animation_finished"]
+[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/TST_ArmR/Arm_Anims_R" to="Player/Animation_Handler" method="_on_arm_anims_r_animation_finished"]
+[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/TST_ArmL/Arm_Anims_L" to="Player/Animation_Handler" method="_on_arm_anims_l_animation_finished"]
 [connection signal="body_entered" from="Pain Box2/Area3D" to="Pain Box2" method="_on_area_3d_body_entered"]
 
 [editable path="Player"]
+[editable path="Player/Head/CameraPlayer/Player_Model/Tool Gun/TST_M1911"]
+[editable path="Player/Head/CameraPlayer/Player_Model/Tool Gun/TST_M14"]
+[editable path="Player/Head/CameraPlayer/Player_Model/TST_ArmR"]
+[editable path="Player/Head/CameraPlayer/Player_Model/TST_ArmL"]

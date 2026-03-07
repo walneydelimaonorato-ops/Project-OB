@@ -56,6 +56,7 @@ script = ExtResource("1_cnf5p")
 
 [node name="item mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.3433788, 0, 0, 0, 0.19784868, 0, 0, 0, 3.4977288, 0, -0.11, 0)
+visible = false
 mesh = SubResource("BoxMesh_hoonj")
 
 [node name="item coll" type="CollisionShape3D" parent="."]

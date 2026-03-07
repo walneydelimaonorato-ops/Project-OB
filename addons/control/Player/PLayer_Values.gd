@@ -30,14 +30,18 @@ var Item_Menu_To = "" # Where from Ready Menu the player is going to
 var Item_Menu_Slot = "" # ???
 
 # Inventory related stuff
-var Inv_Brace_Equiped = ""
-var Inv_Wear_Equiped = ""
-var Inv_ToolL_Equiped = ""
-var Inv_ToolR_Equiped = ""
-var Inv_Spell_Equiped = ""
-var Inv_Uitem1_Equiped = ""
-var Inv_Uitem2_Equiped = ""
-var Inv_Uitem3_Equiped = ""
+var Inv_Brace_Equiped = "null"
+var Inv_Wear_Equiped = "null"
+var Inv_ToolL_Equiped = "null"
+var Inv_ToolR_Equiped = "null"
+var Inv_Spell_Equiped = "null"
+var Inv_Uitem1_Equiped = "null"
+var Inv_Uitem2_Equiped = "null"
+var Inv_Uitem3_Equiped = "null"
+
+var Tool_Fatigue = 0
+var Tool_R_State = ""
+var Tool_L_State = ""
 
 # Flags:
 var Alive = true # Checks if the player is alive
@@ -47,6 +51,10 @@ var Anim_HM_Done1 = false # Animation related to the Gun transition (triggered o
 var Anim_HM_Done2 = false # Animation related to the Melee transition (triggered once)
 var Menu_mode = false # Checks if the player is currently in a menu
 var One_Time = true # Conditional integer flashed true only once per call
+var inter_press_time := 0.0
+var inter_hold_treshold := 0.25
+var inter_button_tapped = false
+var inter_button_held := false
 
 var Stamina_Jump_Tax = 10
 var Stamina_Act1_Tax = 5
@@ -55,6 +63,8 @@ func _ready():
 	Player_State_Update("MVM", "NULL")
 	Player_State_Update("ACT", "NULL")
 	Player_State_Update("SPC", "NULL")
+	Player_State_Update("ToolR", "NULL")
+	Player_State_Update("ToolL", "NULL")
 
 func _process(delta: float) -> void:
 	# When the player is alive, the mouse is captured
@@ -71,6 +81,26 @@ func _process(delta: float) -> void:
 	# When the player's health reaches 0, it dies
 	if Health == 0:
 		Alive = false
+
+func Ready_Menu_To_Item_Selection_Update(Item_Slot, Item):
+	if Item_Slot == "Brace":
+		Inv_Brace_Equiped = Item
+	elif Item_Slot == "Wear":
+		Inv_Wear_Equiped = Item
+	elif Item_Slot == "Tool L":
+		Inv_ToolL_Equiped = Item
+	elif Item_Slot == "Tool R":
+		Inv_ToolR_Equiped = Item
+	elif Item_Slot == "Spell":
+		Inv_Spell_Equiped = Item
+	elif Item_Slot == "UItem 1":
+		Inv_Uitem1_Equiped = Item
+	elif Item_Slot == "UItem 2":
+		Inv_Uitem2_Equiped = Item
+	elif Item_Slot == "UItem 3":
+		Inv_Uitem3_Equiped = Item
+	else:
+		pass
 
 func Menu_Forward(Constraint, Menu_Path, Menu_Slot):
 	# Constraint: Checks what depth the player is
@@ -96,10 +126,14 @@ func Player_State_Update(Type, Player_State):
 		PLayer_State_Movement = str("Player State MVM: ", Player_State, "\r")
 	elif Type == "ACT":
 		PLayer_State_Action = str("Player State ACT: ", Player_State, "\r")
-	elif Type == "":
-		pass
 	elif Type == "SPC":
 		PLayer_State_Special = str("Player State SPC: ", Player_State, "\r")
+	elif Type == "ToolR":
+		Tool_R_State = str("Tool R State: ", Player_State, "\r")
+		Tool_Fatigue = 0
+	elif Type == "ToolL":
+		Tool_L_State = str("Tool L State: ", Player_State, "\r")
+		Tool_Fatigue = 0
 
 func Heal(Type, amount):
 	if Type == "Partial" and Health != Health_Max or Alive == false or Undeath == true:
@@ -159,21 +193,28 @@ func UItem_Get_ID() -> Dictionary:
 		return UItem_ID[Usable_Item_Selected]
 	return {}
 
-var ToolR_ID = [ 
-	{"name": "Hand", "id": "close", "damage": 0, "Icon Ref": "res://addons/control/Player/Menus/Menu visuals/Tool_Blank.png"}, # Tool information for the Hand
-	{"name": "Gun", "id": "range", "damage": 3, "Icon Ref": "res://addons/control/Player/Menus/Menu visuals/Tool_Gun.png"}, # Tool information for the Gun
-	{"name": "Sword", "id": "melee", "damage": 8, "Icon Ref": "res://addons/control/Player/Menus/Menu visuals/Tool_Sword.png"} # Tool information for the Melee
-]
-var ToolL_ID = [
-	{"name": "Hand", "id": "close"}, # Tool information for the Hand
-	{"name": "Gun", "id": "range"}, # Tool information for the Gun
+var Tool_ID = [ 
+	{"name": "Hand", "id": "close", "damage": 0}, # Tool information for the Hand
+	{"name": "Hand gun", "id": "range", "damage": 3}, # Tool information for the Hand gun
+	{"name": "Assalt rifle", "id": "range", "damage": 6}, # Tool information for the Rifle
 	{"name": "Sword", "id": "melee", "damage": 8} # Tool information for the Melee
 ]
-func ToolR_Get_ID() -> Dictionary:
-	if R_Hand_In_Use >= 0 and R_Hand_In_Use < ToolR_ID.size():
-		return ToolR_ID[R_Hand_In_Use]
+#var ToolL_ID = [
+	#{"name": "Hand", "id": "close"}, # Tool information for the Hand
+	#{"name": "HandGun", "id": "range"}, # Tool information for the Gun
+	#{"name": "Sword", "id": "melee"} # Tool information for the Melee
+#]
+func Tool_Get_ID() -> Dictionary:
+	if Inv_ToolR_Equiped == "null":
+		return Tool_ID[0]
+	if Inv_ToolR_Equiped == "Hand gun":
+		return Tool_ID[1]
+	if Inv_ToolR_Equiped == "Assalt rifle":
+		return Tool_ID[2]
+	if Inv_ToolR_Equiped == "Sword":
+		return Tool_ID[3]
 	return {}
-func ToolLGet_ID() -> Dictionary:
-	if L_Hand_In_Use >= 0 and L_Hand_In_Use < ToolL_ID.size():
-		return ToolL_ID[L_Hand_In_Use]
-	return {}
+#func ToolLGet_ID() -> Dictionary:
+	#if L_Hand_In_Use >= 0 and L_Hand_In_Use < ToolL_ID.size():
+		#return ToolL_ID[L_Hand_In_Use]
+	#return {}

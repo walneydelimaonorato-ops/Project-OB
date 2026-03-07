@@ -3,6 +3,9 @@ extends CanvasLayer
 var ot = true
 var ot1 = 1
 
+@onready var ps_label1: Label = $"../PLayer State/PS Insight/PS_List/PS_Label"
+@onready var ps_label2: Label = $"../PLayer State/PS Insight/PS_List/PS_Label2"
+
 @onready var player : CharacterBody3D = $"../../../.."
 @onready var player_value = $"../../../../Player_Values"
 @onready var Animation_Script: Node3D = $"../../../../Animation_Handler"
@@ -58,18 +61,32 @@ func Debug_UI():
 	global.debug.add_property("L hand", player_value.L_Hand_In_Use, 5)
 	global.debug.add_property("Item", player_value.Usable_Item_Selected, 6)
 	global.debug.add_property("Alive", player_value.Alive, 7)
-	global.debug.add_property("Menu mode", player_value.Menu_mode, 8)
-	global.debug.add_property("Menu depth", player_value.Menu_Depth, 9)
-	global.debug.add_property("Menu to", player_value.Item_Menu_To, 10)
-	global.debug.add_property("Menu slot", player_value.Item_Menu_Slot, 11)
-	global.debug.add_property("One Time", player_value.One_Time, 12) 
-	global.debug.add_property("Focus node", $"Control/Menus/Ready Menu".Focused_Button, 13)
-	global.debug.add_property("Selected ICON", $"Control/Menus/Ready Menu".Selected_Icon, 14)
+	global.debug.add_property("Range alt", Tool_Script.Can_use_Range_Assalt_alt, 8)
+	global.debug.add_property("Current anim", Animation_Script.Current_Anim_Playing, 9)
+	global.debug.add_property("butt factor", player_value.Tool_Fatigue, 10)
+	#global.debug.add_property("Menu mode", player_value.Menu_mode, 8)
+	#global.debug.add_property("Menu depth", player_value.Menu_Depth, 9)
+	#global.debug.add_property("Menu to", player_value.Item_Menu_To, 10)
+	#global.debug.add_property("Menu slot", player_value.Item_Menu_Slot, 11)
+	#global.debug.add_property("One Time", player_value.One_Time, 12) 
+	#global.debug.add_property("Focus node", $"Control/Menus/Ready Menu".Focused_Button, 13)
+	#global.debug.add_property("Selected ICON", $"Control/Menus/Ready Menu".Selected_Icon, 14)
 	
-	$"../PLayer State/PS Insight/PS_List/PS_Label".text = "Player states:\r"
-	$"../PLayer State/PS Insight/PS_List/PS_Label".text += player_value.PLayer_State_Movement
-	$"../PLayer State/PS Insight/PS_List/PS_Label".text += player_value.PLayer_State_Action
-	$"../PLayer State/PS Insight/PS_List/PS_Label".text += player_value.PLayer_State_Special
+	ps_label1.text = "Player states:\r"
+	ps_label1.text += player_value.PLayer_State_Movement
+	ps_label1.text += player_value.PLayer_State_Action
+	ps_label1.text += player_value.PLayer_State_Special
+	ps_label1.text += player_value.Tool_R_State
+	ps_label1.text += player_value.Tool_L_State
+	ps_label2.text = "Plyer inventory: \r"
+	ps_label2.text += "Brace: " + player_value.Inv_Brace_Equiped
+	ps_label2.text += "\rWear: " + player_value.Inv_Wear_Equiped
+	ps_label2.text += "\rTool L: " + player_value.Inv_ToolL_Equiped
+	ps_label2.text += "\rToll R: " + player_value.Inv_ToolR_Equiped
+	ps_label2.text += "\rSpell: " + player_value.Inv_Spell_Equiped
+	ps_label2.text += "\rUItem 1: " + player_value.Inv_Uitem1_Equiped
+	ps_label2.text += "\rUItem 2: " + player_value.Inv_Uitem2_Equiped
+	ps_label2.text += "\rUItem 3: " + player_value.Inv_Uitem3_Equiped
 	
 	if global.Gdebug_active == true:
 		player_H_bar.visible = true
@@ -88,36 +105,56 @@ func Tool_HUD():
 	cross_gun.visible = false
 	cross_sword.visible = false
 	
-	var ToolR_ID_Got = player_value.ToolR_Get_ID()
-	if ToolR_ID_Got.is_empty():
-		visible = false
-		return
+	#var ToolR_ID_Got = player_value.ToolR_Get_ID()
+	#if ToolR_ID_Got.is_empty():
+		#visible = false
+		#return
 		
-	var ToolL_ID_Got = player_value.ToolLGet_ID()
-	if ToolL_ID_Got.is_empty():
-		visible = false
-	visible = true
+	#var ToolL_ID_Got = player_value.ToolLGet_ID()
+	#if ToolL_ID_Got.is_empty():
+		#visible = false
+	#visible = true
+	#
 	
-	ToolR.text = ToolR_ID_Got.name
-	ToolL.text = ToolL_ID_Got.name
 	
-	if ToolR_ID_Got.id == "close":
+	
+	if player_value.Inv_ToolR_Equiped == "null":
+		ToolR.text = "Hand"
+		cross_hand.visible = true
+	elif player_value.Inv_ToolL_Equiped == "null":
+		ToolL.text = "Hand"
 		cross_hand.visible = true
 		
-	if ToolR_ID_Got.id == "range":
+	if player_value.Inv_ToolR_Equiped == "Hand gun":
+		ToolR.text = "Gun"
 		cross_gun.visible = true
 		ToolR.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagA, Tool_Script.Max_Ammo_MagA, Tool_Script.MagA_Num]
-	if ToolL_ID_Got.id == "range":
+	elif player_value.Inv_ToolL_Equiped == "Hand gun":
+		ToolL.text = "Gun"
 		ToolL.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagA, Tool_Script.Max_Ammo_MagA, Tool_Script.MagA_Num]
 	
-	if ToolR_ID_Got.id == "melee":
+	if player_value.Inv_ToolR_Equiped == "Assalt rifle":
+		ToolR.text = "Assalt"
+		cross_gun.visible = true
+		ToolR.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagB, Tool_Script.Max_Ammo_MagB, Tool_Script.MagB_Num]
+	
+	elif player_value.Inv_ToolL_Equiped == "Assalt rifle":
+		ToolL.text = "Assalt"
+		cross_gun.visible = true
+		ToolL.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagB, Tool_Script.Max_Ammo_MagB, Tool_Script.MagB_Num]
+	
+	if player_value.Inv_ToolR_Equiped == "Sword":
+		ToolR.text = "Sword"
+		cross_sword.visible = true
+	elif player_value.Inv_ToolL_Equiped == "Sword":
+		ToolL.text = "Sword"
 		cross_sword.visible = true
 
 func Interact_HUD():
-	var ToolR_ID_Got = player_value.ToolR_Get_ID()
-	if ToolR_ID_Got.is_empty():
-		return
-		
+	#var ToolR_ID_Got = player_value.ToolR_Get_ID()
+	#if ToolR_ID_Got.is_empty():
+		#return
+	
 	Inter.visible = false
 	if Tool_Script.Point_Ray.is_colliding():
 		var point_coll = Tool_Script.Point_Ray.get_collider()
