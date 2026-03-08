@@ -27,14 +27,14 @@ extends Node3D
 @onready var arm_anims_L: AnimationPlayer = $"../Head/CameraPlayer/Player_Model/TST_ArmL/Arm_Anims_L"
 
 
-@onready var Holding_HandR: AnimatedSprite2D = $"../Head/CanvasLayer/face//GUI/Control/Tools/pointR"
-@onready var Holding_HandL: AnimatedSprite2D = $"../Head/CanvasLayer/face//GUI/Control/Tools/pointL"
+
+
 # Bellow is everything related to the "melee" tool. Sprites
-@onready var Holding_MeleeR: AnimatedSprite2D = $"../Head/CanvasLayer/face//GUI/Control/Tools/swordR"
-@onready var Holding_MeleeL: AnimatedSprite2D = $"../Head/CanvasLayer/face//GUI/Control/Tools/swordL"
+
+
 # "Miscellaneous" relates to a transition animation
-@onready var Hand_MiscellaneousR: AnimatedSprite2D = $"../Head/CanvasLayer/face//GUI/Control/Tools/hand miscR"
-@onready var Hand_MiscellaneousL: AnimatedSprite2D = $"../Head/CanvasLayer/face//GUI/Control/Tools/hand miscL"
+
+
 # The sprites related to usable items
 @onready var Usable_Item: AnimatedSprite2D = $"../Head/CanvasLayer/face/GUI/Control/Usable items/UItem"
 
@@ -196,7 +196,6 @@ func Tool_HandlingR():
 				gun_click.play()
 		
 		"Sword":
-			Holding_MeleeR.play("sword_swing")
 			player_value.Player_State_Update("ToolR", "Sword Swung")
 			if Point_Ray.is_colliding() and Point_Ray.get_collider().has_method("damage"): # Check is ray is coliding, and if so, get #damage method
 				Point_Ray.get_collider().damage() # Gets "damage method and executes it"
@@ -233,7 +232,6 @@ func Tool_HandlingL():
 			elif Ammo_MagB <= 0:
 				gun_click.play()
 		"Sword":
-			Holding_MeleeL.play("sword_swing")
 			player_value.Player_State_Update("ToolL", "Sword swing")
 			if Point_Ray.is_colliding() and Point_Ray.get_collider().has_method("damage"): # Check is ray is coliding, and if so, get #damage method
 				Point_Ray.get_collider().damage() # Gets "damage method and executes it"
@@ -255,8 +253,6 @@ func Tool_Secondary_L():
 		pass
 
 func Tool_Rotate():
-	Holding_HandR.visible = false
-	Holding_HandL.visible = false
 	
 	TST_Arm_R.visible = false
 	TST_Arm_L.visible = false
@@ -264,11 +260,10 @@ func Tool_Rotate():
 	TST_M1911.visible = false
 	TST_M14.visible = false
 	
-	Holding_MeleeR.visible = false
-	Holding_MeleeL.visible = false
+
+
 	
-	Hand_MiscellaneousR.visible = false
-	Hand_MiscellaneousL.visible = false
+
 	
 	if player_value.Alive == true and player_value.Undeath == false:
 		if player_value.Inv_ToolR_Equiped == "null": # RIGHT TOOL
@@ -307,8 +302,7 @@ func Tool_Rotate():
 		
 		
 		if player_value.Inv_ToolR_Equiped == "Assalt rifle" and player_value.Anim_HM_Done1 == false: # RIGHT TOOL TRANS. ANIMATION
-			Hand_MiscellaneousR.visible = true
-			Hand_MiscellaneousR.play("hand_misc_change_gun")
+			pass
 			#m14_anims.play("TST_M14_Pop_up")
 		elif player_value.Inv_ToolR_Equiped == "Assalt rifle": # RIGHT TOOL
 
@@ -318,8 +312,7 @@ func Tool_Rotate():
 
 		
 		if player_value.Inv_ToolL_Equiped == "Assalt rifle" and player_value.Anim_HM_Done1 == false: # RIGHT TOOL TRANS. ANIMATION
-			Hand_MiscellaneousR.visible = true
-			Hand_MiscellaneousR.play("hand_misc_change_gun")
+			pass
 		elif player_value.Inv_ToolL_Equiped == "Assalt rifle": # RIGHT TOOL
 
 			TST_M14.visible = true
@@ -329,18 +322,18 @@ func Tool_Rotate():
 		
 		
 		if player_value.Inv_ToolR_Equiped == "Sword" and player_value.Anim_HM_Done2 == false: # RIGHT TOOL TRANS. ANIMATION
-			Hand_MiscellaneousR.visible = true
-			Hand_MiscellaneousR.play("hand_misc_change_sword")
+			pass
 		elif player_value.Inv_ToolR_Equiped == "Sword": # RIGHT TOOL
 			if Animation_Script.Current_Anim_Playing == false:
-				Holding_MeleeR.visible = true
+				pass
+
 		
 		if player_value.Inv_ToolL_Equiped == "Sword" and player_value.Anim_HM_Done2 == false: # LEFT TOOL TRANS. ANIMATION
-			Hand_MiscellaneousL.visible = true
-			Hand_MiscellaneousL.play("hand_misc_change_sword")
+			pass
 		elif player_value.Inv_ToolL_Equiped == "Sword": # LEFT TOOL
 			if Animation_Script.Current_Anim_Playing == false:
-				Holding_MeleeL.visible = true
+				pass
+
 		else:
 			pass
 
