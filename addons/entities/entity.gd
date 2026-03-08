@@ -47,7 +47,7 @@ func _process(_delta: float) -> void:
 
 func damage():
 	if Entity_Type == "Enemy":
-		Entity_Health -= player_value.Tool_Get_ID()["damage"]
+		Entity_Health -= player_value.Tool_Get_ID()["damage"] + player_value.Damage_Bonus
 	
 		if Entity_Health <= 0:
 			Enemy_Anim.play("enemy_dead")

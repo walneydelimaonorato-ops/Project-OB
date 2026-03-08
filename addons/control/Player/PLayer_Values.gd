@@ -7,11 +7,15 @@ var PLayer_State_Special # Reflect a special type of state
 var Player_State
 
 var Health_Max = 10 # Maximum amount of health
+var Dummy_Health_Max = 10
+var Dummy_Health_Max1 = 10
+var Health_Bonus = 0
 var Health = 10 # Current amount of health the player has
 
 var Stamina_Max = 20.0 # Maximum amount of stamina the player can have
 var Stamina = 20 # Current amount of stamina the player has
 var Reg_Amount = 2.0 # Amount of time (in seconds) waited for the stamina regeneration to begin
+var Dummy_Reg_Rate = 5 # Amount of points of Stamina regenerated
 var Reg_Rate = 5 # Amount of points of Stamina regenerated
 var Reg_Delay_Timer # Timer related to the time needed before stamina begins regenerating
 
@@ -40,6 +44,7 @@ var Inv_Uitem2_Equiped = "null"
 var Inv_Uitem3_Equiped = "null"
 
 var Tool_Fatigue = 0
+var Damage_Bonus = 0
 var Tool_R_State = ""
 var Tool_L_State = ""
 
@@ -75,9 +80,15 @@ func _process(delta: float) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	
 	# Sets the minimum and maximum for "Health" and "Stamina"
+	Health_Max = clamp(Health_Max, 10, Dummy_Health_Max)
 	Health = clamp(Health, 0, Health_Max)
 	Stamina = clamp(Stamina, 0, Stamina_Max)
 	Menu_Depth = clamp(Menu_Depth, 0, Menu_Depth_Max)
+	
+	Dummy_Health_Max = Health_Max + Health_Bonus
+	Health_Max = Dummy_Health_Max1 + Health_Bonus
+	$"../Head/CanvasLayer/face/GUI/Control/HUD/Health".max_value = Health_Max
+	
 	# When the player's health reaches 0, it dies
 	if Health == 0:
 		Alive = false

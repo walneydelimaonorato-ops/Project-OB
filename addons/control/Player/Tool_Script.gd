@@ -13,34 +13,24 @@ extends Node3D
 @onready var TST_M14: Node3D = $"../Head/CameraPlayer/Player_Model/Tool Gun/TST_M14"
 @onready var m14_anims: AnimationPlayer = $"../Head/CameraPlayer/Player_Model/Tool Gun/TST_M14/M14 Anims"
 
-
-
-
-
 @onready var gun_shoot: AudioStreamPlayer2D = $"../Player_sfx/Gun sfx/gun shoot"
 @onready var gun_click: AudioStreamPlayer2D = $"../Player_sfx/Gun sfx/gun click"
 @onready var gun_reload: AudioStreamPlayer2D = $"../Player_sfx/Gun sfx/gun reload"
+
 # Bellow is everything related to the "hand" tool. Sprites
 @onready var TST_Arm_R: Node3D = $"../Head/CameraPlayer/Player_Model/TST_ArmR"
 @onready var TST_Arm_L: Node3D = $"../Head/CameraPlayer/Player_Model/TST_ArmL"
 @onready var arm_anims_R: AnimationPlayer = $"../Head/CameraPlayer/Player_Model/TST_ArmR/Arm_Anims_R"
 @onready var arm_anims_L: AnimationPlayer = $"../Head/CameraPlayer/Player_Model/TST_ArmL/Arm_Anims_L"
 
-
-
-
-# Bellow is everything related to the "melee" tool. Sprites
-
-
-# "Miscellaneous" relates to a transition animation
-
-
 # The sprites related to usable items
 @onready var Usable_Item: AnimatedSprite2D = $"../Head/CanvasLayer/face/GUI/Control/Usable items/UItem"
 
 func _process(delta: float) -> void:
-	player_value.Tool_Fatigue += 0.03
+	Passive_Items()
 	player_value.Tool_Fatigue = clamp(player_value.Tool_Fatigue, 0, 10)
+	if player_value.Tool_Fatigue != 10:
+		player_value.Tool_Fatigue += 0.03
 	if player_value.Tool_Fatigue >= 10: 
 		player_value.Player_State_Update("ToolR", "Idle")
 		player_value.Player_State_Update("ToolL", "Idle")
@@ -137,7 +127,6 @@ func Use_Tool_Alternatuve():
 	elif MagB_Num > 0:
 		Can_use_Range_Assalt_alt = true
 
-
 func Use_UItem():
 	if player.Key_C == true:
 		if Input.is_action_just_pressed("In_Key_Use_Item"):
@@ -146,6 +135,19 @@ func Use_UItem():
 		if Input.is_action_just_pressed("In_Joy_Use_Item"):
 			UItem()
 
+func Passive_Items():
+	if player_value.Inv_Brace_Equiped == "Golden Bra.":
+		player_value.Health_Bonus = 20
+	elif player_value.Inv_Brace_Equiped != "Golden Bra.":
+		player_value.Health_Bonus = 0
+	if player_value.Inv_Brace_Equiped == "Clorophyl Bra.":
+		player_value.Reg_Rate = 10
+	elif player_value.Inv_Brace_Equiped != "Clorophyl Bra.":
+		player_value.Reg_Rate = player_value.Dummy_Reg_Rate
+	if player_value.Inv_Brace_Equiped == "Power Bra.":
+		player_value.Damage_Bonus = 5
+	elif player_value.Inv_Brace_Equiped != "Power Bra.":
+		player_value.Damage_Bonus = 0
 
 func Alternative_Timer(Release_Input: String, delta: float) -> void:
 	player_value.inter_button_tapped = true
@@ -247,23 +249,16 @@ func Tool_Secondary_R():
 		pass
 		#m14_anims.play_backwards("TST_M14_ADS_R")
 		#TST_M14.rotation.y = 0
-
 func Tool_Secondary_L():
 	match player_value.Inv_ToolL_Equiped:
 		pass
 
 func Tool_Rotate():
-	
 	TST_Arm_R.visible = false
 	TST_Arm_L.visible = false
 	
 	TST_M1911.visible = false
 	TST_M14.visible = false
-	
-
-
-	
-
 	
 	if player_value.Alive == true and player_value.Undeath == false:
 		if player_value.Inv_ToolR_Equiped == "null": # RIGHT TOOL

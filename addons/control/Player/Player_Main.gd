@@ -56,20 +56,25 @@ func _physics_process(delta: float) -> void:
 					player_value.Stats_decrease("Stamina", 10)
 		
 		# Sprinting
+		var Sprinting = false
 		# Keyboard
 		if Key_C:
 			if Input.is_action_pressed("In_Sprint") and player_value.Stamina > 0:
 				Base_Speed = Run # Current speed becomes running speed
-				player_value.Stats_decrease("Stamina", 0.1)
+				Sprinting = true
+				#player_value.Stats_decrease("Stamina", 0.1)
 			else: #Input.is_action_just_released("In_Sprint"):
 				Base_Speed = Dummy_Speed # Current speed falls back to a set value
+				Sprinting = false
 		# Joycon
 		if Joy_C:
 			if Input.is_action_pressed("In_Joy_Sprint") and player_value.Stamina > 0:
 				Base_Speed = Run
-				player_value.Stats_decrease("Stamina", 0.1)
+				Sprinting = true
+				#player_value.Stats_decrease("Stamina", 0.1)
 			else: # Input.is_action_just_released("In_Joy_Sprint"):
 				Base_Speed = Dummy_Speed
+				Sprinting = false
 		
 		# Movement
 		# Keyboard
@@ -81,6 +86,8 @@ func _physics_process(delta: float) -> void:
 				velocity.x = direction.x * Base_Speed
 				velocity.z = direction.z * Base_Speed
 				player_value.Player_State_Update("MVM", "Moved")
+				if Sprinting == true:
+					player_value.Stats_decrease("Stamina", 0.1)
 			
 			else:
 				velocity.x = lerp(velocity.x, 0.0, 0.15)
