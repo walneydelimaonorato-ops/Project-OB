@@ -1,7 +1,6 @@
 extends Node3D
 
 @onready var player_value: Node3D = $"../Player/Player_Values"
-@onready var point_ray: RayCast3D = $"../Player/Head/CameraPlayer/Point_Ray"
 @onready var rest_coll: CollisionShape3D = $"Interact rest coll"
 
 @onready var HUD = $"../Player/Head/CanvasLayer/face/GUI"

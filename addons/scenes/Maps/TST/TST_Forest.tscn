@@ -1,9 +1,11 @@
-[gd_scene load_steps=313 format=4 uid="uid://dnwlt7nyjiftt"]
+[gd_scene load_steps=315 format=4 uid="uid://dnwlt7nyjiftt"]
 
 [ext_resource type="Texture2D" uid="uid://bu56oopdaunai" path="res://addons/scenes/Maps/TST/TST_Forest_Grass.png" id="1_oarqw"]
 [ext_resource type="Texture2D" uid="uid://b2hmvhorvo3d4" path="res://addons/scenes/Maps/TST/TST_Forest_tree trunk.png" id="2_qljdu"]
 [ext_resource type="PackedScene" uid="uid://pk1seghcippn" path="res://addons/control/Player/player_body.tscn" id="3_mjgpk"]
 [ext_resource type="PackedScene" uid="uid://b3nfwi0yef8ir" path="res://addons/scenes/Maps/TST/OBJ_Forest_Skybox.tscn" id="4_qljdu"]
+[ext_resource type="PackedScene" uid="uid://1buo0uexpora" path="res://addons/control/TST pfysics cube/cube.tscn" id="5_e35r5"]
+[ext_resource type="Script" uid="uid://c732ttjgd20rr" path="res://addons/control/TST pfysics cube/cube.gd" id="6_q7c8y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oarqw"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -4792,3 +4794,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8655576, 0.00012207031, 2.
 
 [node name="OBJ_Forest_Skybox" parent="." instance=ExtResource("4_qljdu")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -32.526505, 0)
+
+[node name="cube" parent="." instance=ExtResource("5_e35r5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6134624, 0.5000005, 8.904848)
+script = ExtResource("6_q7c8y")

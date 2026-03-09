@@ -194,7 +194,7 @@ func _input(event):
 	
 	if player_value.Alive == true and player_value.Menu_mode == false:
 		Tool_Script.Use_Tool_Primary() # Called when a Tool is used (primary)
-		Tool_Script.Use_Tool_Secondary()
+		#Tool_Script.Use_Tool_Secondary()
 		Tool_Script.Use_Tool_Alternatuve() # Called when a Tool's alternative is used 
 		player_value.Tool_Get_ID()
 		#player_value.ToolLGet_ID()

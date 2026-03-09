@@ -41,6 +41,8 @@ func _on_m_1911_anims_animation_finished(anim_name: StringName) -> void:
 func _on_m_14_anims_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "TST_M14_Shoot" or "TST_M14_Reload_R" or "TST_M14_Reload_L":
 		Current_Anim_Playing = false
+	if anim_name == "TST_M14_Pop_up":
+		player_value.Anim_HM_Done2 = true
 
 
 func _on_arm_anims_l_animation_finished(anim_name: StringName) -> void:

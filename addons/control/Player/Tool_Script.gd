@@ -23,13 +23,15 @@ extends Node3D
 @onready var arm_anims_R: AnimationPlayer = $"../Head/CameraPlayer/Player_Model/TST_ArmR/Arm_Anims_R"
 @onready var arm_anims_L: AnimationPlayer = $"../Head/CameraPlayer/Player_Model/TST_ArmL/Arm_Anims_L"
 
+@onready var TST_Sword: Node3D = $"../Head/CameraPlayer/Player_Model/Tool Gun/TST_Sword"
+
 # The sprites related to usable items
 @onready var Usable_Item: AnimatedSprite2D = $"../Head/CanvasLayer/face/GUI/Control/Usable items/UItem"
 
 func _process(delta: float) -> void:
 	Passive_Items()
 	player_value.Tool_Fatigue = clamp(player_value.Tool_Fatigue, 0, 10)
-	if player_value.Tool_Fatigue != 10:
+	if player_value.Tool_Fatigue <= 10:
 		player_value.Tool_Fatigue += 0.03
 	if player_value.Tool_Fatigue >= 10: 
 		player_value.Player_State_Update("ToolR", "Idle")
@@ -84,18 +86,18 @@ func Use_Tool_Primary():
 		#false:
 		#pass
 
-func Use_Tool_Secondary():
-	if player_value.Alive == true:
-		#Joypad
-		if player.Joy_C:
-			if Input.is_action_pressed("In_Joy_R1"):
-				TSR_Held = true
-				Tool_Secondary_R()
-			elif Input.is_action_just_released("In_Joy_R1"):
-				TSR_Held = false
-				Tool_Secondary_R()
-			if Input.is_action_just_pressed("In_Joy_L1"):
-				Tool_Secondary_L()
+#func Use_Tool_Secondary():
+	#if player_value.Alive == true:
+		##Joypad
+		#if player.Joy_C:
+			#if Input.is_action_just_pressed("In_Joy_R1"):
+				#TSR_Held = true
+				#Tool_Secondary_R()
+			#else:
+				#TSR_Held = false
+				#Tool_Secondary_R()
+			#if Input.is_action_just_pressed("In_Joy_L1"):
+				#Tool_Secondary_L()
 
 func Use_Tool_Alternatuve():
 	if player_value.Alive == true:
@@ -184,7 +186,7 @@ func Tool_HandlingR():
 			elif Ammo_MagA <= 0:
 				gun_click.play()
 		"Assalt rifle":
-			if Can_use_Range == true and Ammo_MagB > 0 and Animation_Script.Current_Anim_Playing == false and player_value.Anim_HM_Done1 == true:
+			if Can_use_Range == true and Ammo_MagB > 0 and Animation_Script.Current_Anim_Playing == false and player_value.Anim_HM_Done2 == true:
 				Animation_Script.Current_Anim_Playing = true
 				gun_shoot.play()
 				m14_anims.play("TST_M14_Shoot")
@@ -213,16 +215,15 @@ func Tool_HandlingL():
 				m1911_anims.play("TST_M1911_Shoot")
 				player_value.Player_State_Update("ToolL", "M1911 Shot")
 				if Gun_Ray.is_colliding() and Gun_Ray.get_collider().has_method("damage"):
-					Gun_Ray.get_collider().damage()
+						Gun_Ray.get_collider().damage()
 				Ammo_MagA = Ammo_MagA - 1 # Deduces the number of bullets in magazine
 				if Ammo_MagA <= 0: # If 0 bullets in magazine, no longer shoots
 					Can_use_Range = false
 			elif Ammo_MagA <= 0:
 				gun_click.play()
 		"Assalt rifle":
-			if Can_use_Range == true and Ammo_MagB > 0 and Animation_Script.Current_Anim_Playing == false and player_value.Anim_HM_Done1 == true:
+			if Can_use_Range == true and Ammo_MagB > 0 and Animation_Script.Current_Anim_Playing == false and player_value.Anim_HM_Done2 == true:
 				Animation_Script.Current_Anim_Playing = true
-
 				gun_shoot.play()
 				m14_anims.play("TST_M14_Shoot")
 				player_value.Player_State_Update("ToolL", "M14 Shot")
@@ -233,25 +234,24 @@ func Tool_HandlingL():
 					Can_use_Range = false
 			elif Ammo_MagB <= 0:
 				gun_click.play()
+		
 		"Sword":
-			player_value.Player_State_Update("ToolL", "Sword swing")
+			player_value.Player_State_Update("ToolL", "Sword Swung")
 			if Point_Ray.is_colliding() and Point_Ray.get_collider().has_method("damage"): # Check is ray is coliding, and if so, get #damage method
 				Point_Ray.get_collider().damage() # Gets "damage method and executes it"
 
-func Tool_Secondary_R():
-	if TSR_Held == true:
-		pass
-		#match player_value.Inv_ToolR_Equiped:
-			#"Assalt rifle":
-				#TST_M14.rotation.y = Right_Tool_Rotation + 0.35
-				#m14_anims.play("TST_M14_ADS_R")
-	else:
-		pass
-		#m14_anims.play_backwards("TST_M14_ADS_R")
-		#TST_M14.rotation.y = 0
-func Tool_Secondary_L():
-	match player_value.Inv_ToolL_Equiped:
-		pass
+#func Tool_Secondary_R():
+	#match player_value.Inv_ToolR_Equiped:
+		#"Assalt rifle":
+			##TST_M14.rotation.y = Right_Tool_Rotation + 0.35
+			#m14_anims.play("TST_M14_ADS_R")
+	##else:
+		###pass
+		##m14_anims.play_backwards("TST_M14_ADS_R")
+		###TST_M14.rotation.y = 0
+#func Tool_Secondary_L():
+	#match player_value.Inv_ToolL_Equiped:
+		#pass
 
 func Tool_Rotate():
 	TST_Arm_R.visible = false
@@ -293,35 +293,36 @@ func Tool_Rotate():
 			TST_M1911.position.x = Left_Toll_Position
 			TST_M1911.rotation.y = Left_Tool_Rotation
 			TST_M1911.visible = true
-
 		
 		
-		if player_value.Inv_ToolR_Equiped == "Assalt rifle" and player_value.Anim_HM_Done1 == false: # RIGHT TOOL TRANS. ANIMATION
-			pass
-			#m14_anims.play("TST_M14_Pop_up")
-		elif player_value.Inv_ToolR_Equiped == "Assalt rifle": # RIGHT TOOL
-
+		if player_value.Inv_ToolR_Equiped == "Assalt rifle" and player_value.Anim_HM_Done2 == false: # RIGHT TOOL TRANS. ANIMATION
 			TST_M14.visible = true
 			TST_M14.position.x = Right_Tool_Position
 			TST_M14.rotation.y = Right_Tool_Rotation
-
+			m14_anims.play("TST_M14_Pop_up")
+		elif player_value.Inv_ToolR_Equiped == "Assalt rifle": # RIGHT TOOL
+			TST_M14.visible = true
+			TST_M14.position.x = Right_Tool_Position
+			TST_M14.rotation.y = Right_Tool_Rotation
 		
-		if player_value.Inv_ToolL_Equiped == "Assalt rifle" and player_value.Anim_HM_Done1 == false: # RIGHT TOOL TRANS. ANIMATION
-			pass
-		elif player_value.Inv_ToolL_Equiped == "Assalt rifle": # RIGHT TOOL
-
+		if player_value.Inv_ToolL_Equiped == "Assalt rifle" and player_value.Anim_HM_Done2 == false: # RIGHT TOOL TRANS. ANIMATION
 			TST_M14.visible = true
 			TST_M14.position.x = Left_Toll_Position
 			TST_M14.rotation.y = Left_Tool_Rotation
-
+			m14_anims.play("TST_M14_Pop_up")
+		elif player_value.Inv_ToolL_Equiped == "Assalt rifle": # RIGHT TOOL
+			TST_M14.visible = true
+			TST_M14.position.x = Left_Toll_Position
+			TST_M14.rotation.y = Left_Tool_Rotation
 		
 		
-		if player_value.Inv_ToolR_Equiped == "Sword" and player_value.Anim_HM_Done2 == false: # RIGHT TOOL TRANS. ANIMATION
-			pass
+		#if player_value.Inv_ToolR_Equiped == "Sword" and player_value.Anim_HM_Done2 == false: # RIGHT TOOL TRANS. ANIMATION
+			#pass
 		elif player_value.Inv_ToolR_Equiped == "Sword": # RIGHT TOOL
 			if Animation_Script.Current_Anim_Playing == false:
-				pass
-
+				TST_Sword.visible = true
+				TST_Sword.position.x = Right_Tool_Position
+				TST_Sword.rotation.y = Right_Tool_Rotation
 		
 		if player_value.Inv_ToolL_Equiped == "Sword" and player_value.Anim_HM_Done2 == false: # LEFT TOOL TRANS. ANIMATION
 			pass

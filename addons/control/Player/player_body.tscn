@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://pk1seghcippn"]
+[gd_scene load_steps=59 format=3 uid="uid://pk1seghcippn"]
 
 [ext_resource type="Script" uid="uid://boqkeglydnx0g" path="res://addons/control/Player/Tool_Script.gd" id="1_3a0aq"]
 [ext_resource type="Script" uid="uid://dt0yl082n2oqn" path="res://addons/control/Player/PLayer_Values.gd" id="1_6m8h1"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b6h4mka4wgrup" path="res://addons/control/Player/Models/TST/TST_m14.tscn" id="12_3ygbg"]
 [ext_resource type="Texture2D" uid="uid://bg2ax3xprcx3b" path="res://addons/sprites/TST_UItems/TST_Glass_Flask.png" id="12_g5euh"]
 [ext_resource type="Texture2D" uid="uid://cwdiwaswft4gp" path="res://addons/sprites/TST_UItems/TST_Wild_gold_Petal.png" id="13_amtkd"]
+[ext_resource type="PackedScene" uid="uid://bqoovsnw8x0gh" path="res://addons/control/Player/Models/TST/TST_sword.tscn" id="13_ax0ch"]
 [ext_resource type="PackedScene" uid="uid://b1fx3k0uvqeob" path="res://addons/control/Player/Models/TST/TST_arm.tscn" id="13_me1jc"]
 [ext_resource type="LabelSettings" uid="uid://bourldudvh84a" path="res://Main Font.tres" id="13_xrtut"]
 [ext_resource type="StyleBox" uid="uid://dlt754n4isxye" path="res://No_Button_Outline.tres" id="17_cl7el"]
@@ -202,6 +203,9 @@ transform = Transform3D(0.9999998, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999994, 0, 0
 
 [node name="TST_M14" parent="Head/CameraPlayer/Player_Model/Tool Gun" instance=ExtResource("12_3ygbg")]
 transform = Transform3D(-4.3711387e-10, -0.01, -4.3711387e-10, 0, -4.3711387e-10, 0.01, -0.01, 4.3711387e-10, 1.9106855e-17, 0, 0, 0)
+visible = false
+
+[node name="TST_Sword" parent="Head/CameraPlayer/Player_Model/Tool Gun" instance=ExtResource("13_ax0ch")]
 visible = false
 
 [node name="TST_ArmR" parent="Head/CameraPlayer/Player_Model" instance=ExtResource("13_me1jc")]
@@ -905,5 +909,6 @@ layout_mode = 2
 
 [editable path="Head/CameraPlayer/Player_Model/Tool Gun/TST_M1911"]
 [editable path="Head/CameraPlayer/Player_Model/Tool Gun/TST_M14"]
+[editable path="Head/CameraPlayer/Player_Model/Tool Gun/TST_Sword"]
 [editable path="Head/CameraPlayer/Player_Model/TST_ArmR"]
 [editable path="Head/CameraPlayer/Player_Model/TST_ArmL"]
