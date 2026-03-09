@@ -5,7 +5,7 @@ extends Node3D
 @onready var player_value: Node3D = $"../Player_Values"
 
 @onready var Gun_Ray: RayCast3D = $"../Head/CameraPlayer/Gun_Ray" # Ray used for the gun tool
-@onready var Point_Ray: RayCast3D = $"../Head/CameraPlayer/Point_Ray" # ray used for the hand tool
+@onready var Interact_Ray: RayCast3D = $"../Head/CameraPlayer/Interact_Ray" # ray used for the hand tool
 
 # Bellow is everything related to the "gun" tool. Sprites and SFX
 @onready var TST_M1911: Node3D = $"../Head/CameraPlayer/Player_Model/Tool Gun/TST_M1911"
@@ -201,8 +201,8 @@ func Tool_HandlingR():
 		
 		"Sword":
 			player_value.Player_State_Update("ToolR", "Sword Swung")
-			if Point_Ray.is_colliding() and Point_Ray.get_collider().has_method("damage"): # Check is ray is coliding, and if so, get #damage method
-				Point_Ray.get_collider().damage() # Gets "damage method and executes it"
+			if Interact_Ray.is_colliding() and Interact_Ray.get_collider().has_method("damage"): # Check is ray is coliding, and if so, get #damage method
+				Interact_Ray.get_collider().damage() # Gets "damage method and executes it"
 func Tool_HandlingL():
 	Can_use_Range = true
 	match player_value.Inv_ToolL_Equiped:
@@ -237,8 +237,8 @@ func Tool_HandlingL():
 		
 		"Sword":
 			player_value.Player_State_Update("ToolL", "Sword Swung")
-			if Point_Ray.is_colliding() and Point_Ray.get_collider().has_method("damage"): # Check is ray is coliding, and if so, get #damage method
-				Point_Ray.get_collider().damage() # Gets "damage method and executes it"
+			if Interact_Ray.is_colliding() and Interact_Ray.get_collider().has_method("damage"): # Check is ray is coliding, and if so, get #damage method
+				Interact_Ray.get_collider().damage() # Gets "damage method and executes it"
 
 #func Tool_Secondary_R():
 	#match player_value.Inv_ToolR_Equiped:
@@ -361,7 +361,7 @@ func Tool_AltR():
 					Ammo_MagB = Max_Ammo_MagB # Deduces the number of bullets in magazine
 					MagB_Num -= 1
 func Tool_AltL():
-	if Point_Ray.is_colliding() and Point_Ray.get_collider().has_method("interact"):
+	if Interact_Ray.is_colliding() and Interact_Ray.get_collider().has_method("interact"):
 		if Can_use_Close == true and player_value.Stamina >= player_value.Stamina_Act1_Tax and Animation_Script.Current_Anim_Playing == false:
 				Animation_Script.Current_Anim_Playing = true
 				arm_anims_L.play("TST_Arms_Interact") # Play animation
@@ -429,10 +429,10 @@ func UItem_Rotate():
 	player_value.Usable_Item_Selected = wrapi(player_value.Usable_Item_Selected, 1, player_value.UItem_Max)
 
 func Tool_Gen_Interaction():
-	if not Point_Ray.is_colliding():
+	if not Interact_Ray.is_colliding():
 		return
-	var target = Point_Ray.get_collider()
+	var target = Interact_Ray.get_collider()
 	if target.has_method("interact"):
-		var hit_pos = Point_Ray.get_collision_point()
-		var dir = Point_Ray.global_transform.basis.z.normalized()
+		var hit_pos = Interact_Ray.get_collision_point()
+		var dir = Interact_Ray.global_transform.basis.z.normalized()
 		target.interact(hit_pos, dir)

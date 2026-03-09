@@ -156,8 +156,8 @@ func Interact_HUD():
 		#return
 	
 	Inter.visible = false
-	if Tool_Script.Point_Ray.is_colliding():
-		var point_coll = Tool_Script.Point_Ray.get_collider()
+	if Tool_Script.Interact_Ray.is_colliding():
+		var point_coll = Tool_Script.Interact_Ray.get_collider()
 		#if Tool_Script.Point_Ray.get_collider().has_method("CLR_info") and ToolR_ID_Got.id == "close":
 		if point_coll.has_method("CLR_info"):
 			Inter.visible = true
