@@ -23,7 +23,7 @@ extends Node3D
 @onready var arm_anims_R: AnimationPlayer = $"../Head/CameraPlayer/Player_Model/TST_ArmR/Arm_Anims_R"
 @onready var arm_anims_L: AnimationPlayer = $"../Head/CameraPlayer/Player_Model/TST_ArmL/Arm_Anims_L"
 
-@onready var TST_Sword: Node3D = $"../Head/CameraPlayer/Player_Model/Tool Gun/TST_Sword"
+#@onready var TST_Sword: Node3D = $"../Head/CameraPlayer/Player_Model/TST_Sword"
 
 # The sprites related to usable items
 @onready var Usable_Item: AnimatedSprite2D = $"../Head/CanvasLayer/face/GUI/Control/Usable items/UItem"
@@ -151,21 +151,25 @@ func Passive_Items():
 	elif player_value.Inv_Brace_Equiped != "Power Bra.":
 		player_value.Damage_Bonus = 0
 
-func Alternative_Timer(Release_Input: String, delta: float) -> void:
+func Alternative_Timer(Action_Released, Press_Function, Hold_Function, delta: float) -> void:
 	player_value.inter_button_tapped = true
-	player_value.inter_button_held = false
-	player_value.inter_press_time = 0.0
+	player_value.inter_button_held = true
 	
 	if player_value.inter_button_tapped:
 		player_value.inter_press_time += delta
+		
+		if Input.is_action_just_released(Action_Released):
+			if !player_value.inter_button_held:
+				Hold_Function
+				player_value.inter_button_tapped = false
+				player_value.inter_press_time = 0.0
+			
 		if player_value.inter_press_time >= player_value.inter_hold_treshold and !player_value.inter_button_held:
-			player_value.inter_button_held = true
-			Tool_AltL()
+			player_value.inter_button_held = false
+			Press_Function
+			player_value.inter_press_time = 0.0
 	
-	if Input.is_action_just_released(Release_Input):
-		if !player_value.inter_button_held:
-			Tool_AltR()
-			player_value.inter_button_tapped = false
+
 
 func Tool_HandlingR():
 	Can_use_Range = true
@@ -320,9 +324,10 @@ func Tool_Rotate():
 			#pass
 		elif player_value.Inv_ToolR_Equiped == "Sword": # RIGHT TOOL
 			if Animation_Script.Current_Anim_Playing == false:
-				TST_Sword.visible = true
-				TST_Sword.position.x = Right_Tool_Position
-				TST_Sword.rotation.y = Right_Tool_Rotation
+				pass
+				#TST_Sword.visible = true
+				#TST_Sword.position.x = Right_Tool_Position
+				#TST_Sword.rotation.y = Right_Tool_Rotation
 		
 		if player_value.Inv_ToolL_Equiped == "Sword" and player_value.Anim_HM_Done2 == false: # LEFT TOOL TRANS. ANIMATION
 			pass

@@ -113,9 +113,10 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	player_value.Reg_Process(delta)
-	if player_value.Alive == true: #and player_value.Menu_mode == false:
+	if player_value.Menu_mode == false: #and player_value.Menu_mode == false:
 		if Key_C:
 			if Input.is_action_just_pressed("In_Key_Tool_Alt"):
+				#Tool_Script.Alternative_Timer("In_Key_Tool_Alt", Tool_Script.Tool_AltR(), Tool_Script.Tool_AltL(), delta)
 				player_value.inter_button_tapped = true
 				player_value.inter_button_held = false
 				player_value.inter_press_time = 0.0
@@ -125,7 +126,7 @@ func _process(delta: float) -> void:
 				if player_value.inter_press_time >= player_value.inter_hold_treshold and !player_value.inter_button_held:
 					player_value.inter_button_held = true
 					Tool_Script.Tool_AltL()
-	
+				
 				if Input.is_action_just_released("In_Key_Tool_Alt"):
 					if !player_value.inter_button_held:
 						Tool_Script.Tool_AltR()
@@ -146,13 +147,14 @@ func _process(delta: float) -> void:
 					if !player_value.inter_button_held:
 						Tool_Script.Tool_AltR()
 						player_value.inter_button_tapped = false
-			
+		
 		Tool_Script.Use_UItem()
 		Tool_Script.Tool_Rotate() # Callsed when switching Tools
 		Tool_Script.UItem_Rotate()
+	if player_value.Alive == true:
 		# Camera
 		# Joypad
-		if Joy_C: # OPTIMIZE SOMEDAY LMAO
+		if Joy_C:
 			var look_r = Input.get_action_strength("In_JoyR_Right")
 			var look_l = Input.get_action_strength("In_JoyR_Left")
 			var look_u = Input.get_action_strength("In_JoyR_Up")

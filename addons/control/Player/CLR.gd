@@ -63,7 +63,7 @@ func Debug_UI():
 	global.debug.add_property("Alive", player_value.Alive, 7)
 	global.debug.add_property("Range alt", Tool_Script.Can_use_Range_Assalt_alt, 8)
 	global.debug.add_property("Current anim", Animation_Script.Current_Anim_Playing, 9)
-	global.debug.add_property("butt factor", player_value.Tool_Fatigue, 10)
+	global.debug.add_property("bpress time", player_value.inter_press_time, 10)
 	#global.debug.add_property("Menu mode", player_value.Menu_mode, 8)
 	#global.debug.add_property("Menu depth", player_value.Menu_Depth, 9)
 	#global.debug.add_property("Menu to", player_value.Item_Menu_To, 10)

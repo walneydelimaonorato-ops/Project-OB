@@ -85,6 +85,8 @@ func _process(delta: float) -> void:
 	Stamina = clamp(Stamina, 0, Stamina_Max)
 	Menu_Depth = clamp(Menu_Depth, 0, Menu_Depth_Max)
 	
+	inter_press_time = clamp(inter_press_time, 0, 0.50)
+	
 	Dummy_Health_Max = Health_Max + Health_Bonus
 	Health_Max = Dummy_Health_Max1 + Health_Bonus
 	$"../Head/CanvasLayer/face/GUI/Control/HUD/Health".max_value = Health_Max
