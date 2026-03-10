@@ -223,6 +223,12 @@ func UItem_Get_ID() -> Dictionary:
 		return UItem_ID[Usable_Item_Selected]
 	return {}
 
+# var Tool_Id = [
+#    "Hand" = {"damage": 0},
+#    "HandGun" = {"damage": 3},
+#    "AssaultRifle" = {"damage": 6},
+#    "Sword" = {"damage": 8}
+
 var Tool_ID = [ 
 	{"name": "Hand", "damage": 0, }, # Tool information for the Hand
 	{"name": "Hand gun", "damage": 3}, # Tool information for the Hand gun
@@ -234,10 +240,36 @@ var Tool_ID = [
 	#{"name": "HandGun", "id": "range"}, # Tool information for the Gun
 	#{"name": "Sword", "id": "melee"} # Tool information for the Melee
 #]
+
 func Tool_Get_ID() -> Dictionary:
 	#var n : int
 	#if Inv_ToolR_Equiped == Tool_ID["name"]:
 		#return Tool_ID[n]
+
+#if Tool_Direction_Use == "Right":
+    match Inv_ToolR_Equiped:
+    
+#    "null":
+#        return Tool_ID["Hand"]
+#    "Hand gun":
+#        return Tool_ID["HandGun"]
+#    "Assault rifle":
+#        return Tool_ID["AssaltRife"]
+#    "Sword":
+#        return Tool_Id["Sword"]
+
+#elif Tool_Direction_Use == "Left":
+    match Inv_ToolL_Equiped:
+    
+#    "null":
+#        return Tool_ID["Hand"]
+#    "Hand gun":
+#        return Tool_ID["HandGun"]
+#    "Assault rifle":
+#        return Tool_ID["AssaltRife"]
+#    "Sword":
+#        return Tool_Id["Sword"]
+
 	if Tool_Direction_Use == "Right":
 		if Inv_ToolR_Equiped == "null":
 			return Tool_ID[0]
