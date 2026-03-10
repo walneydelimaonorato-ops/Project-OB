@@ -47,7 +47,7 @@ func _process(_delta: float) -> void:
 
 func damage():
 	if Entity_Type == "Enemy":
-		await get_tree().create_timer(2.0).timeout
+		#await get_tree().create_timer(2.0).timeout
 		Entity_Health -= player_value.Tool_Get_ID()["damage"] + player_value.Damage_Bonus
 	
 		if Entity_Health <= 0:

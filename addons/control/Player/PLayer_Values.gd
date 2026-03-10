@@ -223,18 +223,20 @@ func UItem_Get_ID() -> Dictionary:
 		return UItem_ID[Usable_Item_Selected]
 	return {}
 
-# var Tool_Id = [
-#    "Hand" = {"damage": 0},
-#    "HandGun" = {"damage": 3},
-#    "AssaultRifle" = {"damage": 6},
-#    "Sword" = {"damage": 8}
+var Tool_ID = {
+	"Hand": {"damage": 0},
+	"HandGun": {"damage": 3},
+	"AssaultRifle": {"damage": 6},
+	"Sword": {"damage": 8}
+}
 
-var Tool_ID = [ 
-	{"name": "Hand", "damage": 0, }, # Tool information for the Hand
-	{"name": "Hand gun", "damage": 3}, # Tool information for the Hand gun
-	{"name": "Assalt rifle", "damage": 6}, # Tool information for the Rifle
-	{"name": "Sword", "damage": 8} # Tool information for the Melee
-]
+
+#var Tool_ID = [ 
+	#{"name": "Hand", "damage": 0, }, # Tool information for the Hand
+	#{"name": "Hand gun", "damage": 3}, # Tool information for the Hand gun
+	#{"name": "Assalt rifle", "damage": 6}, # Tool information for the Rifle
+	#{"name": "Sword", "damage": 8} # Tool information for the Melee
+#]
 #var ToolL_ID = [
 	#{"name": "Hand", "id": "close"}, # Tool information for the Hand
 	#{"name": "HandGun", "id": "range"}, # Tool information for the Gun
@@ -242,52 +244,46 @@ var Tool_ID = [
 #]
 
 func Tool_Get_ID() -> Dictionary:
-	#var n : int
-	#if Inv_ToolR_Equiped == Tool_ID["name"]:
-		#return Tool_ID[n]
-
-#if Tool_Direction_Use == "Right":
-    match Inv_ToolR_Equiped:
-    
-#    "null":
-#        return Tool_ID["Hand"]
-#    "Hand gun":
-#        return Tool_ID["HandGun"]
-#    "Assault rifle":
-#        return Tool_ID["AssaltRife"]
-#    "Sword":
-#        return Tool_Id["Sword"]
-
-#elif Tool_Direction_Use == "Left":
-#    match Inv_ToolL_Equiped:
-    
-#    "null":
-#        return Tool_ID["Hand"]
-#    "Hand gun":
-#        return Tool_ID["HandGun"]
-#    "Assault rifle":
-#        return Tool_ID["AssaltRife"]
-#    "Sword":
-#        return Tool_Id["Sword"]
-
 	if Tool_Direction_Use == "Right":
-		if Inv_ToolR_Equiped == "null":
-			return Tool_ID[0]
-		if Inv_ToolR_Equiped == "Hand gun":
-			return Tool_ID[1]
-		if Inv_ToolR_Equiped == "Assalt rifle":
-			return Tool_ID[2]
-		if Inv_ToolR_Equiped == "Sword":
-			return Tool_ID[3]
-	if Tool_Direction_Use == "Left":
-		if Inv_ToolL_Equiped == "null":
-			return Tool_ID[0]
-		if Inv_ToolL_Equiped == "Hand gun":
-			return Tool_ID[1]
-		if Inv_ToolL_Equiped == "Assalt rifle":
-			return Tool_ID[2]
-		if Inv_ToolL_Equiped == "Sword":
-			return Tool_ID[3]
+		match Inv_ToolR_Equiped:
+			"null":
+				return Tool_ID["Hand"]
+			"Hand gun":
+				return Tool_ID["HandGun"]
+			"Assault rifle":
+				return Tool_ID["AssaltRife"]
+			"Sword":
+				return Tool_ID["Sword"]
+
+	elif Tool_Direction_Use == "Left":
+		match Inv_ToolR_Equiped:
+			"null":
+				return Tool_ID["Hand"]
+			"Hand gun":
+				return Tool_ID["HandGun"]
+			"Assault rifle":
+				return Tool_ID["AssaltRife"]
+			"Sword":
+				return Tool_ID["Sword"]
+
+	#if Tool_Direction_Use == "Right":
+		#if Inv_ToolR_Equiped == "null":
+			#return Tool_ID[0]
+		#if Inv_ToolR_Equiped == "Hand gun":
+			#return Tool_ID[1]
+		#if Inv_ToolR_Equiped == "Assalt rifle":
+			#return Tool_ID[2]
+		#if Inv_ToolR_Equiped == "Sword":
+			#return Tool_ID[3]
+	#if Tool_Direction_Use == "Left":
+		#if Inv_ToolL_Equiped == "null":
+			#return Tool_ID[0]
+		#if Inv_ToolL_Equiped == "Hand gun":
+			#return Tool_ID[1]
+		#if Inv_ToolL_Equiped == "Assalt rifle":
+			#return Tool_ID[2]
+		#if Inv_ToolL_Equiped == "Sword":
+			#return Tool_ID[3]
 	return {}
 #func ToolLGet_ID() -> Dictionary:
 	#if L_Hand_In_Use >= 0 and L_Hand_In_Use < ToolL_ID.size():

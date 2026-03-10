@@ -175,7 +175,6 @@ func Alternative_Timer(Action_Released, Press_Function, Hold_Function, delta: fl
 
 
 func Tool_HandlingR():
-	
 	Can_use_Range = true
 	match player_value.Inv_ToolR_Equiped:
 		"null":
