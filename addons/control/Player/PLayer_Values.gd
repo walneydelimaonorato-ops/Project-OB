@@ -259,7 +259,7 @@ func Tool_Get_ID() -> Dictionary:
 #        return Tool_Id["Sword"]
 
 #elif Tool_Direction_Use == "Left":
-    match Inv_ToolL_Equiped:
+#    match Inv_ToolL_Equiped:
     
 #    "null":
 #        return Tool_ID["Hand"]
