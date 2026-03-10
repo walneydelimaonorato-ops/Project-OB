@@ -3,6 +3,9 @@ extends CanvasLayer
 var ot = true
 var ot1 = 1
 
+@onready var gang: Area3D = $"../../../../../Rest"
+
+
 @onready var ps_label: Label = $"../Debug Insight/DB Insight/PS_List/PS_Label"
 
 @onready var player : CharacterBody3D = $"../../../.."
@@ -79,6 +82,8 @@ func Debug_UI():
 	global.debug.add_property("Range alt", Tool_Script.Can_use_Range_Assalt_alt, 8)
 	global.debug.add_property("Current anim", Animation_Script.Current_Anim_Playing, 9)
 	global.debug.add_property("bpress time", player_value.inter_press_time, 10)
+	global.debug.add_property("Player coords", player.position, 11)
+	global.debug.add_property("Respawn coords", global.G_Respwan_Coords, 12)
 	#global.debug.add_property("Menu mode", player_value.Menu_mode, 8)
 	#global.debug.add_property("Menu depth", player_value.Menu_Depth, 9)
 	#global.debug.add_property("Menu to", player_value.Item_Menu_To, 10)

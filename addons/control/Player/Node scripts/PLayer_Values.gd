@@ -1,13 +1,7 @@
 extends Node3D
 
-@onready var tool_Sword: TextureButton = $"../Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_Sword_Ico"
-@onready var tool_Sword_name: MarginContainer = $"../Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool Sword"
+var Respaw_Scene : String
 
-@onready var tool_HandGun: TextureButton = $"../Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_HandG_Ico"
-@onready var tool_HandGun_name: MarginContainer = $"../Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool HandGun"
-
-@onready var tool_AssaltRifle: TextureButton = $"../Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_AssaltR_Ico"
-@onready var tool_AssaltRifle_name: MarginContainer = $"../Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool AssaltRifle"
 
 # These are debug variables to detect the state the Player is in
 var INSIGHT_Player_State_Movement : String

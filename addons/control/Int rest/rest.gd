@@ -4,6 +4,8 @@ extends Node3D
 @onready var rest_coll: CollisionShape3D = $"Interact rest coll"
 
 @onready var HUD = $"../Player/Head/CanvasLayer/face/GUI"
+
+var Respaw_Position : Vector3
 var HUD_Prompt = "Rest"
 
 func _ready() -> void:
@@ -21,6 +23,7 @@ func _process(delta: float) -> void:
 
 func interact(hit_pos: Vector3, dir: Vector3):
 	$Interact.play()
+	global.G_Respwan_Coords = $"../Player".position
 	HUD.inter_prompt = HUD_Prompt
 	player_value.Stamina = player_value.Stamina_Max
 	player_value.Heal("Full", 0)

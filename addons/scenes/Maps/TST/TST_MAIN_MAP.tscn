@@ -1,6 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://cjkynvbw2btb6"]
+[gd_scene load_steps=41 format=3 uid="uid://cjkynvbw2btb6"]
 
 [ext_resource type="Texture2D" uid="uid://bv2a14psp3a0a" path="res://addons/textures/Dark/texture_07.png" id="1_5ht51"]
+[ext_resource type="Script" uid="uid://boct56aj8lyh4" path="res://addons/scenes/Maps/TST/TST_main_map.gd" id="1_lqdda"]
 [ext_resource type="Texture2D" uid="uid://v27kj2e1ebe8" path="res://addons/textures/Green/texture_10.png" id="2_1e2ie"]
 [ext_resource type="Texture2D" uid="uid://1y3sgpdaf4lw" path="res://addons/textures/Orange/texture_05.png" id="3_4h3vi"]
 [ext_resource type="Texture2D" uid="uid://cdjdo1f1vkie1" path="res://addons/textures/Red/texture_07.png" id="4_lqdda"]
@@ -88,6 +89,11 @@ resource_local_to_scene = true
 font = ExtResource("12_4h3vi")
 font_size = 50
 
+[sub_resource type="LabelSettings" id="LabelSettings_c7uni"]
+resource_local_to_scene = true
+font = ExtResource("12_4h3vi")
+font_size = 50
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ayb8k"]
 transparency = 1
 albedo_color = Color(1, 0, 0.11764706, 0.54509807)
@@ -100,6 +106,7 @@ size = Vector3(5, 5, 5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5ywfc"]
 
 [node name="main" type="Node3D"]
+script = ExtResource("1_lqdda")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ayb8k")
@@ -281,32 +288,38 @@ collision_layer = 3
 [node name="Death Text" parent="Player/Head/CanvasLayer/face/GUI/Control/Death Screen" index="0"]
 label_settings = SubResource("LabelSettings_lqdda")
 
-[node name="Tool_Sword_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name" index="1"]
-label_settings = SubResource("LabelSettings_lqdda")
+[node name="Tool_Sword_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool Sword" index="0"]
+label_settings = SubResource("LabelSettings_c7uni")
 
-[node name="Tool_HandGun_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name" index="3"]
-label_settings = SubResource("LabelSettings_lqdda")
+[node name="Tool_HandGun_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool HandGun" index="0"]
+label_settings = SubResource("LabelSettings_c7uni")
 
-[node name="Tool_AssalrRifle_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name" index="5"]
-label_settings = SubResource("LabelSettings_lqdda")
+[node name="Tool_AssalrRifle_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool AssaltRifle" index="0"]
+label_settings = SubResource("LabelSettings_c7uni")
 
-[node name="Tool_Sword_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name" index="1"]
-label_settings = SubResource("LabelSettings_lqdda")
+[node name="Wear_1_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons Name/Wear 1" index="0"]
+label_settings = SubResource("LabelSettings_c7uni")
 
-[node name="Tool_HandGun_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name" index="3"]
-label_settings = SubResource("LabelSettings_lqdda")
+[node name="Wear_2_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons Name/Wear 2" index="0"]
+label_settings = SubResource("LabelSettings_c7uni")
 
-[node name="Tool_AssalrRifle_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name" index="5"]
-label_settings = SubResource("LabelSettings_lqdda")
+[node name="Golden_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Golden" index="0"]
+label_settings = SubResource("LabelSettings_c7uni")
 
-[node name="Tool_AssalrRifle_Nam2" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name" index="7"]
-label_settings = SubResource("LabelSettings_lqdda")
+[node name="Cling_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Cling" index="0"]
+label_settings = SubResource("LabelSettings_c7uni")
 
-[node name="Tool_AssalrRifle_Nam3" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name" index="9"]
-label_settings = SubResource("LabelSettings_lqdda")
+[node name="Clorophyl_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Clorophyl" index="0"]
+label_settings = SubResource("LabelSettings_c7uni")
 
-[node name="Tool_AssalrRifle_Nam4" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name" index="11"]
-label_settings = SubResource("LabelSettings_lqdda")
+[node name="Fortune_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Fortune" index="0"]
+label_settings = SubResource("LabelSettings_c7uni")
+
+[node name="Power_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Power" index="0"]
+label_settings = SubResource("LabelSettings_c7uni")
+
+[node name="Rotten_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Rotten" index="0"]
+label_settings = SubResource("LabelSettings_c7uni")
 
 [node name="item" parent="." instance=ExtResource("14_1e2ie")]
 transform = Transform3D(0.9953071, 0, -0.09676648, 0, 1, 0, 0.09676648, 0, 0.9953071, 1.2678776, 0.17500001, -3.344183)
@@ -353,10 +366,6 @@ skeleton = NodePath("")
 [node name="OBJ_Vaporwave_Skybox" parent="." instance=ExtResource("15_1e2ie")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 
-[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/Tool Gun/TST_M1911/M1911 Anims" to="Player/Animation_Handler" method="_on_m_1911_anims_animation_finished"]
-[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/Tool Gun/TST_M14/M14 Anims" to="Player/Animation_Handler" method="_on_m_14_anims_animation_finished"]
-[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/TST_ArmR/Arm_Anims_R" to="Player/Animation_Handler" method="_on_arm_anims_r_animation_finished"]
-[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/TST_ArmL/Arm_Anims_L" to="Player/Animation_Handler" method="_on_arm_anims_l_animation_finished"]
 [connection signal="body_entered" from="Pain Box2/Area3D" to="Pain Box2" method="_on_area_3d_body_entered"]
 
 [editable path="Player"]
