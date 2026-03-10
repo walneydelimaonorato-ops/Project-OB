@@ -1,10 +1,14 @@
 extends Node3D
 
 # These are debug variables to detect the state the Player is in
-var PLayer_State_Movement # Reflect player movement 
-var PLayer_State_Action # Reflect player action
-var PLayer_State_Special # Reflect a special type of state
-var Player_State
+var INSIGHT_Player_State_Movement : String
+var Player_State_Movement : String # Reflect player movement 
+var INSIGHT_Player_State_Action : String
+var Player_State_Action : String # Reflect player action
+var INSIGHT_Player_State_Special : String
+var Player_State_Special : String # Reflect a special type of state
+var INSIGHT_Player_State : String
+var Player_State : String
 
 var Health_Max = 10 # Maximum amount of health
 var Dummy_Health_Max = 10
@@ -45,8 +49,12 @@ var Inv_Uitem3_Equiped = "null"
 
 var Tool_Fatigue = 0
 var Damage_Bonus = 0
+var INSIGHT_Tool_R_State = ""
 var Tool_R_State = ""
+var INSIGHT_Tool_L_State = ""
 var Tool_L_State = ""
+var INSIGHT_Tool_Direction_Use = ""
+var Tool_Direction_Use = ""
 
 # Flags:
 var Alive = true # Checks if the player is alive
@@ -70,6 +78,7 @@ func _ready():
 	Player_State_Update("SPC", "NULL")
 	Player_State_Update("ToolR", "NULL")
 	Player_State_Update("ToolL", "NULL")
+	#Player_State_Update("ToolDir", "NULL")
 
 func _process(delta: float) -> void:
 	# When the player is alive, the mouse is captured
@@ -136,17 +145,25 @@ func Player_State_Update(Type, Player_State):
 	# Type: type of player state to be updated
 	# Player State: new player state
 	if Type == "MVM":
-		PLayer_State_Movement = str("Player State MVM: ", Player_State, "\r")
+		INSIGHT_Player_State_Movement = str("Player State MVM: ", Player_State, "\r")
+		Player_State_Movement = Player_State
 	elif Type == "ACT":
-		PLayer_State_Action = str("Player State ACT: ", Player_State, "\r")
+		INSIGHT_Player_State_Action = str("Player State ACT: ", Player_State, "\r")
+		Player_State_Action = Player_State
 	elif Type == "SPC":
-		PLayer_State_Special = str("Player State SPC: ", Player_State, "\r")
+		INSIGHT_Player_State_Special = str("Player State SPC: ", Player_State, "\r")
+		Player_State_Special = Player_State
 	elif Type == "ToolR":
-		Tool_R_State = str("Tool R State: ", Player_State, "\r")
+		INSIGHT_Tool_R_State = str("Tool R State: ", Player_State, "\r")
+		Tool_R_State = Player_State
 		Tool_Fatigue = 0
 	elif Type == "ToolL":
-		Tool_L_State = str("Tool L State: ", Player_State, "\r")
+		INSIGHT_Tool_L_State = str("Tool L State: ", Player_State, "\r")
+		Tool_L_State = Player_State
 		Tool_Fatigue = 0
+	elif Type == "ToolDir":
+		INSIGHT_Tool_Direction_Use = str("Tool Direction: ", Player_State, "\r")
+		Tool_Direction_Use = Player_State
 
 func Heal(Type, amount):
 	if Type == "Partial" and Health != Health_Max or Alive == false or Undeath == true:
@@ -207,10 +224,10 @@ func UItem_Get_ID() -> Dictionary:
 	return {}
 
 var Tool_ID = [ 
-	{"name": "Hand", "id": "close", "damage": 0}, # Tool information for the Hand
-	{"name": "Hand gun", "id": "range", "damage": 3}, # Tool information for the Hand gun
-	{"name": "Assalt rifle", "id": "range", "damage": 6}, # Tool information for the Rifle
-	{"name": "Sword", "id": "melee", "damage": 8} # Tool information for the Melee
+	{"name": "Hand", "damage": 0, }, # Tool information for the Hand
+	{"name": "Hand gun", "damage": 3}, # Tool information for the Hand gun
+	{"name": "Assalt rifle", "damage": 6}, # Tool information for the Rifle
+	{"name": "Sword", "damage": 8} # Tool information for the Melee
 ]
 #var ToolL_ID = [
 	#{"name": "Hand", "id": "close"}, # Tool information for the Hand
@@ -218,14 +235,27 @@ var Tool_ID = [
 	#{"name": "Sword", "id": "melee"} # Tool information for the Melee
 #]
 func Tool_Get_ID() -> Dictionary:
-	if Inv_ToolR_Equiped == "null":
-		return Tool_ID[0]
-	if Inv_ToolR_Equiped == "Hand gun":
-		return Tool_ID[1]
-	if Inv_ToolR_Equiped == "Assalt rifle":
-		return Tool_ID[2]
-	if Inv_ToolR_Equiped == "Sword":
-		return Tool_ID[3]
+	#var n : int
+	#if Inv_ToolR_Equiped == Tool_ID["name"]:
+		#return Tool_ID[n]
+	if Tool_Direction_Use == "Right":
+		if Inv_ToolR_Equiped == "null":
+			return Tool_ID[0]
+		if Inv_ToolR_Equiped == "Hand gun":
+			return Tool_ID[1]
+		if Inv_ToolR_Equiped == "Assalt rifle":
+			return Tool_ID[2]
+		if Inv_ToolR_Equiped == "Sword":
+			return Tool_ID[3]
+	if Tool_Direction_Use == "Left":
+		if Inv_ToolL_Equiped == "null":
+			return Tool_ID[0]
+		if Inv_ToolL_Equiped == "Hand gun":
+			return Tool_ID[1]
+		if Inv_ToolL_Equiped == "Assalt rifle":
+			return Tool_ID[2]
+		if Inv_ToolL_Equiped == "Sword":
+			return Tool_ID[3]
 	return {}
 #func ToolLGet_ID() -> Dictionary:
 	#if L_Hand_In_Use >= 0 and L_Hand_In_Use < ToolL_ID.size():

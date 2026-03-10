@@ -198,5 +198,4 @@ func _input(event):
 		Tool_Script.Use_Tool_Primary() # Called when a Tool is used (primary)
 		#Tool_Script.Use_Tool_Secondary()
 		Tool_Script.Use_Tool_Alternatuve() # Called when a Tool's alternative is used 
-		player_value.Tool_Get_ID()
 		#player_value.ToolLGet_ID()

@@ -74,8 +74,10 @@ func Use_Tool_Primary():
 		if player.Key_C:
 			if Input.is_action_just_pressed("In_Mouse_R"):
 				Tool_HandlingR()
+				player_value.Tool_Get_ID()
 			if Input.is_action_just_pressed("In_Mouse_L"):
 				Tool_HandlingL()
+				player_value.Tool_Get_ID()
 
 		#Joypad
 		if player.Joy_C:
@@ -83,6 +85,7 @@ func Use_Tool_Primary():
 				Tool_HandlingR()
 			if Input.is_action_just_pressed("In_Joy_L2"):
 				Tool_HandlingL()
+
 		#false:
 		#pass
 
@@ -172,6 +175,7 @@ func Alternative_Timer(Action_Released, Press_Function, Hold_Function, delta: fl
 
 
 func Tool_HandlingR():
+	
 	Can_use_Range = true
 	match player_value.Inv_ToolR_Equiped:
 		"null":
@@ -191,6 +195,7 @@ func Tool_HandlingR():
 				gun_click.play()
 		"Assalt rifle":
 			if Can_use_Range == true and Ammo_MagB > 0 and Animation_Script.Current_Anim_Playing == false and player_value.Anim_HM_Done2 == true:
+				player_value.Player_State_Update("ToolDir", "Right")
 				Animation_Script.Current_Anim_Playing = true
 				gun_shoot.play()
 				m14_anims.play("TST_M14_Shoot")
@@ -214,6 +219,7 @@ func Tool_HandlingL():
 			pass
 		"Hand gun":
 			if Can_use_Range == true and Ammo_MagA > 0 and Animation_Script.Current_Anim_Playing == false and player_value.Anim_HM_Done1 == true:
+				player_value.Tool_Direction_Use = "Left"
 				Animation_Script.Current_Anim_Playing = true
 				gun_shoot.play()
 				m1911_anims.play("TST_M1911_Shoot")

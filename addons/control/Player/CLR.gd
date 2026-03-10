@@ -73,11 +73,12 @@ func Debug_UI():
 	#global.debug.add_property("Selected ICON", $"Control/Menus/Ready Menu".Selected_Icon, 14)
 	
 	ps_label1.text = "Player states:\r"
-	ps_label1.text += player_value.PLayer_State_Movement
-	ps_label1.text += player_value.PLayer_State_Action
-	ps_label1.text += player_value.PLayer_State_Special
-	ps_label1.text += player_value.Tool_R_State
-	ps_label1.text += player_value.Tool_L_State
+	ps_label1.text += player_value.INSIGHT_Player_State_Movement
+	ps_label1.text += player_value.INSIGHT_Player_State_Action
+	ps_label1.text += player_value.INSIGHT_Player_State_Special
+	ps_label1.text += player_value.INSIGHT_Tool_R_State
+	ps_label1.text += player_value.INSIGHT_Tool_L_State
+	ps_label1.text += player_value.INSIGHT_Tool_Direction_Use
 	ps_label2.text = "Plyer inventory: \r"
 	ps_label2.text += "Brace: " + player_value.Inv_Brace_Equiped
 	ps_label2.text += "\rWear: " + player_value.Inv_Wear_Equiped
