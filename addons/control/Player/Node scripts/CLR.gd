@@ -3,8 +3,7 @@ extends CanvasLayer
 var ot = true
 var ot1 = 1
 
-@onready var ps_label1: Label = $"../PLayer State/PS Insight/PS_List/PS_Label"
-@onready var ps_label2: Label = $"../PLayer State/PS Insight/PS_List/PS_Label2"
+@onready var ps_label: Label = $"../Debug Insight/DB Insight/PS_List/PS_Label"
 
 @onready var player : CharacterBody3D = $"../../../.."
 @onready var player_value = $"../../../../Player_Values"
@@ -50,7 +49,23 @@ func _process(_delta: float) -> void:
 		Death_Screen_State()
 
 func Debug_UI():
+	if global.Gdebug_active == true:
+		$"../Debug Insight/DB Insight/Panel".visible = true
+		$"../Debug Insight/Debug page".visible = true
+		$"../Debug Insight/Debug page".text = str("Debug page: ", global.Debug_Menu_Page)
+		pass
+	elif global.Gdebug_active == false:
+		$"../Debug Insight/DB Insight/Panel".visible = false
+		$"../Debug Insight/Debug page".visible = false
+	if global.Debug_Menu_Page == 1:
+		$"../Debug Insight/DB Insight/DB_List".visible = true
+		ps_label.visible = false
+	elif global.Debug_Menu_Page != 1:
+		$"../Debug Insight/DB Insight/DB_List".visible = false
+		ps_label.visible = true
+	
 	# Debug viewer
+	#global.debug.add_property("Debug page", global.Debug_Menu_Page, 1)
 	if player.Key_C:
 		global.debug.add_property("Keyboard", player.Key_C, 1)
 	if player.Joy_C:
@@ -72,31 +87,32 @@ func Debug_UI():
 	#global.debug.add_property("Focus node", $"Control/Menus/Ready Menu".Focused_Button, 13)
 	#global.debug.add_property("Selected ICON", $"Control/Menus/Ready Menu".Selected_Icon, 14)
 	
-	ps_label1.text = "Player states:\r"
-	ps_label1.text += player_value.INSIGHT_Player_State_Movement
-	ps_label1.text += player_value.INSIGHT_Player_State_Action
-	ps_label1.text += player_value.INSIGHT_Player_State_Special
-	ps_label1.text += player_value.INSIGHT_Tool_R_State
-	ps_label1.text += player_value.INSIGHT_Tool_L_State
-	ps_label1.text += player_value.INSIGHT_Tool_Direction_Use
-	ps_label2.text = "Plyer inventory: \r"
-	ps_label2.text += "Brace: " + player_value.Inv_Brace_Equiped
-	ps_label2.text += "\rWear: " + player_value.Inv_Wear_Equiped
-	ps_label2.text += "\rTool L: " + player_value.Inv_ToolL_Equiped
-	ps_label2.text += "\rToll R: " + player_value.Inv_ToolR_Equiped
-	ps_label2.text += "\rSpell: " + player_value.Inv_Spell_Equiped
-	ps_label2.text += "\rUItem 1: " + player_value.Inv_Uitem1_Equiped
-	ps_label2.text += "\rUItem 2: " + player_value.Inv_Uitem2_Equiped
-	ps_label2.text += "\rUItem 3: " + player_value.Inv_Uitem3_Equiped
+	if global.Debug_Menu_Page == 2:
+		ps_label.text = "Player states:\r"
+		ps_label.text += player_value.INSIGHT_Player_State_Movement
+		ps_label.text += player_value.INSIGHT_Player_State_Action
+		ps_label.text += player_value.INSIGHT_Player_State_Special
+		ps_label.text += player_value.INSIGHT_Tool_R_State
+		ps_label.text += player_value.INSIGHT_Tool_L_State
+		ps_label.text += player_value.INSIGHT_Tool_Direction_Use
+	
+	if global.Debug_Menu_Page == 3:
+		ps_label.text = "Player inventory: \r"
+		ps_label.text += "Brace: " + player_value.Inv_Brace_Equiped
+		ps_label.text += "\rWear: " + player_value.Inv_Wear_Equiped
+		ps_label.text += "\rTool L: " + player_value.Inv_ToolL_Equiped
+		ps_label.text += "\rToll R: " + player_value.Inv_ToolR_Equiped
+		ps_label.text += "\rSpell: " + player_value.Inv_Spell_Equiped
+		ps_label.text += "\rUItem 1: " + player_value.Inv_Uitem1_Equiped
+		ps_label.text += "\rUItem 2: " + player_value.Inv_Uitem2_Equiped
+		ps_label.text += "\rUItem 3: " + player_value.Inv_Uitem3_Equiped
 	
 	if global.Gdebug_active == true:
 		player_H_bar.visible = true
 		player_E_bar.visible = true
-		$"../PLayer State".visible = true
 	else:
 		player_H_bar.visible = false
 		player_E_bar.visible = false
-		$"../PLayer State".visible = false
 	
 	player_H_bar.value = player_value.Health
 	player_E_bar.value = player_value.Stamina
@@ -122,7 +138,7 @@ func Tool_HUD():
 	if player_value.Inv_ToolR_Equiped == "null":
 		ToolR.text = "Hand"
 		cross_hand.visible = true
-	elif player_value.Inv_ToolL_Equiped == "null":
+	if player_value.Inv_ToolL_Equiped == "null":
 		ToolL.text = "Hand"
 		cross_hand.visible = true
 		
@@ -134,12 +150,12 @@ func Tool_HUD():
 		ToolL.text = "Gun"
 		ToolL.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagA, Tool_Script.Max_Ammo_MagA, Tool_Script.MagA_Num]
 	
-	if player_value.Inv_ToolR_Equiped == "Assalt rifle":
+	if player_value.Inv_ToolR_Equiped == "Assault rifle":
 		ToolR.text = "Assalt"
 		cross_gun.visible = true
 		ToolR.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagB, Tool_Script.Max_Ammo_MagB, Tool_Script.MagB_Num]
 	
-	elif player_value.Inv_ToolL_Equiped == "Assalt rifle":
+	elif player_value.Inv_ToolL_Equiped == "Assault rifle":
 		ToolL.text = "Assalt"
 		cross_gun.visible = true
 		ToolL.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagB, Tool_Script.Max_Ammo_MagB, Tool_Script.MagB_Num]

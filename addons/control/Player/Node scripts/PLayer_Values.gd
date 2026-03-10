@@ -1,5 +1,14 @@
 extends Node3D
 
+@onready var tool_Sword: TextureButton = $"../Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_Sword_Ico"
+@onready var tool_Sword_name: MarginContainer = $"../Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool Sword"
+
+@onready var tool_HandGun: TextureButton = $"../Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_HandG_Ico"
+@onready var tool_HandGun_name: MarginContainer = $"../Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool HandGun"
+
+@onready var tool_AssaltRifle: TextureButton = $"../Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_AssaltR_Ico"
+@onready var tool_AssaltRifle_name: MarginContainer = $"../Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool AssaltRifle"
+
 # These are debug variables to detect the state the Player is in
 var INSIGHT_Player_State_Movement : String
 var Player_State_Movement : String # Reflect player movement 
@@ -78,7 +87,7 @@ func _ready():
 	Player_State_Update("SPC", "NULL")
 	Player_State_Update("ToolR", "NULL")
 	Player_State_Update("ToolL", "NULL")
-	#Player_State_Update("ToolDir", "NULL")
+	Player_State_Update("ToolDir", "NULL")
 
 func _process(delta: float) -> void:
 	# When the player is alive, the mouse is captured
@@ -162,7 +171,7 @@ func Player_State_Update(Type, Player_State):
 		Tool_L_State = Player_State
 		Tool_Fatigue = 0
 	elif Type == "ToolDir":
-		INSIGHT_Tool_Direction_Use = str("Tool Direction: ", Player_State, "\r")
+		INSIGHT_Tool_Direction_Use = str("Tool Direction: ", Player_State)
 		Tool_Direction_Use = Player_State
 
 func Heal(Type, amount):
@@ -213,6 +222,11 @@ func Reg_Process(delta):
 			Stamina = Stamina_Max
 			Reg_Active = false
 
+#var UItem_ID = {
+	#"null": {"heal_values": 0, "quantity": 0, "special id": ""},
+	#"Glass flask": {"heal_values": Health_Max/3, "quantity": Glass_flask_quantity, "special id": "renewable"},
+	#"Wild gold": {"heal_values": 2, "quantity": Wild_gold_quantity, "special id": ""}
+#}
 var UItem_ID = [
 	{"name": "", "heal_value": 0, "quantity": 0, "special id": ""},
 	{"name": "Glass flask", "heal_value": Health_Max/3, "quantity": Glass_flask_quantity, "special id": "renewable"},
@@ -221,27 +235,34 @@ var UItem_ID = [
 func UItem_Get_ID() -> Dictionary:
 	if Usable_Item_Selected >= 0 and Usable_Item_Selected < UItem_ID.size():
 		return UItem_ID[Usable_Item_Selected]
-	return {}
+	return UItem_ID[0]
 
 var Tool_ID = {
-	"Hand": {"damage": 0},
-	"HandGun": {"damage": 3},
-	"AssaultRifle": {"damage": 6},
-	"Sword": {"damage": 8}
+	"Hand": {
+		"damage": 0, 
+		"equipped?": false, 
+		"picked?": true
+		},
+	"HandGun": {
+		"damage": 3, 
+		"equipped?": false, 
+		"picked?": true
+		},
+	"AssaultRifle": {
+		"damage": 6, 
+		"equipped?": false, 
+		"picked?": true
+		},
+	"Sword": {
+		"damage": 8, 
+		"equipped?": false, 
+		"picked?": true
+		}
 }
 
-
-#var Tool_ID = [ 
-	#{"name": "Hand", "damage": 0, }, # Tool information for the Hand
-	#{"name": "Hand gun", "damage": 3}, # Tool information for the Hand gun
-	#{"name": "Assalt rifle", "damage": 6}, # Tool information for the Rifle
-	#{"name": "Sword", "damage": 8} # Tool information for the Melee
-#]
-#var ToolL_ID = [
-	#{"name": "Hand", "id": "close"}, # Tool information for the Hand
-	#{"name": "HandGun", "id": "range"}, # Tool information for the Gun
-	#{"name": "Sword", "id": "melee"} # Tool information for the Melee
-#]
+var Equipped_Items = [
+	
+]
 
 func Tool_Get_ID() -> Dictionary:
 	if Tool_Direction_Use == "Right":
@@ -251,41 +272,19 @@ func Tool_Get_ID() -> Dictionary:
 			"Hand gun":
 				return Tool_ID["HandGun"]
 			"Assault rifle":
-				return Tool_ID["AssaltRife"]
+				return Tool_ID["AssaultRifle"]
 			"Sword":
 				return Tool_ID["Sword"]
 
 	elif Tool_Direction_Use == "Left":
-		match Inv_ToolR_Equiped:
+		match Inv_ToolL_Equiped:
 			"null":
 				return Tool_ID["Hand"]
 			"Hand gun":
 				return Tool_ID["HandGun"]
 			"Assault rifle":
-				return Tool_ID["AssaltRife"]
+				return Tool_ID["AssaultRifle"]
 			"Sword":
 				return Tool_ID["Sword"]
 
-	#if Tool_Direction_Use == "Right":
-		#if Inv_ToolR_Equiped == "null":
-			#return Tool_ID[0]
-		#if Inv_ToolR_Equiped == "Hand gun":
-			#return Tool_ID[1]
-		#if Inv_ToolR_Equiped == "Assalt rifle":
-			#return Tool_ID[2]
-		#if Inv_ToolR_Equiped == "Sword":
-			#return Tool_ID[3]
-	#if Tool_Direction_Use == "Left":
-		#if Inv_ToolL_Equiped == "null":
-			#return Tool_ID[0]
-		#if Inv_ToolL_Equiped == "Hand gun":
-			#return Tool_ID[1]
-		#if Inv_ToolL_Equiped == "Assalt rifle":
-			#return Tool_ID[2]
-		#if Inv_ToolL_Equiped == "Sword":
-			#return Tool_ID[3]
-	return {}
-#func ToolLGet_ID() -> Dictionary:
-	#if L_Hand_In_Use >= 0 and L_Hand_In_Use < ToolL_ID.size():
-		#return ToolL_ID[L_Hand_In_Use]
-	#return {}
+	return Tool_ID["Hand"]

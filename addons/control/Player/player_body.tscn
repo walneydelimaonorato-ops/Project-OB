@@ -1,10 +1,10 @@
-[gd_scene load_steps=58 format=3 uid="uid://pk1seghcippn"]
+[gd_scene load_steps=57 format=3 uid="uid://pk1seghcippn"]
 
-[ext_resource type="Script" uid="uid://boqkeglydnx0g" path="res://addons/control/Player/Tool_Script.gd" id="1_3a0aq"]
-[ext_resource type="Script" uid="uid://dt0yl082n2oqn" path="res://addons/control/Player/PLayer_Values.gd" id="1_6m8h1"]
+[ext_resource type="Script" uid="uid://boqkeglydnx0g" path="res://addons/control/Player/Node scripts/Tool_Script.gd" id="1_3a0aq"]
+[ext_resource type="Script" uid="uid://dt0yl082n2oqn" path="res://addons/control/Player/Node scripts/PLayer_Values.gd" id="1_6m8h1"]
 [ext_resource type="Script" uid="uid://bi601vlc1j2ja" path="res://addons/control/Player/Player_Main.gd" id="1_oevhw"]
-[ext_resource type="Script" uid="uid://nutiukyae4e8" path="res://addons/control/Player/Animation_Script.gd" id="2_0b6ky"]
-[ext_resource type="Script" uid="uid://dgmq1edxkpfyf" path="res://addons/control/Player/CLR.gd" id="4_eg1qv"]
+[ext_resource type="Script" uid="uid://nutiukyae4e8" path="res://addons/control/Player/Node scripts/Animation_Script.gd" id="2_0b6ky"]
+[ext_resource type="Script" uid="uid://dgmq1edxkpfyf" path="res://addons/control/Player/Node scripts/CLR.gd" id="4_eg1qv"]
 [ext_resource type="Texture2D" uid="uid://bmqlkkf7u8d12" path="res://addons/sprites/crosshairs/Untitled163_20260206042559.png" id="5_6m8h1"]
 [ext_resource type="Texture2D" uid="uid://bj6tysjlasdjk" path="res://addons/sprites/TST_heal_part/TST_heart3.png" id="6_ewymf"]
 [ext_resource type="Texture2D" uid="uid://dqx5nhplbq5yh" path="res://addons/sprites/crosshairs/Untitled163_20260206042605.png" id="6_oevhw"]
@@ -33,7 +33,6 @@
 [ext_resource type="Texture2D" uid="uid://c3hq8xwt3x7tb" path="res://addons/control/Player/Menus/Menu visuals/Item_Selection_Menu.png" id="65_77qxm"]
 [ext_resource type="Texture2D" uid="uid://b26nda3wjtu6i" path="res://addons/control/Player/Menus/Menu visuals/V1/Inventory_Braces_Frame.png" id="65_qp06t"]
 [ext_resource type="Script" uid="uid://bgysdiwh5k0db" path="res://addons/control/Player/Menus/Item_Selection.gd" id="66_kno47"]
-[ext_resource type="Texture2D" uid="uid://c3dkoem8b73i5" path="res://addons/control/Player/Menus/Menu visuals/UItem_Blank.png" id="66_ot6f4"]
 [ext_resource type="Texture2D" uid="uid://vrfksoxp8byy" path="res://addons/control/Player/Menus/Menu visuals/V1/Inventory_Armor_Frame.png" id="66_t4you"]
 [ext_resource type="Texture2D" uid="uid://dp0l1lyik773b" path="res://addons/control/Player/Menus/Menu visuals/V1/Inventory_ToolL_Frame.png" id="67_cuybu"]
 [ext_resource type="Texture2D" uid="uid://bd8fo0afy4sj7" path="res://addons/control/Player/Menus/Menu visuals/V1/Inventory_ToolR_Frame.png" id="68_vf2vc"]
@@ -557,19 +556,19 @@ theme_override_constants/separation = 10
 
 [node name="Spell_Icon" type="TextureRect" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Icons/UItems_Spell Grid"]
 layout_mode = 2
-texture = ExtResource("66_ot6f4")
+texture = ExtResource("71_lkfud")
 
 [node name="UItem_Icon_1" type="TextureRect" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Icons/UItems_Spell Grid"]
 layout_mode = 2
-texture = ExtResource("66_ot6f4")
+texture = ExtResource("71_lkfud")
 
 [node name="UItem_Icon_2" type="TextureRect" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Icons/UItems_Spell Grid"]
 layout_mode = 2
-texture = ExtResource("66_ot6f4")
+texture = ExtResource("71_lkfud")
 
 [node name="UItem_Icon_3" type="TextureRect" parent="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Icons/UItems_Spell Grid"]
 layout_mode = 2
-texture = ExtResource("66_ot6f4")
+texture = ExtResource("71_lkfud")
 
 [node name="Item Selection" type="Control" parent="Head/CanvasLayer/face/GUI/Control/Menus"]
 anchors_preset = 0
@@ -843,41 +842,39 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 0.2)
 
-[node name="Debug Panel" type="PanelContainer" parent="Head/CanvasLayer/face"]
-visible = false
+[node name="Debug Insight" type="Control" parent="Head/CanvasLayer/face"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("52_odvgq")
+
+[node name="Debug page" type="Label" parent="Head/CanvasLayer/face/Debug Insight"]
+layout_mode = 0
+offset_left = -532.0
+offset_top = -292.0
+offset_right = -492.0
+offset_bottom = -269.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+text = "ass"
+
+[node name="DB Insight" type="MarginContainer" parent="Head/CanvasLayer/face/Debug Insight"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
 offset_left = -532.0
-offset_top = -280.0
+offset_top = -265.0
 offset_right = -332.0
-offset_bottom = -240.0
-script = ExtResource("52_odvgq")
+offset_bottom = -225.0
 
-[node name="DB Insight" type="MarginContainer" parent="Head/CanvasLayer/face/Debug Panel"]
-custom_minimum_size = Vector2(200, 0)
+[node name="Panel" type="Panel" parent="Head/CanvasLayer/face/Debug Insight/DB Insight"]
 layout_mode = 2
 
-[node name="DB_List" type="VBoxContainer" parent="Head/CanvasLayer/face/Debug Panel/DB Insight"]
+[node name="DB_List" type="VBoxContainer" parent="Head/CanvasLayer/face/Debug Insight/DB Insight"]
 layout_mode = 2
 
-[node name="PLayer State" type="PanelContainer" parent="Head/CanvasLayer/face"]
-visible = false
-layout_mode = 0
-offset_left = -328.0
-offset_top = -280.0
-offset_right = -288.0
-offset_bottom = -230.0
-
-[node name="PS Insight" type="MarginContainer" parent="Head/CanvasLayer/face/PLayer State"]
+[node name="PS_List" type="VBoxContainer" parent="Head/CanvasLayer/face/Debug Insight/DB Insight"]
 layout_mode = 2
 
-[node name="PS_List" type="VBoxContainer" parent="Head/CanvasLayer/face/PLayer State/PS Insight"]
-layout_mode = 2
-
-[node name="PS_Label" type="Label" parent="Head/CanvasLayer/face/PLayer State/PS Insight/PS_List"]
-layout_mode = 2
-
-[node name="PS_Label2" type="Label" parent="Head/CanvasLayer/face/PLayer State/PS Insight/PS_List"]
+[node name="PS_Label" type="Label" parent="Head/CanvasLayer/face/Debug Insight/DB Insight/PS_List"]
 layout_mode = 2
 
 [connection signal="animation_finished" from="Head/CameraPlayer/Player_Model/Tool Gun/TST_M1911/M1911 Anims" to="Animation_Handler" method="_on_m_1911_anims_animation_finished"]

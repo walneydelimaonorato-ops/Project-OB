@@ -45,7 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://beejxne86vkb3" path="res://addons/sprites/gun sprite/Untitled158_20260129154025.png" id="40_njtt0"]
 [ext_resource type="Texture2D" uid="uid://bk77i661qt4eq" path="res://addons/sprites/gun sprite/Untitled158_20260129154028.png" id="41_tkx3l"]
 [ext_resource type="Script" uid="uid://bba6o0h5a5r4u" path="res://addons/control/debug.gd" id="42_glw3h"]
-[ext_resource type="Script" uid="uid://dgmq1edxkpfyf" path="res://addons/control/Player/CLR.gd" id="43_84hlc"]
+[ext_resource type="Script" uid="uid://dgmq1edxkpfyf" path="res://addons/control/Player/Node scripts/CLR.gd" id="43_84hlc"]
 [ext_resource type="AudioStream" uid="uid://dlg7kxdqdyt23" path="res://addons/sounds/Player sfx/Tool sfx/Gun_Sfx_Reload.mp3" id="43_vm0v0"]
 [ext_resource type="AudioStream" uid="uid://buajyevd6ov5j" path="res://addons/sounds/Player sfx/Tool sfx/Gun_Sfx_Shoot.mp3" id="44_y6u2e"]
 [ext_resource type="AudioStream" uid="uid://dvemw4de8fcox" path="res://addons/sounds/Player sfx/Tool sfx/Gun_Sfx_Click.mp3" id="45_k3n4k"]

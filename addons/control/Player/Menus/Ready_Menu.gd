@@ -102,7 +102,7 @@ func Remove_Item():
 			Valid_Icon_Selected = true
 	
 	if Valid_Icon_Selected == true:
-		Selected_Icon.texture = load("res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_Ico_True_Blank.png")
+		Selected_Icon.texture = load("uid://qua4cq3ubssm")
 	else:
 		# Item_SLot_State = "Empty"
 		pass

@@ -20,14 +20,28 @@ extends Control
 @onready var tool_AssaltRifle_name: MarginContainer = $"Tools Scroller/Tools Grid/Tool Icons Name/Tool AssaltRifle"
 
 @onready var wear_1_ico: TextureButton = $"Tools Scroller/Tools Grid/Wear Icons/Wear_1_Ico"
-@onready var wear_2_ico: TextureButton = $"Tools Scroller/Tools Grid/Wear Icons/wear_2_Ico"
+@onready var wear_1_name: MarginContainer = $"Tools Scroller/Tools Grid/Wear Icons Name/Wear 1"
 
-@onready var brace_gold_ico: TextureButton = $"Tools Scroller/Tools Grid/Braces Icons/Brace_Gold_Ico"
+@onready var wear_2_ico: TextureButton = $"Tools Scroller/Tools Grid/Wear Icons/wear_2_Ico"
+@onready var wear_2_name: MarginContainer = $"Tools Scroller/Tools Grid/Wear Icons Name/Wear 2"
+
+@onready var brace_golden_ico: TextureButton = $"Tools Scroller/Tools Grid/Braces Icons/Brace_Gold_Ico"
+@onready var brace_golden_name: MarginContainer = $"Tools Scroller/Tools Grid/Brace Icon Name/Golden"
+
 @onready var brace_cling_ico: TextureButton = $"Tools Scroller/Tools Grid/Braces Icons/Brace_Cling_Ico"
+@onready var brace_cling_name: MarginContainer = $"Tools Scroller/Tools Grid/Brace Icon Name/Cling"
+
 @onready var brace_clorophyl_ico: TextureButton = $"Tools Scroller/Tools Grid/Braces Icons/Brace_Clorophyl_Ico"
+@onready var brace_clorophyl_name: MarginContainer = $"Tools Scroller/Tools Grid/Brace Icon Name/Clorophyl"
+
 @onready var brace_fortune_ico: TextureButton = $"Tools Scroller/Tools Grid/Braces Icons/Brace_Fortune_Ico"
+@onready var brace_fortune_name: MarginContainer = $"Tools Scroller/Tools Grid/Brace Icon Name/Fortune"
+
 @onready var brace_power_ico: TextureButton = $"Tools Scroller/Tools Grid/Braces Icons/Brace_Power_Ico"
+@onready var brace_power_name: MarginContainer = $"Tools Scroller/Tools Grid/Brace Icon Name/Power"
+
 @onready var brace_rotten_ico: TextureButton = $"Tools Scroller/Tools Grid/Braces Icons/Brace_Rotten_Ico"
+@onready var brace_rotten_name: MarginContainer = $"Tools Scroller/Tools Grid/Brace Icon Name/Rotten"
 
 
 var tool_Sword_availeble = true
@@ -38,8 +52,13 @@ var wear_1_availeble = true
 var wear_2_availeble = true
 var wear_3_availeble = true
 
+
+
 func Replace_Icon(Replaced_Texture, Icon_Path):
 	Replaced_Texture.texture = Icon_Path.texture_normal
+
+func _ready() -> void:
+	pass
 
 func _process(delta: float) -> void:
 	Item_Selection_Mode()
@@ -90,43 +109,33 @@ func Item_Selection_Mode():
 		brace_list_nam.visible = false
 
 func Item_Avaliability():
-	if player_value.Inv_Wear_Equiped == "null":
-		pass
+	var Tool_UI = {
+		"Sword": [tool_Sword, tool_Sword_name],
+		"Hand gun": [tool_HandGun, tool_HandGun_name],
+		"Assault rifle": [tool_AssaltRifle, tool_AssaltRifle_name],
+		"Upper Mewclad Arm.": [wear_1_ico, wear_1_name],
+		"Lower Mewclad Arm.": [wear_2_ico, wear_2_name],
+		"Golden Bra.": [brace_golden_ico, brace_golden_name],
+		"Brace Bra.": [brace_cling_ico, brace_cling_name],
+		"Clorophyl Bra.": [brace_clorophyl_ico, brace_clorophyl_name],
+		"Fortune Bra.": [brace_fortune_ico, brace_fortune_name],
+		"Power Bra.": [brace_power_ico, brace_power_name],
+		"Rotten Bra.": [brace_rotten_ico, brace_rotten_name]
+	}
+	var equipped = [
+		player_value.Inv_ToolR_Equiped,
+		player_value.Inv_ToolL_Equiped,
+		player_value.Inv_Wear_Equiped,
+		player_value.Inv_Brace_Equiped
+	]
 	
-	if player_value.Inv_ToolR_Equiped == "null" or player_value.Inv_ToolL_Equiped == "null":
-		pass
-	
-	if player_value.Inv_ToolR_Equiped == "Hand gun" or player_value.Inv_ToolL_Equiped == "Hand gun":
-		tool_HandGun_availeble = false
-	else:
-		tool_HandGun_availeble = true
-	if player_value.Inv_ToolR_Equiped == "Assalt rifle" or  player_value.Inv_ToolL_Equiped == "Assalt rifle":
-		tool_AssaltRifle_availeble = false
-	else:
-		tool_AssaltRifle_availeble = true
-	if player_value.Inv_ToolR_Equiped == "Sword" or  player_value.Inv_ToolL_Equiped == "Sword":
-		tool_Sword_availeble = false
-	else:
-		tool_Sword_availeble = true
-	
-	if tool_Sword_availeble == true:
-		tool_Sword.visible = true
-		tool_Sword_name.visible = true
-	else:
-		tool_Sword.visible = false
-		tool_Sword_name.visible = false
-	if tool_HandGun_availeble == true:
-		tool_HandGun.visible = true
-		tool_HandGun_name.visible = true
-	else:
-		tool_HandGun.visible = false
-		tool_HandGun_name.visible = false
-	if tool_AssaltRifle_availeble == true:
-		tool_AssaltRifle.visible = true
-		tool_AssaltRifle_name.visible = true
-	else:
-		tool_AssaltRifle.visible = false
-		tool_AssaltRifle_name.visible = false
+	for item_name in Tool_UI:
+		var available = not item_name in equipped
+		
+		var nodes = Tool_UI[item_name]
+		
+		nodes[0].visible = available
+		nodes[1].visible = available
 
 func focus_first_visible(container):
 	for child in container.get_children():
@@ -141,59 +150,66 @@ func _on_wear_1_ico_pressed() -> void:
 	if player_value.Item_Menu_Slot == "Wear2":
 		Replace_Icon(ready_menu.wear_icon_2, wear_1_ico)
 		player_value.Ready_Menu_To_Item_Selection_Update("Wear", "Upper Mewclad Arm.")
+		player_value.Menu_Backwards(2)
 func _on_wear_2_ico_pressed() -> void:
 	if player_value.Item_Menu_Slot == "Wear2":
 		Replace_Icon(ready_menu.wear_icon_2, wear_2_ico)
 		player_value.Ready_Menu_To_Item_Selection_Update("Wear", "Lower Mewclad Arm.")
-
+		player_value.Menu_Backwards(2)
 
 func _on_tool_sword_ico_pressed() -> void:
 	if player_value.Item_Menu_Slot == "Tool1":
-		Replace_Icon(ready_menu.tool_icon_1, tool_Sword)
+		Replace_Icon(ready_menu.tool_icon_1, player_value.tool_Sword)
 		player_value.Ready_Menu_To_Item_Selection_Update("Tool L", "Sword")
 	elif player_value.Item_Menu_Slot == "Tool2":
-		Replace_Icon(ready_menu.tool_icon_2, tool_Sword)
+		Replace_Icon(ready_menu.tool_icon_2, player_value.tool_Sword)
 		player_value.Ready_Menu_To_Item_Selection_Update("Tool R", "Sword")
 	player_value.Menu_Backwards(2)
 func _on_tool_hand_g_ico_pressed() -> void:
 	if player_value.Item_Menu_Slot == "Tool1":
-		Replace_Icon(ready_menu.tool_icon_1, tool_HandGun)
+		Replace_Icon(ready_menu.tool_icon_1, player_value.tool_HandGun)
 		player_value.Ready_Menu_To_Item_Selection_Update("Tool L", "Hand gun")
 	elif player_value.Item_Menu_Slot == "Tool2":
-		Replace_Icon(ready_menu.tool_icon_2, tool_HandGun)
+		Replace_Icon(ready_menu.tool_icon_2, player_value.tool_HandGun)
 		player_value.Ready_Menu_To_Item_Selection_Update("Tool R", "Hand gun")
 	player_value.Menu_Backwards(2)
 func _on_tool_assalt_r_ico_pressed() -> void:
 	if player_value.Item_Menu_Slot == "Tool1":
-		Replace_Icon(ready_menu.tool_icon_1, tool_AssaltRifle)
-		player_value.Ready_Menu_To_Item_Selection_Update("Tool L", "Assalt rifle")
+		Replace_Icon(ready_menu.tool_icon_1, player_value.tool_AssaltRifle)
+		player_value.Ready_Menu_To_Item_Selection_Update("Tool L", "Assault rifle")
 	elif player_value.Item_Menu_Slot == "Tool2":
-		Replace_Icon(ready_menu.tool_icon_2, tool_AssaltRifle)
-		player_value.Ready_Menu_To_Item_Selection_Update("Tool R", "Assalt rifle")
+		Replace_Icon(ready_menu.tool_icon_2, player_value.tool_AssaltRifle)
+		player_value.Ready_Menu_To_Item_Selection_Update("Tool R", "Assault rifle")
 	player_value.Menu_Backwards(2)
 
 
 func _on_brace_gold_ico_pressed() -> void:
 	if player_value.Item_Menu_Slot == "Brace":
-		Replace_Icon(ready_menu.wear_icon_1, brace_gold_ico)
+		Replace_Icon(ready_menu.wear_icon_1, brace_golden_ico)
 		player_value.Ready_Menu_To_Item_Selection_Update("Brace", "Golden Bra.")
+		player_value.Menu_Backwards(2)
 func _on_brace_cling_ico_pressed() -> void:
 	if player_value.Item_Menu_Slot == "Brace":
 		Replace_Icon(ready_menu.wear_icon_1, brace_cling_ico)
 		player_value.Ready_Menu_To_Item_Selection_Update("Brace", "Cling Bra.")
+		player_value.Menu_Backwards(2)
 func _on_brace_clorophyl_ico_pressed() -> void:
 	if player_value.Item_Menu_Slot == "Brace":
 		Replace_Icon(ready_menu.wear_icon_1, brace_clorophyl_ico)
 		player_value.Ready_Menu_To_Item_Selection_Update("Brace", "Clorophyl Bra.")
+		player_value.Menu_Backwards(2)
 func _on_brace_fortune_ico_pressed() -> void:
 	if player_value.Item_Menu_Slot == "Brace":
 		Replace_Icon(ready_menu.wear_icon_1, brace_fortune_ico)
 		player_value.Ready_Menu_To_Item_Selection_Update("Brace", "Fortune Bra.")
+		player_value.Menu_Backwards(2)
 func _on_brace_power_ico_pressed() -> void:
 	if player_value.Item_Menu_Slot == "Brace":
 		Replace_Icon(ready_menu.wear_icon_1, brace_power_ico)
 		player_value.Ready_Menu_To_Item_Selection_Update("Brace", "Power Bra.")
+		player_value.Menu_Backwards(2)
 func _on_brace_rotten_ico_pressed() -> void:
 	if player_value.Item_Menu_Slot == "Brace":
 		Replace_Icon(ready_menu.wear_icon_1, brace_rotten_ico)
 		player_value.Ready_Menu_To_Item_Selection_Update("Brace", "Rotten Bra.")
+		player_value.Menu_Backwards(2)
