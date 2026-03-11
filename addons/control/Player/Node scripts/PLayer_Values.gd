@@ -236,31 +236,46 @@ func UItem_Get_ID() -> Dictionary:
 var Tool_ID = {
 	"Hand": {
 		"damage": 0, 
+"picked?": true
 		"equipped?": false, 
-		"picked?": true
+"can be used?": true
 		},
 	"HandGun": {
-		"damage": 3, 
-		"equipped?": false, 
-		"picked?": true
+		"damage": 6, 
+		"picked?": true,
+"usable?": true
 		},
 	"AssaultRifle": {
-		"damage": 6, 
-		"equipped?": false, 
-		"picked?": true
+		"damage": 15, 
+		"picked?": true,
+"usable?": true
 		},
 	"Sword": {
-		"damage": 8, 
-		"equipped?": false, 
-		"picked?": true
+		"damage": 20, 
+		"picked?": true,
+"usable?": true
 		}
+"Dagger": {
+"damage": 10,
+"picked?": true,
+"usable?": true
+}
+"Special Bow": {
+"damage": 25
+"picked?": true,
+"usable?": true
 }
 
-var Equipped_Items = [
-	
-]
+"Sunfire": {
+"damage": 99999,
+"picked": true,
+"usable": true
+}
+}
 
 func Tool_Get_ID() -> Dictionary:
+# This function first detects which hand has used a tool "Right" and "Left", then it checks what tools the player has equipped and pics the tools respective data.
+
 	if Tool_Direction_Use == "Right":
 		match Inv_ToolR_Equiped:
 			"null":
@@ -284,3 +299,4 @@ func Tool_Get_ID() -> Dictionary:
 				return Tool_ID["Sword"]
 
 	return Tool_ID["Hand"]
+# if it can't find anything, it defaults to "Hand".
