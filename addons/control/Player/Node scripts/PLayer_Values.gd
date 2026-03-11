@@ -91,12 +91,12 @@ func _process(delta: float) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	
-	# Sets the minimum and maximum for "Health" and "Stamina"
+	# Sets the minimum and maximum for "Health", "Stamina" and "Menu_Depth".
 	Health_Max = clamp(Health_Max, 10, Dummy_Health_Max)
 	Health = clamp(Health, 0, Health_Max)
 	Stamina = clamp(Stamina, 0, Stamina_Max)
 	Menu_Depth = clamp(Menu_Depth, 0, Menu_Depth_Max)
-	
+
 	inter_press_time = clamp(inter_press_time, 0, 0.50)
 	
 	Dummy_Health_Max = Health_Max + Health_Bonus
@@ -108,6 +108,8 @@ func _process(delta: float) -> void:
 		Alive = false
 
 func Ready_Menu_To_Item_Selection_Update(Item_Slot, Item):
+# This function is used in Item_Selection.gd and its a reference point for items. Anything* related to equipped items stem from here
+
 	if Item_Slot == "Brace":
 		Inv_Brace_Equiped = Item
 	elif Item_Slot == "Wear":
