@@ -51,7 +51,9 @@ var Inv_Uitem2_Equiped = "null"
 var Inv_Uitem3_Equiped = "null"
 
 var Tool_Fatigue = 0
-var Damage_Bonus = 0
+var Physical_Damage_Bonus = 0
+var Divine_Damage_Bonus = 0
+var Heretic_Damage_Bonus = 0
 var INSIGHT_Tool_R_State = ""
 var Tool_R_State = ""
 var INSIGHT_Tool_L_State = ""
@@ -219,10 +221,22 @@ func Reg_Process(delta):
 			Reg_Active = false
 
 #var UItem_ID = {
-	#"null": {"heal_values": 0, "quantity": 0, "special id": ""},
-	#"Glass flask": {"heal_values": Health_Max/3, "quantity": Glass_flask_quantity, "special id": "renewable"},
-	#"Wild gold": {"heal_values": 2, "quantity": Wild_gold_quantity, "special id": ""}
-#}
+	#"null": {
+"heal_values": 0,
+"quantity": 0,
+"special id": ""
+},
+	#"Glass flask": {
+"heal_values": Health_Max/3
+"quantity": Glass_flask_quantity
+"special id": "renewable"
+},
+	#"Wild gold": {
+"heal_values": 2
+"quantity": Wild_gold_quantity
+"special id": ""
+}
+}
 var UItem_ID = [
 	{"name": "", "heal_value": 0, "quantity": 0, "special id": ""},
 	{"name": "Glass flask", "heal_value": Health_Max/3, "quantity": Glass_flask_quantity, "special id": "renewable"},
@@ -265,11 +279,28 @@ var Tool_ID = {
 "picked?": true,
 "usable?": true
 }
-
 "Sunfire": {
 "damage": 99999,
-"picked": true,
-"usable": true
+"picked?": true,
+"usable?": true
+}
+}
+
+var Spell_ID: {
+"Lightning": {
+"damage": 20 + Divine_Damage_Bonus,
+"picked?": true,
+"usable?": true
+},
+"Heal": {
+"damage": 0,
+"picked?": true,
+"usable?": true
+},
+"Heresy": {
+"damage": 10 + Heretic_Damage_Bonus,
+"picked?": true,
+"usable?": true
 }
 }
 
