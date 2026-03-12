@@ -149,7 +149,7 @@ func _process(delta: float) -> void:
 						player_value.inter_button_tapped = false
 		
 		Tool_Script.Use_UItem()
-		Tool_Script.Tool_Rotate() # Callsed when switching Tools
+
 		Tool_Script.UItem_Rotate()
 	if player_value.Alive == true:
 		# Camera

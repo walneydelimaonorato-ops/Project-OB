@@ -1,11 +1,9 @@
-[gd_scene load_steps=21 format=4 uid="uid://b6h4mka4wgrup"]
-
-[ext_resource type="Texture2D" uid="uid://deokevvsu37su" path="res://addons/control/Player/Models/TST/TST_M14_CODBOW_TEXTURE_2.png" id="1_ltci4"]
+[gd_scene load_steps=20 format=4 uid="uid://b6h4mka4wgrup"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0yyov"]
 resource_name = "Material.001"
 cull_mode = 2
-albedo_texture = ExtResource("1_ltci4")
+albedo_color = Color(0.78431374, 0.33333334, 0, 1)
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5u5sr"]
@@ -45,7 +43,7 @@ shadow_mesh = SubResource("ArrayMesh_5u5sr")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlh6o"]
 resource_name = "Material.002"
 cull_mode = 2
-albedo_texture = ExtResource("1_ltci4")
+albedo_color = Color(1, 1, 0, 1)
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_865r4"]
@@ -85,7 +83,7 @@ shadow_mesh = SubResource("ArrayMesh_865r4")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mii2o"]
 resource_name = "Material.003"
 cull_mode = 2
-albedo_texture = ExtResource("1_ltci4")
+albedo_color = Color(1, 0, 0, 1)
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5f5bj"]

@@ -85,7 +85,7 @@ func Debug_UI():
 	global.debug.add_property("Player coords", player.position, 11)
 	global.debug.add_property("Respawn coords", global.G_Respwan_Coords, 12)
 	#global.debug.add_property("Menu mode", player_value.Menu_mode, 8)
-	#global.debug.add_property("Menu depth", player_value.Menu_Depth, 9)
+	global.debug.add_property("Menu depth", player_value.Menu_Depth, 13)
 	#global.debug.add_property("Menu to", player_value.Item_Menu_To, 10)
 	#global.debug.add_property("Menu slot", player_value.Item_Menu_Slot, 11)
 	#global.debug.add_property("One Time", player_value.One_Time, 12) 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cjkynvbw2btb6"]
+[gd_scene load_steps=43 format=3 uid="uid://cjkynvbw2btb6"]
 
 [ext_resource type="Texture2D" uid="uid://bv2a14psp3a0a" path="res://addons/textures/Dark/texture_07.png" id="1_5ht51"]
 [ext_resource type="Script" uid="uid://boct56aj8lyh4" path="res://addons/scenes/Maps/TST/TST_main_map.gd" id="1_lqdda"]
@@ -89,7 +89,17 @@ resource_local_to_scene = true
 font = ExtResource("12_4h3vi")
 font_size = 50
 
+[sub_resource type="LabelSettings" id="LabelSettings_hlpdm"]
+resource_local_to_scene = true
+font = ExtResource("12_4h3vi")
+font_size = 50
+
 [sub_resource type="LabelSettings" id="LabelSettings_c7uni"]
+resource_local_to_scene = true
+font = ExtResource("12_4h3vi")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_fhlcw"]
 resource_local_to_scene = true
 font = ExtResource("12_4h3vi")
 font_size = 50
@@ -288,6 +298,39 @@ collision_layer = 3
 [node name="Death Text" parent="Player/Head/CanvasLayer/face/GUI/Control/Death Screen" index="0"]
 label_settings = SubResource("LabelSettings_lqdda")
 
+[node name="Tool_Sword_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Tool Sword" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Tool_HandGun_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Tool HandGun" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Tool_AssalrRifle_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Tool AssaltRifle" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Wear_1_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Wear 1" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Wear_2_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Wear 2" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Golden_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Golden" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Cling_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Cling" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Clorophyl_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Clorophyl" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Fortune_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Fortune" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Power_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Power" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Rotten_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Rotten" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
 [node name="Tool_Sword_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool Sword" index="0"]
 label_settings = SubResource("LabelSettings_c7uni")
 
@@ -296,6 +339,9 @@ label_settings = SubResource("LabelSettings_c7uni")
 
 [node name="Tool_AssalrRifle_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool AssaltRifle" index="0"]
 label_settings = SubResource("LabelSettings_c7uni")
+
+[node name="Tool_Bow_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool Bow" index="0"]
+label_settings = SubResource("LabelSettings_fhlcw")
 
 [node name="Wear_1_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons Name/Wear 1" index="0"]
 label_settings = SubResource("LabelSettings_c7uni")
@@ -366,6 +412,11 @@ skeleton = NodePath("")
 [node name="OBJ_Vaporwave_Skybox" parent="." instance=ExtResource("15_1e2ie")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 
+[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/Tool Gun/TST_M1911/M1911 Anims" to="Player/Animation_Handler" method="_on_m_1911_anims_animation_finished"]
+[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/Tool Gun/TST_M14/M14 Anims" to="Player/Animation_Handler" method="_on_m_14_anims_animation_finished"]
+[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/TST_ArmR/Arm_Anims_R" to="Player/Animation_Handler" method="_on_arm_anims_r_animation_finished"]
+[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/TST_ArmL/Arm_Anims_L" to="Player/Animation_Handler" method="_on_arm_anims_l_animation_finished"]
+[connection signal="area_entered" from="Player/Head/CameraPlayer/Player_Model/TST_Sword/Sword_Hitbox" to="Envieroment/Combat/enemies/Enemy" method="_on_sword_hitbox_area_entered"]
 [connection signal="body_entered" from="Pain Box2/Area3D" to="Pain Box2" method="_on_area_3d_body_entered"]
 
 [editable path="Player"]
@@ -373,3 +424,5 @@ transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 [editable path="Player/Head/CameraPlayer/Player_Model/Tool Gun/TST_M14"]
 [editable path="Player/Head/CameraPlayer/Player_Model/TST_ArmR"]
 [editable path="Player/Head/CameraPlayer/Player_Model/TST_ArmL"]
+[editable path="Player/Head/CameraPlayer/Player_Model/TST_Bow"]
+[editable path="Player/Head/CameraPlayer/Player_Model/TST_Sword"]

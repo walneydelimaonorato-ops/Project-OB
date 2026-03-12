@@ -131,21 +131,21 @@ func Ready_Menu_To_Item_Selection_Update(Item_Slot, Item):
 	else:
 		pass
 
-func Menu_Forward(Constraint, Menu_Path, Menu_Slot):
+func Menu_Forward(Constraint, Amount, Menu_Path, Menu_Slot):
 	# Constraint: Checks what depth the player is
 	# Menu Path: What menu the player is going to
 	# Menu Slot: ???
 	if Menu_Depth == Constraint:
-		Menu_Depth += 1
+		Menu_Depth += Amount
 	Item_Menu_To = Menu_Path
 	Item_Menu_Slot = Menu_Slot
 	await get_tree().create_timer(0.01).timeout
 	One_Time = true
 
-func Menu_Backwards(Depth_Level):
+func Menu_Backwards(Depth_Level, Amount):
 	# Depth Level: How deep in the menus the player is
 	if Menu_Depth == Depth_Level:
-		Menu_Depth -= 1
+		Menu_Depth -= Amount
 		One_Time = true
 
 func Player_State_Update(Type, Player_State):
@@ -222,21 +222,21 @@ func Reg_Process(delta):
 
 #var UItem_ID = {
 	#"null": {
-"heal_values": 0,
-"quantity": 0,
-"special id": ""
-},
+	#"heal_values": 0,
+	#"quantity": 0,
+	#"special id": ""
+	#},
 	#"Glass flask": {
-"heal_values": Health_Max/3
-"quantity": Glass_flask_quantity
-"special id": "renewable"
-},
+	#"heal_values": Health_Max/3,
+	#"quantity": Glass_flask_quantity,
+	#"special id": "renewable"
+	#},
 	#"Wild gold": {
-"heal_values": 2
-"quantity": Wild_gold_quantity
-"special id": ""
-}
-}
+	#"heal_values": 2,
+	#"quantity": Wild_gold_quantity,
+	#"special id": ""
+	#}
+#}
 var UItem_ID = [
 	{"name": "", "heal_value": 0, "quantity": 0, "special id": ""},
 	{"name": "Glass flask", "heal_value": Health_Max/3, "quantity": Glass_flask_quantity, "special id": "renewable"},
@@ -250,84 +250,86 @@ func UItem_Get_ID() -> Dictionary:
 var Tool_ID = {
 	"Hand": {
 		"damage": 0, 
-"picked?": true
+		"picked?": true,
 		"equipped?": false, 
-"can be used?": true
+		"can be used?": true
 		},
 	"HandGun": {
 		"damage": 6, 
 		"picked?": true,
-"usable?": true
+		"usable?": true
 		},
 	"AssaultRifle": {
 		"damage": 15, 
 		"picked?": true,
-"usable?": true
+		"usable?": true
 		},
 	"Sword": {
 		"damage": 20, 
 		"picked?": true,
-"usable?": true
-		}
-"Dagger": {
-"damage": 10,
-"picked?": true,
-"usable?": true
-}
-"Special Bow": {
-"damage": 25
-"picked?": true,
-"usable?": true
-}
-"Sunfire": {
-"damage": 99999,
-"picked?": true,
-"usable?": true
-}
+		"usable?": true
+		},
+		"Dagger": {
+		"damage": 10,
+		"picked?": true,
+		"usable?": true
+		},
+		"SpecialBow": {
+		"damage": 25,
+		"picked?": true,
+		"usable?": true
+		},
 }
 
-var Spell_ID: {
-"Lightning": {
-"damage": 20 + Divine_Damage_Bonus,
-"picked?": true,
-"usable?": true
-},
-"Heal": {
-"damage": 0,
-"picked?": true,
-"usable?": true
-},
-"Heresy": {
-"damage": 10 + Heretic_Damage_Bonus,
-"picked?": true,
-"usable?": true
-}
+var Spell_ID = {
+	"Lightning": {
+	"damage": 20 + Divine_Damage_Bonus,
+	"picked?": true,
+	"usable?": true
+	},
+	"Heal": {
+	"damage": 0,
+	"picked?": true,
+	"usable?": true
+	},
+	"Heresy": {
+	"damage": 10 + Heretic_Damage_Bonus,
+	"picked?": true,
+	"usable?": true
+	},
+	"Sunfire": {
+	"damage": 99999,
+	"picked?": true,
+	"usable?": true
+	}
 }
 
 func Tool_Get_ID() -> Dictionary:
-# This function first detects which hand has used a tool "Right" and "Left", then it checks what tools the player has equipped and pics the tools respective data.
-
+# This function first detects which hand has used a tool "Right" and "Left", then it checks what
+# tools the player has equipped and pics the tools respective data.
 	if Tool_Direction_Use == "Right":
 		match Inv_ToolR_Equiped:
 			"null":
 				return Tool_ID["Hand"]
-			"Hand gun":
+			"HandGun":
 				return Tool_ID["HandGun"]
-			"Assault rifle":
+			"AssaultRifle":
 				return Tool_ID["AssaultRifle"]
 			"Sword":
 				return Tool_ID["Sword"]
-
+			"SpecialBow":
+				return Tool_ID["SpecialBow"]
+	
 	elif Tool_Direction_Use == "Left":
 		match Inv_ToolL_Equiped:
 			"null":
 				return Tool_ID["Hand"]
-			"Hand gun":
+			"HandGun":
 				return Tool_ID["HandGun"]
-			"Assault rifle":
+			"AssaultRifle":
 				return Tool_ID["AssaultRifle"]
 			"Sword":
 				return Tool_ID["Sword"]
-
+	
 	return Tool_ID["Hand"]
 # if it can't find anything, it defaults to "Hand".

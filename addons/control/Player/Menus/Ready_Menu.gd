@@ -1,6 +1,7 @@
 extends Control
 
 @onready var player_value : Node3D = $"../../../../../../../Player_Values"
+@onready var Tool_Script: Node3D = $"../../../../../../../Tool_Node"
 @onready var Ready_Menu: Control = $"."
 
 # Buttons
@@ -49,13 +50,16 @@ func _process(delta: float) -> void:
 		player_value.One_Time = false
 	if player_value.Alive == true and player_value.Undeath == false and player_value.Menu_Depth >= 1:
 		self.visible = true
-		player_value.Menu_mode = true
+		if player_value.Menu_Depth == 3:
+			player_value.Menu_mode = true
+			self.visible = false
 	else:
 		self.visible = false
 		player_value.Menu_mode = false
 	
-	if Input.is_action_just_pressed("ui_cancel"):
-		player_value.Menu_Backwards(1)
+	if Input.is_action_just_pressed("ui_cancel") and player_value.Menu_mode == true:
+		player_value.Menu_Backwards(1, 1)
+		Tool_Script.Tool_Rotate() # Callsed when switching Tools
 
 	elif Input.is_action_just_pressed("ui_select") and player_value.Menu_Depth == 1:
 		Remove_Item()
@@ -108,13 +112,15 @@ func Remove_Item():
 		pass
 
 func Pause():
-	player_value.Menu_Forward(0, "", "")
+	player_value.Menu_Forward(0, 1, "", "")
 
 func _on_wear_slot_1_pressed() -> void:
-	player_value.Menu_Forward(1, "Brace", "Brace")
+	player_value.Menu_Forward(1, 1, "Brace", "Brace")
 func _on_wear_slot_2_pressed() -> void:
-	player_value.Menu_Forward(1, "Wear", "Wear2")
+	player_value.Menu_Forward(1, 1, "Wear", "Wear2")
 func _on_tool_slot_1_pressed() -> void:
-	player_value.Menu_Forward(1, "Tool", "Tool1")
+	player_value.Menu_Forward(1, 1, "Tool", "Tool1")
 func _on_tool_slot_2_pressed() -> void:
-	player_value.Menu_Forward(1, "Tool", "Tool2")
+	player_value.Menu_Forward(1, 1, "Tool", "Tool2")
+func _on_tecnical_slot_1_pressed() -> void:
+	player_value.Menu_Forward(1, 2, "Technical", "Technical1")

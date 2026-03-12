@@ -48,7 +48,7 @@ func _process(_delta: float) -> void:
 func damage():
 	if Entity_Type == "Enemy":
 		#await get_tree().create_timer(2.0).timeout
-		Entity_Health -= player_value.Tool_Get_ID()["damage"] + player_value.Damage_Bonus
+		Entity_Health -= player_value.Tool_Get_ID()["damage"] + player_value.Physical_Damage_Bonus
 	
 		if Entity_Health <= 0:
 			Enemy_Anim.play("enemy_dead")
@@ -61,3 +61,8 @@ func damage():
 	await get_tree().create_timer(0.2).timeout
 	if id == emit_request_id:
 		$Bleed.emitting = false
+
+
+func _on_sword_hitbox_area_entered(area: Area3D) -> void:
+	if $Area3D:
+		Entity_Health -= 5

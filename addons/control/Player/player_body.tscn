@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://pk1seghcippn"]
+[gd_scene load_steps=62 format=3 uid="uid://pk1seghcippn"]
 
 [ext_resource type="Script" uid="uid://boqkeglydnx0g" path="res://addons/control/Player/Node scripts/Tool_Script.gd" id="1_3a0aq"]
 [ext_resource type="Script" uid="uid://dt0yl082n2oqn" path="res://addons/control/Player/Node scripts/PLayer_Values.gd" id="1_6m8h1"]
@@ -19,12 +19,17 @@
 [ext_resource type="Texture2D" uid="uid://cwdiwaswft4gp" path="res://addons/sprites/TST_UItems/TST_Wild_gold_Petal.png" id="13_amtkd"]
 [ext_resource type="PackedScene" uid="uid://b1fx3k0uvqeob" path="res://addons/control/Player/Models/TST/TST_arm.tscn" id="13_me1jc"]
 [ext_resource type="LabelSettings" uid="uid://bourldudvh84a" path="res://Main Font.tres" id="13_xrtut"]
+[ext_resource type="PackedScene" uid="uid://7lljb0wt6etg" path="res://addons/control/Player/Models/TST/TST_bow.tscn" id="14_eg1qv"]
+[ext_resource type="PackedScene" uid="uid://bqoovsnw8x0gh" path="res://addons/control/Player/Models/TST/TST_sword.tscn" id="15_oevhw"]
 [ext_resource type="StyleBox" uid="uid://dlt754n4isxye" path="res://No_Button_Outline.tres" id="17_cl7el"]
 [ext_resource type="LabelSettings" uid="uid://dbs43wfge46ty" path="res://Menu_Variation.tres" id="18_cnjxu"]
+[ext_resource type="Script" uid="uid://cay28vcmqiwip" path="res://addons/control/Player/Menus/Item_Showcase.gd" id="24_ax0ch"]
 [ext_resource type="Texture2D" uid="uid://dn0pak7cnr6av" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_MAU_Ico.png" id="41_h8ki7"]
 [ext_resource type="Texture2D" uid="uid://cta6w0p5yldx3" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_MAL_Ico.png" id="42_ax0ch"]
+[ext_resource type="Texture2D" uid="uid://ea0ylccdd6s2" path="res://addons/control/Player/Menus/Menu visuals/Item_Showcase_Menu.png" id="48_h8ki7"]
 [ext_resource type="AudioStream" uid="uid://dlg7kxdqdyt23" path="res://addons/sounds/Player sfx/Tool sfx/Gun_Sfx_Reload.mp3" id="49_8u18b"]
 [ext_resource type="AudioStream" uid="uid://buajyevd6ov5j" path="res://addons/sounds/Player sfx/Tool sfx/Gun_Sfx_Shoot.mp3" id="50_adols"]
+[ext_resource type="Texture2D" uid="uid://hw1177hocef7" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_BOW_Ico.png" id="51_6m8h1"]
 [ext_resource type="AudioStream" uid="uid://dvemw4de8fcox" path="res://addons/sounds/Player sfx/Tool sfx/Gun_Sfx_Click.mp3" id="51_d0hka"]
 [ext_resource type="Script" uid="uid://bba6o0h5a5r4u" path="res://addons/control/debug.gd" id="52_odvgq"]
 [ext_resource type="Texture2D" uid="uid://ieh1ly2bannk" path="res://addons/control/Player/Menus/Menu visuals/V1/Inventory_Bag_Frame.png" id="62_l8u5l"]
@@ -222,6 +227,13 @@ visible = false
 
 [node name="Player_Arm L" parent="Head/CameraPlayer/Player_Model/TST_ArmL" index="1"]
 transform = Transform3D(0.41877645, -0.16400978, -0.20159353, -0.09063529, -0.44003955, 0.18466814, 0.24586053, 0.11714089, 0.4114531, 0.058097318, -0.020720005, -0.40798315)
+
+[node name="TST_Bow" parent="Head/CameraPlayer/Player_Model" instance=ExtResource("14_eg1qv")]
+transform = Transform3D(-8.7422775e-10, -0.008452365, -0.018126154, 0, 0.018126154, -0.008452365, 0.02, -3.6946463e-10, -7.923194e-10, 0, -0.085, -0.315)
+visible = false
+
+[node name="TST_Sword" parent="Head/CameraPlayer/Player_Model" instance=ExtResource("15_oevhw")]
+transform = Transform3D(-0.03, 2.6226832e-09, 1.1464113e-16, 0, -1.3113416e-09, 0.03, 2.6226832e-09, 0.03, 1.3113416e-09, 0, -0.085, -0.521)
 
 [node name="Player_Particles" type="Node2D" parent="Head"]
 
@@ -444,7 +456,224 @@ offset_top = 124.0
 offset_right = 12.0
 offset_bottom = 164.0
 
+[node name="Item Showcase" type="Control" parent="Head/CanvasLayer/face/GUI/Control/Menus"]
+visible = false
+anchors_preset = 0
+offset_left = -262.0
+offset_top = -78.0
+offset_right = -222.0
+offset_bottom = -38.0
+script = ExtResource("24_ax0ch")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("48_h8ki7")
+
+[node name="Tools Scroller" type="ScrollContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase"]
+layout_mode = 0
+offset_left = 16.000011
+offset_top = 15.999975
+offset_right = 1271.0
+offset_bottom = 2380.9995
+scale = Vector2(0.2, 0.2)
+focus_mode = 2
+follow_focus = true
+vertical_scroll_mode = 2
+
+[node name="Tools Grid" type="GridContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller"]
+clip_contents = true
+layout_mode = 2
+columns = 2
+
+[node name="Items_Icons" type="VBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid"]
+layout_mode = 2
+
+[node name="Tool_Sword_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Icons"]
+layout_mode = 2
+texture_normal = ExtResource("80_cuybu")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Tool_HandG_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Icons"]
+layout_mode = 2
+texture_normal = ExtResource("78_qp06t")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Tool_AssaltR_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Icons"]
+layout_mode = 2
+texture_normal = ExtResource("79_t4you")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Wear_1_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Icons"]
+layout_mode = 2
+texture_normal = ExtResource("41_h8ki7")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="wear_2_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Icons"]
+layout_mode = 2
+texture_normal = ExtResource("42_ax0ch")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Brace_Gold_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Icons"]
+layout_mode = 2
+texture_normal = ExtResource("82_vf2vc")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Brace_Cling_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Icons"]
+layout_mode = 2
+texture_normal = ExtResource("83_7fko7")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Brace_Clorophyl_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Icons"]
+layout_mode = 2
+texture_normal = ExtResource("84_3ygbg")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Brace_Fortune_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Icons"]
+layout_mode = 2
+texture_normal = ExtResource("85_me1jc")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Brace_Power_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Icons"]
+layout_mode = 2
+texture_normal = ExtResource("86_y812o")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Brace_Rotten_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Icons"]
+layout_mode = 2
+texture_normal = ExtResource("87_32bis")
+texture_focused = ExtResource("70_iuap3")
+
+[node name="Items_Names" type="VBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Tool Sword" type="MarginContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
+layout_mode = 2
+theme_override_constants/margin_top = 74
+theme_override_constants/margin_bottom = 45
+
+[node name="Tool_Sword_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Tool Sword"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Sword"
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Tool HandGun" type="MarginContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
+layout_mode = 2
+theme_override_constants/margin_top = 79
+
+[node name="Tool_HandGun_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Tool HandGun"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Hand Gun"
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Tool AssaltRifle" type="MarginContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
+layout_mode = 2
+theme_override_constants/margin_top = 120
+
+[node name="Tool_AssalrRifle_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Tool AssaltRifle"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Assalt Rifle"
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Wear 1" type="MarginContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
+layout_mode = 2
+theme_override_constants/margin_top = 135
+
+[node name="Wear_1_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Wear 1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "Mewclad Arm."
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Wear 2" type="MarginContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
+layout_mode = 2
+theme_override_constants/margin_top = 135
+
+[node name="Wear_2_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Wear 2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "Mewclad Arm."
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Golden" type="MarginContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
+layout_mode = 2
+theme_override_constants/margin_top = 135
+
+[node name="Golden_nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Golden"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Golden Bra."
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Cling" type="MarginContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
+layout_mode = 2
+theme_override_constants/margin_top = 125
+
+[node name="Cling_nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Cling"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Cling Bra."
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Clorophyl" type="MarginContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
+layout_mode = 2
+theme_override_constants/margin_top = 125
+
+[node name="Clorophyl_nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Clorophyl"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Clorophyl Bra."
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Fortune" type="MarginContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
+layout_mode = 2
+theme_override_constants/margin_top = 125
+
+[node name="Fortune_nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Fortune"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Fortune Bra."
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Power" type="MarginContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
+layout_mode = 2
+theme_override_constants/margin_top = 125
+
+[node name="Power_nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Power"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Power Bra."
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Rotten" type="MarginContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
+layout_mode = 2
+theme_override_constants/margin_top = 125
+
+[node name="Rotten_nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Rotten"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Rotten Bra."
+label_settings = ExtResource("18_cnjxu")
+
 [node name="Ready Menu" type="Control" parent="Head/CanvasLayer/face/GUI/Control/Menus"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -572,10 +801,10 @@ texture = ExtResource("71_lkfud")
 
 [node name="Item Selection" type="Control" parent="Head/CanvasLayer/face/GUI/Control/Menus"]
 anchors_preset = 0
-offset_left = -9.575012
-offset_top = 8.0
-offset_right = 30.424988
-offset_bottom = 48.0
+offset_left = -10.0
+offset_top = 6.0
+offset_right = 30.0
+offset_bottom = 46.0
 script = ExtResource("66_kno47")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection"]
@@ -614,7 +843,6 @@ layout_mode = 2
 columns = 2
 
 [node name="Tools Icons" type="VBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = -10
 
@@ -633,8 +861,12 @@ layout_mode = 2
 texture_normal = ExtResource("79_t4you")
 texture_focused = ExtResource("70_iuap3")
 
+[node name="Tool_Bow_Ico" type="TextureButton" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons"]
+layout_mode = 2
+texture_normal = ExtResource("51_6m8h1")
+texture_focused = ExtResource("70_iuap3")
+
 [node name="Tool Icons Name" type="VBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 35
 
@@ -669,6 +901,15 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 50
 text = "Assalt Rifle"
+label_settings = ExtResource("18_cnjxu")
+
+[node name="Tool Bow" type="MarginContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name"]
+layout_mode = 2
+theme_override_constants/margin_top = 79
+
+[node name="Tool_Bow_Nam" type="Label" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool Bow"]
+layout_mode = 2
+text = "Bow"
 label_settings = ExtResource("18_cnjxu")
 
 [node name="Wear Icons" type="VBoxContainer" parent="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
@@ -882,6 +1123,7 @@ layout_mode = 2
 [connection signal="animation_finished" from="Head/CameraPlayer/Player_Model/TST_ArmR/Arm_Anims_R" to="Animation_Handler" method="_on_arm_anims_r_animation_finished"]
 [connection signal="animation_finished" from="Head/CameraPlayer/Player_Model/TST_ArmL/Arm_Anims_L" to="Animation_Handler" method="_on_arm_anims_l_animation_finished"]
 [connection signal="button_down" from="Head/CanvasLayer/face/GUI/Control/Death Screen/RespawnB" to="Head/CanvasLayer/face/GUI" method="_on_respawnb_button_down"]
+[connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Tecnical Grid/Tecnical Slot 1" to="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu" method="_on_tecnical_slot_1_pressed"]
 [connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Wear_Tool Grid/Wear Slot 1" to="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu" method="_on_wear_slot_1_pressed"]
 [connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Wear_Tool Grid/Wear Slot 2" to="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu" method="_on_wear_slot_2_pressed"]
 [connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Wear_Tool Grid/Tool Slot 1" to="Head/CanvasLayer/face/GUI/Control/Menus/Ready Menu" method="_on_tool_slot_1_pressed"]
@@ -889,6 +1131,7 @@ layout_mode = 2
 [connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_Sword_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_tool_sword_ico_pressed"]
 [connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_HandG_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_tool_hand_g_ico_pressed"]
 [connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_AssaltR_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_tool_assalt_r_ico_pressed"]
+[connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_Bow_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_tool_bow_ico_pressed"]
 [connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons/Wear_1_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_wear_1_ico_pressed"]
 [connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons/wear_2_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_wear_2_ico_pressed"]
 [connection signal="pressed" from="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Braces Icons/Brace_Gold_Ico" to="Head/CanvasLayer/face/GUI/Control/Menus/Item Selection" method="_on_brace_gold_ico_pressed"]
@@ -902,3 +1145,5 @@ layout_mode = 2
 [editable path="Head/CameraPlayer/Player_Model/Tool Gun/TST_M14"]
 [editable path="Head/CameraPlayer/Player_Model/TST_ArmR"]
 [editable path="Head/CameraPlayer/Player_Model/TST_ArmL"]
+[editable path="Head/CameraPlayer/Player_Model/TST_Bow"]
+[editable path="Head/CameraPlayer/Player_Model/TST_Sword"]
