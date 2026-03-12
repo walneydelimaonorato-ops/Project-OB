@@ -1,6 +1,6 @@
 extends Control
 
-@onready var player_value : Node3D = $"../../../../../../../Player_Values"
+#@onready var PlayerValue : Node3D = $"../../../../../../../PlayerValues"
 @onready var Tool_Script: Node3D = $"../../../../../../../Tool_Node"
 @onready var Ready_Menu: Control = $"."
 
@@ -44,24 +44,24 @@ func on_focus_change(control: Control) -> void:
 		#print("Focus changed to: ", control.name)
 
 func _process(delta: float) -> void:
-	if player_value.One_Time == true and player_value.Menu_Depth == 1:
+	if PlayerValue.One_Time == true and PlayerValue.Menu_Depth == 1:
 		await get_tree().create_timer(0.01).timeout
 		$"Ready Menu Grid/Tecnical Grid/Tecnical Slot 1".grab_focus()
-		player_value.One_Time = false
-	if player_value.Alive == true and player_value.Undeath == false and player_value.Menu_Depth >= 1:
+		PlayerValue.One_Time = false
+	if PlayerValue.Alive == true and PlayerValue.Undeath == false and PlayerValue.Menu_Depth >= 1:
 		self.visible = true
-		if player_value.Menu_Depth == 3:
-			player_value.Menu_mode = true
+		if PlayerValue.Menu_Depth == 3:
+			PlayerValue.Menu_mode = true
 			self.visible = false
 	else:
 		self.visible = false
-		player_value.Menu_mode = false
+		PlayerValue.Menu_mode = false
 	
-	if Input.is_action_just_pressed("ui_cancel") and player_value.Menu_mode == true:
-		player_value.Menu_Backwards(1, 1)
+	if Input.is_action_just_pressed("ui_cancel") and PlayerValue.Menu_mode == true:
+		PlayerValue.Menu_Backwards(1, 1)
 		Tool_Script.Tool_Rotate() # Callsed when switching Tools
 
-	elif Input.is_action_just_pressed("ui_select") and player_value.Menu_Depth == 1:
+	elif Input.is_action_just_pressed("ui_select") and PlayerValue.Menu_Depth == 1:
 		Remove_Item()
 
 func Remove_Item():
@@ -74,35 +74,35 @@ func Remove_Item():
 			Valid_Icon_Selected = false
 		"Wear Slot 1":
 			Selected_Icon = wear_icon_1
-			player_value.Ready_Menu_To_Item_Selection_Update("Brace", "null")
+			PlayerValue.Ready_Menu_To_Item_Selection_Update("Brace", "null")
 			Valid_Icon_Selected = true
 		"Wear Slot 2":
 			Selected_Icon = wear_icon_2
-			player_value.Ready_Menu_To_Item_Selection_Update("Wear", "null")
+			PlayerValue.Ready_Menu_To_Item_Selection_Update("Wear", "null")
 			Valid_Icon_Selected = true
 		"Tool Slot 1":
 			Selected_Icon = tool_icon_1
-			player_value.Ready_Menu_To_Item_Selection_Update("Tool L", "null")
+			PlayerValue.Ready_Menu_To_Item_Selection_Update("Tool L", "null")
 			Valid_Icon_Selected = true
 		"Tool Slot 2":
 			Selected_Icon = tool_icon_2
-			player_value.Ready_Menu_To_Item_Selection_Update("Tool R", "null")
+			PlayerValue.Ready_Menu_To_Item_Selection_Update("Tool R", "null")
 			Valid_Icon_Selected = true
 		"Spell Slot":
 			Selected_Icon = spell_icon
-			player_value.Ready_Menu_To_Item_Selection_Update("Spell", "null")
+			PlayerValue.Ready_Menu_To_Item_Selection_Update("Spell", "null")
 			Valid_Icon_Selected = true
 		"UItem Slot 1":
 			Selected_Icon = u_item_icon_1
-			player_value.Ready_Menu_To_Item_Selection_Update("UItem 1", "null")
+			PlayerValue.Ready_Menu_To_Item_Selection_Update("UItem 1", "null")
 			Valid_Icon_Selected = true
 		"UItem Slot 2":
 			Selected_Icon = u_item_icon_2
-			player_value.Ready_Menu_To_Item_Selection_Update("UItem 2", "null")
+			PlayerValue.Ready_Menu_To_Item_Selection_Update("UItem 2", "null")
 			Valid_Icon_Selected = true
 		"UItem Slot 3":
 			Selected_Icon = u_item_icon_3
-			player_value.Ready_Menu_To_Item_Selection_Update("UItem 3", "null")
+			PlayerValue.Ready_Menu_To_Item_Selection_Update("UItem 3", "null")
 			Valid_Icon_Selected = true
 	
 	if Valid_Icon_Selected == true:
@@ -112,15 +112,15 @@ func Remove_Item():
 		pass
 
 func Pause():
-	player_value.Menu_Forward(0, 1, "", "")
+	PlayerValue.Menu_Forward(0, 1, "", "")
 
 func _on_wear_slot_1_pressed() -> void:
-	player_value.Menu_Forward(1, 1, "Brace", "Brace")
+	PlayerValue.Menu_Forward(1, 1, "Brace", "Brace")
 func _on_wear_slot_2_pressed() -> void:
-	player_value.Menu_Forward(1, 1, "Wear", "Wear2")
+	PlayerValue.Menu_Forward(1, 1, "Wear", "Wear2")
 func _on_tool_slot_1_pressed() -> void:
-	player_value.Menu_Forward(1, 1, "Tool", "Tool1")
+	PlayerValue.Menu_Forward(1, 1, "Tool", "Tool1")
 func _on_tool_slot_2_pressed() -> void:
-	player_value.Menu_Forward(1, 1, "Tool", "Tool2")
+	PlayerValue.Menu_Forward(1, 1, "Tool", "Tool2")
 func _on_tecnical_slot_1_pressed() -> void:
-	player_value.Menu_Forward(1, 2, "Technical", "Technical1")
+	PlayerValue.Menu_Forward(1, 2, "Technical", "Technical1")

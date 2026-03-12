@@ -233,7 +233,7 @@ transform = Transform3D(-8.7422775e-10, -0.008452365, -0.018126154, 0, 0.0181261
 visible = false
 
 [node name="TST_Sword" parent="Head/CameraPlayer/Player_Model" instance=ExtResource("15_oevhw")]
-transform = Transform3D(-0.03, 2.6226832e-09, 1.1464113e-16, 0, -1.3113416e-09, 0.03, 2.6226832e-09, 0.03, 1.3113416e-09, 0, -0.085, -0.521)
+transform = Transform3D(-0.03, 0, 2.6226832e-09, 0, 0.03, 0, -2.6226832e-09, 0, -0.03, 0, -0.085, -0.521)
 
 [node name="Player_Particles" type="Node2D" parent="Head"]
 

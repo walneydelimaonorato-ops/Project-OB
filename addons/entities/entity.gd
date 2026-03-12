@@ -4,7 +4,7 @@ extends CharacterBody3D
 @onready var NPC_Anim: AnimatedSprite3D = $Visuals/NPC
 
 @onready var entity_colision: CollisionShape3D = $entity_colision
-@onready var player_value: Node3D = $"../../../../Player/Player_Values"
+#@onready var PlayerValue: Node3D = $"../../../../Player/PlayerValues"
 
 @export_group("Entity Type")
 @export var En_Type = 0     #0: Friendly NPC. 1: Hostile Enemy
@@ -48,7 +48,7 @@ func _process(_delta: float) -> void:
 func damage():
 	if Entity_Type == "Enemy":
 		#await get_tree().create_timer(2.0).timeout
-		Entity_Health -= player_value.Tool_Get_ID()["damage"] + player_value.Physical_Damage_Bonus
+		Entity_Health -= PlayerValue.Tool_Get_ID()["damage"] + PlayerValue.Physical_Damage_Bonus
 	
 		if Entity_Health <= 0:
 			Enemy_Anim.play("enemy_dead")

@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var player_value: Node3D = $"../Player/Player_Values"
+#@onready var PlayerValue: Node3D = $"../Player/PlayerValues"
 @onready var rest_coll: CollisionShape3D = $"Interact rest coll"
 
 @onready var HUD = $"../Player/Head/CanvasLayer/face/GUI"
@@ -25,9 +25,9 @@ func interact(hit_pos: Vector3, dir: Vector3):
 	$Interact.play()
 	global.G_Respwan_Coords = $"../Player".position
 	HUD.inter_prompt = HUD_Prompt
-	player_value.Stamina = player_value.Stamina_Max
-	player_value.Heal("Full", 0)
-	player_value.UItem_ID[1]["quantity"] = player_value.Glass_flask_quantity_max
+	PlayerValue.Stamina = PlayerValue.Stamina_Max
+	PlayerValue.Heal("Full", 0)
+	PlayerValue.UItem_ID[1]["quantity"] = PlayerValue.Glass_flask_quantity_max
 
 func CLR_info():
 	return HUD_Prompt

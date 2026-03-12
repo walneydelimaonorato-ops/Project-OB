@@ -21,6 +21,7 @@ buses/default_bus_layout=""
 [autoload]
 
 global="*res://addons/control/global.gd"
+PlayerValue="*res://addons/control/Player/Node scripts/PLayer_Values.gd"
 
 [file_customization]
 

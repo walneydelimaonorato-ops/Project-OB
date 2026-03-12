@@ -9,7 +9,7 @@ var ot1 = 1
 @onready var ps_label: Label = $"../Debug Insight/DB Insight/PS_List/PS_Label"
 
 @onready var player : CharacterBody3D = $"../../../.."
-@onready var player_value = $"../../../../Player_Values"
+#@onready var PlayerValue = $"../../../../PlayerValues"
 @onready var Animation_Script: Node3D = $"../../../../Animation_Handler"
 @onready var Tool_Script: Node3D = $"../../../../Tool_Node"
 
@@ -33,7 +33,7 @@ var ot1 = 1
 var inter_prompt = "test"
 
 func _process(_delta: float) -> void:
-	if player_value.Alive == false or player_value.Undeath == true or player_value.Menu_mode == true:
+	if PlayerValue.Alive == false or PlayerValue.Undeath == true or PlayerValue.Menu_mode == true:
 		ToolL.visible = false
 		ToolR.visible = false
 		UItem.visible = false
@@ -48,7 +48,7 @@ func _process(_delta: float) -> void:
 	Tool_HUD()
 	Interact_HUD()
 	UItem_HUD()
-	if player_value.Alive == false:
+	if PlayerValue.Alive == false:
 		Death_Screen_State()
 
 func Debug_UI():
@@ -73,44 +73,44 @@ func Debug_UI():
 		global.debug.add_property("Keyboard", player.Key_C, 1)
 	if player.Joy_C:
 		global.debug.add_property("Joypad", player.Joy_C, 1)
-	global.debug.add_property("E", player_value.Stamina, 2)
-	global.debug.add_property("Health", player_value.Health, 3)
-	global.debug.add_property("R hand", player_value.R_Hand_In_Use, 4) 
-	global.debug.add_property("L hand", player_value.L_Hand_In_Use, 5)
-	global.debug.add_property("Item", player_value.Usable_Item_Selected, 6)
-	global.debug.add_property("Alive", player_value.Alive, 7)
+	global.debug.add_property("E", PlayerValue.Stamina, 2)
+	global.debug.add_property("Health", PlayerValue.Health, 3)
+	global.debug.add_property("R hand", PlayerValue.R_Hand_In_Use, 4) 
+	global.debug.add_property("L hand", PlayerValue.L_Hand_In_Use, 5)
+	global.debug.add_property("Item", PlayerValue.Usable_Item_Selected, 6)
+	global.debug.add_property("Alive", PlayerValue.Alive, 7)
 	global.debug.add_property("Range alt", Tool_Script.Can_use_Range_Assalt_alt, 8)
 	global.debug.add_property("Current anim", Animation_Script.Current_Anim_Playing, 9)
-	global.debug.add_property("bpress time", player_value.inter_press_time, 10)
+	global.debug.add_property("bpress time", PlayerValue.inter_press_time, 10)
 	global.debug.add_property("Player coords", player.position, 11)
 	global.debug.add_property("Respawn coords", global.G_Respwan_Coords, 12)
-	#global.debug.add_property("Menu mode", player_value.Menu_mode, 8)
-	global.debug.add_property("Menu depth", player_value.Menu_Depth, 13)
-	#global.debug.add_property("Menu to", player_value.Item_Menu_To, 10)
-	#global.debug.add_property("Menu slot", player_value.Item_Menu_Slot, 11)
-	#global.debug.add_property("One Time", player_value.One_Time, 12) 
+	#global.debug.add_property("Menu mode", PlayerValue.Menu_mode, 8)
+	global.debug.add_property("Menu depth", PlayerValue.Menu_Depth, 13)
+	#global.debug.add_property("Menu to", PlayerValue.Item_Menu_To, 10)
+	#global.debug.add_property("Menu slot", PlayerValue.Item_Menu_Slot, 11)
+	#global.debug.add_property("One Time", PlayerValue.One_Time, 12) 
 	#global.debug.add_property("Focus node", $"Control/Menus/Ready Menu".Focused_Button, 13)
 	#global.debug.add_property("Selected ICON", $"Control/Menus/Ready Menu".Selected_Icon, 14)
 	
 	if global.Debug_Menu_Page == 2:
 		ps_label.text = "Player states:\r"
-		ps_label.text += player_value.INSIGHT_Player_State_Movement
-		ps_label.text += player_value.INSIGHT_Player_State_Action
-		ps_label.text += player_value.INSIGHT_Player_State_Special
-		ps_label.text += player_value.INSIGHT_Tool_R_State
-		ps_label.text += player_value.INSIGHT_Tool_L_State
-		ps_label.text += player_value.INSIGHT_Tool_Direction_Use
+		ps_label.text += PlayerValue.INSIGHT_Player_State_Movement
+		ps_label.text += PlayerValue.INSIGHT_Player_State_Action
+		ps_label.text += PlayerValue.INSIGHT_Player_State_Special
+		ps_label.text += PlayerValue.INSIGHT_Tool_R_State
+		ps_label.text += PlayerValue.INSIGHT_Tool_L_State
+		ps_label.text += PlayerValue.INSIGHT_Tool_Direction_Use
 	
 	if global.Debug_Menu_Page == 3:
 		ps_label.text = "Player inventory: \r"
-		ps_label.text += "Brace: " + player_value.Inv_Brace_Equiped
-		ps_label.text += "\rWear: " + player_value.Inv_Wear_Equiped
-		ps_label.text += "\rTool L: " + player_value.Inv_ToolL_Equiped
-		ps_label.text += "\rToll R: " + player_value.Inv_ToolR_Equiped
-		ps_label.text += "\rSpell: " + player_value.Inv_Spell_Equiped
-		ps_label.text += "\rUItem 1: " + player_value.Inv_Uitem1_Equiped
-		ps_label.text += "\rUItem 2: " + player_value.Inv_Uitem2_Equiped
-		ps_label.text += "\rUItem 3: " + player_value.Inv_Uitem3_Equiped
+		ps_label.text += "Brace: " + PlayerValue.Inv_Brace_Equiped
+		ps_label.text += "\rWear: " + PlayerValue.Inv_Wear_Equiped
+		ps_label.text += "\rTool L: " + PlayerValue.Inv_ToolL_Equiped
+		ps_label.text += "\rToll R: " + PlayerValue.Inv_ToolR_Equiped
+		ps_label.text += "\rSpell: " + PlayerValue.Inv_Spell_Equiped
+		ps_label.text += "\rUItem 1: " + PlayerValue.Inv_Uitem1_Equiped
+		ps_label.text += "\rUItem 2: " + PlayerValue.Inv_Uitem2_Equiped
+		ps_label.text += "\rUItem 3: " + PlayerValue.Inv_Uitem3_Equiped
 	
 	if global.Gdebug_active == true:
 		player_H_bar.visible = true
@@ -119,78 +119,62 @@ func Debug_UI():
 		player_H_bar.visible = false
 		player_E_bar.visible = false
 	
-	player_H_bar.value = player_value.Health
-	player_E_bar.value = player_value.Stamina
+	player_H_bar.value = PlayerValue.Health
+	player_E_bar.value = PlayerValue.Stamina
 
 func Tool_HUD():
 	cross_hand.visible = false
 	cross_gun.visible = false
 	cross_sword.visible = false
 	
-	#var ToolR_ID_Got = player_value.ToolR_Get_ID()
-	#if ToolR_ID_Got.is_empty():
-		#visible = false
-		#return
-		
-	#var ToolL_ID_Got = player_value.ToolLGet_ID()
-	#if ToolL_ID_Got.is_empty():
-		#visible = false
-	#visible = true
-	#
+	match PlayerValue.Inv_ToolR_Equiped:
+		"null":
+			ToolR.text = "Hand"
+			cross_hand.visible = true
+		"HandGun":
+			ToolR.text = "Gun"
+			cross_gun.visible = true
+			ToolR.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagA, Tool_Script.Max_Ammo_MagA, Tool_Script.MagA_Num]
+		"AssaultRifle":
+			ToolR.text = "Assalt"
+			cross_gun.visible = true
+			ToolR.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagB, Tool_Script.Max_Ammo_MagB, Tool_Script.MagB_Num]
+		"Sword":
+			ToolR.text = "Sword"
+			cross_sword.visible = true
+		"SpecialBow":
+			ToolR.text = "Special Bow"
+			cross_gun.visible = true
 	
-	
-	
-	if player_value.Inv_ToolR_Equiped == "null":
-		ToolR.text = "Hand"
-		cross_hand.visible = true
-	if player_value.Inv_ToolL_Equiped == "null":
-		ToolL.text = "Hand"
-		cross_hand.visible = true
-		
-	if player_value.Inv_ToolR_Equiped == "Hand gun":
-		ToolR.text = "Gun"
-		cross_gun.visible = true
-		ToolR.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagA, Tool_Script.Max_Ammo_MagA, Tool_Script.MagA_Num]
-	elif player_value.Inv_ToolL_Equiped == "Hand gun":
-		ToolL.text = "Gun"
-		ToolL.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagA, Tool_Script.Max_Ammo_MagA, Tool_Script.MagA_Num]
-	
-	if player_value.Inv_ToolR_Equiped == "Assault rifle":
-		ToolR.text = "Assalt"
-		cross_gun.visible = true
-		ToolR.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagB, Tool_Script.Max_Ammo_MagB, Tool_Script.MagB_Num]
-	
-	elif player_value.Inv_ToolL_Equiped == "Assault rifle":
-		ToolL.text = "Assalt"
-		cross_gun.visible = true
-		ToolL.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagB, Tool_Script.Max_Ammo_MagB, Tool_Script.MagB_Num]
-	
-	if player_value.Inv_ToolR_Equiped == "Sword":
-		ToolR.text = "Sword"
-		cross_sword.visible = true
-	elif player_value.Inv_ToolL_Equiped == "Sword":
-		ToolL.text = "Sword"
-		cross_sword.visible = true
+	match PlayerValue.Inv_ToolL_Equiped:
+		"null":
+			ToolL.text = "Hand"
+			cross_hand.visible = true
+		"HandGun":
+			ToolL.text = "Gun"
+			cross_gun.visible = true
+			ToolL.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagA, Tool_Script.Max_Ammo_MagA, Tool_Script.MagA_Num]
+		"AssaultRifle":
+			ToolL.text = "Assalt"
+			cross_gun.visible = true
+			ToolL.text += str("\r%d/%d\rM: %d") % [Tool_Script.Ammo_MagB, Tool_Script.Max_Ammo_MagB, Tool_Script.MagB_Num]
+		"Sword":
+			ToolL.text = "Sword"
+			cross_sword.visible = true
+		"SpecialBow":
+			ToolL.text = "Special Bow"
+			cross_gun.visible = true
 
 func Interact_HUD():
-	#var ToolR_ID_Got = player_value.ToolR_Get_ID()
-	#if ToolR_ID_Got.is_empty():
-		#return
-	
 	Inter.visible = false
 	if Tool_Script.Interact_Ray.is_colliding():
 		var point_coll = Tool_Script.Interact_Ray.get_collider()
-		#if Tool_Script.Point_Ray.get_collider().has_method("CLR_info") and ToolR_ID_Got.id == "close":
 		if point_coll.has_method("CLR_info"):
 			Inter.visible = true
 			Inter.text = point_coll.HUD_Prompt
-	
-	#if Tool_Script.Reload_failed == true and ToolR_ID_Got.id == "range":
-		#Inter.visible = true
-		#Inter.text = "Cannot reload"
 
 func UItem_HUD():
-	var UItem_ID_Got = player_value.UItem_Get_ID()
+	var UItem_ID_Got = PlayerValue.UItem_Get_ID()
 	UItem.text = UItem_ID_Got.name
 	
 	if UItem_ID_Got.name == "Glass flask":

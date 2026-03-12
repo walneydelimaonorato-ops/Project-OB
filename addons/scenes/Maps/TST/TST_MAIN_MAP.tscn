@@ -412,10 +412,6 @@ skeleton = NodePath("")
 [node name="OBJ_Vaporwave_Skybox" parent="." instance=ExtResource("15_1e2ie")]
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 
-[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/Tool Gun/TST_M1911/M1911 Anims" to="Player/Animation_Handler" method="_on_m_1911_anims_animation_finished"]
-[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/Tool Gun/TST_M14/M14 Anims" to="Player/Animation_Handler" method="_on_m_14_anims_animation_finished"]
-[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/TST_ArmR/Arm_Anims_R" to="Player/Animation_Handler" method="_on_arm_anims_r_animation_finished"]
-[connection signal="animation_finished" from="Player/Head/CameraPlayer/Player_Model/TST_ArmL/Arm_Anims_L" to="Player/Animation_Handler" method="_on_arm_anims_l_animation_finished"]
 [connection signal="area_entered" from="Player/Head/CameraPlayer/Player_Model/TST_Sword/Sword_Hitbox" to="Envieroment/Combat/enemies/Enemy" method="_on_sword_hitbox_area_entered"]
 [connection signal="body_entered" from="Pain Box2/Area3D" to="Pain Box2" method="_on_area_3d_body_entered"]
 

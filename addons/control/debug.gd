@@ -1,7 +1,7 @@
 extends Control
 
 @onready var property_container : VBoxContainer = $"DB Insight/DB_List"
-@onready var player_value: Node3D = $"../../../../Player_Values"
+#@onready var PlayerValue: Node3D = $"../../../../PlayerValues"
 var property
 
 var dact = false
@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	global.Gdebug_active = dact
 	global.Debug_Menu_Page = DMenu
 	if Input.is_action_just_pressed("InD_Heal"):
-		player_value.Heal("Full", 0)
+		PlayerValue.Heal("Full", 0)
 	DMenu = wrapi(DMenu, 1, 4)
 
 func _input(event):
@@ -24,7 +24,7 @@ func _input(event):
 		dact = !dact
 	
 	if Input.is_action_just_pressed("InD_Heal"):
-		player_value.Heal("Full", 0)
+		PlayerValue.Heal("Full", 0)
 	
 	if Input.is_action_pressed("In_Debug_Pu"):
 		DMenu += 1

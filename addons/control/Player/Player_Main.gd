@@ -4,7 +4,7 @@ extends CharacterBody3D
 # Important references
 @onready var Tool_Script = $Tool_Node # Separate script (handles everything about tools)
 @onready var Animation_Script: Node3D = $Animation_Handler # Separate script (handles everything about animations)
-@onready var player_value: Node3D = $Player_Values
+#@onready var PlayerValue: Node3D = $PlayerValues
 
 @onready var head: Node3D = $Head # Head of the player
 @onready var camera_player: Camera3D = $Head/CameraPlayer # Camera of the player
@@ -22,56 +22,57 @@ var Joy_Camera_Sens = 0.075 # Joypads camera sensistivity
 @export var Key_C : bool = false # Keyboard enabler/disabler
 
 func _ready():
+	Tool_Script.Tool_Rotate()
 	global.Gplayer = self
 	if global.Control_Type == true:
 		Joy_C = true
 	elif global.Control_Type == false:
 		Key_C = true
 	
-	player_value.Reg_Timer_Startup()
-	player_value.Reg_Delay_Timer.timeout.connect(player_value._start_Reg)
+	PlayerValue.Reg_Timer_Startup()
+	PlayerValue.Reg_Delay_Timer.timeout.connect(PlayerValue._start_Reg)
 
 func _physics_process(delta: float) -> void:
-	if player_value.Alive == true:
+	if PlayerValue.Alive == true:
 		# Add the gravity.
 		if not is_on_floor():
 			velocity += get_gravity() * delta
-			player_value.Player_State_Update("SPC", "Airborne")
+			PlayerValue.Player_State_Update("SPC", "Airborne")
 		else:
-			player_value.Player_State_Update("SPC", "Grounded")
+			PlayerValue.Player_State_Update("SPC", "Grounded")
 		
 		# Jump
-		if player_value.Stamina >= player_value.Stamina_Jump_Tax:
+		if PlayerValue.Stamina >= PlayerValue.Stamina_Jump_Tax:
 			# Keyboard
-			if Key_C and player_value.Menu_mode == false:
+			if Key_C and PlayerValue.Menu_mode == false:
 				if Input.is_action_just_pressed("In_Jump") and is_on_floor():
 					velocity.y = Jump_Height # Burst of Y velocity is temporarily applied to character
-					player_value.Player_State_Update("MVM", "Jumped")
-					player_value.Stats_decrease("Stamina", 10)
+					PlayerValue.Player_State_Update("MVM", "Jumped")
+					PlayerValue.Stats_decrease("Stamina", 10)
 			# Joypad
-			if Joy_C and player_value.Menu_mode == false:
+			if Joy_C and PlayerValue.Menu_mode == false:
 				if Input.is_action_just_pressed("In_Joy_Jump")  and is_on_floor():
 					velocity.y = Jump_Height
-					player_value.Player_State_Update("MVM", "Jumped")
-					player_value.Stats_decrease("Stamina", 10)
+					PlayerValue.Player_State_Update("MVM", "Jumped")
+					PlayerValue.Stats_decrease("Stamina", 10)
 		
 		# Sprinting
 		var Sprinting = false
 		# Keyboard
 		if Key_C:
-			if Input.is_action_pressed("In_Sprint") and player_value.Stamina > 0:
+			if Input.is_action_pressed("In_Sprint") and PlayerValue.Stamina > 0:
 				Base_Speed = Run # Current speed becomes running speed
 				Sprinting = true
-				#player_value.Stats_decrease("Stamina", 0.1)
+				#PlayerValue.Stats_decrease("Stamina", 0.1)
 			else: #Input.is_action_just_released("In_Sprint"):
 				Base_Speed = Dummy_Speed # Current speed falls back to a set value
 				Sprinting = false
 		# Joycon
 		if Joy_C:
-			if Input.is_action_pressed("In_Joy_Sprint") and player_value.Stamina > 0:
+			if Input.is_action_pressed("In_Joy_Sprint") and PlayerValue.Stamina > 0:
 				Base_Speed = Run
 				Sprinting = true
-				#player_value.Stats_decrease("Stamina", 0.1)
+				#PlayerValue.Stats_decrease("Stamina", 0.1)
 			else: # Input.is_action_just_released("In_Joy_Sprint"):
 				Base_Speed = Dummy_Speed
 				Sprinting = false
@@ -85,14 +86,14 @@ func _physics_process(delta: float) -> void:
 			if direction:
 				velocity.x = direction.x * Base_Speed
 				velocity.z = direction.z * Base_Speed
-				player_value.Player_State_Update("MVM", "Moved")
+				PlayerValue.Player_State_Update("MVM", "Moved")
 				if Sprinting == true:
-					player_value.Stats_decrease("Stamina", 0.1)
+					PlayerValue.Stats_decrease("Stamina", 0.1)
 			
 			else:
 				velocity.x = lerp(velocity.x, 0.0, 0.15)
 				velocity.z = lerp(velocity.z, 0.0, 0.15)
-				player_value.Player_State_Update("MVM", "Idle")
+				PlayerValue.Player_State_Update("MVM", "Idle")
 		
 		# Joypad
 		if Joy_C:
@@ -102,56 +103,56 @@ func _physics_process(delta: float) -> void:
 			if direction:
 				velocity.x = direction.x * Base_Speed
 				velocity.z = direction.z * Base_Speed
-				player_value.Player_State_Update("MVM", "Moved")
+				PlayerValue.Player_State_Update("MVM", "Moved")
 			
 			else:
 				velocity.x = 0 #move_toward(velocity.x, 0, Base_Speed)
 				velocity.z = 0 #move_toward(velocity.z, 0, Base_Speed)
-				player_value.Player_State_Update("MVM", "Idle")
+				PlayerValue.Player_State_Update("MVM", "Idle")
 		
 		move_and_slide()
 
 func _process(delta: float) -> void:
-	player_value.Reg_Process(delta)
-	if player_value.Menu_mode == false: #and player_value.Menu_mode == false:
+	PlayerValue.Reg_Process(delta)
+	if PlayerValue.Menu_mode == false: #and PlayerValue.Menu_mode == false:
 		if Key_C:
 			if Input.is_action_just_pressed("In_Key_Tool_Alt"):
 				#Tool_Script.Alternative_Timer("In_Key_Tool_Alt", Tool_Script.Tool_AltR(), Tool_Script.Tool_AltL(), delta)
-				player_value.inter_button_tapped = true
-				player_value.inter_button_held = false
-				player_value.inter_press_time = 0.0
+				PlayerValue.inter_button_tapped = true
+				PlayerValue.inter_button_held = false
+				PlayerValue.inter_press_time = 0.0
 				
-			if player_value.inter_button_tapped:
-				player_value.inter_press_time += delta
-				if player_value.inter_press_time >= player_value.inter_hold_treshold and !player_value.inter_button_held:
-					player_value.inter_button_held = true
+			if PlayerValue.inter_button_tapped:
+				PlayerValue.inter_press_time += delta
+				if PlayerValue.inter_press_time >= PlayerValue.inter_hold_treshold and !PlayerValue.inter_button_held:
+					PlayerValue.inter_button_held = true
 					Tool_Script.Tool_AltL()
 				
 				if Input.is_action_just_released("In_Key_Tool_Alt"):
-					if !player_value.inter_button_held:
+					if !PlayerValue.inter_button_held:
 						Tool_Script.Tool_AltR()
-						player_value.inter_button_tapped = false
+						PlayerValue.inter_button_tapped = false
 		if Joy_C:
 			if Input.is_action_just_pressed("In_joy_Tool_Alt"):
-				player_value.inter_button_tapped = true
-				player_value.inter_button_held = false
-				player_value.inter_press_time = 0.0
+				PlayerValue.inter_button_tapped = true
+				PlayerValue.inter_button_held = false
+				PlayerValue.inter_press_time = 0.0
 				
-			if player_value.inter_button_tapped:
-				player_value.inter_press_time += delta
-				if player_value.inter_press_time >= player_value.inter_hold_treshold and !player_value.inter_button_held:
-					player_value.inter_button_held = true
+			if PlayerValue.inter_button_tapped:
+				PlayerValue.inter_press_time += delta
+				if PlayerValue.inter_press_time >= PlayerValue.inter_hold_treshold and !PlayerValue.inter_button_held:
+					PlayerValue.inter_button_held = true
 					Tool_Script.Tool_AltL()
 	
 				if Input.is_action_just_released("In_joy_Tool_Alt"):
-					if !player_value.inter_button_held:
+					if !PlayerValue.inter_button_held:
 						Tool_Script.Tool_AltR()
-						player_value.inter_button_tapped = false
+						PlayerValue.inter_button_tapped = false
 		
 		Tool_Script.Use_UItem()
 
 		Tool_Script.UItem_Rotate()
-	if player_value.Alive == true:
+	if PlayerValue.Alive == true:
 		# Camera
 		# Joypad
 		if Joy_C:
@@ -194,8 +195,8 @@ func _input(event):
 			camera_player.rotation.x -= event.relative.y * Key_Camera_Sens
 			camera_player.rotation.x = clamp(camera_player.rotation.x, deg_to_rad(-85), deg_to_rad(85))
 	
-	if player_value.Alive == true and player_value.Menu_mode == false:
+	if PlayerValue.Alive == true and PlayerValue.Menu_mode == false:
 		Tool_Script.Use_Tool_Primary() # Called when a Tool is used (primary)
 		#Tool_Script.Use_Tool_Secondary()
 		Tool_Script.Use_Tool_Alternatuve() # Called when a Tool's alternative is used 
-		#player_value.ToolLGet_ID()
+		#PlayerValue.ToolLGet_ID()

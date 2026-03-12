@@ -103,15 +103,15 @@ func _process(delta: float) -> void:
 	
 	Dummy_Health_Max = Health_Max + Health_Bonus
 	Health_Max = Dummy_Health_Max1 + Health_Bonus
-	$"../Head/CanvasLayer/face/GUI/Control/HUD/Health".max_value = Health_Max
+	#max_value = Health_Max
 	
 	# When the player's health reaches 0, it dies
 	if Health == 0:
 		Alive = false
 
 func Ready_Menu_To_Item_Selection_Update(Item_Slot, Item):
-# This function is used in Item_Selection.gd and its a reference point for items. Anything* related to equipped items stem from here
-
+# This function is used in Item_Selection.gd and its a reference point for items. 
+#Anything* related to equipped items stem from here
 	if Item_Slot == "Brace":
 		Inv_Brace_Equiped = Item
 	elif Item_Slot == "Wear":
@@ -151,26 +151,27 @@ func Menu_Backwards(Depth_Level, Amount):
 func Player_State_Update(Type, Player_State):
 	# Type: type of player state to be updated
 	# Player State: new player state
-	if Type == "MVM":
-		INSIGHT_Player_State_Movement = str("Player State MVM: ", Player_State, "\r")
-		Player_State_Movement = Player_State
-	elif Type == "ACT":
-		INSIGHT_Player_State_Action = str("Player State ACT: ", Player_State, "\r")
-		Player_State_Action = Player_State
-	elif Type == "SPC":
-		INSIGHT_Player_State_Special = str("Player State SPC: ", Player_State, "\r")
-		Player_State_Special = Player_State
-	elif Type == "ToolR":
-		INSIGHT_Tool_R_State = str("Tool R State: ", Player_State, "\r")
-		Tool_R_State = Player_State
-		Tool_Fatigue = 0
-	elif Type == "ToolL":
-		INSIGHT_Tool_L_State = str("Tool L State: ", Player_State, "\r")
-		Tool_L_State = Player_State
-		Tool_Fatigue = 0
-	elif Type == "ToolDir":
-		INSIGHT_Tool_Direction_Use = str("Tool Direction: ", Player_State)
-		Tool_Direction_Use = Player_State
+	match Type:
+		"MVM":
+			INSIGHT_Player_State_Movement = str("Player State MVM: ", Player_State, "\r")
+			Player_State_Movement = Player_State
+		"ACT":
+			INSIGHT_Player_State_Action = str("Player State ACT: ", Player_State, "\r")
+			Player_State_Action = Player_State
+		"SPC":
+			INSIGHT_Player_State_Special = str("Player State SPC: ", Player_State, "\r")
+			Player_State_Special = Player_State
+		"ToolR":
+			INSIGHT_Tool_R_State = str("Tool R State: ", Player_State, "\r")
+			Tool_R_State = Player_State
+			Tool_Fatigue = 0
+		"ToolL":
+			INSIGHT_Tool_L_State = str("Tool L State: ", Player_State, "\r")
+			Tool_L_State = Player_State
+			Tool_Fatigue = 0
+		"ToolDir":
+			INSIGHT_Tool_Direction_Use = str("Tool Direction: ", Player_State)
+			Tool_Direction_Use = Player_State
 
 func Heal(Type, amount):
 	if Type == "Partial" and Health != Health_Max or Alive == false or Undeath == true:
@@ -179,10 +180,11 @@ func Heal(Type, amount):
 		var emit_request_id = 0
 		emit_request_id += 1
 		var id = emit_request_id
-		$"../Head/Player_Particles/Hearts".emitting = true
+		#$"../Head/Player_Particles/Hearts".emitting = true
 		await get_tree().create_timer(0.2).timeout
 		if id == emit_request_id:
-			$"../Head/Player_Particles/Hearts".emitting = false
+			pass
+			#$"../Head/Player_Particles/Hearts".emitting = false
 		
 	elif Type == "Full":
 		Health = Health_Max
@@ -194,15 +196,16 @@ func Stats_decrease(Type, Lower):
 		Reg_Delay_Timer.start()
 	elif Type == "Health":
 		Health -= Lower
-		$"../Player_sfx/General sfx/pain".play()
+		#$"../Player_sfx/General sfx/pain".play()
 		
 		var emit_request_id = 0
 		emit_request_id += 1
 		var id = emit_request_id
-		$"../Head/CanvasLayer/face/GUI/Control/Pain".visible = true
+		#$"../Head/CanvasLayer/face/GUI/Control/Pain".visible = true
 		await get_tree().create_timer(0.2).timeout
 		if id == emit_request_id:
-			$"../Head/CanvasLayer/face/GUI/Control/Pain".visible = false
+			pass
+			#$"../Head/CanvasLayer/face/GUI/Control/Pain".visible = false
 
 func Reg_Timer_Startup():
 	Reg_Delay_Timer = Timer.new()
@@ -220,23 +223,6 @@ func Reg_Process(delta):
 			Stamina = Stamina_Max
 			Reg_Active = false
 
-#var UItem_ID = {
-	#"null": {
-	#"heal_values": 0,
-	#"quantity": 0,
-	#"special id": ""
-	#},
-	#"Glass flask": {
-	#"heal_values": Health_Max/3,
-	#"quantity": Glass_flask_quantity,
-	#"special id": "renewable"
-	#},
-	#"Wild gold": {
-	#"heal_values": 2,
-	#"quantity": Wild_gold_quantity,
-	#"special id": ""
-	#}
-#}
 var UItem_ID = [
 	{"name": "", "heal_value": 0, "quantity": 0, "special id": ""},
 	{"name": "Glass flask", "heal_value": Health_Max/3, "quantity": Glass_flask_quantity, "special id": "renewable"},
@@ -269,44 +255,99 @@ var Tool_ID = {
 		"picked?": true,
 		"usable?": true
 		},
-		"Dagger": {
+	"Dagger": {
 		"damage": 10,
 		"picked?": true,
 		"usable?": true
 		},
-		"SpecialBow": {
+	"SpecialBow": {
 		"damage": 25,
 		"picked?": true,
 		"usable?": true
 		},
 }
 
+var Wear_ID = {
+	"Unclothed": {
+		"weight": 0,
+		"def. redu.": -5,
+	},
+	"Upper Mewclad Arm.": {
+		"weight": 20,
+		"def. redu.": 4,
+	},
+	"Lower Mewclad Arm.": {
+		"weight": 12,
+		"def. redu.": 2,
+	}
+}
+
 var Spell_ID = {
 	"Lightning": {
+	"quantity": 6,
 	"damage": 20 + Divine_Damage_Bonus,
 	"picked?": true,
 	"usable?": true
 	},
 	"Heal": {
+	"quantity": 2,
 	"damage": 0,
 	"picked?": true,
 	"usable?": true
 	},
 	"Heresy": {
+	"quantity": 10,
 	"damage": 10 + Heretic_Damage_Bonus,
 	"picked?": true,
 	"usable?": true
 	},
 	"Sunfire": {
+	"quantity": 99999,
 	"damage": 99999,
 	"picked?": true,
 	"usable?": true
 	}
 }
 
+var Brace_ID = {
+	"Golden Bra.": {
+	
+	"picked?": true,
+	"usable?": true
+	},
+	"Clorophyl Bra.": {
+	
+	"picked?": true,
+	"usable?": true
+	},
+	"power Bra.": {
+	
+	"picked?": true,
+	"usable?": true
+	}
+}
+
+#var UItem_ID = {
+	#"null": {
+	#"heal_values": 0,
+	#"quantity": 0,
+	#"special id": ""
+	#},
+	#"Glass flask": {
+	#"heal_values": Health_Max/3,
+	#"quantity": Glass_flask_quantity,
+	#"special id": "renewable"
+	#},
+	#"Wild gold": {
+	#"heal_values": 2,
+	#"quantity": Wild_gold_quantity,
+	#"special id": ""
+	#}
+#}
+
 func Tool_Get_ID() -> Dictionary:
 # This function first detects which hand has used a tool "Right" and "Left", then it checks what
-# tools the player has equipped and pics the tools respective data.
+# tools the player has equipped and picks the tool's respective data.
 	if Tool_Direction_Use == "Right":
 		match Inv_ToolR_Equiped:
 			"null":
@@ -330,6 +371,29 @@ func Tool_Get_ID() -> Dictionary:
 				return Tool_ID["AssaultRifle"]
 			"Sword":
 				return Tool_ID["Sword"]
-	
 	return Tool_ID["Hand"]
-# if it can't find anything, it defaults to "Hand".
+	# if it can't find anything, it defaults to "Hand".
+
+func Wear_ID_Get() -> Dictionary:
+# This function checks what the player is wearing and picks the piece's respective data.
+	match Inv_Wear_Equiped:
+		"Upper Mewclad Arm.":
+			return Wear_ID["Upper Mewclad Arm."]
+		"Lower Mewclad Arm.":
+			return Wear_ID["Lower Mewclad Arm."]
+	return Wear_ID["Unclothed"]
+	# if it can't find anything, it defaults to "Unclothed".
+
+func Spell_ID_Get() -> Dictionary:
+# This function checks what spell the player has equipped and picks the spell's respective data.
+	match Inv_Spell_Equiped:
+		"Lightning":
+			return Spell_ID["Lightning"]
+		"Heal":
+			return Spell_ID[Heal]
+		"Heresy":
+			return Spell_ID["Heresy"]
+		"Sunfire":
+			return Spell_ID["Sunfire"]
+	return Spell_ID["Sunfire"]
+	# if it can't find anything, it defaults to "Sunfire", the debug test spell.

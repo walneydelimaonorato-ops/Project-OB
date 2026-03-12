@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var player: CharacterBody3D = $".." # Player
 @onready var Animation_Script: Node3D = $"../Animation_Handler" # Separate script (handles everything about animations)
-@onready var player_value: Node3D = $"../Player_Values"
+#@onready var PlayerValue: Node3D = $"../PlayerValues"
 
 @onready var Gun_Ray: RayCast3D = $"../Head/CameraPlayer/Gun_Ray" # Ray used for the gun tool
 @onready var Interact_Ray: RayCast3D = $"../Head/CameraPlayer/Interact_Ray" # ray used for the hand tool
@@ -30,12 +30,12 @@ extends Node3D
 
 func _process(delta: float) -> void:
 	Passive_Items()
-	player_value.Tool_Fatigue = clamp(player_value.Tool_Fatigue, 0, 10)
-	if player_value.Tool_Fatigue <= 10:
-		player_value.Tool_Fatigue += 0.03
-	if player_value.Tool_Fatigue >= 10: 
-		player_value.Player_State_Update("ToolR", "Idle")
-		player_value.Player_State_Update("ToolL", "Idle")
+	PlayerValue.Tool_Fatigue = clamp(PlayerValue.Tool_Fatigue, 0, 10)
+	if PlayerValue.Tool_Fatigue <= 10:
+		PlayerValue.Tool_Fatigue += 0.03
+	if PlayerValue.Tool_Fatigue >= 10: 
+		PlayerValue.Player_State_Update("ToolR", "Idle")
+		PlayerValue.Player_State_Update("ToolL", "Idle")
 
 var Right_Tool_Position = 0.080
 var Right_Tool_Rotation = 1.2
@@ -68,16 +68,16 @@ var Can_use_Close = true # Enables use of hand
 var Can_use_Close_alt = true # enables alternatie use of hand 
 
 func Use_Tool_Primary():
-	if player_value.Alive == true:
+	if PlayerValue.Alive == true:
 		#Use tool
 		#Keyboard
 		if player.Key_C:
 			if Input.is_action_just_pressed("In_Mouse_R"):
 				Tool_HandlingR()
-				player_value.Tool_Get_ID()
+				PlayerValue.Tool_Get_ID()
 			if Input.is_action_just_pressed("In_Mouse_L"):
 				Tool_HandlingL()
-				player_value.Tool_Get_ID()
+				PlayerValue.Tool_Get_ID()
 
 		#Joypad
 		if player.Joy_C:
@@ -90,7 +90,7 @@ func Use_Tool_Primary():
 		#pass
 
 #func Use_Tool_Secondary():
-	#if player_value.Alive == true:
+	#if PlayerValue.Alive == true:
 		##Joypad
 		#if player.Joy_C:
 			#if Input.is_action_just_pressed("In_Joy_R1"):
@@ -103,7 +103,7 @@ func Use_Tool_Primary():
 				#Tool_Secondary_L()
 
 func Use_Tool_Alternatuve():
-	if player_value.Alive == true:
+	if PlayerValue.Alive == true:
 		# Tool alternative use
 		if player.Key_C:
 			if Input.is_action_just_pressed("In_Key_Tool_Alt"):
@@ -141,51 +141,51 @@ func Use_UItem():
 			UItem()
 
 func Passive_Items():
-	if player_value.Inv_Brace_Equiped == "Golden Bra.":
-		player_value.Health_Bonus = 20
-	elif player_value.Inv_Brace_Equiped != "Golden Bra.":
-		player_value.Health_Bonus = 0
-	if player_value.Inv_Brace_Equiped == "Clorophyl Bra.":
-		player_value.Reg_Rate = 10
-	elif player_value.Inv_Brace_Equiped != "Clorophyl Bra.":
-		player_value.Reg_Rate = player_value.Dummy_Reg_Rate
-	if player_value.Inv_Brace_Equiped == "Power Bra.":
-		player_value.Damage_Bonus = 5
-	elif player_value.Inv_Brace_Equiped != "Power Bra.":
-		player_value.Physical_Damage_Bonus = 0
+	if PlayerValue.Inv_Brace_Equiped == "Golden Bra.":
+		PlayerValue.Health_Bonus = 20
+	elif PlayerValue.Inv_Brace_Equiped != "Golden Bra.":
+		PlayerValue.Health_Bonus = 0
+	if PlayerValue.Inv_Brace_Equiped == "Clorophyl Bra.":
+		PlayerValue.Reg_Rate = 10
+	elif PlayerValue.Inv_Brace_Equiped != "Clorophyl Bra.":
+		PlayerValue.Reg_Rate = PlayerValue.Dummy_Reg_Rate
+	if PlayerValue.Inv_Brace_Equiped == "Power Bra.":
+		PlayerValue.Damage_Bonus = 5
+	elif PlayerValue.Inv_Brace_Equiped != "Power Bra.":
+		PlayerValue.Physical_Damage_Bonus = 0
 
 func Alternative_Timer(Action_Released, Press_Function, Hold_Function, delta: float) -> void:
-	player_value.inter_button_tapped = true
-	player_value.inter_button_held = true
+	PlayerValue.inter_button_tapped = true
+	PlayerValue.inter_button_held = true
 	
-	if player_value.inter_button_tapped:
-		player_value.inter_press_time += delta
+	if PlayerValue.inter_button_tapped:
+		PlayerValue.inter_press_time += delta
 		
 		if Input.is_action_just_released(Action_Released):
-			if !player_value.inter_button_held:
+			if !PlayerValue.inter_button_held:
 				Hold_Function
-				player_value.inter_button_tapped = false
-				player_value.inter_press_time = 0.0
+				PlayerValue.inter_button_tapped = false
+				PlayerValue.inter_press_time = 0.0
 			
-		if player_value.inter_press_time >= player_value.inter_hold_treshold and !player_value.inter_button_held:
-			player_value.inter_button_held = false
+		if PlayerValue.inter_press_time >= PlayerValue.inter_hold_treshold and !PlayerValue.inter_button_held:
+			PlayerValue.inter_button_held = false
 			Press_Function
-			player_value.inter_press_time = 0.0
+			PlayerValue.inter_press_time = 0.0
 	
 
 
 func Tool_HandlingR():
 	Can_use_Range = true
-	match player_value.Inv_ToolR_Equiped:
+	match PlayerValue.Inv_ToolR_Equiped:
 		"null":
 			pass
 		"HandGun":
-			if Can_use_Range == true and Ammo_MagA > 0 and Animation_Script.Current_Anim_Playing == false and player_value.Anim_HM_Done1 == true:
-				player_value.Player_State_Update("ToolDir", "Right")
+			if Can_use_Range == true and Ammo_MagA > 0 and Animation_Script.Current_Anim_Playing == false and PlayerValue.Anim_HM_Done1 == true:
+				PlayerValue.Player_State_Update("ToolDir", "Right")
 				Animation_Script.Current_Anim_Playing = true
 				gun_shoot.play()
 				m1911_anims.play("TST_M1911_Shoot")
-				player_value.Player_State_Update("ToolR", "M1911 Shot")
+				PlayerValue.Player_State_Update("ToolR", "M1911 Shot")
 				if Gun_Ray.is_colliding() and Gun_Ray.get_collider().has_method("damage"):
 						Gun_Ray.get_collider().damage()
 				Ammo_MagA = Ammo_MagA - 1 # Deduces the number of bullets in magazine
@@ -194,12 +194,12 @@ func Tool_HandlingR():
 			elif Ammo_MagA <= 0:
 				gun_click.play()
 		"AssaultRifle":
-			if Can_use_Range == true and Ammo_MagB > 0 and Animation_Script.Current_Anim_Playing == false and player_value.Anim_HM_Done2 == true:
-				player_value.Player_State_Update("ToolDir", "Right")
+			if Can_use_Range == true and Ammo_MagB > 0 and Animation_Script.Current_Anim_Playing == false and PlayerValue.Anim_HM_Done2 == true:
+				PlayerValue.Player_State_Update("ToolDir", "Right")
 				Animation_Script.Current_Anim_Playing = true
 				gun_shoot.play()
 				m14_anims.play("TST_M14_Shoot")
-				player_value.Player_State_Update("ToolR", "M14 Shot")
+				PlayerValue.Player_State_Update("ToolR", "M14 Shot")
 				if Gun_Ray.is_colliding() and Gun_Ray.get_collider().has_method("damage"):
 						Gun_Ray.get_collider().damage()
 				Ammo_MagB = Ammo_MagB - 1 # Deduces the number of bullets in magazine
@@ -209,23 +209,23 @@ func Tool_HandlingR():
 				gun_click.play()
 		
 		"Sword":
-			player_value.Player_State_Update("ToolDir", "Right")
-			player_value.Player_State_Update("ToolR", "Sword Swung")
+			PlayerValue.Player_State_Update("ToolDir", "Right")
+			PlayerValue.Player_State_Update("ToolR", "Sword Swung")
 			
 			if Interact_Ray.is_colliding() and Interact_Ray.get_collider().has_method("damage"): # Check is ray is coliding, and if so, get #damage method
 				Interact_Ray.get_collider().damage() # Gets "damage method and executes it"
 func Tool_HandlingL():
 	Can_use_Range = true
-	match player_value.Inv_ToolL_Equiped:
+	match PlayerValue.Inv_ToolL_Equiped:
 		"null":
 			pass
 		"HandGun":
-			if Can_use_Range == true and Ammo_MagA > 0 and Animation_Script.Current_Anim_Playing == false and player_value.Anim_HM_Done1 == true:
-				player_value.Player_State_Update("ToolDir", "Left")
+			if Can_use_Range == true and Ammo_MagA > 0 and Animation_Script.Current_Anim_Playing == false and PlayerValue.Anim_HM_Done1 == true:
+				PlayerValue.Player_State_Update("ToolDir", "Left")
 				Animation_Script.Current_Anim_Playing = true
 				gun_shoot.play()
 				m1911_anims.play("TST_M1911_Shoot")
-				player_value.Player_State_Update("ToolL", "M1911 Shot")
+				PlayerValue.Player_State_Update("ToolL", "M1911 Shot")
 				if Gun_Ray.is_colliding() and Gun_Ray.get_collider().has_method("damage"):
 						Gun_Ray.get_collider().damage()
 				Ammo_MagA = Ammo_MagA - 1 # Deduces the number of bullets in magazine
@@ -234,12 +234,12 @@ func Tool_HandlingL():
 			elif Ammo_MagA <= 0:
 				gun_click.play()
 		"AssaultRifle":
-			if Can_use_Range == true and Ammo_MagB > 0 and Animation_Script.Current_Anim_Playing == false and player_value.Anim_HM_Done2 == true:
-				player_value.Player_State_Update("ToolDir", "Left")
+			if Can_use_Range == true and Ammo_MagB > 0 and Animation_Script.Current_Anim_Playing == false and PlayerValue.Anim_HM_Done2 == true:
+				PlayerValue.Player_State_Update("ToolDir", "Left")
 				Animation_Script.Current_Anim_Playing = true
 				gun_shoot.play()
 				m14_anims.play("TST_M14_Shoot")
-				player_value.Player_State_Update("ToolL", "M14 Shot")
+				PlayerValue.Player_State_Update("ToolL", "M14 Shot")
 				if Gun_Ray.is_colliding() and Gun_Ray.get_collider().has_method("damage"):
 						Gun_Ray.get_collider().damage()
 				Ammo_MagB = Ammo_MagB - 1 # Deduces the number of bullets in magazine
@@ -249,13 +249,13 @@ func Tool_HandlingL():
 				gun_click.play()
 		
 		"Sword":
-			player_value.Player_State_Update("ToolDir", "Left")
-			player_value.Player_State_Update("ToolL", "Sword Swung")
+			PlayerValue.Player_State_Update("ToolDir", "Left")
+			PlayerValue.Player_State_Update("ToolL", "Sword Swung")
 			if Interact_Ray.is_colliding() and Interact_Ray.get_collider().has_method("damage"): # Check is ray is coliding, and if so, get #damage method
 				Interact_Ray.get_collider().damage() # Gets "damage method and executes it"
 
 #func Tool_Secondary_R():
-	#match player_value.Inv_ToolR_Equiped:
+	#match PlayerValue.Inv_ToolR_Equiped:
 		#"Assalt rifle":
 			##TST_M14.rotation.y = Right_Tool_Rotation + 0.35
 			#m14_anims.play("TST_M14_ADS_R")
@@ -264,7 +264,7 @@ func Tool_HandlingL():
 		##m14_anims.play_backwards("TST_M14_ADS_R")
 		###TST_M14.rotation.y = 0
 #func Tool_Secondary_L():
-	#match player_value.Inv_ToolL_Equiped:
+	#match PlayerValue.Inv_ToolL_Equiped:
 		#pass
 
 func Tool_Rotate():
@@ -274,92 +274,92 @@ func Tool_Rotate():
 	TST_M1911.visible = false
 	TST_M14.visible = false
 	
-	if player_value.Alive == true and player_value.Undeath == false:
-		if player_value.Inv_ToolR_Equiped == "null": # RIGHT TOOL
+	if PlayerValue.Alive == true and PlayerValue.Undeath == false:
+		if PlayerValue.Inv_ToolR_Equiped == "null": # RIGHT TOOL
 			TST_Arm_R.visible = true
 			if Animation_Script.Current_Anim_Playing == false:
 				TST_Arm_R.visible = true
 				Can_use_Close = true
 		
-		if player_value.Inv_ToolL_Equiped == "null": # LEFT TOOL
+		if PlayerValue.Inv_ToolL_Equiped == "null": # LEFT TOOL
 			TST_Arm_L.visible = true
 			if Animation_Script.Current_Anim_Playing == false:
 				TST_Arm_L.visible = true
 				Can_use_Close = true
 		
 		
-		if player_value.Inv_ToolR_Equiped == "HandGun" and player_value.Anim_HM_Done1 == false: # RIGHT TOOL TRANS. ANIMATION
+		if PlayerValue.Inv_ToolR_Equiped == "HandGun" and PlayerValue.Anim_HM_Done1 == false: # RIGHT TOOL TRANS. ANIMATION
 			TST_M1911.position.x = Right_Tool_Position
 			TST_M1911.rotation.y = Right_Tool_Rotation
 			TST_M1911.visible = true
 			m1911_anims.play("TST_M1911_Pop_up")
-		elif player_value.Inv_ToolR_Equiped == "HandGun": # RIGHT TOOL
+		elif PlayerValue.Inv_ToolR_Equiped == "HandGun": # RIGHT TOOL
 			TST_M1911.position.x = Right_Tool_Position
 			TST_M1911.rotation.y = Right_Tool_Rotation
 			TST_M1911.visible = true
 		
-		if player_value.Inv_ToolL_Equiped == "HandGun" and player_value.Anim_HM_Done1 == false: # LEFT TOOL TRANS. ANIMATION
+		if PlayerValue.Inv_ToolL_Equiped == "HandGun" and PlayerValue.Anim_HM_Done1 == false: # LEFT TOOL TRANS. ANIMATION
 			TST_M1911.visible = true
 			TST_M1911.position.x = Left_Toll_Position
 			TST_M1911.rotation.y = Left_Tool_Rotation
 			m1911_anims.play("TST_M1911_Pop_up")
-		elif player_value.Inv_ToolL_Equiped == "HandGun": # LRFT TOOL
+		elif PlayerValue.Inv_ToolL_Equiped == "HandGun": # LRFT TOOL
 			TST_M1911.position.x = Left_Toll_Position
 			TST_M1911.rotation.y = Left_Tool_Rotation
 			TST_M1911.visible = true
 		
 		
-		if player_value.Inv_ToolR_Equiped == "AssaultRifle" and player_value.Anim_HM_Done2 == false: # RIGHT TOOL TRANS. ANIMATION
+		if PlayerValue.Inv_ToolR_Equiped == "AssaultRifle" and PlayerValue.Anim_HM_Done2 == false: # RIGHT TOOL TRANS. ANIMATION
 			TST_M14.visible = true
 			TST_M14.position.x = Right_Tool_Position
 			TST_M14.rotation.y = Right_Tool_Rotation
 			m14_anims.play("TST_M14_Pop_up")
-		elif player_value.Inv_ToolR_Equiped == "AssaultRifle": # RIGHT TOOL
+		elif PlayerValue.Inv_ToolR_Equiped == "AssaultRifle": # RIGHT TOOL
 			TST_M14.visible = true
 			TST_M14.position.x = Right_Tool_Position
 			TST_M14.rotation.y = Right_Tool_Rotation
 		
-		if player_value.Inv_ToolL_Equiped == "AssaultRifle" and player_value.Anim_HM_Done2 == false: # RIGHT TOOL TRANS. ANIMATION
+		if PlayerValue.Inv_ToolL_Equiped == "AssaultRifle" and PlayerValue.Anim_HM_Done2 == false: # RIGHT TOOL TRANS. ANIMATION
 			TST_M14.visible = true
 			TST_M14.position.x = Left_Toll_Position
 			TST_M14.rotation.y = Left_Tool_Rotation
 			m14_anims.play("TST_M14_Pop_up")
-		elif player_value.Inv_ToolL_Equiped == "AssaultRifle": # RIGHT TOOL
+		elif PlayerValue.Inv_ToolL_Equiped == "AssaultRifle": # RIGHT TOOL
 			TST_M14.visible = true
 			TST_M14.position.x = Left_Toll_Position
 			TST_M14.rotation.y = Left_Tool_Rotation
 		
 		
-		#if player_value.Inv_ToolR_Equiped == "Sword" and player_value.Anim_HM_Done2 == false: # RIGHT TOOL TRANS. ANIMATION
+		#if PlayerValue.Inv_ToolR_Equiped == "Sword" and PlayerValue.Anim_HM_Done2 == false: # RIGHT TOOL TRANS. ANIMATION
 			#pass
-		if player_value.Inv_ToolR_Equiped == "Sword": # RIGHT TOOL
+		if PlayerValue.Inv_ToolR_Equiped == "Sword": # RIGHT TOOL
 			#if Animation_Script.Current_Anim_Playing == false:
 			TST_Sword.visible = true
 			TST_Sword.position.x = Right_Tool_Position
 			TST_Sword.rotation.y += Right_Tool_Rotation
 		
-		if player_value.Inv_ToolL_Equiped == "Sword" and player_value.Anim_HM_Done2 == false: # LEFT TOOL TRANS. ANIMATION
+		if PlayerValue.Inv_ToolL_Equiped == "Sword" and PlayerValue.Anim_HM_Done2 == false: # LEFT TOOL TRANS. ANIMATION
 			pass
-		elif player_value.Inv_ToolL_Equiped == "Sword": # LEFT TOOL
+		elif PlayerValue.Inv_ToolL_Equiped == "Sword": # LEFT TOOL
 			if Animation_Script.Current_Anim_Playing == false:
 				pass
 		else:
 			pass
 
 func Tool_AltR():	
-	match player_value.Inv_ToolR_Equiped:
+	match PlayerValue.Inv_ToolR_Equiped:
 		"null":
-			if Can_use_Close == true and player_value.Stamina >= player_value.Stamina_Act1_Tax and Animation_Script.Current_Anim_Playing == false:
+			if Can_use_Close == true and PlayerValue.Stamina >= PlayerValue.Stamina_Act1_Tax and Animation_Script.Current_Anim_Playing == false:
 				Animation_Script.Current_Anim_Playing = true
 				arm_anims_R.play("TST_Arms_Interact") # Play animation
-				player_value.Player_State_Update("ToolR", "Hand Interact")
+				PlayerValue.Player_State_Update("ToolR", "Hand Interact")
 				Tool_Gen_Interaction()
-				player_value.Stats_decrease("Stamina", 3)
+				PlayerValue.Stats_decrease("Stamina", 3)
 		"HandGun":
 			if Can_use_Range_Handgun_alt == true and Animation_Script.Current_Anim_Playing == false and MagA_ExcessR == true:
 				Animation_Script.Current_Anim_Playing = true
 				m1911_anims.play("TST_M1911_Reload_R")
-				player_value.Player_State_Update("ToolR", "M1911 reload")
+				PlayerValue.Player_State_Update("ToolR", "M1911 reload")
 				gun_reload.play()
 				if m1911_anims.current_animation == "TST_M1911_Reload_R":
 					Ammo_MagA = Max_Ammo_MagA # Deduces the number of bullets in magazine
@@ -368,26 +368,26 @@ func Tool_AltR():
 			if Can_use_Range_Assalt_alt == true and Animation_Script.Current_Anim_Playing == false and MagB_ExcessR == true:
 				Animation_Script.Current_Anim_Playing = true
 				m14_anims.play("TST_M14_Reload_R")
-				player_value.Player_State_Update("ToolR", "M14 Reload")
+				PlayerValue.Player_State_Update("ToolR", "M14 Reload")
 				gun_reload.play()
 				if m14_anims.current_animation == "TST_M14_Reload_R":
 					Ammo_MagB = Max_Ammo_MagB # Deduces the number of bullets in magazine
 					MagB_Num -= 1
 func Tool_AltL():
 	if Interact_Ray.is_colliding() and Interact_Ray.get_collider().has_method("interact"):
-		if Can_use_Close == true and player_value.Stamina >= player_value.Stamina_Act1_Tax and Animation_Script.Current_Anim_Playing == false:
+		if Can_use_Close == true and PlayerValue.Stamina >= PlayerValue.Stamina_Act1_Tax and Animation_Script.Current_Anim_Playing == false:
 				Animation_Script.Current_Anim_Playing = true
 				arm_anims_L.play("TST_Arms_Interact") # Play animation
-				player_value.Player_State_Update("ToolL", "Hand Interact")
+				PlayerValue.Player_State_Update("ToolL", "Hand Interact")
 				Tool_Gen_Interaction()
-				player_value.Stats_decrease("Stamina", 3)
+				PlayerValue.Stats_decrease("Stamina", 3)
 	else:
-		match player_value.Inv_ToolL_Equiped:
+		match PlayerValue.Inv_ToolL_Equiped:
 			"HandGun":
 				if Can_use_Range_Handgun_alt == true and Animation_Script.Current_Anim_Playing == false and MagA_ExcessR == true:
 					Animation_Script.Current_Anim_Playing = true
 					m1911_anims.play("TST_M1911_Reload_L")
-					player_value.Player_State_Update("ToolL", "M1911 Reload")
+					PlayerValue.Player_State_Update("ToolL", "M1911 Reload")
 					gun_reload.play()
 					if m1911_anims.current_animation == "TST_M1911_Reload_L":
 						Ammo_MagA = Max_Ammo_MagA # Deduces the number of bullets in magazine
@@ -396,34 +396,34 @@ func Tool_AltL():
 				if Can_use_Range_Assalt_alt == true and Animation_Script.Current_Anim_Playing == false and MagB_ExcessR == true:
 					Animation_Script.Current_Anim_Playing = true
 					m14_anims.play("TST_M14_Reload_L")
-					player_value.Player_State_Update("ToolL", "M14 Reload")
+					PlayerValue.Player_State_Update("ToolL", "M14 Reload")
 					gun_reload.play()
 					if m14_anims.current_animation == "TST_M14_Reload_L":
 						Ammo_MagB = Max_Ammo_MagB # Deduces the number of bullets in magazine
 						MagB_Num -= 1
 
 func UItem():
-	match player_value.Usable_Item_Selected:
+	match PlayerValue.Usable_Item_Selected:
 		1:
-			if player_value.UItem_Get_ID()["quantity"] > 0 and player_value.Health < player_value.Health_Max:
-				var amount = player_value.UItem_Get_ID()["heal_value"]
-				player_value.Heal("Partial", amount)
-				player_value.UItem_Get_ID()["quantity"] -= 1
+			if PlayerValue.UItem_Get_ID()["quantity"] > 0 and PlayerValue.Health < PlayerValue.Health_Max:
+				var amount = PlayerValue.UItem_Get_ID()["heal_value"]
+				PlayerValue.Heal("Partial", amount)
+				PlayerValue.UItem_Get_ID()["quantity"] -= 1
 				$"../Player_sfx/General sfx/heal".play()
 		2:
-			if player_value.UItem_Get_ID()["quantity"] > 0 and player_value.Health < player_value.Health_Max:
-				var amount = player_value.UItem_Get_ID()["heal_value"]
-				player_value.Heal("Partial", amount)
-				player_value.UItem_Get_ID()["quantity"] -= 1
+			if PlayerValue.UItem_Get_ID()["quantity"] > 0 and PlayerValue.Health < PlayerValue.Health_Max:
+				var amount = PlayerValue.UItem_Get_ID()["heal_value"]
+				PlayerValue.Heal("Partial", amount)
+				PlayerValue.UItem_Get_ID()["quantity"] -= 1
 				$"../Player_sfx/General sfx/heal".play()
 
 func UItem_Rotate():
-	if player_value.Usable_Item_Selected == 0 or player_value.Alive == false or player_value.Undeath == true:
+	if PlayerValue.Usable_Item_Selected == 0 or PlayerValue.Alive == false or PlayerValue.Undeath == true:
 		Usable_Item.visible = false
 	else:
 		Usable_Item.visible = true
 	
-	match player_value.Usable_Item_Selected:
+	match PlayerValue.Usable_Item_Selected:
 		1:
 			Usable_Item.play("Glass flask")
 		2:
@@ -431,15 +431,15 @@ func UItem_Rotate():
 	
 	# Item Rotation
 	# Keyboard
-	if player.Key_C and player_value.Menu_mode == false:
+	if player.Key_C and PlayerValue.Menu_mode == false:
 		if Input.is_action_just_pressed("In_Key_Rot_Down"): # Rotates "Usable Item selection" index
-			player_value.Usable_Item_Selected += 1
+			PlayerValue.Usable_Item_Selected += 1
 	# Joypad
-	if player.Joy_C  and player_value.Menu_mode == false:
+	if player.Joy_C  and PlayerValue.Menu_mode == false:
 		if Input.is_action_just_released("In_Joy_Rot_Down"):
-			player_value.Usable_Item_Selected += 1
+			PlayerValue.Usable_Item_Selected += 1
 	
-	player_value.Usable_Item_Selected = wrapi(player_value.Usable_Item_Selected, 1, player_value.UItem_Max)
+	PlayerValue.Usable_Item_Selected = wrapi(PlayerValue.Usable_Item_Selected, 1, PlayerValue.UItem_Max)
 
 func Tool_Gen_Interaction():
 	if not Interact_Ray.is_colliding():
