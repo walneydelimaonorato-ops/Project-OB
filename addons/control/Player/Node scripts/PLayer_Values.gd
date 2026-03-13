@@ -283,6 +283,12 @@ var Wear_ID = {
 }
 
 var Spell_ID = {
+	"null": {
+	"quantity": 1,
+	"damage": 0,
+	"picked?": true,
+	"usable?": true
+	},
 	"Lightning": {
 	"quantity": 6,
 	"damage": 20 + Divine_Damage_Bonus,

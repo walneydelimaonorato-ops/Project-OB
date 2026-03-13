@@ -2,6 +2,8 @@ extends Control
 
 #@onready var PlayerValue: Node3D = $"../../../../../../../PlayerValues"
 @onready var ready_menu: Control = $"../Ready Menu"
+@onready var Tool_Script: Node3D = $"../../../../../../../Tool_Node"
+
 
 @onready var tool_list_ico: VBoxContainer = $"Tools Scroller/Tools Grid/Tools Icons"
 @onready var tool_list_nam: VBoxContainer = $"Tools Scroller/Tools Grid/Tool Icons Name"
@@ -170,6 +172,7 @@ func _on_tool_sword_ico_pressed() -> void:
 		Replace_Icon(ready_menu.tool_icon_2, tool_Sword)
 		PlayerValue.Ready_Menu_To_Item_Selection_Update("Tool R", "Sword")
 	PlayerValue.Menu_Backwards(2, 1)
+	Tool_Script.Tool_Rotate() # Callsed when switching Tools
 func _on_tool_hand_g_ico_pressed() -> void:
 	if PlayerValue.Item_Menu_Slot == "Tool1":
 		Replace_Icon(ready_menu.tool_icon_1, tool_HandGun)
@@ -178,6 +181,7 @@ func _on_tool_hand_g_ico_pressed() -> void:
 		Replace_Icon(ready_menu.tool_icon_2, tool_HandGun)
 		PlayerValue.Ready_Menu_To_Item_Selection_Update("Tool R", "HandGun")
 	PlayerValue.Menu_Backwards(2, 1)
+	Tool_Script.Tool_Rotate() # Callsed when switching Tools
 func _on_tool_assalt_r_ico_pressed() -> void:
 	if PlayerValue.Item_Menu_Slot == "Tool1":
 		Replace_Icon(ready_menu.tool_icon_1, tool_AssaltRifle)

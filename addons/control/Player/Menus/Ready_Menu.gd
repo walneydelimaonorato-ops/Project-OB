@@ -50,8 +50,9 @@ func _process(delta: float) -> void:
 		PlayerValue.One_Time = false
 	if PlayerValue.Alive == true and PlayerValue.Undeath == false and PlayerValue.Menu_Depth >= 1:
 		self.visible = true
+		PlayerValue.Menu_mode = true
 		if PlayerValue.Menu_Depth == 3:
-			PlayerValue.Menu_mode = true
+			#PlayerValue.Menu_mode = true
 			self.visible = false
 	else:
 		self.visible = false
@@ -59,7 +60,6 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_cancel") and PlayerValue.Menu_mode == true:
 		PlayerValue.Menu_Backwards(1, 1)
-		Tool_Script.Tool_Rotate() # Callsed when switching Tools
 
 	elif Input.is_action_just_pressed("ui_select") and PlayerValue.Menu_Depth == 1:
 		Remove_Item()

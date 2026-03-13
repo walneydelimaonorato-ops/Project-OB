@@ -3,8 +3,6 @@ extends CanvasLayer
 var ot = true
 var ot1 = 1
 
-@onready var gang: Area3D = $"../../../../../Rest"
-
 
 @onready var ps_label: Label = $"../Debug Insight/DB Insight/PS_List/PS_Label"
 
@@ -19,7 +17,7 @@ var ot1 = 1
 @onready var ToolR: Label = $"Control/HUD/Tool UI Right"
 @onready var ToolL: Label = $"Control/HUD/Tool UI Left"
 
-@onready var UItem: Label = $"Control/HUD/UItem UI"
+@onready var UItem: Label = $"Control/HUD/Usable items/UItem UI"
 
 @onready var Inter: Label = $"Control/HUD/Interact label"
 
@@ -37,12 +35,12 @@ func _process(_delta: float) -> void:
 		ToolL.visible = false
 		ToolR.visible = false
 		UItem.visible = false
-		$"Control/Usable items/UItem".visible = false
+		UItem.visible = false
 	else:
 		ToolL.visible = true
 		ToolR.visible = true
 		UItem.visible = true
-		$"Control/Usable items/UItem".visible = true
+		UItem.visible = true
 	
 	Debug_UI()
 	Tool_HUD()
@@ -82,13 +80,13 @@ func Debug_UI():
 	global.debug.add_property("Range alt", Tool_Script.Can_use_Range_Assalt_alt, 8)
 	global.debug.add_property("Current anim", Animation_Script.Current_Anim_Playing, 9)
 	global.debug.add_property("bpress time", PlayerValue.inter_press_time, 10)
-	global.debug.add_property("Player coords", player.position, 11)
-	global.debug.add_property("Respawn coords", global.G_Respwan_Coords, 12)
-	#global.debug.add_property("Menu mode", PlayerValue.Menu_mode, 8)
-	global.debug.add_property("Menu depth", PlayerValue.Menu_Depth, 13)
+	global.debug.add_property("Tool rot", $"../../../CameraPlayer/Player_Model/Tool Gun".rotation, 11)
+	global.debug.add_property("Tool pos", $"../../../CameraPlayer/Player_Model/Tool Gun".position, 12)
+	global.debug.add_property("Menu mode", PlayerValue.Menu_mode, 13)
+	global.debug.add_property("Menu depth", PlayerValue.Menu_Depth, 14)
 	#global.debug.add_property("Menu to", PlayerValue.Item_Menu_To, 10)
 	#global.debug.add_property("Menu slot", PlayerValue.Item_Menu_Slot, 11)
-	#global.debug.add_property("One Time", PlayerValue.One_Time, 12) 
+	global.debug.add_property("One Time", player.Roting, 15) 
 	#global.debug.add_property("Focus node", $"Control/Menus/Ready Menu".Focused_Button, 13)
 	#global.debug.add_property("Selected ICON", $"Control/Menus/Ready Menu".Selected_Icon, 14)
 	

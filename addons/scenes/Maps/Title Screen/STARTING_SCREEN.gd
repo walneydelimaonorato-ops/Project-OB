@@ -46,7 +46,7 @@ func _on_map_select_2_pressed() -> void:
 func _on_map_select_3_pressed() -> void:
 	get_tree().change_scene_to_file("res://addons/scenes/Maps/TST/TST_FOUTAIN.tscn")
 func _on_map_select_4_pressed() -> void:
-	get_tree().change_scene_to_file("res://addons/scenes/Maps/TST/TST_Forest.tscn")
+	get_tree().change_scene_to_file("res://addons/scenes/Maps/TST/TST_Forest_V2.tscn")
 func _on_exit_btn_pressed() -> void:
 	get_tree().quit()
 

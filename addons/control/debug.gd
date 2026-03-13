@@ -14,8 +14,8 @@ func _ready():
 func _process(delta: float) -> void:
 	global.Gdebug_active = dact
 	global.Debug_Menu_Page = DMenu
-	if Input.is_action_just_pressed("InD_Heal"):
-		PlayerValue.Heal("Full", 0)
+	#if Input.is_action_just_pressed("InD_Heal"):
+		#PlayerValue.Heal("Full", 0)
 	DMenu = wrapi(DMenu, 1, 4)
 
 func _input(event):

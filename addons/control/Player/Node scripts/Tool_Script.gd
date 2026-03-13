@@ -25,8 +25,17 @@ extends Node3D
 
 @onready var TST_Sword: Node3D = $"../Head/CameraPlayer/Player_Model/TST_Sword"
 
+@onready var TST_Bow: Node3D = $"../Head/CameraPlayer/Player_Model/TST_Bow"
+
+
 # The sprites related to usable items
-@onready var Usable_Item: AnimatedSprite2D = $"../Head/CanvasLayer/face/GUI/Control/Usable items/UItem"
+@onready var Usable_Item: AnimatedSprite2D = $"../Head/CanvasLayer/face/GUI/Control/HUD/Usable items/UItem"
+
+@onready var Right_Tool_Position = 0.08
+@onready var Right_Tool_Rotation = 1.1
+@onready var Left_Toll_Position = -0.08
+@onready var Left_Tool_Rotation = 1.8
+@onready var butt
 
 func _process(delta: float) -> void:
 	Passive_Items()
@@ -37,10 +46,6 @@ func _process(delta: float) -> void:
 		PlayerValue.Player_State_Update("ToolR", "Idle")
 		PlayerValue.Player_State_Update("ToolL", "Idle")
 
-var Right_Tool_Position = 0.080
-var Right_Tool_Rotation = 1.2
-var Left_Toll_Position = -0.075
-var Left_Tool_Rotation = 1.8
 
 var max_tools = 3 # Maximum weapons in rotation
 
@@ -269,10 +274,12 @@ func Tool_HandlingL():
 
 func Tool_Rotate():
 	TST_Arm_R.visible = false
-	TST_Arm_L.visible = false
+	#TST_Arm_L.visible = false
 	
-	TST_M1911.visible = false
-	TST_M14.visible = false
+	TST_Bow.visible = false
+	
+	#TST_M1911.visible = false
+	#TST_M14.visible = false
 	
 	if PlayerValue.Alive == true and PlayerValue.Undeath == false:
 		if PlayerValue.Inv_ToolR_Equiped == "null": # RIGHT TOOL
@@ -281,11 +288,11 @@ func Tool_Rotate():
 				TST_Arm_R.visible = true
 				Can_use_Close = true
 		
-		if PlayerValue.Inv_ToolL_Equiped == "null": # LEFT TOOL
-			TST_Arm_L.visible = true
-			if Animation_Script.Current_Anim_Playing == false:
-				TST_Arm_L.visible = true
-				Can_use_Close = true
+		#if PlayerValue.Inv_ToolL_Equiped == "null": # LEFT TOOL
+			#TST_Arm_L.visible = true
+			#if Animation_Script.Current_Anim_Playing == false:
+				#TST_Arm_L.visible = true
+				#Can_use_Close = true
 		
 		
 		if PlayerValue.Inv_ToolR_Equiped == "HandGun" and PlayerValue.Anim_HM_Done1 == false: # RIGHT TOOL TRANS. ANIMATION
@@ -343,6 +350,10 @@ func Tool_Rotate():
 		elif PlayerValue.Inv_ToolL_Equiped == "Sword": # LEFT TOOL
 			if Animation_Script.Current_Anim_Playing == false:
 				pass
+		
+		if PlayerValue.Inv_ToolR_Equiped == "SpecialBow":
+			TST_Bow.visible = true
+			
 		else:
 			pass
 
