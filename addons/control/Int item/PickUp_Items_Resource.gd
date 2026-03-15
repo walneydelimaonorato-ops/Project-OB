@@ -1,1 +1,2 @@
+class_name Item_Resource
 extends Resource
