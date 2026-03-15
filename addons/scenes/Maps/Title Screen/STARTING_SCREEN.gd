@@ -4,9 +4,10 @@ var display_depth = 0
 var menu_type = ""
 
 func _ready() -> void:
-	$"Main Container/Start btn".grab_focus()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	pass
+	#$"Main Container/Start btn".grab_focus()
+	#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

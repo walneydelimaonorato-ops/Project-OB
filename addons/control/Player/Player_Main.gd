@@ -174,8 +174,8 @@ func _process(delta: float) -> void:
 			camera_player.rotation.x = clamp(camera_player.rotation.x, deg_to_rad(-85), deg_to_rad(85))
 
 func _input(event):
-	#if event.is_action_pressed("InD_Heal"):
-		#Roting -= 0.1
+	if event.is_action_pressed("InD_Heal"):
+		Roting += 0.1
 	# Exit
 	#Keyboard
 	if event.is_action_pressed("In_Pause"): # Exit game window

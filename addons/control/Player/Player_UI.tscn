@@ -1,16 +1,18 @@
-[gd_scene load_steps=41 format=3 uid="uid://bk1yyeg4y5182"]
+[gd_scene load_steps=48 format=3 uid="uid://bk1yyeg4y5182"]
 
 [ext_resource type="Script" uid="uid://dgmq1edxkpfyf" path="res://addons/control/Player/Node scripts/CLR.gd" id="1_uar5c"]
 [ext_resource type="LabelSettings" uid="uid://bourldudvh84a" path="res://Main Font.tres" id="2_svk28"]
-[ext_resource type="Texture2D" uid="uid://bmqlkkf7u8d12" path="res://addons/sprites/crosshairs/Untitled163_20260206042559.png" id="3_ri7tp"]
-[ext_resource type="Texture2D" uid="uid://dqx5nhplbq5yh" path="res://addons/sprites/crosshairs/Untitled163_20260206042605.png" id="4_v6mk1"]
-[ext_resource type="Texture2D" uid="uid://c0h2qm51gv7uj" path="res://addons/sprites/crosshairs/Untitled163_20260206042612.png" id="5_vq17a"]
-[ext_resource type="Texture2D" uid="uid://bekpr73d58rbk" path="res://addons/control/Player/Menus/Menu visuals/Inventory_Item_Frame1.png" id="6_co1gn"]
-[ext_resource type="Texture2D" uid="uid://bg2ax3xprcx3b" path="res://addons/sprites/TST_UItems/TST_Glass_Flask.png" id="7_e6m4q"]
-[ext_resource type="Texture2D" uid="uid://cwdiwaswft4gp" path="res://addons/sprites/TST_UItems/TST_Wild_gold_Petal.png" id="8_x4u5e"]
+[ext_resource type="Texture2D" uid="uid://dokiq8ck7v68y" path="res://addons/control/Player/Menus/Menu visuals/V2/Menu Visuals/Ready_Menu_ToolR.png" id="2_v6mk1"]
+[ext_resource type="Texture2D" uid="uid://dqctj0g2crmvw" path="res://addons/control/Player/Menus/Menu visuals/V2/Menu Visuals/Ready_Menu_ToolL.png" id="3_vq17a"]
+[ext_resource type="Texture2D" uid="uid://dyp1tqlfs1r50" path="res://addons/control/Player/Menus/Menu visuals/V2/Menu Visuals/Ready_Menu_Spell.png" id="4_co1gn"]
+[ext_resource type="Texture2D" uid="uid://1gq7ogm65b2r" path="res://addons/control/Player/Menus/Menu visuals/V2/Menu Visuals/Ready_Menu_UItem.png" id="5_e6m4q"]
+[ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="7_x4u5e"]
 [ext_resource type="StyleBox" uid="uid://dlt754n4isxye" path="res://No_Button_Outline.tres" id="9_o2326"]
+[ext_resource type="Texture2D" uid="uid://bltswoeonw3bs" path="res://addons/sprites/crosshairs/Golden_Cross_Range.png" id="9_ri7tp"]
 [ext_resource type="LabelSettings" uid="uid://dbs43wfge46ty" path="res://Menu_Variation.tres" id="10_pthcs"]
+[ext_resource type="Texture2D" uid="uid://cxbk0aoob748t" path="res://addons/sprites/crosshairs/Golden_Cross_Ring.png" id="10_v6mk1"]
 [ext_resource type="Script" uid="uid://cay28vcmqiwip" path="res://addons/control/Player/Menus/Item_Showcase.gd" id="11_bolxb"]
+[ext_resource type="Texture2D" uid="uid://dc7sdejbtvshu" path="res://addons/sprites/crosshairs/Golden_Cross_Slash.png" id="11_vq17a"]
 [ext_resource type="Texture2D" uid="uid://ea0ylccdd6s2" path="res://addons/control/Player/Menus/Menu visuals/Item_Showcase_Menu.png" id="12_0jb7i"]
 [ext_resource type="Texture2D" uid="uid://bd8c3rjv2otqc" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_SWR_Ico.png" id="13_2mfn8"]
 [ext_resource type="Texture2D" uid="uid://dknhmqcwx0bto" path="res://addons/control/Player/Menus/Menu visuals/Inventory_Item1_Highlight.png" id="14_gtbep"]
@@ -39,24 +41,27 @@
 [ext_resource type="Texture2D" uid="uid://hw1177hocef7" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_BOW_Ico.png" id="37_pgua5"]
 [ext_resource type="Texture2D" uid="uid://bmdu2n8te6pcp" path="res://addons/sprites/TST_blood_part/TST_Pain_Overlay.png" id="38_xwlli"]
 [ext_resource type="Script" uid="uid://bba6o0h5a5r4u" path="res://addons/control/debug.gd" id="39_4cvuf"]
+[ext_resource type="Texture2D" uid="uid://dj61y34o74d2y" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_PTS_Ico.png" id="40_e6m4q"]
+[ext_resource type="Texture2D" uid="uid://be0g2c660ubnc" path="res://addons/control/Player/Menus/Menu visuals/V2/Menu Visuals/Item_Frame_Highlight.png" id="41_o2326"]
+[ext_resource type="Texture2D" uid="uid://rb2ndm7yeemu" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_MRC_Ico.png" id="41_x4u5e"]
+[ext_resource type="Texture2D" uid="uid://cw5ybw6132tg8" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_TWL_Ico.png" id="42_o2326"]
+[ext_resource type="Texture2D" uid="uid://dknix7xvh3uo0" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_Sunfire_Ico.png" id="43_pthcs"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_55p2l"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_pb2jn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_e6m4q")
-}],
-"loop": false,
-"name": &"Glass flask",
-"speed": 5.0
+"texture": ExtResource("10_v6mk1")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_x4u5e")
+"texture": ExtResource("9_ri7tp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_vq17a")
 }],
 "loop": false,
-"name": &"Wild Gold Petal",
-"speed": 5.0
+"name": &"Crosshair",
+"speed": 1.0
 }]
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -95,128 +100,163 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Tool UI Left" type="Label" parent="face/GUI/Control/HUD"]
-layout_mode = 0
-offset_left = -260.0
-offset_top = 75.0
-offset_right = -214.0
-offset_bottom = 111.0
-text = "TUIL"
-label_settings = ExtResource("2_svk28")
-autowrap_mode = 2
+[node name="Side HUD" type="VBoxContainer" parent="face/GUI/Control/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -14.0
+anchor_top = 2.5
+anchor_right = -14.0
+anchor_bottom = 2.5
+scale = Vector2(0.23, 0.23)
+theme_override_constants/separation = 20
 
-[node name="Tool UI Right" type="Label" parent="face/GUI/Control/HUD"]
-layout_mode = 0
-offset_left = 196.0
-offset_top = 75.0
-offset_right = 242.0
-offset_bottom = 111.0
-text = "TUIR"
-label_settings = ExtResource("2_svk28")
-autowrap_mode = 2
+[node name="HUD_ToolR" type="TextureRect" parent="face/GUI/Control/HUD/Side HUD"]
+layout_mode = 2
+texture = ExtResource("2_v6mk1")
 
-[node name="cross hand" type="Sprite2D" parent="face/GUI/Control/HUD/Tool UI Right"]
-visible = false
-position = Vector2(-195, -75)
-texture = ExtResource("3_ri7tp")
+[node name="HUD_ToolL" type="TextureRect" parent="face/GUI/Control/HUD/Side HUD"]
+layout_mode = 2
+texture = ExtResource("3_vq17a")
 
-[node name="cross gun" type="Sprite2D" parent="face/GUI/Control/HUD/Tool UI Right"]
-visible = false
-position = Vector2(-195, -75)
-texture = ExtResource("4_v6mk1")
+[node name="HUD_Spell" type="TextureRect" parent="face/GUI/Control/HUD/Side HUD"]
+layout_mode = 2
+texture = ExtResource("4_co1gn")
 
-[node name="cross sword" type="Sprite2D" parent="face/GUI/Control/HUD/Tool UI Right"]
-visible = false
-position = Vector2(-195, -75)
-texture = ExtResource("5_vq17a")
+[node name="HUD_UItem" type="TextureRect" parent="face/GUI/Control/HUD/Side HUD"]
+layout_mode = 2
+texture = ExtResource("5_e6m4q")
+
+[node name="Side HUD Overlay" type="VBoxContainer" parent="face/GUI/Control/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -14.0
+anchor_top = 2.5
+anchor_right = -14.0
+anchor_bottom = 2.5
+scale = Vector2(0.23, 0.23)
+theme_override_constants/separation = 20
+
+[node name="HUDO_ToolR" type="TextureRect" parent="face/GUI/Control/HUD/Side HUD Overlay"]
+layout_mode = 2
+texture = ExtResource("34_vib7f")
+
+[node name="HUDO_ToolL" type="TextureRect" parent="face/GUI/Control/HUD/Side HUD Overlay"]
+layout_mode = 2
+texture = ExtResource("34_vib7f")
+
+[node name="HUDO_Spell" type="TextureRect" parent="face/GUI/Control/HUD/Side HUD Overlay"]
+layout_mode = 2
+texture = ExtResource("34_vib7f")
+
+[node name="HUDO_UItem" type="TextureRect" parent="face/GUI/Control/HUD/Side HUD Overlay"]
+layout_mode = 2
+texture = ExtResource("34_vib7f")
+
+[node name="Side HUD Text" type="VBoxContainer" parent="face/GUI/Control/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -12.7
+anchor_top = 2.5
+anchor_right = -12.7
+anchor_bottom = 2.5
+scale = Vector2(0.23, 0.23)
+theme_override_constants/separation = 20
+
+[node name="HUD_ToolR" type="MarginContainer" parent="face/GUI/Control/HUD/Side HUD Text"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+
+[node name="HUD_ToolR" type="Label" parent="face/GUI/Control/HUD/Side HUD Text/HUD_ToolR"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_x4u5e")
+theme_override_font_sizes/font_size = 50
+text = "ToolR"
+
+[node name="Desc_ToolR" type="MarginContainer" parent="face/GUI/Control/HUD/Side HUD Text"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 30
+
+[node name="Desc_ToolR" type="Label" parent="face/GUI/Control/HUD/Side HUD Text/Desc_ToolR"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_x4u5e")
+theme_override_font_sizes/font_size = 50
+text = "Booty"
+
+[node name="HUD_ToolL" type="MarginContainer" parent="face/GUI/Control/HUD/Side HUD Text"]
+layout_mode = 2
+
+[node name="HUD_ToolL" type="Label" parent="face/GUI/Control/HUD/Side HUD Text/HUD_ToolL"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_x4u5e")
+theme_override_font_sizes/font_size = 50
+text = "ToolL"
+
+[node name="Desc_ToolL" type="MarginContainer" parent="face/GUI/Control/HUD/Side HUD Text"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 30
+
+[node name="Desc_ToolL" type="Label" parent="face/GUI/Control/HUD/Side HUD Text/Desc_ToolL"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_x4u5e")
+theme_override_font_sizes/font_size = 50
+text = "Booty"
+
+[node name="HUD_Spell" type="MarginContainer" parent="face/GUI/Control/HUD/Side HUD Text"]
+layout_mode = 2
+
+[node name="HUD_Spell" type="Label" parent="face/GUI/Control/HUD/Side HUD Text/HUD_Spell"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_x4u5e")
+theme_override_font_sizes/font_size = 50
+text = "Spell"
+
+[node name="Desc_Spell" type="MarginContainer" parent="face/GUI/Control/HUD/Side HUD Text"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 30
+
+[node name="Desc_Spell" type="Label" parent="face/GUI/Control/HUD/Side HUD Text/Desc_Spell"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_x4u5e")
+theme_override_font_sizes/font_size = 50
+text = "Booty"
+
+[node name="HUD_UItem" type="MarginContainer" parent="face/GUI/Control/HUD/Side HUD Text"]
+layout_mode = 2
+
+[node name="HUD_UItem" type="Label" parent="face/GUI/Control/HUD/Side HUD Text/HUD_UItem"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_x4u5e")
+theme_override_font_sizes/font_size = 50
+text = "UItem"
+
+[node name="Desc_UItem" type="MarginContainer" parent="face/GUI/Control/HUD/Side HUD Text"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 30
+
+[node name="Desc_UItem" type="Label" parent="face/GUI/Control/HUD/Side HUD Text/Desc_UItem"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_x4u5e")
+theme_override_font_sizes/font_size = 50
+text = "Booty"
 
 [node name="Interact label" type="Label" parent="face/GUI/Control/HUD"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -94.0
-offset_top = -29.0
-offset_right = 54.0
-offset_bottom = 24.0
+anchors_preset = -1
+offset_top = 70.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "test interact
 "
 label_settings = ExtResource("2_svk28")
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Health" type="ProgressBar" parent="face/GUI/Control/HUD"]
-visible = false
-modulate = Color(1, 0, 0, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 410.0
-offset_top = -320.0
-offset_right = 540.0
-offset_bottom = -295.0
-grow_horizontal = 2
-grow_vertical = 2
-min_value = 0.1
-max_value = 10.0
-step = 0.2
-value = 0.1
-show_percentage = false
-
-[node name="Energy" type="ProgressBar" parent="face/GUI/Control/HUD"]
-visible = false
-modulate = Color(0, 1, 0, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 410.0
-offset_top = -290.0
-offset_right = 540.0
-offset_bottom = -263.0
-grow_horizontal = 2
-grow_vertical = 2
-max_value = 20.0
-show_percentage = false
-
-[node name="Usable items" type="Control" parent="face/GUI/Control/HUD"]
-anchors_preset = 0
-offset_left = -20.0
-offset_top = -20.0
-offset_right = -20.0
-offset_bottom = -20.0
-
-[node name="TextureRect" type="TextureRect" parent="face/GUI/Control/HUD/Usable items"]
-layout_mode = 0
-offset_left = -263.0
-offset_top = 251.0
-offset_right = -63.0
-offset_bottom = 451.0
-scale = Vector2(0.32, 0.32)
-texture = ExtResource("6_co1gn")
-
-[node name="UItem" type="AnimatedSprite2D" parent="face/GUI/Control/HUD/Usable items"]
-position = Vector2(-231, 283)
-scale = Vector2(0.3, 0.3)
-sprite_frames = SubResource("SpriteFrames_55p2l")
-animation = &"Glass flask"
-
-[node name="UItem UI" type="Label" parent="face/GUI/Control/HUD/Usable items"]
-layout_mode = 0
-offset_left = -200.0
-offset_top = 255.0
-offset_right = -160.0
-offset_bottom = 280.0
-text = "IUI"
-label_settings = ExtResource("2_svk28")
+[node name="Cross" type="AnimatedSprite2D" parent="face/GUI/Control/HUD"]
+sprite_frames = SubResource("SpriteFrames_pb2jn")
+animation = &"Crosshair"
 
 [node name="Death Screen" type="Control" parent="face/GUI/Control"]
 anchors_preset = 0
@@ -264,13 +304,6 @@ theme_override_styles/focus = ExtResource("9_o2326")
 text = "RESPAWN"
 flat = true
 
-[node name="Tools" type="Control" parent="face/GUI/Control"]
-anchors_preset = 0
-offset_left = -20.0
-offset_top = -20.0
-offset_right = -20.0
-offset_bottom = -20.0
-
 [node name="Menus" type="Control" parent="face/GUI/Control"]
 anchors_preset = 0
 offset_left = -28.0
@@ -301,7 +334,7 @@ layout_mode = 0
 offset_left = 16.000011
 offset_top = 15.999975
 offset_right = 1271.0
-offset_bottom = 2380.9995
+offset_bottom = 1081.0001
 scale = Vector2(0.2, 0.2)
 focus_mode = 2
 follow_focus = true
@@ -314,6 +347,7 @@ columns = 2
 
 [node name="Items_Icons" type="VBoxContainer" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid"]
 layout_mode = 2
+theme_override_constants/separation = -55
 
 [node name="Tool_Sword_Ico" type="TextureButton" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Icons"]
 layout_mode = 2
@@ -376,8 +410,7 @@ theme_override_constants/separation = 0
 
 [node name="Tool Sword" type="MarginContainer" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
 layout_mode = 2
-theme_override_constants/margin_top = 74
-theme_override_constants/margin_bottom = 45
+theme_override_constants/margin_top = 70
 
 [node name="Tool_Sword_Nam" type="Label" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Tool Sword"]
 layout_mode = 2
@@ -388,7 +421,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Tool HandGun" type="MarginContainer" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
 layout_mode = 2
-theme_override_constants/margin_top = 79
+theme_override_constants/margin_top = 70
 
 [node name="Tool_HandGun_Nam" type="Label" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Tool HandGun"]
 layout_mode = 2
@@ -399,7 +432,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Tool AssaltRifle" type="MarginContainer" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
 layout_mode = 2
-theme_override_constants/margin_top = 120
+theme_override_constants/margin_top = 70
 
 [node name="Tool_AssalrRifle_Nam" type="Label" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Tool AssaltRifle"]
 layout_mode = 2
@@ -410,7 +443,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Wear 1" type="MarginContainer" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
 layout_mode = 2
-theme_override_constants/margin_top = 135
+theme_override_constants/margin_top = 70
 
 [node name="Wear_1_Nam" type="Label" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Wear 1"]
 layout_mode = 2
@@ -420,7 +453,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Wear 2" type="MarginContainer" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
 layout_mode = 2
-theme_override_constants/margin_top = 135
+theme_override_constants/margin_top = 70
 
 [node name="Wear_2_Nam" type="Label" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Wear 2"]
 layout_mode = 2
@@ -430,7 +463,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Golden" type="MarginContainer" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
 layout_mode = 2
-theme_override_constants/margin_top = 135
+theme_override_constants/margin_top = 70
 
 [node name="Golden_nam" type="Label" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Golden"]
 layout_mode = 2
@@ -441,7 +474,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Cling" type="MarginContainer" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
 layout_mode = 2
-theme_override_constants/margin_top = 125
+theme_override_constants/margin_top = 70
 
 [node name="Cling_nam" type="Label" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Cling"]
 layout_mode = 2
@@ -452,7 +485,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Clorophyl" type="MarginContainer" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
 layout_mode = 2
-theme_override_constants/margin_top = 125
+theme_override_constants/margin_top = 70
 
 [node name="Clorophyl_nam" type="Label" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Clorophyl"]
 layout_mode = 2
@@ -463,7 +496,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Fortune" type="MarginContainer" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
 layout_mode = 2
-theme_override_constants/margin_top = 125
+theme_override_constants/margin_top = 70
 
 [node name="Fortune_nam" type="Label" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Fortune"]
 layout_mode = 2
@@ -474,7 +507,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Power" type="MarginContainer" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
 layout_mode = 2
-theme_override_constants/margin_top = 125
+theme_override_constants/margin_top = 70
 
 [node name="Power_nam" type="Label" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Power"]
 layout_mode = 2
@@ -485,7 +518,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Rotten" type="MarginContainer" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names"]
 layout_mode = 2
-theme_override_constants/margin_top = 125
+theme_override_constants/margin_top = 70
 
 [node name="Rotten_nam" type="Label" parent="face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Rotten"]
 layout_mode = 2
@@ -666,8 +699,9 @@ layout_mode = 2
 columns = 2
 
 [node name="Tools Icons" type="VBoxContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
+visible = false
 layout_mode = 2
-theme_override_constants/separation = -10
+theme_override_constants/separation = -55
 
 [node name="Tool_Sword_Ico" type="TextureButton" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons"]
 layout_mode = 2
@@ -690,12 +724,13 @@ texture_normal = ExtResource("37_pgua5")
 texture_focused = ExtResource("14_gtbep")
 
 [node name="Tool Icons Name" type="VBoxContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
+visible = false
 layout_mode = 2
-theme_override_constants/separation = 35
+theme_override_constants/separation = 0
 
 [node name="Tool Sword" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name"]
 layout_mode = 2
-theme_override_constants/margin_top = 74
+theme_override_constants/margin_top = 70
 
 [node name="Tool_Sword_Nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool Sword"]
 layout_mode = 2
@@ -706,7 +741,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Tool HandGun" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name"]
 layout_mode = 2
-theme_override_constants/margin_top = 79
+theme_override_constants/margin_top = 70
 
 [node name="Tool_HandGun_Nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool HandGun"]
 layout_mode = 2
@@ -717,7 +752,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Tool AssaltRifle" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name"]
 layout_mode = 2
-theme_override_constants/margin_top = 79
+theme_override_constants/margin_top = 70
 
 [node name="Tool_AssalrRifle_Nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool AssaltRifle"]
 layout_mode = 2
@@ -728,7 +763,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Tool Bow" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name"]
 layout_mode = 2
-theme_override_constants/margin_top = 79
+theme_override_constants/margin_top = 70
 
 [node name="Tool_Bow_Nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool Bow"]
 layout_mode = 2
@@ -740,7 +775,7 @@ visible = false
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = -10
+theme_override_constants/separation = -55
 
 [node name="Wear_1_Ico" type="TextureButton" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons"]
 layout_mode = 2
@@ -756,11 +791,11 @@ texture_focused = ExtResource("14_gtbep")
 visible = false
 clip_contents = true
 layout_mode = 2
-theme_override_constants/separation = 35
+theme_override_constants/separation = 0
 
 [node name="Wear 1" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons Name"]
 layout_mode = 2
-theme_override_constants/margin_top = 74
+theme_override_constants/margin_top = 70
 
 [node name="Wear_1_Nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons Name/Wear 1"]
 layout_mode = 2
@@ -770,7 +805,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Wear 2" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons Name"]
 layout_mode = 2
-theme_override_constants/margin_top = 78
+theme_override_constants/margin_top = 70
 
 [node name="Wear_2_Nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons Name/Wear 2"]
 layout_mode = 2
@@ -783,7 +818,7 @@ visible = false
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = -10
+theme_override_constants/separation = -55
 
 [node name="Brace_Gold_Ico" type="TextureButton" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Braces Icons"]
 layout_mode = 2
@@ -818,11 +853,11 @@ texture_focused = ExtResource("14_gtbep")
 [node name="Brace Icon Name" type="VBoxContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
 visible = false
 layout_mode = 2
-theme_override_constants/separation = 35
+theme_override_constants/separation = 0
 
 [node name="Golden" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
 layout_mode = 2
-theme_override_constants/margin_top = 74
+theme_override_constants/margin_top = 70
 
 [node name="Golden_nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Golden"]
 layout_mode = 2
@@ -833,7 +868,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Cling" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
 layout_mode = 2
-theme_override_constants/margin_top = 78
+theme_override_constants/margin_top = 70
 
 [node name="Cling_nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Cling"]
 layout_mode = 2
@@ -844,7 +879,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Clorophyl" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
 layout_mode = 2
-theme_override_constants/margin_top = 78
+theme_override_constants/margin_top = 70
 
 [node name="Clorophyl_nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Clorophyl"]
 layout_mode = 2
@@ -855,7 +890,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Fortune" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
 layout_mode = 2
-theme_override_constants/margin_top = 78
+theme_override_constants/margin_top = 70
 
 [node name="Fortune_nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Fortune"]
 layout_mode = 2
@@ -866,7 +901,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Power" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
 layout_mode = 2
-theme_override_constants/margin_top = 78
+theme_override_constants/margin_top = 70
 
 [node name="Power_nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Power"]
 layout_mode = 2
@@ -877,7 +912,7 @@ label_settings = ExtResource("10_pthcs")
 
 [node name="Rotten" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name"]
 layout_mode = 2
-theme_override_constants/margin_top = 78
+theme_override_constants/margin_top = 70
 
 [node name="Rotten_nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Rotten"]
 layout_mode = 2
@@ -886,10 +921,150 @@ theme_override_font_sizes/font_size = 50
 text = "Rotten Bra."
 label_settings = ExtResource("10_pthcs")
 
+[node name="Spell Icons" type="VBoxContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
+layout_mode = 2
+theme_override_constants/separation = -55
+
+[node name="Spell_PTS" type="TextureButton" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icons"]
+layout_mode = 2
+texture_normal = ExtResource("40_e6m4q")
+texture_focused = ExtResource("41_o2326")
+
+[node name="Spell_MRC" type="TextureButton" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icons"]
+layout_mode = 2
+texture_normal = ExtResource("41_x4u5e")
+texture_focused = ExtResource("41_o2326")
+
+[node name="Spell_TWL" type="TextureButton" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icons"]
+layout_mode = 2
+texture_normal = ExtResource("42_o2326")
+texture_focused = ExtResource("41_o2326")
+
+[node name="Spell_SFR" type="TextureButton" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icons"]
+layout_mode = 2
+texture_normal = ExtResource("43_pthcs")
+texture_focused = ExtResource("41_o2326")
+
+[node name="Spell Icon Name" type="VBoxContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Spell PTS" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icon Name"]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="Spell_PTS_Nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icon Name/Spell PTS"]
+layout_mode = 2
+text = "Potentia Solis"
+label_settings = ExtResource("10_pthcs")
+
+[node name="Spell MRC" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icon Name"]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="Spell_MRC_Nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icon Name/Spell MRC"]
+layout_mode = 2
+text = "Misericordia"
+label_settings = ExtResource("10_pthcs")
+
+[node name="Spell TWL" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icon Name"]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="Spell_TWL_Nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icon Name/Spell TWL"]
+layout_mode = 2
+text = "Tywyll"
+label_settings = ExtResource("10_pthcs")
+
+[node name="Spell SFR" type="MarginContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icon Name"]
+layout_mode = 2
+theme_override_constants/margin_top = 70
+
+[node name="Spell_SFR_Nam" type="Label" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icon Name/Spell SFR"]
+layout_mode = 2
+text = "<Sunfire>"
+label_settings = ExtResource("10_pthcs")
+
 [node name="Pain" type="Sprite2D" parent="face/GUI/Control"]
 visible = false
 scale = Vector2(5.72, 3.2000005)
 texture = ExtResource("38_xwlli")
+
+[node name="Debug Insight" type="Control" parent="face/GUI/Control"]
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+script = ExtResource("39_4cvuf")
+
+[node name="Debug page" type="Label" parent="face/GUI/Control/Debug Insight"]
+layout_mode = 0
+offset_left = -532.0
+offset_top = -292.0
+offset_right = -492.0
+offset_bottom = -269.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+text = "ass"
+
+[node name="DB Insight" type="MarginContainer" parent="face/GUI/Control/Debug Insight"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = -532.0
+offset_top = -265.0
+offset_right = -332.0
+offset_bottom = -225.0
+
+[node name="Panel" type="Panel" parent="face/GUI/Control/Debug Insight/DB Insight"]
+layout_mode = 2
+
+[node name="DB_List" type="VBoxContainer" parent="face/GUI/Control/Debug Insight/DB Insight"]
+layout_mode = 2
+
+[node name="PS_List" type="VBoxContainer" parent="face/GUI/Control/Debug Insight/DB Insight"]
+layout_mode = 2
+
+[node name="PS_Label" type="Label" parent="face/GUI/Control/Debug Insight/DB Insight/PS_List"]
+layout_mode = 2
+
+[node name="Health" type="ProgressBar" parent="face/GUI/Control/Debug Insight"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 430.0
+offset_top = -300.0
+offset_right = 560.0
+offset_bottom = -275.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 0.1
+max_value = 10.0
+step = 0.2
+value = 0.1
+show_percentage = false
+
+[node name="Energy" type="ProgressBar" parent="face/GUI/Control/Debug Insight"]
+visible = false
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 430.0
+offset_top = -270.0
+offset_right = 560.0
+offset_bottom = -243.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 20.0
+show_percentage = false
 
 [node name="ColorRect" type="ColorRect" parent="face/GUI"]
 visible = false
@@ -906,40 +1081,20 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 0.2)
 
-[node name="Debug Insight" type="Control" parent="face"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("39_4cvuf")
-
-[node name="Debug page" type="Label" parent="face/Debug Insight"]
-layout_mode = 0
-offset_left = -532.0
-offset_top = -292.0
-offset_right = -492.0
-offset_bottom = -269.0
-theme_override_colors/font_color = Color(1, 1, 0, 1)
-text = "ass"
-
-[node name="DB Insight" type="MarginContainer" parent="face/Debug Insight"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 0
-offset_left = -532.0
-offset_top = -265.0
-offset_right = -332.0
-offset_bottom = -225.0
-
-[node name="Panel" type="Panel" parent="face/Debug Insight/DB Insight"]
-layout_mode = 2
-
-[node name="DB_List" type="VBoxContainer" parent="face/Debug Insight/DB Insight"]
-layout_mode = 2
-
-[node name="PS_List" type="VBoxContainer" parent="face/Debug Insight/DB Insight"]
-layout_mode = 2
-
-[node name="PS_Label" type="Label" parent="face/Debug Insight/DB Insight/PS_List"]
-layout_mode = 2
+[node name="ColorRect2" type="ColorRect" parent="face/GUI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -161.75
+offset_right = 20.0
+offset_bottom = 161.75
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 2)
 
 [connection signal="button_down" from="face/GUI/Control/Death Screen/RespawnB" to="face/GUI" method="_on_respawnb_button_down"]
 [connection signal="pressed" from="face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Tecnical Grid/Tecnical Slot 1" to="face/GUI/Control/Menus/Ready Menu" method="_on_tecnical_slot_1_pressed"]
@@ -947,6 +1102,7 @@ layout_mode = 2
 [connection signal="pressed" from="face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Wear_Tool Grid/Wear Slot 2" to="face/GUI/Control/Menus/Ready Menu" method="_on_wear_slot_2_pressed"]
 [connection signal="pressed" from="face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Wear_Tool Grid/Tool Slot 1" to="face/GUI/Control/Menus/Ready Menu" method="_on_tool_slot_1_pressed"]
 [connection signal="pressed" from="face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/Wear_Tool Grid/Tool Slot 2" to="face/GUI/Control/Menus/Ready Menu" method="_on_tool_slot_2_pressed"]
+[connection signal="pressed" from="face/GUI/Control/Menus/Ready Menu/Ready Menu Grid/UItems_Spell Grid/Spell Slot" to="face/GUI/Control/Menus/Ready Menu" method="_on_spell_slot_pressed"]
 [connection signal="pressed" from="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_Sword_Ico" to="face/GUI/Control/Menus/Item Selection" method="_on_tool_sword_ico_pressed"]
 [connection signal="pressed" from="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_HandG_Ico" to="face/GUI/Control/Menus/Item Selection" method="_on_tool_hand_g_ico_pressed"]
 [connection signal="pressed" from="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tools Icons/Tool_AssaltR_Ico" to="face/GUI/Control/Menus/Item Selection" method="_on_tool_assalt_r_ico_pressed"]
@@ -959,3 +1115,6 @@ layout_mode = 2
 [connection signal="pressed" from="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Braces Icons/Brace_Fortune_Ico" to="face/GUI/Control/Menus/Item Selection" method="_on_brace_fortune_ico_pressed"]
 [connection signal="pressed" from="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Braces Icons/Brace_Power_Ico" to="face/GUI/Control/Menus/Item Selection" method="_on_brace_power_ico_pressed"]
 [connection signal="pressed" from="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Braces Icons/Brace_Rotten_Ico" to="face/GUI/Control/Menus/Item Selection" method="_on_brace_rotten_ico_pressed"]
+[connection signal="pressed" from="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icons/Spell_PTS" to="face/GUI/Control/Menus/Item Selection" method="_on_spell_pts_pressed"]
+[connection signal="pressed" from="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icons/Spell_MRC" to="face/GUI/Control/Menus/Item Selection" method="_on_spell_mrc_pressed"]
+[connection signal="pressed" from="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icons/Spell_TWL" to="face/GUI/Control/Menus/Item Selection" method="_on_spell_twl_pressed"]

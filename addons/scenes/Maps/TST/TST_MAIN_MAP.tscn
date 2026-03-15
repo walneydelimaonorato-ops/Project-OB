@@ -104,7 +104,6 @@ environment = SubResource("Environment_ayb8k")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.5577037, -0.038179345, 0.82916164, -0.8299495, -0.040414374, 0.55637264, 0.012268101, -0.9984533, -0.05422617, 2.8919046, 10.017852, -5.0089254)
 light_energy = 0.9
-light_negative = true
 shadow_enabled = true
 
 [node name="Envieroment" type="Node3D" parent="."]

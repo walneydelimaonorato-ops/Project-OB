@@ -104,6 +104,7 @@ func Remove_Item():
 			Selected_Icon = u_item_icon_3
 			PlayerValue.Ready_Menu_To_Item_Selection_Update("UItem 3", "null")
 			Valid_Icon_Selected = true
+	Tool_Script.Tool_Rotate()
 	
 	if Valid_Icon_Selected == true:
 		Selected_Icon.texture = load("uid://qua4cq3ubssm")
@@ -124,3 +125,7 @@ func _on_tool_slot_2_pressed() -> void:
 	PlayerValue.Menu_Forward(1, 1, "Tool", "Tool2")
 func _on_tecnical_slot_1_pressed() -> void:
 	PlayerValue.Menu_Forward(1, 2, "Technical", "Technical1")
+
+func _on_spell_slot_pressed() -> void:
+	PlayerValue.Menu_Forward(1, 1, "Spell", "Spell")
+	pass # Replace with function body. Spell

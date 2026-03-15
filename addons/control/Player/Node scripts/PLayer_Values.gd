@@ -86,8 +86,8 @@ func _ready():
 	Player_State_Update("ToolDir", "NULL")
 
 func _process(delta: float) -> void:
-	# When the player is alive, the mouse is captured
-	if Alive == true:
+	#When the player is alive, the mouse is captured
+	if Alive == true and Menu_mode != true:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -284,31 +284,36 @@ var Wear_ID = {
 
 var Spell_ID = {
 	"null": {
-	"quantity": 1,
+	"quantity": 0,
+	"max quantity": 0,
 	"damage": 0,
 	"picked?": true,
 	"usable?": true
 	},
-	"Lightning": {
+	"PotentiaSolis": {
 	"quantity": 6,
+	"max quantity": 6,
 	"damage": 20 + Divine_Damage_Bonus,
 	"picked?": true,
 	"usable?": true
 	},
-	"Heal": {
+	"Misericordia": {
 	"quantity": 2,
+	"max quantity": 2,
 	"damage": 0,
 	"picked?": true,
 	"usable?": true
 	},
-	"Heresy": {
+	"Tywyll": {
 	"quantity": 10,
+	"max quantity": 10,
 	"damage": 10 + Heretic_Damage_Bonus,
 	"picked?": true,
 	"usable?": true
 	},
 	"Sunfire": {
 	"quantity": 99999,
+	"max quantity": 99999,
 	"damage": 99999,
 	"picked?": true,
 	"usable?": true
@@ -393,12 +398,12 @@ func Wear_ID_Get() -> Dictionary:
 func Spell_ID_Get() -> Dictionary:
 # This function checks what spell the player has equipped and picks the spell's respective data.
 	match Inv_Spell_Equiped:
-		"Lightning":
-			return Spell_ID["Lightning"]
-		"Heal":
-			return Spell_ID[Heal]
-		"Heresy":
-			return Spell_ID["Heresy"]
+		"PotentiaSolis":
+			return Spell_ID["PotentiaSolis"]
+		"Misericordia":
+			return Spell_ID["Misericordia"]
+		"Tywyll":
+			return Spell_ID["Tywyll"]
 		"Sunfire":
 			return Spell_ID["Sunfire"]
 	return Spell_ID["Sunfire"]

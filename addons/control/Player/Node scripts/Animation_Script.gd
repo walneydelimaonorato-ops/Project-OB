@@ -25,3 +25,8 @@ func _on_arm_anims_l_animation_finished(anim_name: StringName) -> void:
 func _on_arm_anims_r_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "TST_Arms_Interact":
 		Current_Anim_Playing = false
+
+
+func _on_tool_gen_anim_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Hand_Interact":
+		Current_Anim_Playing = false
