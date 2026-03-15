@@ -28,5 +28,5 @@ func _on_arm_anims_r_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_tool_gen_anim_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "Hand_Interact":
+	if anim_name == "Hand_Interact_R" or anim_name == "Hand_Interact_L" or anim_name == "TST_M1911_Shoot":
 		Current_Anim_Playing = false

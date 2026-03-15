@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cjkynvbw2btb6"]
+[gd_scene load_steps=42 format=3 uid="uid://cjkynvbw2btb6"]
 
 [ext_resource type="Texture2D" uid="uid://bv2a14psp3a0a" path="res://addons/textures/Dark/texture_07.png" id="1_5ht51"]
 [ext_resource type="Script" uid="uid://boct56aj8lyh4" path="res://addons/scenes/Maps/TST/TST_main_map.gd" id="1_lqdda"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://1buo0uexpora" path="res://addons/control/TST pfysics cube/cube.tscn" id="9_5o7rr"]
 [ext_resource type="Script" uid="uid://c732ttjgd20rr" path="res://addons/control/TST pfysics cube/cube.gd" id="10_6slk7"]
 [ext_resource type="AudioStream" uid="uid://b1iac3mtnmphn" path="res://addons/sounds/Ambient/BKGM_MLS.mp3" id="11_1p1lg"]
+[ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="13_c7uni"]
 [ext_resource type="PackedScene" uid="uid://ieq1pr8p1mo" path="res://addons/control/Int rest/rest_obj.tscn" id="13_nhx8o"]
 [ext_resource type="PackedScene" uid="uid://dtaeo6o0gyar1" path="res://addons/control/Int item/item_obj.tscn" id="14_1e2ie"]
 [ext_resource type="PackedScene" uid="uid://pk1seghcippn" path="res://addons/control/Player/player_body.tscn" id="14_xbdi8"]
@@ -83,6 +84,16 @@ size = Vector3(1.5, 0.01, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ealrb"]
 albedo_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hlpdm"]
+resource_local_to_scene = true
+font = ExtResource("13_c7uni")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_fhlcw"]
+resource_local_to_scene = true
+font = ExtResource("13_c7uni")
+font_size = 50
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ayb8k"]
 transparency = 1
@@ -275,6 +286,96 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7944269, 0.2749985, -3.477
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.587537, 0.025, 1.135807)
 collision_layer = 3
 
+[node name="TST_ArmR" parent="Player/Head/CameraPlayer/Player_Model" index="5"]
+transform = Transform3D(-0.398531, 0.28278425, 0.046600047, -0.24998738, -0.3697055, 0.19858988, 0.15152787, 0.13381425, 0.45019135, 0.3357539, -0.061821576, 0.41857803)
+
+[node name="TST_ArmL" parent="Player/Head/CameraPlayer/Player_Model" index="6"]
+transform = Transform3D(0.39853117, -0.28278384, -0.046599906, -0.24998711, -0.3697054, 0.19858985, 0.15152773, 0.13381441, 0.450191, -0.33531657, -0.06217621, 0.41892934)
+
+[node name="Death Text" parent="Player/Head/CanvasLayer/face/GUI/Control/Death Screen" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Tool_Sword_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Tool Sword" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Tool_HandGun_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Tool HandGun" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Tool_AssalrRifle_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Tool AssaltRifle" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Wear_1_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Wear 1" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Wear_2_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Wear 2" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Golden_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Golden" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Cling_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Cling" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Clorophyl_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Clorophyl" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Fortune_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Fortune" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Power_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Power" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Rotten_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Showcase/Tools Scroller/Tools Grid/Items_Names/Rotten" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Tool_Sword_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool Sword" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Tool_HandGun_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool HandGun" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Tool_AssalrRifle_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool AssaltRifle" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Tool_Bow_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Tool Icons Name/Tool Bow" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Wear_1_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons Name/Wear 1" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Wear_2_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Wear Icons Name/Wear 2" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Golden_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Golden" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Cling_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Cling" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Clorophyl_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Clorophyl" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Fortune_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Fortune" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Power_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Power" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Rotten_nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Brace Icon Name/Rotten" index="0"]
+label_settings = SubResource("LabelSettings_hlpdm")
+
+[node name="Spell_PTS_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icon Name/Spell PTS" index="0"]
+label_settings = SubResource("LabelSettings_fhlcw")
+
+[node name="Spell_MRC_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icon Name/Spell MRC" index="0"]
+label_settings = SubResource("LabelSettings_fhlcw")
+
+[node name="Spell_TWL_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icon Name/Spell TWL" index="0"]
+label_settings = SubResource("LabelSettings_fhlcw")
+
+[node name="Spell_SFR_Nam" parent="Player/Head/CanvasLayer/face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icon Name/Spell SFR" index="0"]
+label_settings = SubResource("LabelSettings_fhlcw")
+
 [node name="item" parent="." instance=ExtResource("14_1e2ie")]
 transform = Transform3D(0.9953071, 0, -0.09676648, 0, 1, 0, 0.09676648, 0, 0.9953071, 1.2678776, 0.17500001, -3.344183)
 IT_MagA = true
@@ -323,13 +424,8 @@ transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 [node name="TST_Tree_1" parent="." instance=ExtResource("17_lqdda")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.194721, 0.052281037, 3.0745058)
 
-[connection signal="area_entered" from="Player/Head/CameraPlayer/Player_Model/TST_Sword/Sword_Hitbox" to="Envieroment/Combat/enemies/Enemy" method="_on_sword_hitbox_area_entered"]
 [connection signal="body_entered" from="Pain Box2/Area3D" to="Pain Box2" method="_on_area_3d_body_entered"]
 
 [editable path="Player"]
-[editable path="Player/Head/CameraPlayer/Player_Model/Tool Gun/TST_M1911"]
-[editable path="Player/Head/CameraPlayer/Player_Model/Tool Gun/TST_M14"]
-[editable path="Player/Head/CameraPlayer/Player_Model/TST_ArmR"]
-[editable path="Player/Head/CameraPlayer/Player_Model/TST_ArmL"]
-[editable path="Player/Head/CameraPlayer/Player_Model/TST_Bow"]
-[editable path="Player/Head/CameraPlayer/Player_Model/TST_Sword"]
+[editable path="Player/Head/CameraPlayer/Player_Model"]
+[editable path="Player/Head/CanvasLayer"]

@@ -108,19 +108,19 @@ func Item_Selection_Mode():
 		"Tool": [tool_list_ico, tool_list_nam]
 	}
 	
-	var Mode = [
-		PlayerValue.Item_Menu_To
-	]
+	var Mode = PlayerValue.Item_Menu_To
 	
 	for item_name in Selection_Mode:
-		var available = item_name in Mode
+		var available = item_name == Mode
 		
 		var nodes = Selection_Mode[item_name]
 		
 		nodes[0].visible = available
 		nodes[1].visible = available
-		#await get_tree().create_timer(0.5).timeout
-		focus_first_visible(nodes[0])
+		if available:
+			await get_tree().process_frame
+			focus_first_visible(nodes[0])
+			print (nodes[0])
 
 func Item_Avaliability():
 	var Tool_UI = {

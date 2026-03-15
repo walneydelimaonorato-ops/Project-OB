@@ -175,7 +175,7 @@ func _process(delta: float) -> void:
 
 func _input(event):
 	if event.is_action_pressed("InD_Heal"):
-		Roting += 0.1
+		Roting -= 0.01
 	# Exit
 	#Keyboard
 	if event.is_action_pressed("In_Pause"): # Exit game window

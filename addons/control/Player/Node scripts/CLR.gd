@@ -81,18 +81,20 @@ func Debug_UI():
 	global.debug.add_property("L hand", PlayerValue.L_Hand_In_Use, 5)
 	global.debug.add_property("Item", PlayerValue.Usable_Item_Selected, 6)
 	global.debug.add_property("Alive", PlayerValue.Alive, 7)
-	global.debug.add_property("Range alt", Tool_Script.Can_use_Range_Assalt_alt, 8)
+	#global.debug.add_property("Range alt", Tool_Script.Can_use_Range_Assalt_alt, 8)
+	global.debug.add_property("bpress time", PlayerValue.inter_press_time, 8)
 	global.debug.add_property("Current anim", Animation_Script.Current_Anim_Playing, 9)
-	global.debug.add_property("bpress time", PlayerValue.inter_press_time, 10)
+
+	
 	#global.debug.add_property("Tool rot", $"../../../CameraPlayer/Player_Model/Tool Gun".rotation, 11)
 	#global.debug.add_property("Tool pos", $"../../../CameraPlayer/Player_Model/Tool Gun".position, 12)
-	global.debug.add_property("Menu mode", PlayerValue.Menu_mode, 11)
-	global.debug.add_property("Menu depth", PlayerValue.Menu_Depth, 12)
-	global.debug.add_property("Menu to", PlayerValue.Item_Menu_To, 16)
+	#global.debug.add_property("Menu mode", PlayerValue.Menu_mode, 11)
+	#global.debug.add_property("Menu depth", PlayerValue.Menu_Depth, 12)
+	#global.debug.add_property("Menu to", PlayerValue.Item_Menu_To, 16)
 	#global.debug.add_property("Menu slot", PlayerValue.Item_Menu_Slot, 11)
-	global.debug.add_property("Rot", player.Roting, 13) 
-	global.debug.add_property("Selected ICON", $"Control/HUD/Side HUD Overlay/HUDO_ToolR".texture, 14)
-	global.debug.add_property("Close use", Animation_Script.Current_Anim_Playing, 15)
+	global.debug.add_property("Rot", player.Roting, 10) 
+	#global.debug.add_property("Selected ICON", $"Control/HUD/Side HUD Overlay/HUDO_ToolR".texture, 14)
+	#global.debug.add_property("Close use", Animation_Script.Current_Anim_Playing, 15)
 	
 	if global.Debug_Menu_Page == 2:
 		ps_label.text = "Player states:\r"
@@ -204,7 +206,10 @@ func Side_HUD():
 			HUD_Visibility(hud_spell, hud_spell_nam, desc_spell, "Visible")
 			hud_spell_nam.text = "Heresy"
 			desc_spell.text = str("%d/%d") % [PlayerValue.Spell_ID_Get()["quantity"], PlayerValue.Spell_ID_Get()["max quantity"]]
-		
+		"Sunfire":
+			HUD_Visibility(hud_spell, hud_spell_nam, desc_spell, "Visible")
+			hud_spell_nam.text = "Sunfire"
+			desc_spell.text = str("%d/%d") % [PlayerValue.Spell_ID_Get()["quantity"], PlayerValue.Spell_ID_Get()["max quantity"]]
 
 
 func Interact_HUD():

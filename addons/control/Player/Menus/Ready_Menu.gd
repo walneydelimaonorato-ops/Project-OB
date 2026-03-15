@@ -122,12 +122,17 @@ func _on_wear_slot_1_pressed() -> void:
 	item_selection.Item_Selection_Mode()
 func _on_wear_slot_2_pressed() -> void:
 	PlayerValue.Menu_Forward(1, 1, "Wear", "Wear")
+	item_selection.Item_Selection_Mode()
 func _on_tool_slot_1_pressed() -> void:
 	PlayerValue.Menu_Forward(1, 1, "Tool", "Tool1")
+	item_selection.Item_Selection_Mode()
 func _on_tool_slot_2_pressed() -> void:
 	PlayerValue.Menu_Forward(1, 1, "Tool", "Tool2")
+	item_selection.Item_Selection_Mode()
 func _on_tecnical_slot_1_pressed() -> void:
 	PlayerValue.Menu_Forward(1, 2, "Technical", "Technical1")
+	item_selection.Item_Selection_Mode()
 func _on_spell_slot_pressed() -> void:
 	PlayerValue.Menu_Forward(1, 1, "Spell", "Spell")
+	item_selection.Item_Selection_Mode()
 	pass # Replace with function body. Spell
