@@ -102,15 +102,14 @@ func _process(delta: float) -> void:
 
 func Item_Selection_Mode():
 	var Selection_Mode = {
-		"Tool1": [tool_list_ico, tool_list_nam],
-		"Tool2": [tool_list_ico, tool_list_nam],
 		"Wear": [wear_list_ico, wear_list_nam],
 		"Brace": [brace_list_ico, brace_list_nam],
-		"Spell": [spell_list_ico, spell_list_nam]
+		"Spell": [spell_list_ico, spell_list_nam],
+		"Tool": [tool_list_ico, tool_list_nam]
 	}
 	
 	var Mode = [
-		PlayerValue.Item_Menu_Slot
+		PlayerValue.Item_Menu_To
 	]
 	
 	for item_name in Selection_Mode:
