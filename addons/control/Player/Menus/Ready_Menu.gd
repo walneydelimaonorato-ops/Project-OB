@@ -3,6 +3,8 @@ extends Control
 #@onready var PlayerValue : Node3D = $"../../../../../../../PlayerValues"
 @onready var Tool_Script: Node3D = $"../../../../../../../Tool_Node"
 @onready var Ready_Menu: Control = $"."
+@onready var item_selection: Control = $"../Item Selection"
+
 
 # Buttons
 @onready var tecnical_slot_1: TextureButton = $"Ready Menu Grid/Tecnical Grid/Tecnical Slot 1"
@@ -117,15 +119,15 @@ func Pause():
 
 func _on_wear_slot_1_pressed() -> void:
 	PlayerValue.Menu_Forward(1, 1, "Brace", "Brace")
+	item_selection.Item_Selection_Mode()
 func _on_wear_slot_2_pressed() -> void:
-	PlayerValue.Menu_Forward(1, 1, "Wear", "Wear2")
+	PlayerValue.Menu_Forward(1, 1, "Wear", "Wear")
 func _on_tool_slot_1_pressed() -> void:
 	PlayerValue.Menu_Forward(1, 1, "Tool", "Tool1")
 func _on_tool_slot_2_pressed() -> void:
 	PlayerValue.Menu_Forward(1, 1, "Tool", "Tool2")
 func _on_tecnical_slot_1_pressed() -> void:
 	PlayerValue.Menu_Forward(1, 2, "Technical", "Technical1")
-
 func _on_spell_slot_pressed() -> void:
 	PlayerValue.Menu_Forward(1, 1, "Spell", "Spell")
 	pass # Replace with function body. Spell

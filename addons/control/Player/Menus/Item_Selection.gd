@@ -89,7 +89,6 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	Item_Selection_Mode()
 	Item_Avaliability()
 	
 	$Label.text = PlayerValue.Item_Menu_Slot
@@ -102,49 +101,27 @@ func _process(delta: float) -> void:
 		PlayerValue.Menu_Backwards(2, 1)
 
 func Item_Selection_Mode():
-	if PlayerValue.Item_Menu_To == "Tool":
-		if PlayerValue.One_Time == true:
-			focus_first_visible(tool_list_ico)
-			PlayerValue.One_Time = false
-		tool_list_ico.visible = true
-		tool_list_nam.visible = true
+	var Selection_Mode = {
+		"Tool1": [tool_list_ico, tool_list_nam],
+		"Tool2": [tool_list_ico, tool_list_nam],
+		"Wear": [wear_list_ico, wear_list_nam],
+		"Brace": [brace_list_ico, brace_list_nam],
+		"Spell": [spell_list_ico, spell_list_nam]
+	}
 	
-	elif PlayerValue.Item_Menu_To != "Tool":
-		tool_list_ico.visible = false
-		tool_list_nam.visible = false
+	var Mode = [
+		PlayerValue.Item_Menu_Slot
+	]
 	
-	if PlayerValue.Item_Menu_To == "Wear":
-		if PlayerValue.One_Time == true:
-			focus_first_visible(wear_list_ico)
-			PlayerValue.One_Time = false
-		wear_list_ico.visible = true
-		wear_list_nam.visible = true
-	
-	elif PlayerValue.Item_Menu_To != "Wear":
-		wear_list_ico.visible = false
-		wear_list_nam.visible = false
-	
-	if PlayerValue.Item_Menu_To == "Brace":
-		if PlayerValue.One_Time == true:
-			focus_first_visible(brace_list_ico)
-			PlayerValue.One_Time = false
-		brace_list_ico.visible = true
-		brace_list_nam.visible = true
-	
-	elif PlayerValue.Item_Menu_To != "Brace":
-		brace_list_ico.visible = false
-		brace_list_nam.visible = false
-	
-	if PlayerValue.Item_Menu_To == "Spell":
-		if PlayerValue.One_Time == true:
-			focus_first_visible(spell_list_ico)
-			PlayerValue.One_Time = false
-		spell_list_ico.visible = true
-		spell_list_nam.visible = true
-	
-	elif PlayerValue.Item_Menu_To != "Spell":
-		spell_list_ico.visible = false
-		spell_list_nam.visible = false
+	for item_name in Selection_Mode:
+		var available = item_name in Mode
+		
+		var nodes = Selection_Mode[item_name]
+		
+		nodes[0].visible = available
+		nodes[1].visible = available
+		#await get_tree().create_timer(0.5).timeout
+		focus_first_visible(nodes[0])
 
 func Item_Avaliability():
 	var Tool_UI = {
@@ -190,12 +167,12 @@ func focus_first_visible(container):
 
 
 func _on_wear_1_ico_pressed() -> void:
-	if PlayerValue.Item_Menu_Slot == "Wear2":
+	if PlayerValue.Item_Menu_Slot == "Wear":
 		Replace_Icon(ready_menu.wear_icon_2, wear_1_ico)
 		PlayerValue.Ready_Menu_To_Item_Selection_Update("Wear", "Upper Mewclad Arm.")
 		PlayerValue.Menu_Backwards(2, 1)
 func _on_wear_2_ico_pressed() -> void:
-	if PlayerValue.Item_Menu_Slot == "Wear2":
+	if PlayerValue.Item_Menu_Slot == "Wear":
 		Replace_Icon(ready_menu.wear_icon_2, wear_2_ico)
 		PlayerValue.Ready_Menu_To_Item_Selection_Update("Wear", "Lower Mewclad Arm.")
 		PlayerValue.Menu_Backwards(2, 1)
@@ -293,4 +270,11 @@ func _on_spell_twl_pressed() -> void:
 		Replace_Icon(ready_menu.spell_icon, spell_twl_ico)
 		Update_Side_Hud(spell_twl_ico, hudo_spell)
 		PlayerValue.Ready_Menu_To_Item_Selection_Update("Spell", "Tywyll")
+		PlayerValue.Menu_Backwards(2, 1)
+
+func _on_spell_sfr_pressed() -> void:
+	if PlayerValue.Item_Menu_Slot == "Spell":
+		Replace_Icon(ready_menu.spell_icon, spell_sfr_ico)
+		Update_Side_Hud(spell_sfr_ico, hudo_spell)
+		PlayerValue.Ready_Menu_To_Item_Selection_Update("Spell", "Sunfire")
 		PlayerValue.Menu_Backwards(2, 1)

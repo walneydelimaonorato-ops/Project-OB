@@ -11,11 +11,6 @@ var ot1 = 1
 @onready var Animation_Script: Node3D = $"../../../../Animation_Handler"
 @onready var Tool_Script: Node3D = $"../../../../Tool_Node"
 
-@onready var ToolR: Label = $"Control/HUD/Tool UI Right"
-@onready var ToolL: Label = $"Control/HUD/Tool UI Left"
-
-@onready var UItem: Label = $"Control/HUD/Usable items/UItem UI"
-
 @onready var Inter: Label = $"Control/HUD/Interact label"
 
 @onready var Death_Text: Label = $"Control/Death Screen/Death Text"
@@ -93,7 +88,7 @@ func Debug_UI():
 	#global.debug.add_property("Tool pos", $"../../../CameraPlayer/Player_Model/Tool Gun".position, 12)
 	global.debug.add_property("Menu mode", PlayerValue.Menu_mode, 11)
 	global.debug.add_property("Menu depth", PlayerValue.Menu_Depth, 12)
-	#global.debug.add_property("Menu to", PlayerValue.Item_Menu_To, 10)
+	global.debug.add_property("Menu to", PlayerValue.Item_Menu_To, 16)
 	#global.debug.add_property("Menu slot", PlayerValue.Item_Menu_Slot, 11)
 	global.debug.add_property("Rot", player.Roting, 13) 
 	global.debug.add_property("Selected ICON", $"Control/HUD/Side HUD Overlay/HUDO_ToolR".texture, 14)

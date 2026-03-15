@@ -245,7 +245,10 @@ text = "Booty"
 [node name="Interact label" type="Label" parent="face/GUI/Control/HUD"]
 layout_mode = 1
 anchors_preset = -1
-offset_top = 70.0
+offset_left = -74.0
+offset_top = 8.5
+offset_right = 74.0
+offset_bottom = 61.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "test interact
@@ -655,7 +658,6 @@ layout_mode = 2
 texture = ExtResource("34_vib7f")
 
 [node name="Item Selection" type="Control" parent="face/GUI/Control/Menus"]
-visible = false
 anchors_preset = 0
 offset_left = -10.0
 offset_top = 6.0
@@ -922,6 +924,7 @@ text = "Rotten Bra."
 label_settings = ExtResource("10_pthcs")
 
 [node name="Spell Icons" type="VBoxContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = -55
 
@@ -946,6 +949,7 @@ texture_normal = ExtResource("43_pthcs")
 texture_focused = ExtResource("41_o2326")
 
 [node name="Spell Icon Name" type="VBoxContainer" parent="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 
@@ -1118,3 +1122,4 @@ scale = Vector2(0.2, 2)
 [connection signal="pressed" from="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icons/Spell_PTS" to="face/GUI/Control/Menus/Item Selection" method="_on_spell_pts_pressed"]
 [connection signal="pressed" from="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icons/Spell_MRC" to="face/GUI/Control/Menus/Item Selection" method="_on_spell_mrc_pressed"]
 [connection signal="pressed" from="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icons/Spell_TWL" to="face/GUI/Control/Menus/Item Selection" method="_on_spell_twl_pressed"]
+[connection signal="pressed" from="face/GUI/Control/Menus/Item Selection/Tools Scroller/Tools Grid/Spell Icons/Spell_SFR" to="face/GUI/Control/Menus/Item Selection" method="_on_spell_sfr_pressed"]
