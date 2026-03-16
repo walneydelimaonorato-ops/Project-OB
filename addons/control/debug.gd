@@ -23,9 +23,6 @@ func _input(event):
 		visible = !visible # Show pannel
 		dact = !dact
 	
-	if Input.is_action_just_pressed("InD_Heal"):
-		PlayerValue.Heal("Full", 0)
-	
 	if Input.is_action_pressed("In_Debug_Pu"):
 		DMenu += 1
 	if Input.is_action_pressed("In_Debug_Pd"):

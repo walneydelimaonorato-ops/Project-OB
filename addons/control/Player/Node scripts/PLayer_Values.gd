@@ -60,6 +60,8 @@ var INSIGHT_Tool_L_State = ""
 var Tool_L_State = ""
 var INSIGHT_Tool_Direction_Use = ""
 var Tool_Direction_Use = ""
+var INSIGHT_Tool_2_Hand = ""
+var Tool_2_Hand = ""
 
 # Flags:
 var Alive = true # Checks if the player is alive
@@ -74,6 +76,12 @@ var inter_hold_treshold := 0.25
 var inter_button_tapped = false
 var inter_button_held := false
 
+var DH_press_time := 0.0
+var DH_hold_treshold := 0.5
+var DH_reset_treshold := 1.0
+var DH_button_tapped = false
+var DH_button_held := false
+
 var Stamina_Jump_Tax = 10
 var Stamina_Act1_Tax = 5
 
@@ -84,6 +92,7 @@ func _ready():
 	Player_State_Update("ToolR", "NULL")
 	Player_State_Update("ToolL", "NULL")
 	Player_State_Update("ToolDir", "NULL")
+	Player_State_Update("Tool2H", "NULL")
 
 func _process(delta: float) -> void:
 	#When the player is alive, the mouse is captured
@@ -100,6 +109,7 @@ func _process(delta: float) -> void:
 	Menu_Depth = clamp(Menu_Depth, 0, Menu_Depth_Max)
 
 	inter_press_time = clamp(inter_press_time, 0, 0.50)
+	DH_press_time = clamp(DH_press_time, 0, 1)
 	
 	Dummy_Health_Max = Health_Max + Health_Bonus
 	Health_Max = Dummy_Health_Max1 + Health_Bonus
@@ -170,8 +180,11 @@ func Player_State_Update(Type, Player_State):
 			Tool_L_State = Player_State
 			Tool_Fatigue = 0
 		"ToolDir":
-			INSIGHT_Tool_Direction_Use = str("Tool Direction: ", Player_State)
+			INSIGHT_Tool_Direction_Use = str("Tool Direction: ", Player_State, "\r")
 			Tool_Direction_Use = Player_State
+		"Tool2H":
+			INSIGHT_Tool_2_Hand = str("Main 2 Hand: ", Player_State)
+			Tool_2_Hand = Player_State
 
 func Heal(Type, amount):
 	if Type == "Partial" and Health != Health_Max or Alive == false or Undeath == true:

@@ -35,6 +35,7 @@ var ot1 = 1
 @onready var hud_uitem_nam: Label = $"Control/HUD/Side HUD Text/HUD_UItem/HUD_UItem"
 @onready var desc_uitem: Label = $"Control/HUD/Side HUD Text/Desc_UItem/Desc_UItem"
 
+@onready var health_bar: TextureProgressBar = $Control/HUD/Health
 
 
 var inter_prompt = "test"
@@ -84,7 +85,12 @@ func Debug_UI():
 	#global.debug.add_property("Range alt", Tool_Script.Can_use_Range_Assalt_alt, 8)
 	global.debug.add_property("bpress time", PlayerValue.inter_press_time, 8)
 	global.debug.add_property("Current anim", Animation_Script.Current_Anim_Playing, 9)
-
+	#global.debug.add_property("DH tap", PlayerValue.DH_button_tapped, 10)
+	#global.debug.add_property("DH hold", PlayerValue.DH_button_held, 11)
+	#global.debug.add_property("DH time", PlayerValue.DH_press_time, 12)
+	#global.debug.add_property("Cry for me", PlayerValue.Tool_2_Hand, 13)
+	global.debug.add_property("H bar v", health_bar.value, 10)
+	global.debug.add_property("H bar mv", health_bar.max_value, 11)
 	
 	#global.debug.add_property("Tool rot", $"../../../CameraPlayer/Player_Model/Tool Gun".rotation, 11)
 	#global.debug.add_property("Tool pos", $"../../../CameraPlayer/Player_Model/Tool Gun".position, 12)
@@ -92,7 +98,7 @@ func Debug_UI():
 	#global.debug.add_property("Menu depth", PlayerValue.Menu_Depth, 12)
 	#global.debug.add_property("Menu to", PlayerValue.Item_Menu_To, 16)
 	#global.debug.add_property("Menu slot", PlayerValue.Item_Menu_Slot, 11)
-	global.debug.add_property("Rot", player.Roting, 10) 
+	#global.debug.add_property("Rot", player.Roting, 10) 
 	#global.debug.add_property("Selected ICON", $"Control/HUD/Side HUD Overlay/HUDO_ToolR".texture, 14)
 	#global.debug.add_property("Close use", Animation_Script.Current_Anim_Playing, 15)
 	
@@ -107,6 +113,7 @@ func Debug_UI():
 		ps_label.text += PlayerValue.INSIGHT_Tool_R_State
 		ps_label.text += PlayerValue.INSIGHT_Tool_L_State
 		ps_label.text += PlayerValue.INSIGHT_Tool_Direction_Use
+		ps_label.text += PlayerValue.INSIGHT_Tool_2_Hand
 	
 	if global.Debug_Menu_Page == 3:
 		ps_label.text = "Player inventory: \r"
@@ -130,6 +137,12 @@ func Debug_UI():
 	$"Control/Debug Insight/Energy".value = PlayerValue.Stamina
 
 func Side_HUD():
+	health_bar.value = PlayerValue.Health_Max - PlayerValue.Health
+	if health_bar.value > PlayerValue.Health_Max:
+		health_bar.self_modulate.a = 1
+	elif health_bar.value < PlayerValue.Health_Max:
+		health_bar.self_modulate.a = 1
+	#health_bar.max_value = PlayerValue.Health_Max - PlayerValue.Health
 	HUD_Visibility(hud_toolr, hud_toolr_nam, desc_toolr, "Invisible")
 	HUD_Visibility(hud_tooll, hud_tooll_nam, desc_tooll, "Invisible")
 	HUD_Visibility(hud_spell, hud_spell_nam, desc_spell, "Invisible")
@@ -256,3 +269,5 @@ func HUD_Visibility(Icon, Name, Description, State):
 		Icon.self_modulate.a = 0.5
 		Name.self_modulate.a = 0.5
 		Description.self_modulate.a = 0.5
+func Bars_Visibility(Bar):
+	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bk1yyeg4y5182"]
+[gd_scene load_steps=51 format=3 uid="uid://bk1yyeg4y5182"]
 
 [ext_resource type="Script" uid="uid://dgmq1edxkpfyf" path="res://addons/control/Player/Node scripts/CLR.gd" id="1_uar5c"]
 [ext_resource type="LabelSettings" uid="uid://bourldudvh84a" path="res://Main Font.tres" id="2_svk28"]
@@ -14,8 +14,11 @@
 [ext_resource type="Script" uid="uid://cay28vcmqiwip" path="res://addons/control/Player/Menus/Item_Showcase.gd" id="11_bolxb"]
 [ext_resource type="Texture2D" uid="uid://dc7sdejbtvshu" path="res://addons/sprites/crosshairs/Golden_Cross_Slash.png" id="11_vq17a"]
 [ext_resource type="Texture2D" uid="uid://ea0ylccdd6s2" path="res://addons/control/Player/Menus/Menu visuals/Item_Showcase_Menu.png" id="12_0jb7i"]
+[ext_resource type="Texture2D" uid="uid://cuo3ig8wf7ipo" path="res://addons/control/Player/Menus/Menu visuals/V2/Side Hud/Health_Bar.png" id="12_gtbep"]
+[ext_resource type="Texture2D" uid="uid://dvolomi1fvqbd" path="res://addons/control/Player/Menus/Menu visuals/V2/Side Hud/Health_Frame.png" id="12_o2326"]
 [ext_resource type="Texture2D" uid="uid://bd8c3rjv2otqc" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_SWR_Ico.png" id="13_2mfn8"]
 [ext_resource type="Texture2D" uid="uid://dknhmqcwx0bto" path="res://addons/control/Player/Menus/Menu visuals/Inventory_Item1_Highlight.png" id="14_gtbep"]
+[ext_resource type="Texture2D" uid="uid://ilu7ajwobpb8" path="res://addons/control/Player/Menus/Menu visuals/V2/Side Hud/Rooting_Bar.png" id="14_rqfcl"]
 [ext_resource type="Texture2D" uid="uid://cghnfx3fnlbwp" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_HGN_Ico.png" id="15_rqfcl"]
 [ext_resource type="Texture2D" uid="uid://ycxs4lydaikk" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_ASR_Ico.png" id="16_r0ii5"]
 [ext_resource type="Texture2D" uid="uid://dn0pak7cnr6av" path="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_MAU_Ico.png" id="17_3o8ni"]
@@ -260,6 +263,24 @@ metadata/_edit_use_anchors_ = true
 [node name="Cross" type="AnimatedSprite2D" parent="face/GUI/Control/HUD"]
 sprite_frames = SubResource("SpriteFrames_pb2jn")
 animation = &"Crosshair"
+
+[node name="Health" type="TextureProgressBar" parent="face/GUI/Control/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -14.115
+anchor_top = -2.92
+anchor_right = -14.115
+anchor_bottom = -2.92
+offset_right = 40.0
+offset_bottom = 40.0
+min_value = 0.1
+max_value = 10.0
+step = 0.1
+value = 3.1
+fill_mode = 2
+texture_under = ExtResource("12_gtbep")
+texture_over = ExtResource("12_o2326")
+texture_progress = ExtResource("14_rqfcl")
 
 [node name="Death Screen" type="Control" parent="face/GUI/Control"]
 anchors_preset = 0
@@ -658,6 +679,7 @@ layout_mode = 2
 texture = ExtResource("34_vib7f")
 
 [node name="Item Selection" type="Control" parent="face/GUI/Control/Menus"]
+visible = false
 anchors_preset = 0
 offset_left = -10.0
 offset_top = 6.0

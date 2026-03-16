@@ -150,6 +150,29 @@ func _process(delta: float) -> void:
 						Tool_Script.Tool_AltR()
 						PlayerValue.inter_button_tapped = false
 		
+		
+		if Key_C:
+			if Input.is_action_just_pressed("In_2_Hand_Toggle"):
+				#Tool_Script.Alternative_Timer("In_Key_Tool_Alt", Tool_Script.Tool_AltR(), Tool_Script.Tool_AltL(), delta)
+				PlayerValue.DH_button_tapped = true
+				PlayerValue.DH_button_held = false
+				PlayerValue.DH_press_time = 0.0
+				
+			if PlayerValue.DH_button_tapped:
+				PlayerValue.DH_press_time += delta
+				if PlayerValue.DH_press_time >= PlayerValue.DH_hold_treshold and !PlayerValue.DH_button_held:
+					PlayerValue.DH_button_held = true
+					PlayerValue.Player_State_Update("Tool2H", "Left")
+				
+				if PlayerValue.DH_press_time >= PlayerValue.DH_hold_treshold and !PlayerValue.DH_button_held:
+					PlayerValue.DH_button_held = true
+					PlayerValue.Player_State_Update("Tool2H", "NULL")
+				
+				if Input.is_action_just_released("In_2_Hand_Toggle"):
+					if !PlayerValue.DH_button_held:
+						PlayerValue.Player_State_Update("Tool2H", "Right")
+						PlayerValue.DH_button_tapped = false
+		
 		Tool_Script.Use_UItem()
 
 		Tool_Script.UItem_Rotate()
@@ -174,7 +197,9 @@ func _process(delta: float) -> void:
 			camera_player.rotation.x = clamp(camera_player.rotation.x, deg_to_rad(-85), deg_to_rad(85))
 
 func _input(event):
-	if event.is_action_pressed("InD_Heal"):
+	if event.is_action_pressed("InD_O"):
+		Roting += 0.01
+	elif event.is_action_pressed("InD_P"):
 		Roting -= 0.01
 	# Exit
 	#Keyboard

@@ -3,6 +3,62 @@
 [ext_resource type="Texture2D" uid="uid://deokevvsu37su" path="res://addons/control/Player/Models/TST/TST_M14_CODBOW_TEXTURE_2.png" id="2_x1gem"]
 [ext_resource type="Texture2D" uid="uid://buk376krqum3" path="res://addons/control/Player/Models/TST/TST_M1911_CODBOW_TEXTURE.png" id="3_i0f14"]
 
+[sub_resource type="Animation" id="Animation_avrwh"]
+resource_name = "Hand_Interact_L"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TST_ArmL:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.4134836, 3.0384486, 0.58516884), Vector3(0.10033188, 3.0466893, 0.617202), Vector3(0.4134836, 3.0384486, 0.58516884)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TST_ArmL:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.33531657, -0.06217621, 0.41892934), Vector3(-0.335, -0.07649416, 0.47237122), Vector3(-0.33531657, -0.06217621, 0.41892934)]
+}
+
+[sub_resource type="Animation" id="Animation_x1gem"]
+resource_name = "Hand_Interact"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TST_ArmR:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.3357539, -0.061821576, 0.41857803), Vector3(0.3357539, -0.0710531, 0.47660798), Vector3(0.3357539, -0.061821576, 0.41857803)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TST_ArmR:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.41348335, 0.10314432, -2.5564232), Vector3(-0.1566415, 0.09559882, -2.529814), Vector3(-0.41348335, 0.10314432, -2.5564232)]
+}
+
 [sub_resource type="Animation" id="Animation_i0f14"]
 length = 0.001
 tracks/0/type = "value"
@@ -124,62 +180,6 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_x1gem"]
-resource_name = "Hand_Interact"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TST_ArmR:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.3357539, -0.061821576, 0.41857803), Vector3(0.3357539, -0.0710531, 0.47660798), Vector3(0.3357539, -0.061821576, 0.41857803)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TST_ArmR:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.41348335, 0.10314432, -2.5564232), Vector3(-0.1566415, 0.09559882, -2.529814), Vector3(-0.41348335, 0.10314432, -2.5564232)]
-}
-
-[sub_resource type="Animation" id="Animation_avrwh"]
-resource_name = "Hand_Interact_L"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TST_ArmL:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.4134836, 3.0384486, 0.58516884), Vector3(0.10033188, 3.0466893, 0.617202), Vector3(0.4134836, 3.0384486, 0.58516884)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TST_ArmL:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.33531657, -0.06217621, 0.41892934), Vector3(-0.335, -0.07649416, 0.47237122), Vector3(-0.33531657, -0.06217621, 0.41892934)]
 }
 
 [sub_resource type="Animation" id="Animation_wmf5y"]
@@ -750,6 +750,7 @@ libraries = {
 
 [node name="TST_M14" type="Node3D" parent="."]
 transform = Transform3D(-1.3113416e-09, -0.03, 0, 0.0046930355, -2.0513911e-10, 0.029630654, -0.029630654, 1.2951971e-09, 0.0046930355, 0, -0.065037765, 0.408831)
+visible = false
 
 [node name="M14 Body" type="MeshInstance3D" parent="TST_M14"]
 mesh = SubResource("ArrayMesh_pucls")
@@ -765,6 +766,7 @@ skeleton = NodePath("")
 
 [node name="TST_M1911" type="Node3D" parent="."]
 transform = Transform3D(-1.3113423e-09, -0.029999997, -6.476911e-18, 0.004693033, -2.0513889e-10, 0.02963066, -0.029630665, 1.2951968e-09, 0.0046930327, 0, -0.05481467, 0.4195817)
+visible = false
 
 [node name="M1911 Body" type="MeshInstance3D" parent="TST_M1911"]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 0, 0)
@@ -782,8 +784,7 @@ mesh = SubResource("ArrayMesh_h6pov")
 skeleton = NodePath("")
 
 [node name="TST_Sword" type="Node3D" parent="."]
-transform = Transform3D(-1.3113416e-09, -0.03, 0, 0.0046930346, -2.0513906e-10, 0.02963065, -0.02963065, 1.2951968e-09, 0.0046930346, 0, 0, 0)
-visible = false
+transform = Transform3D(-1.3113416e-09, -0.03, 0, 0.0046930355, -2.0513911e-10, 0.029630654, -0.029630654, 1.2951971e-09, 0.0046930355, 0, 0.07290298, 0.32807752)
 
 [node name="Sword Blade" type="MeshInstance3D" parent="TST_Sword"]
 transform = Transform3D(0.0024239637, 0, -1.49, 0, 0.20000005, 0, 17.32, 0, 0.00020852807, 0.002312757, 0.00013571978, 16.406279)
@@ -820,7 +821,7 @@ mesh = SubResource("ArrayMesh_lodbc")
 skeleton = NodePath("")
 
 [node name="TST_ArmR" type="Node3D" parent="."]
-transform = Transform3D(-0.398531, 0.28278422, 0.046600047, -0.24998738, -0.36970547, 0.19858988, 0.15152787, 0.13381423, 0.45019135, 0.3357539, -0.061821576, 0.41857803)
+transform = Transform3D(-0.398531, 0.28278425, 0.046600047, -0.24998738, -0.3697055, 0.19858988, 0.15152787, 0.13381425, 0.45019135, 0.3357539, -0.061821576, 0.41857803)
 visible = false
 
 [node name="Player_Arm" type="MeshInstance3D" parent="TST_ArmR"]
@@ -829,7 +830,7 @@ mesh = SubResource("ArrayMesh_gfu1g")
 skeleton = NodePath("")
 
 [node name="TST_ArmL" type="Node3D" parent="."]
-transform = Transform3D(0.3985312, -0.28278384, -0.04659991, -0.24998713, -0.3697054, 0.19858986, 0.15152775, 0.13381441, 0.450191, -0.33531657, -0.06217621, 0.41892934)
+transform = Transform3D(0.39853117, -0.28278384, -0.046599906, -0.24998711, -0.3697054, 0.19858985, 0.15152773, 0.13381441, 0.450191, -0.33531657, -0.06217621, 0.41892934)
 visible = false
 
 [node name="Player_Arm" type="MeshInstance3D" parent="TST_ArmL"]
@@ -845,7 +846,6 @@ sides = 6
 
 [node name="Dummy 2" type="CSGCylinder3D" parent="."]
 transform = Transform3D(0.9563048, -0.29237437, 0, 0.045737024, 0.14960043, 0.9876975, -0.28877217, -0.94453996, 0.15643592, -0.312, -0.081, 0.507)
-visible = false
 radius = 0.052734375
 height = 0.55249023
 sides = 6

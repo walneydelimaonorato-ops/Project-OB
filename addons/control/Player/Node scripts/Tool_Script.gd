@@ -29,23 +29,13 @@ extends Node3D
 
 @onready var TST_Bow: Node3D = $"../Head/CameraPlayer/Player_Model/TST_Bow"
 
-
-# The sprites related to usable items
-@onready var Usable_Item: AnimatedSprite2D = $"../Head/CanvasLayer/face/GUI/Control/HUD/Usable items/UItem"
-
 var Right_Tool_Position = 0.312
 var Right_Tool_Rotation = 1.25           #-17.0
 var Left_Toll_Position = -0.312
 var Left_Tool_Rotation = 1.85
 
-var Assault_Rifle_RRotation_Correction = 1.5
-var Assault_Rifle_RPosition_Correction = -0.02
-
-var Assault_Rifle_LRotation_Correction = 1.5
-var Assault_Rifle_LPosition_Correction = -0.02
-
 func _process(delta: float) -> void:
-	#Assault_Rifle_Position_Correction = player.Roting
+	#TST_M14.rotation.y = player.Roting
 	#Tool_Rotate()
 	Passive_Items()
 	PlayerValue.Tool_Fatigue = clamp(PlayerValue.Tool_Fatigue, 0, 10)
@@ -54,7 +44,6 @@ func _process(delta: float) -> void:
 	if PlayerValue.Tool_Fatigue >= 10: 
 		PlayerValue.Player_State_Update("ToolR", "Idle")
 		PlayerValue.Player_State_Update("ToolL", "Idle")
-
 
 var max_tools = 3 # Maximum weapons in rotation
 
@@ -279,9 +268,13 @@ func Tool_HandlingL():
 	#match PlayerValue.Inv_ToolL_Equiped:
 		#pass
 
+
+
 func Tool_Rotate():
 	TST_Arm_R.visible = false
 	TST_Arm_L.visible = false
+	
+	TST_Sword.visible = false
 	
 	TST_Bow.visible = false
 	
@@ -307,45 +300,45 @@ func Tool_Rotate():
 		
 		
 		if PlayerValue.Inv_ToolR_Equiped == "HandGun" and PlayerValue.Anim_HM_Done1 == false: # RIGHT TOOL TRANS. ANIMATION
-			TST_M1911.position.x = Right_Tool_Position
-			TST_M1911.rotation.z = Right_Tool_Rotation
+			TST_M1911.position.x = 0.312
+			TST_M1911.rotation.z = 1.25
 			TST_M1911.visible = true
 			#m1911_anims.play("TST_M1911_Pop_up")
 		elif PlayerValue.Inv_ToolR_Equiped == "HandGun": # RIGHT TOOL
-			TST_M1911.position.x = Right_Tool_Position
-			TST_M1911.rotation.z = Right_Tool_Rotation
+			TST_M1911.position.x = 0.312
+			TST_M1911.rotation.z = 1.25
 			TST_M1911.visible = true
 		
 		if PlayerValue.Inv_ToolL_Equiped == "HandGun" and PlayerValue.Anim_HM_Done1 == false: # LEFT TOOL TRANS. ANIMATION
 			TST_M1911.visible = true
-			TST_M1911.position.x = Left_Toll_Position
-			TST_M1911.rotation.z = Left_Tool_Rotation
+			TST_M1911.position.x = -0.312
+			TST_M1911.rotation.z = 1.85
 			#m1911_anims.play("TST_M1911_Pop_up")
 		elif PlayerValue.Inv_ToolL_Equiped == "HandGun": # LRFT TOOL
-			TST_M1911.position.x = Left_Toll_Position
-			TST_M1911.rotation.z = Left_Tool_Rotation
+			TST_M1911.position.x = -0.312
+			TST_M1911.rotation.z = 1.85
 			TST_M1911.visible = true
 		
 		
 		if PlayerValue.Inv_ToolR_Equiped == "AssaultRifle" and PlayerValue.Anim_HM_Done2 == false: # RIGHT TOOL TRANS. ANIMATION
 			TST_M14.visible = true
-			TST_M14.position.x = Right_Tool_Position - Assault_Rifle_RPosition_Correction
-			TST_M14.rotation.y = Right_Tool_Rotation - Assault_Rifle_RRotation_Correction
+			TST_M14.position.x = 0.33
+			TST_M14.rotation.y = -0.25
 			#m14_anims.play("TST_M14_Pop_up")
 		elif PlayerValue.Inv_ToolR_Equiped == "AssaultRifle": # RIGHT TOOL
 			TST_M14.visible = true
-			TST_M14.position.x = Right_Tool_Position - Assault_Rifle_RPosition_Correction
-			TST_M14.rotation.y = Right_Tool_Rotation - Assault_Rifle_RRotation_Correction
+			TST_M14.position.x = 0.33
+			TST_M14.rotation.y = -0.25
 		
 		if PlayerValue.Inv_ToolL_Equiped == "AssaultRifle" and PlayerValue.Anim_HM_Done2 == false: # RIGHT TOOL TRANS. ANIMATION
 			TST_M14.visible = true
-			TST_M14.position.x = Left_Toll_Position - Assault_Rifle_LPosition_Correction
-			TST_M14.rotation.y = Left_Tool_Rotation - Assault_Rifle_LRotation_Correction
+			TST_M14.position.x = -0.33
+			TST_M14.rotation.y = 0.25
 			#m14_anims.play("TST_M14_Pop_up")
 		elif PlayerValue.Inv_ToolL_Equiped == "AssaultRifle": # RIGHT TOOL
 			TST_M14.visible = true
-			TST_M14.position.x = Left_Toll_Position - Assault_Rifle_LPosition_Correction
-			TST_M14.rotation.y = Left_Tool_Rotation - Assault_Rifle_LRotation_Correction
+			TST_M14.position.x = -0.33
+			TST_M14.rotation.y = 0.25
 		
 		
 		#if PlayerValue.Inv_ToolR_Equiped == "Sword" and PlayerValue.Anim_HM_Done2 == false: # RIGHT TOOL TRANS. ANIMATION
@@ -353,14 +346,16 @@ func Tool_Rotate():
 		if PlayerValue.Inv_ToolR_Equiped == "Sword": # RIGHT TOOL
 			#if Animation_Script.Current_Anim_Playing == false:
 			TST_Sword.visible = true
-			#TST_Sword.position.x = Right_Tool_Position
-			#TST_Sword.rotation.y += Right_Tool_Rotation
+			TST_Sword.position.x = 0.35
+			TST_Sword.rotation.y = -0.25
 		
-		if PlayerValue.Inv_ToolL_Equiped == "Sword" and PlayerValue.Anim_HM_Done2 == false: # LEFT TOOL TRANS. ANIMATION
-			pass
-		elif PlayerValue.Inv_ToolL_Equiped == "Sword": # LEFT TOOL
-			if Animation_Script.Current_Anim_Playing == false:
-				pass
+		#if PlayerValue.Inv_ToolL_Equiped == "Sword" and PlayerValue.Anim_HM_Done2 == false: # LEFT TOOL TRANS. ANIMATION
+			#pass
+		if PlayerValue.Inv_ToolL_Equiped == "Sword": # LEFT TOOL
+			#if Animation_Script.Current_Anim_Playing == false:
+			TST_Sword.visible = true
+			TST_Sword.position.x = -0.35
+			TST_Sword.rotation.y = 0.25
 		
 		if PlayerValue.Inv_ToolR_Equiped == "SpecialBow":
 			TST_Bow.visible = true

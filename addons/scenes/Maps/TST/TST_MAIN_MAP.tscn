@@ -287,10 +287,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.587537, 0.025, 1.135807)
 collision_layer = 3
 
 [node name="TST_ArmR" parent="Player/Head/CameraPlayer/Player_Model" index="5"]
-transform = Transform3D(-0.398531, 0.28278425, 0.046600047, -0.24998738, -0.3697055, 0.19858988, 0.15152787, 0.13381425, 0.45019135, 0.3357539, -0.061821576, 0.41857803)
+transform = Transform3D(-0.398531, 0.28278428, 0.046600047, -0.24998738, -0.36970553, 0.19858988, 0.15152787, 0.13381426, 0.45019135, 0.3357539, -0.061821576, 0.41857803)
 
 [node name="TST_ArmL" parent="Player/Head/CameraPlayer/Player_Model" index="6"]
-transform = Transform3D(0.39853117, -0.28278384, -0.046599906, -0.24998711, -0.3697054, 0.19858985, 0.15152773, 0.13381441, 0.450191, -0.33531657, -0.06217621, 0.41892934)
+transform = Transform3D(0.39853114, -0.28278384, -0.046599906, -0.2499871, -0.3697054, 0.19858985, 0.15152772, 0.13381441, 0.450191, -0.33531657, -0.06217621, 0.41892934)
 
 [node name="Death Text" parent="Player/Head/CanvasLayer/face/GUI/Control/Death Screen" index="0"]
 label_settings = SubResource("LabelSettings_hlpdm")
