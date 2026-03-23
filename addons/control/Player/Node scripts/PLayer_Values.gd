@@ -17,7 +17,7 @@ var Health_Max = 10 # Maximum amount of health
 var Dummy_Health_Max = 10
 var Dummy_Health_Max1 = 10
 var Health_Bonus = 0
-var Health = 10 # Current amount of health the player has
+var Health: float = 10.0 # Current amount of health the player has
 
 var Stamina_Max = 20.0 # Maximum amount of stamina the player can have
 var Stamina = 20 # Current amount of stamina the player has
@@ -113,7 +113,7 @@ func _process(delta: float) -> void:
 	
 	Dummy_Health_Max = Health_Max + Health_Bonus
 	Health_Max = Dummy_Health_Max1 + Health_Bonus
-	#max_value = Health_Max
+	
 	
 	# When the player's health reaches 0, it dies
 	if Health == 0:

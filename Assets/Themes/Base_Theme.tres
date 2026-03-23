@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dpdjc8q7vf7cu"]
+
+[ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="1_g83x0"]
+[ext_resource type="StyleBox" uid="uid://dlt754n4isxye" path="res://No_Button_Outline.tres" id="2_mj5it"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 0, 1)
+Button/colors/font_focus_color = Color(1, 1, 0, 0.7058824)
+Button/fonts/font = ExtResource("1_g83x0")
+Button/styles/focus = ExtResource("2_mj5it")
+Label/fonts/font = ExtResource("1_g83x0")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cx776q338sc4n"]
 
-[ext_resource type="Texture2D" uid="uid://swbd01x57sa" path="res://addons/sprites/title screen/Untitled164.png" id="2_aokim"]
+[ext_resource type="Texture2D" uid="uid://swbd01x57sa" path="res://Assets/Scenes/Title Screem/TST_Title_Screen.png" id="2_aokim"]
 [ext_resource type="Script" uid="uid://cnvp2y40e3mcy" path="res://addons/scenes/Maps/Title Screen/STARTING_SCREEN.gd" id="2_bedyp"]
 [ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="3_7g7i4"]
 [ext_resource type="StyleBox" uid="uid://dlt754n4isxye" path="res://No_Button_Outline.tres" id="4_8861c"]

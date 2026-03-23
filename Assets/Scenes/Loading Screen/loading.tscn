@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bjx42pmeq3smb"]
+
+[ext_resource type="Script" uid="uid://dxnfafyyfvmpo" path="res://Assets/Scenes/Loading Screen/loading.gd" id="1_tfmtj"]
+
+[node name="Loading" type="Node2D" unique_id=549489489]
+script = ExtResource("1_tfmtj")
+
+[node name="Loading Progress" type="ProgressBar" parent="." unique_id=343356928]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 360.0
+offset_top = 246.0
+offset_right = 563.0
+offset_bottom = 273.0
+grow_horizontal = 2
+grow_vertical = 2

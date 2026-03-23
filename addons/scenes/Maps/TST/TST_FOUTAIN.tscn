@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dmkup3igt0cky" path="res://addons/textures/TST_FOUNTAIN/wood grain.png" id="8_euym0"]
 [ext_resource type="Texture2D" uid="uid://y0adxlj0uoo3" path="res://addons/textures/TST_FOUNTAIN/stone floor.png" id="9_m3mea"]
 [ext_resource type="PackedScene" uid="uid://pk1seghcippn" path="res://addons/control/Player/player_body.tscn" id="10_7r06e"]
-[ext_resource type="Script" uid="uid://bi601vlc1j2ja" path="res://addons/control/Player/Player_Main.gd" id="11_acq4q"]
 [ext_resource type="AudioStream" uid="uid://bke8s8j4egcum" path="res://addons/sounds/TST_FOUNTAIN/wind.mp3" id="12_m3mea"]
 [ext_resource type="AudioStream" uid="uid://dp7wa17abi1s5" path="res://addons/sounds/TST_FOUNTAIN/bird chirp.mp3" id="13_7r06e"]
 [ext_resource type="AudioStream" uid="uid://ccd4dk7f7lq2x" path="res://addons/sounds/TST_FOUNTAIN/eerie.mp3" id="14_acq4q"]
@@ -1635,517 +1634,532 @@ data = PackedVector3Array(0, 0.94, -0.9571, -0.9571, 0.6705, 0.9571, 0, 0.94, 0.
 [sub_resource type="BoxMesh" id="BoxMesh_danql"]
 size = Vector3(0.2, 0.2, 0.2)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_x0kx0"]
+viewport_path = NodePath("SubViewport")
+
 [node name="TST_FOUNTAIN" type="Node3D"]
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(640, 360)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D"]
+[node name="Node3D" type="Node3D" parent="SubViewport"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewport/Node3D"]
 environment = SubResource("Environment_x5w43")
 
-[node name="Bounding" type="MeshInstance3D" parent="Node3D"]
+[node name="Bounding" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 35, 0, 0.88268054, 0)
 material_override = SubResource("StandardMaterial3D_m3niv")
 mesh = SubResource("ArrayMesh_xu3ny")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/Bounding"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/Bounding"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Bounding/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/Bounding/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_jfnx1")
 
-[node name="Plane" type="MeshInstance3D" parent="Node3D"]
+[node name="Plane" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 35, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_11ggs")
 mesh = SubResource("ArrayMesh_l1cxl")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/Plane"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/Plane"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Plane/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/Plane/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_danql")
 
-[node name="Plane_001" type="MeshInstance3D" parent="Node3D"]
+[node name="Plane_001" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 15.626387, 0, -35.23946)
 material_override = SubResource("StandardMaterial3D_euym0")
 mesh = SubResource("ArrayMesh_i3b43")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/Plane_001"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/Plane_001"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Plane_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/Plane_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ierne")
 
-[node name="Fountain outter ring" type="MeshInstance3D" parent="Node3D"]
+[node name="Fountain outter ring" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(5, 0, 0, 0, 0.4, 0, 0, 0, 5, 0, 0.4, 0)
 material_override = SubResource("StandardMaterial3D_m3mea")
 mesh = SubResource("ArrayMesh_d5rhb")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/Fountain outter ring"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/Fountain outter ring"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Fountain outter ring/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/Fountain outter ring/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_t36lx")
 
-[node name="Fountain floor" type="MeshInstance3D" parent="Node3D"]
+[node name="Fountain floor" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(35, 0, 0, 0, 1, 0, 0, 0, 35, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_7r06e")
 mesh = SubResource("ArrayMesh_x7trs")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/Fountain floor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/Fountain floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Fountain floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/Fountain floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_xwp3l")
 
-[node name="Fountain floor2" type="MeshInstance3D" parent="Node3D"]
+[node name="Fountain floor2" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(33.672173, 0, 0, 0, 1, 0, 0, 0, 33.09813, 0, 0.5485034, 0)
 material_override = SubResource("StandardMaterial3D_acq4q")
 mesh = SubResource("ArrayMesh_x7trs")
 skeleton = NodePath("")
 
-[node name="Fountain center" type="MeshInstance3D" parent="Node3D"]
+[node name="Fountain center" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("ArrayMesh_lkspa")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/Fountain center"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/Fountain center"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Fountain center/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/Fountain center/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_v6e24")
 
-[node name="tree grass spot" type="MeshInstance3D" parent="Node3D"]
+[node name="tree grass spot" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 7.99792, -20.352592, -0.9987223, -10.502127)
 material_override = SubResource("StandardMaterial3D_jfnx1")
 mesh = SubResource("ArrayMesh_ocieu")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/tree grass spot"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/tree grass spot"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree grass spot/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/tree grass spot/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_jse6w")
 
-[node name="tre grass spot curb" type="MeshInstance3D" parent="Node3D"]
+[node name="tre grass spot curb" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 0.05, 0, 0, 0, 7.99792, -20.352592, 0.05, -10.502127)
 material_override = SubResource("StandardMaterial3D_danql")
 mesh = SubResource("ArrayMesh_th42w")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/tre grass spot curb"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/tre grass spot curb"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tre grass spot curb/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/tre grass spot curb/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_jxvy6")
 
-[node name="tre grass spot curb_001" type="MeshInstance3D" parent="Node3D"]
+[node name="tre grass spot curb_001" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 0.05, 0, 0, 0, 7.99792, -20.352592, 0.05, -10.502127)
 material_override = SubResource("StandardMaterial3D_ierne")
 mesh = SubResource("ArrayMesh_mbkrg")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/tre grass spot curb_001"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/tre grass spot curb_001"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tre grass spot curb_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/tre grass spot curb_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_cjpgr")
 
-[node name="tree branch1" type="MeshInstance3D" parent="Node3D"]
+[node name="tree branch1" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(0.083582126, 0, 0, 0, 0, 0.11207956, 0, -0.19036472, 0, -20.470446, 2.3612318, -10.818223)
 material_override = SubResource("StandardMaterial3D_t36lx")
 mesh = SubResource("ArrayMesh_784s7")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/tree branch1"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/tree branch1"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree branch1/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/tree branch1/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_xhabp")
 
-[node name="tree branch2" type="MeshInstance3D" parent="Node3D"]
+[node name="tree branch2" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(-0.083582126, 1.4372138e-08, -8.461773e-09, -6.310276e-09, 0, 0.11207956, 6.310276e-09, 0.19036472, 6.388461e-16, -20.65858, 1.823952, -10.262575)
 material_override = SubResource("StandardMaterial3D_t36lx")
 mesh = SubResource("ArrayMesh_y5g10")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/tree branch2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/tree branch2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree branch2/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/tree branch2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_pben2")
 
-[node name="tree trunk" type="MeshInstance3D" parent="Node3D"]
+[node name="tree trunk" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -20.54773, 0.99999994, -10.516567)
 material_override = SubResource("StandardMaterial3D_xwp3l")
 mesh = SubResource("ArrayMesh_lohkp")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/tree trunk"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/tree trunk"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree trunk/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/tree trunk/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_xqwpv")
 
-[node name="tree branch1A" type="MeshInstance3D" parent="Node3D"]
+[node name="tree branch1A" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(0.023241257, -0.18285717, -3.775708e-08, 2.490941e-09, -4.5386482e-08, 0.15910923, -0.080285825, -0.052933756, -5.9934644e-09, -20.753218, 2.6267765, -14.391356)
 material_override = SubResource("StandardMaterial3D_t36lx")
 mesh = SubResource("ArrayMesh_kyhxt")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/tree branch1A"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/tree branch1A"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree branch1A/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/tree branch1A/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_n5h2h")
 
-[node name="tree branch2A" type="MeshInstance3D" parent="Node3D"]
+[node name="tree branch2A" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(0.054854453, 0.14359245, 0.0027876545, -0.0022050682, -5.0447077e-05, 0.15905386, 0.06302458, -0.12497976, 0.003138607, -20.21312, 1.8640488, -14.287805)
 material_override = SubResource("StandardMaterial3D_t36lx")
 mesh = SubResource("ArrayMesh_qwoed")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/tree branch2A"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/tree branch2A"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree branch2A/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/tree branch2A/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_j2sul")
 
-[node name="tree trunkA" type="MeshInstance3D" parent="Node3D"]
+[node name="tree trunkA" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(0.25634453, 0, 0.4292872, 0, 1.4196098, 0, -0.4292872, 0, 0.25634453, -20.539541, 1.4143584, -14.164353)
 material_override = SubResource("StandardMaterial3D_xwp3l")
 mesh = SubResource("ArrayMesh_jfeba")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/tree trunkA"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/tree trunkA"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree trunkA/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/tree trunkA/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_43d6d")
 
-[node name="tree branch1A_001" type="MeshInstance3D" parent="Node3D"]
+[node name="tree branch1A_001" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(-0.07304927, -0.09250931, 0, 0, 0, 0.15910923, -0.040617425, 0.16637532, 0, -20.789478, 2.1656518, -13.887601)
 material_override = SubResource("StandardMaterial3D_t36lx")
 mesh = SubResource("ArrayMesh_62wtv")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/tree branch1A_001"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/tree branch1A_001"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree branch1A_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/tree branch1A_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_am5nj")
 
-[node name="tree trunkA_001" type="MeshInstance3D" parent="Node3D"]
+[node name="tree trunkA_001" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(0.25634453, 0, 0.4292872, 0, 1.4196098, 0, -0.4292872, 0, 0.25634453, 69.70005, 1.4143584, -58.2925)
 material_override = SubResource("StandardMaterial3D_v6e24")
 mesh = SubResource("ArrayMesh_wsnsw")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/tree trunkA_001"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/tree trunkA_001"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree trunkA_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/tree trunkA_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_hvau7")
 
-[node name="tree trunkA_002" type="MeshInstance3D" parent="Node3D"]
+[node name="tree trunkA_002" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(0.25634453, 0, 0.4292872, 0, 1.4196098, 0, -0.4292872, 0, 0.25634453, 61.51899, 1.4143584, -52.21868)
 material_override = SubResource("StandardMaterial3D_v6e24")
 mesh = SubResource("ArrayMesh_74p5c")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/tree trunkA_002"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/tree trunkA_002"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/tree trunkA_002/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/tree trunkA_002/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_xa4sr")
 
-[node name="grass spot" type="MeshInstance3D" parent="Node3D"]
+[node name="grass spot" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(9.458131, 0, 0, 0, 1, 0, 0, 0, 6.35973, 5.0116186, -0.39437544, -16.43708)
 material_override = SubResource("StandardMaterial3D_jse6w")
 mesh = SubResource("ArrayMesh_8jnw2")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/grass spot"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/grass spot"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/grass spot/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/grass spot/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3ogd2")
 
-[node name="grass spot drop_001" type="MeshInstance3D" parent="Node3D"]
+[node name="grass spot drop_001" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(10.741274, 0, 0, 0, 0.2, 0, 0, 0, 6.6659737, 5.2228904, -0.2, -16.457256)
 material_override = SubResource("StandardMaterial3D_jxvy6")
 mesh = SubResource("ArrayMesh_o3awd")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/grass spot drop_001"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/grass spot drop_001"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/grass spot drop_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/grass spot drop_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_piuch")
 
-[node name="grass spot drop_002" type="MeshInstance3D" parent="Node3D"]
+[node name="grass spot drop_002" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(10.741274, 0, 0, 0, 0.2, 0, 0, 0, 6.6659737, 5.2228904, -0.2, -16.457256)
 material_override = SubResource("StandardMaterial3D_cjpgr")
 mesh = SubResource("ArrayMesh_oa8t8")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/grass spot drop_002"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/grass spot drop_002"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/grass spot drop_002/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/grass spot drop_002/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_yvkml")
 
-[node name="grass spot drop_003" type="MeshInstance3D" parent="Node3D"]
+[node name="grass spot drop_003" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(10.741274, 0, 0, 0, 0.2, 0, 0, 0, 6.6659737, 5.2228904, -0.2, -16.457256)
 material_override = SubResource("StandardMaterial3D_xhabp")
 mesh = SubResource("ArrayMesh_5crsa")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/grass spot drop_003"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/grass spot drop_003"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/grass spot drop_003/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/grass spot drop_003/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_tjmv2")
 
-[node name="grass spot drop_004" type="MeshInstance3D" parent="Node3D"]
+[node name="grass spot drop_004" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(10.741274, 0, 0, 0, 0.2, 0, 0, 0, 6.6659737, 5.2228904, -0.2, -16.457256)
 material_override = SubResource("StandardMaterial3D_pben2")
 mesh = SubResource("ArrayMesh_wddam")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/grass spot drop_004"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/grass spot drop_004"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/grass spot drop_004/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/grass spot drop_004/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_6q71l")
 
-[node name="grass spot drop_005" type="MeshInstance3D" parent="Node3D"]
+[node name="grass spot drop_005" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(10.741274, 0, 0, 0, 0.2, 0, 0, 0, 6.6659737, 5.2228904, -0.2, -16.457256)
 material_override = SubResource("StandardMaterial3D_xqwpv")
 mesh = SubResource("ArrayMesh_ty0a1")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/grass spot drop_005"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/grass spot drop_005"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/grass spot drop_005/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/grass spot drop_005/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3f13m")
 
-[node name="grass spot drop_006" type="MeshInstance3D" parent="Node3D"]
+[node name="grass spot drop_006" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(10.741274, 0, 0, 0, 0.2, 0, 0, 0, 6.6659737, 5.2228904, -0.2, -16.457256)
 material_override = SubResource("StandardMaterial3D_n5h2h")
 mesh = SubResource("ArrayMesh_wqlxx")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/grass spot drop_006"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/grass spot drop_006"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/grass spot drop_006/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/grass spot drop_006/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_x5gkq")
 
-[node name="grass spot drop_007" type="MeshInstance3D" parent="Node3D"]
+[node name="grass spot drop_007" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(10.741274, 0, 0, 0, 0.2, 0, 0, 0, 6.6659737, 5.2228904, -0.2, -16.457256)
 material_override = SubResource("StandardMaterial3D_j2sul")
 mesh = SubResource("ArrayMesh_nngkf")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/grass spot drop_007"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/grass spot drop_007"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/grass spot drop_007/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/grass spot drop_007/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wuy5y")
 
-[node name="grass spot drop_008" type="MeshInstance3D" parent="Node3D"]
+[node name="grass spot drop_008" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(10.741274, 0, 0, 0, 0.2, 0, 0, 0, 6.6659737, 5.2228904, -0.2, -16.457256)
 material_override = SubResource("StandardMaterial3D_43d6d")
 mesh = SubResource("ArrayMesh_8xtcy")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/grass spot drop_008"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/grass spot drop_008"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/grass spot drop_008/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/grass spot drop_008/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_0yuce")
 
-[node name="grass spot drop_009" type="MeshInstance3D" parent="Node3D"]
+[node name="grass spot drop_009" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(10.741274, 0, 0, 0, 0.2, 0, 0, 0, 6.6659737, 5.2228904, -0.2, -16.457256)
 material_override = SubResource("StandardMaterial3D_am5nj")
 mesh = SubResource("ArrayMesh_52r5y")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/grass spot drop_009"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/grass spot drop_009"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/grass spot drop_009/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/grass spot drop_009/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_d6ejy")
 
-[node name="grass spot drop_010" type="MeshInstance3D" parent="Node3D"]
+[node name="grass spot drop_010" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(10.741274, 0, 0, 0, 0.2, 0, 0, 0, 6.6659737, 5.2228904, -0.2, -16.457256)
 material_override = SubResource("StandardMaterial3D_hvau7")
 mesh = SubResource("ArrayMesh_vswmw")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/grass spot drop_010"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/grass spot drop_010"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/grass spot drop_010/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/grass spot drop_010/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_pa3ti")
 
-[node name="house ceiking" type="MeshInstance3D" parent="Node3D"]
+[node name="house ceiking" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(4.231317, 0, 1.0028679, 0, 2.6035573, 0, -0.824942, 0, 5.1439395, -1.2562716, 2.5932674, 16.928173)
 material_override = SubResource("StandardMaterial3D_qnys0")
 mesh = SubResource("ArrayMesh_fenhh")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/house ceiking"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/house ceiking"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/house ceiking/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/house ceiking/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_jdrru")
 
-[node name="house outter walls" type="MeshInstance3D" parent="Node3D"]
+[node name="house outter walls" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(4.231317, 0, 1.0028679, 0, 2.6035573, 0, -0.824942, 0, 5.1439395, -1.2562716, 2.5932674, 16.928173)
 material_override = SubResource("StandardMaterial3D_5ncvj")
 mesh = SubResource("ArrayMesh_juyl8")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/house outter walls"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/house outter walls"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/house outter walls/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/house outter walls/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gb5lm")
 
-[node name="house in between sides" type="MeshInstance3D" parent="Node3D"]
+[node name="house in between sides" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(4.231317, 0, 1.0028679, 0, 2.6035573, 0, -0.824942, 0, 5.1439395, -1.2562716, 2.5932674, 16.928173)
 material_override = SubResource("StandardMaterial3D_g1ot3")
 mesh = SubResource("ArrayMesh_7878o")
 skeleton = NodePath("")
 
-[node name="house in beteen ups" type="MeshInstance3D" parent="Node3D/house in between sides"]
+[node name="house in beteen ups" type="MeshInstance3D" parent="SubViewport/Node3D/house in between sides"]
 material_override = SubResource("StandardMaterial3D_07ele")
 mesh = SubResource("ArrayMesh_f3asn")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/house in between sides"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/house in between sides"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/house in between sides/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/house in between sides/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_kerdy")
 
-[node name="house inner floor" type="MeshInstance3D" parent="Node3D"]
+[node name="house inner floor" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(4.231317, 0, 1.0028679, 0, 2.6035573, 0, -0.824942, 0, 5.1439395, -1.2562716, 2.5932674, 16.928173)
 material_override = SubResource("StandardMaterial3D_7cf81")
 mesh = SubResource("ArrayMesh_frpn7")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/house inner floor"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/house inner floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/house inner floor/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/house inner floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_c2ou5")
 
-[node name="house inner walls" type="MeshInstance3D" parent="Node3D"]
+[node name="house inner walls" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(4.231317, 0, 1.0028679, 0, 2.6035573, 0, -0.824942, 0, 5.1439395, -1.2562716, 2.5932674, 16.928173)
 material_override = SubResource("StandardMaterial3D_ww28r")
 mesh = SubResource("ArrayMesh_73vkh")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/house inner walls"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/house inner walls"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/house inner walls/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/house inner walls/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_g7171")
 
-[node name="house ceiling inner" type="MeshInstance3D" parent="Node3D"]
+[node name="house ceiling inner" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(4.231317, 0, 1.0028679, 0, 2.6035573, 0, -0.824942, 0, 5.1439395, -1.2562716, 2.5932674, 16.928173)
 material_override = SubResource("StandardMaterial3D_iy52q")
 mesh = SubResource("ArrayMesh_dtvgl")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/house ceiling inner"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/house ceiling inner"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/house ceiling inner/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/house ceiling inner/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_rbhmc")
 
-[node name="house ceiking_001" type="MeshInstance3D" parent="Node3D"]
+[node name="house ceiking_001" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(-3.1953065, 0, 3.3291578, 0, 2.8587503, 0, -3.2829065, 0, -3.2403238, 79.11846, 2.703793, -46.630447)
 material_override = SubResource("StandardMaterial3D_qnys0")
 mesh = SubResource("ArrayMesh_2f0xu")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/house ceiking_001"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/house ceiking_001"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/house ceiking_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/house ceiking_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_orucm")
 
-[node name="house outter walls_001" type="MeshInstance3D" parent="Node3D"]
+[node name="house outter walls_001" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(-3.1953065, 0, 3.3291578, 0, 2.8587503, 0, -3.2829065, 0, -3.2403238, 79.11846, 2.703793, -46.630447)
 material_override = SubResource("StandardMaterial3D_5ncvj")
 mesh = SubResource("ArrayMesh_sb3wj")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/house outter walls_001"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/house outter walls_001"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/house outter walls_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/house outter walls_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_50bxu")
 
-[node name="house in between sides_001" type="MeshInstance3D" parent="Node3D"]
+[node name="house in between sides_001" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(-3.1953065, 0, 3.3291578, 0, 2.8587503, 0, -3.2829065, 0, -3.2403238, 79.11846, 2.703793, -46.630447)
 material_override = SubResource("StandardMaterial3D_g1ot3")
 mesh = SubResource("ArrayMesh_l3odv")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/house in between sides_001"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/house in between sides_001"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/house in between sides_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/house in between sides_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_vcxis")
 
-[node name="house inner floor_001" type="MeshInstance3D" parent="Node3D"]
+[node name="house inner floor_001" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(-3.1953065, 0, 3.3291578, 0, 2.8587503, 0, -3.2829065, 0, -3.2403238, 79.11846, 2.703793, -46.630447)
 material_override = SubResource("StandardMaterial3D_7cf81")
 mesh = SubResource("ArrayMesh_kqrh6")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/house inner floor_001"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/house inner floor_001"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/house inner floor_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/house inner floor_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_70kx1")
 
-[node name="house inner walls_001" type="MeshInstance3D" parent="Node3D"]
+[node name="house inner walls_001" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(-3.1953065, 0, 3.3291578, 0, 2.8587503, 0, -3.2829065, 0, -3.2403238, 79.11846, 2.703793, -46.630447)
 material_override = SubResource("StandardMaterial3D_ww28r")
 mesh = SubResource("ArrayMesh_mpivr")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/house inner walls_001"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/house inner walls_001"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/house inner walls_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/house inner walls_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_aqmhf")
 
-[node name="house ceiling inner_001" type="MeshInstance3D" parent="Node3D"]
+[node name="house ceiling inner_001" type="MeshInstance3D" parent="SubViewport/Node3D"]
 transform = Transform3D(-3.1953065, 0, 3.3291578, 0, 2.8587503, 0, -3.2829065, 0, -3.2403238, 79.11846, 2.703793, -46.630447)
 material_override = SubResource("StandardMaterial3D_iy52q")
 mesh = SubResource("ArrayMesh_qtl5b")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D/house ceiling inner_001"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D/house ceiling inner_001"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/house ceiling inner_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/house ceiling inner_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_fg05g")
 
-[node name="Player" parent="." instance=ExtResource("10_7r06e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2483616, 0, -6.743639)
-script = ExtResource("11_acq4q")
-Base_Speed = 14.0
-Run = 16.0
-Joy_C = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SubViewport"]
 stream = ExtResource("12_m3mea")
 volume_db = -20.0
 autoplay = true
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.428658, 3.8333726, -12.238147)
 stream = ExtResource("13_7r06e")
 volume_db = -10.0
 unit_size = 1.0
 autoplay = true
 
-[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.568924, 3.8333726, -33.956696)
 stream = ExtResource("13_7r06e")
 volume_db = -10.0
 unit_size = 2.0
 autoplay = true
 
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SubViewport"]
 stream = ExtResource("14_acq4q")
 volume_db = -25.0
 autoplay = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.591705, 0.16173577, -46.1648)
 mesh = SubResource("BoxMesh_danql")
+skeleton = NodePath("../..")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="MeshInstance3D"]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewport/MeshInstance3D"]
 stream = ExtResource("15_jfnx1")
 unit_size = 1.0
 autoplay = true
 max_distance = 20.0
 
-[node name="item" parent="MeshInstance3D" instance=ExtResource("16_danql")]
+[node name="item" parent="SubViewport/MeshInstance3D" instance=ExtResource("16_danql")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.107475, -0.01173386, -3.9972572)
 
-[node name="item2" parent="MeshInstance3D" instance=ExtResource("16_danql")]
+[node name="item2" parent="SubViewport/MeshInstance3D" instance=ExtResource("16_danql")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -85.375336, -0.011732906, 69.62234)
+
+[node name="Player" parent="SubViewport" instance=ExtResource("10_7r06e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2483616, 0, -6.743639)
+Base_Speed = 14.0
+Run = 16.0
+Key_C = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_x0kx0")
+stretch_mode = 5

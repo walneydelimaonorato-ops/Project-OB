@@ -6,10 +6,10 @@ var ot1 = 1
 @onready var ps_label: Label = $"Control//Debug Insight/DB Insight/PS_List/PS_Label"
 
 @onready var item_selection: Control = $"Control/Menus/Item Selection"
-@onready var player : CharacterBody3D = $"../../../.."
+@onready var player : CharacterBody3D = $"../.."
 #@onready var PlayerValue = $"../../../../PlayerValues"
-@onready var Animation_Script: Node3D = $"../../../../Animation_Handler"
-@onready var Tool_Script: Node3D = $"../../../../Tool_Node"
+@onready var Animation_Script: Node3D = $"../../Animation_Handler"
+@onready var Tool_Script: Node3D = $"../../Tool_Node"
 
 @onready var Inter: Label = $"Control/HUD/Interact label"
 
@@ -78,19 +78,19 @@ func Debug_UI():
 		global.debug.add_property("Joypad", player.Joy_C, 1)
 	global.debug.add_property("E", PlayerValue.Stamina, 2)
 	global.debug.add_property("Health", PlayerValue.Health, 3)
-	global.debug.add_property("R hand", PlayerValue.R_Hand_In_Use, 4) 
-	global.debug.add_property("L hand", PlayerValue.L_Hand_In_Use, 5)
-	global.debug.add_property("Item", PlayerValue.Usable_Item_Selected, 6)
-	global.debug.add_property("Alive", PlayerValue.Alive, 7)
+	#global.debug.add_property("D Health", PlayerValue.Display_Health, 4) 
+	global.debug.add_property("L hand", PlayerValue.L_Hand_In_Use, 4)
+	global.debug.add_property("Item", PlayerValue.Usable_Item_Selected, 5)
+	global.debug.add_property("Alive", PlayerValue.Alive, 6)
 	#global.debug.add_property("Range alt", Tool_Script.Can_use_Range_Assalt_alt, 8)
-	global.debug.add_property("bpress time", PlayerValue.inter_press_time, 8)
-	global.debug.add_property("Current anim", Animation_Script.Current_Anim_Playing, 9)
+	global.debug.add_property("bpress time", PlayerValue.inter_press_time, 7)
+	global.debug.add_property("Current anim", Animation_Script.Current_Anim_Playing, 8)
 	#global.debug.add_property("DH tap", PlayerValue.DH_button_tapped, 10)
 	#global.debug.add_property("DH hold", PlayerValue.DH_button_held, 11)
 	#global.debug.add_property("DH time", PlayerValue.DH_press_time, 12)
 	#global.debug.add_property("Cry for me", PlayerValue.Tool_2_Hand, 13)
-	global.debug.add_property("H bar v", health_bar.value, 10)
-	global.debug.add_property("H bar mv", health_bar.max_value, 11)
+	global.debug.add_property("H bar v", health_bar.value, 9)
+	global.debug.add_property("H bar mv", health_bar.max_value, 10)
 	
 	#global.debug.add_property("Tool rot", $"../../../CameraPlayer/Player_Model/Tool Gun".rotation, 11)
 	#global.debug.add_property("Tool pos", $"../../../CameraPlayer/Player_Model/Tool Gun".position, 12)
@@ -137,11 +137,8 @@ func Debug_UI():
 	$"Control/Debug Insight/Energy".value = PlayerValue.Stamina
 
 func Side_HUD():
-	health_bar.value = PlayerValue.Health_Max - PlayerValue.Health
-	if health_bar.value > PlayerValue.Health_Max:
-		health_bar.self_modulate.a = 1
-	elif health_bar.value < PlayerValue.Health_Max:
-		health_bar.self_modulate.a = 1
+	health_bar.max_value = PlayerValue.Health_Max
+	health_bar.value = lerp(health_bar.value, PlayerValue.Health - 0.25, 0.3)
 	#health_bar.max_value = PlayerValue.Health_Max - PlayerValue.Health
 	HUD_Visibility(hud_toolr, hud_toolr_nam, desc_toolr, "Invisible")
 	HUD_Visibility(hud_tooll, hud_tooll_nam, desc_tooll, "Invisible")
