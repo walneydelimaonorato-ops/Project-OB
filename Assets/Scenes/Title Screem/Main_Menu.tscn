@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dvswk4iyevce" path="res://Assets/Scenes/Title Screem/TST_Title_Screen.png" id="1_jvbwn"]
 [ext_resource type="Script" uid="uid://cl2erxhx4jr6x" path="res://Assets/Scenes/Title Screem/Script/main_menu.gd" id="1_tq883"]
 [ext_resource type="Theme" uid="uid://ylysgsmxvcu1" path="res://Assets/UI/Main_UI_Theme.tres" id="2_movp4"]
+[ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="6_coo83"]
 
 [node name="Stem" type="Control" unique_id=888577079]
 layout_mode = 3
@@ -54,7 +55,6 @@ text = "<Exit>"
 alignment = 0
 
 [node name="2A" type="VBoxContainer" parent="." unique_id=1984324830]
-visible = false
 layout_mode = 0
 offset_left = 53.0
 offset_top = 174.0
@@ -65,6 +65,14 @@ offset_bottom = 214.0
 layout_mode = 2
 theme = ExtResource("2_movp4")
 text = "TST_MAP0"
+alignment = 0
+
+[node name="Map 2" type="Button" parent="2A" unique_id=1572589907]
+layout_mode = 2
+theme = ExtResource("2_movp4")
+text = "FNL_MAP_Train_Station
+"
+alignment = 0
 
 [node name="2B" type="VBoxContainer" parent="." unique_id=1859825898]
 visible = false
@@ -74,23 +82,10 @@ offset_top = 174.0
 offset_right = 93.0
 offset_bottom = 214.0
 
-[node name="Controller Mode" type="CheckButton" parent="2B" unique_id=1120942275]
+[node name="Label" type="Label" parent="2B" unique_id=1191539240]
 layout_mode = 2
 theme = ExtResource("2_movp4")
-theme_override_colors/font_color = Color(1, 1, 0, 0.5882353)
-theme_override_colors/font_pressed_color = Color(1, 0.98039216, 0, 0.5882353)
-theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
-theme_override_colors/button_checked_color = Color(1, 1, 0, 1)
-theme_override_colors/button_unchecked_color = Color(1, 1, 1, 0.5882353)
-text = "Controller Mode:"
-
-[node name="CM Indicator" type="Label" parent="2B" unique_id=1595224675]
-layout_mode = 2
-theme = ExtResource("2_movp4")
-theme_override_colors/font_color = Color(1, 1, 0, 0.5882353)
-theme_override_font_sizes/font_size = 12
-text = "Current control type:"
+text = "Control Type:"
 
 [node name="C Layout" type="Button" parent="2B" unique_id=499258516]
 layout_mode = 2
@@ -98,42 +93,46 @@ theme = ExtResource("2_movp4")
 text = "Control Layout"
 alignment = 0
 
-[node name="3C" type="Control" parent="." unique_id=736420752]
+[node name="3A" type="Control" parent="." unique_id=736420752]
 visible = false
 anchors_preset = 0
-offset_left = 53.0
-offset_top = 174.0
-offset_right = 93.0
-offset_bottom = 214.0
+offset_left = 230.0
+offset_top = 209.0
+offset_right = 270.0
+offset_bottom = 249.0
 
-[node name="C Scroller" type="ScrollContainer" parent="3C" unique_id=1378625718]
+[node name="PanelContainer" type="PanelContainer" parent="3A" unique_id=418028937]
 layout_mode = 0
-offset_left = 53.0
-offset_top = 174.0
-offset_right = 93.0
-offset_bottom = 214.0
+offset_right = 207.0
+offset_bottom = 281.0
 
-[node name="Types" type="HBoxContainer" parent="3C/C Scroller" unique_id=2015348055]
+[node name="C Scroller" type="ScrollContainer" parent="3A/PanelContainer" unique_id=1378625718]
 layout_mode = 2
 
-[node name="K&M" type="VBoxContainer" parent="3C/C Scroller/Types" unique_id=246091004]
+[node name="Types" type="HBoxContainer" parent="3A/PanelContainer/C Scroller" unique_id=2015348055]
 layout_mode = 2
 
-[node name="PS5" type="VBoxContainer" parent="3C/C Scroller/Types" unique_id=1262438921]
+[node name="K&M" type="VBoxContainer" parent="3A/PanelContainer/C Scroller/Types" unique_id=246091004]
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="3C" unique_id=422229247]
+[node name="PS5" type="VBoxContainer" parent="3A/PanelContainer/C Scroller/Types" unique_id=1262438921]
+layout_mode = 2
+
+[node name="Hints" type="RichTextLabel" parent="." unique_id=1665574270]
 layout_mode = 0
-offset_left = 179.0
-offset_top = 60.0
-offset_right = 452.0
-offset_bottom = 394.0
-region_rect = Rect2(-1.5, 0.5, 243.5, 169.5)
-patch_margin_top = 8
-patch_margin_right = 11
-patch_margin_bottom = 8
+offset_top = 608.0
+offset_right = 112.0
+offset_bottom = 648.0
+theme = ExtResource("2_movp4")
+theme_override_fonts/normal_font = ExtResource("6_coo83")
+bbcode_enabled = true
+text = "ass"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [connection signal="pressed" from="1A/Start Butt" to="." method="start_pressed"]
 [connection signal="pressed" from="1A/Options Butt" to="." method="options_pressed"]
 [connection signal="pressed" from="1A/Exit Butt" to="." method="exit_pressed"]
 [connection signal="pressed" from="2A/Map 1" to="." method="map1_pressed"]
+[connection signal="pressed" from="2A/Map 2" to="." method="map2_pressed"]

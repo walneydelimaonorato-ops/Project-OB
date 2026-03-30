@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var loading_progress: ProgressBar = $"Loading Progress"
+@onready var loading_progress: TextureProgressBar = $"Loading Progress"
+
 var progress: Array[float] = []
 
 func _ready() -> void:

@@ -1,44 +1,12 @@
 extends CharacterBody3D
-@export var PlayerRes: Resource
+@onready var PlayerRes: Node = %"Player Stats"
+@onready var StatsMan: Node = %"Stats Management"
 
-@onready var Head: Node3D = $Head
-@onready var Eyes: Camera3D = $Head/Eyes
+@onready var Head: Node3D = %Head
+@onready var Eyes: Camera3D = %Eyes
 
 var Un_LookUD := Vector2.ZERO
 var Un_LookLR := Vector2.ZERO
-
-func _ready() -> void:
-	match PlayerRes.Control_Mode:
-		"Key":
-			PlayerRes.Un_Forward = "In_Forward"
-			PlayerRes.Un_Backward = "In_Backward"
-			PlayerRes.Un_Left = "In_Left"
-			PlayerRes.Un_Right = "In_Right"
-			PlayerRes.Un_Jump = "In_Jump"
-			PlayerRes.Un_Use_UItem = "In_Use_Item"
-			PlayerRes.Un_Sprint = "In_Sprint"
-			PlayerRes.Un_Ready_Menu = "In_Pause"
-			PlayerRes.Un_RPrimary_Tool_Use = "In_Mouse_R"
-			PlayerRes.Un_LPrimary_Tool_Use = "In_Mouse_L"
-			PlayerRes.Un_RSecondary_Tool_Use = ""
-			PlayerRes.Un_LSecondary_Tool_Use = ""
-			PlayerRes.Un_Tool_Alternive = "In_Tool_Alt"
-			PlayerRes.Un_2Hand_Toggle = ""
-		"Joy":
-			PlayerRes.Un_Forward = "In_JoyL_Forward"
-			PlayerRes.Un_Backward = "In_JoyL_Backward"
-			PlayerRes.Un_Left = "In_JoyL_Left"
-			PlayerRes.Un_Right = "In_JoyL_Right"
-			PlayerRes.Un_Jump = "In_Joy_Jump"
-			PlayerRes.Un_Use_UItem = "In_Joy_Use_Item"
-			PlayerRes.Un_Sprint = "In_Joy_Sprint"
-			PlayerRes.Un_Ready_Menu = "In_Joy_Pause"
-			PlayerRes.Un_RPrimary_Tool_Use = "In_Joy_R2"
-			PlayerRes.Un_LPrimary_Tool_Use = "In_Joy_L2"
-			PlayerRes.Un_RSecondary_Tool_Use = ""
-			PlayerRes.Un_LSecondary_Tool_Use = ""
-			PlayerRes.Un_Tool_Alternive = "In_Joy_Tool_Alt"
-			PlayerRes.Un_2Hand_Toggle = ""
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -47,6 +15,8 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle jump.
 	if Input.is_action_just_pressed(PlayerRes.Un_Jump) and is_on_floor():
+		StatsMan.Stats_Decrease("Stamina", 5)
+		PlayerRes.Health -= 1
 		velocity.y = 4.5
 	
 	if Input.is_action_pressed(PlayerRes.Un_Sprint): #and PlayerValue.Stamina > 0:
@@ -77,6 +47,9 @@ func _process(_delta: float) -> void:
 
 
 func _input(input: InputEvent) -> void:
+	if Input.is_action_just_pressed(PlayerRes.Un_Use_UItem):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	if PlayerRes.Control_Mode == "Key":
 		if input is InputEventMouseMotion:
 			Head.rotation.y -= input.relative.x * PlayerRes.Key_Camera_Sens

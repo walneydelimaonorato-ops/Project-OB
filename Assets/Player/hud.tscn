@@ -1,12 +1,20 @@
 [gd_scene format=3 uid="uid://c2rgs1dy80e6d"]
 
+[ext_resource type="Script" uid="uid://dcinsclc6n64e" path="res://Assets/Player/Scripts/Player_HUD.gd" id="1_bitai"]
 [ext_resource type="Texture2D" uid="uid://dokiq8ck7v68y" path="res://Assets/UI/HUD/Ready_Menu_ToolR.png" id="1_iygfw"]
 [ext_resource type="Texture2D" uid="uid://dqctj0g2crmvw" path="res://Assets/UI/HUD/Ready_Menu_ToolL.png" id="2_pvj0q"]
 [ext_resource type="Texture2D" uid="uid://dyp1tqlfs1r50" path="res://Assets/UI/HUD/Ready_Menu_Spell.png" id="3_bitai"]
 [ext_resource type="Texture2D" uid="uid://1gq7ogm65b2r" path="res://Assets/UI/HUD/Ready_Menu_UItem.png" id="4_2qs60"]
 [ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="5_pvj0q"]
+[ext_resource type="Texture2D" uid="uid://bltswoeonw3bs" path="res://Assets/UI/HUD/Golden_Cross_Range.png" id="7_2qs60"]
+[ext_resource type="Texture2D" uid="uid://b0b2vsfbxq1a8" path="res://Assets/UI/HUD/Side HUD/Health.png" id="7_c66ss"]
+[ext_resource type="Texture2D" uid="uid://bsk0xgutv14ex" path="res://Assets/UI/HUD/Side HUD/Frame_Health.png" id="7_vy47n"]
+[ext_resource type="Texture2D" uid="uid://pycn5m36l688" path="res://Assets/UI/HUD/Side HUD/Frame_Stamina.png" id="9_2vfgr"]
+[ext_resource type="Texture2D" uid="uid://b82ig1krqtfo5" path="res://Assets/UI/HUD/Side HUD/Stamina.png" id="10_lqkoi"]
+[ext_resource type="Script" uid="uid://doilu7ex0syva" path="res://Assets/Player/Scripts/debug.gd" id="12_2vfgr"]
 
 [node name="HUD" type="CanvasLayer" unique_id=775426720]
+script = ExtResource("1_bitai")
 
 [node name="Control" type="Control" parent="." unique_id=1330959182]
 layout_mode = 3
@@ -151,9 +159,89 @@ theme_override_fonts/font = ExtResource("5_pvj0q")
 theme_override_font_sizes/font_size = 50
 text = "Booty"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Control/Side HUD" unique_id=1604637162]
+[node name="Health" type="TextureProgressBar" parent="Control/Side HUD" unique_id=1604637162]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = -4.8240004
 offset_top = -215.568
 offset_right = 39.176
 offset_bottom = 1.4320068
+max_value = 0.0
+fill_mode = 3
+texture_over = ExtResource("7_vy47n")
+texture_progress = ExtResource("7_c66ss")
+
+[node name="Stamina" type="TextureProgressBar" parent="Control/Side HUD" unique_id=1751602861]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -4.8240004
+offset_top = -215.568
+offset_right = 39.176
+offset_bottom = 1.4320068
+fill_mode = 3
+texture_over = ExtResource("9_2vfgr")
+texture_progress = ExtResource("10_lqkoi")
+
+[node name="Crosshair" type="TextureRect" parent="Control" unique_id=504402344]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_2qs60")
+
+[node name="Interact HUD" type="HBoxContainer" parent="Control" unique_id=1750614963]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 200.0
+offset_right = 20.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Interact Prompt" type="RichTextLabel" parent="Control/Interact HUD" unique_id=1384928043]
+layout_mode = 2
+text = "<Interact>"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="." unique_id=983476177]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Debug" type="Node" parent="Control2" unique_id=1553917473]
+script = ExtResource("12_2vfgr")
+
+[node name="Debug Backdrop" type="PanelContainer" parent="Control2" unique_id=1768842289]
+layout_mode = 0
+offset_top = 45.0
+offset_right = 137.0
+offset_bottom = 68.0
+
+[node name="Page 1" type="Label" parent="Control2/Debug Backdrop" unique_id=216793332]
+layout_mode = 2
+text = "Readily Variables:"
+
+[node name="Page 2" type="Label" parent="Control2/Debug Backdrop" unique_id=1824348478]
+visible = false
+layout_mode = 2
+text = "Invnetory checkup:"
