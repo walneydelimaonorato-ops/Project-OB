@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://mibcoabjddv4"
-path="res://.godot/imported/TST_Sword.glb-a4c6944cada5645f5b993034f39ad8f1.scn"
+uid="uid://cran7pocy4oht"
+path="res://.godot/imported/TST_M14.glb-bda605c9ec70c79166c486997bf33114.scn"
 
 [deps]
 
-source_file="res://addons/control/Player/Models/TST/TST_Sword.glb"
-dest_files=["res://.godot/imported/TST_Sword.glb-a4c6944cada5645f5b993034f39ad8f1.scn"]
+source_file="res://Assets/Player/Models/TST_M14.glb"
+dest_files=["res://.godot/imported/TST_M14.glb-bda605c9ec70c79166c486997bf33114.scn"]
 
 [params]
 
@@ -37,12 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:rtroop": {
-"import/skip_import": true
-}
-}
-}
+_subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

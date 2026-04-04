@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qua4cq3ubssm"
-path="res://.godot/imported/Item_Ico_True_Blank.png-0d539ed30c7e9aebc7f2ae80e2abdab5.ctex"
+uid="uid://dhtrfnnpccep8"
+path="res://.godot/imported/Usable_Item_Icon.png-d6b3b978bb4f3e41d0632536e9cfb728.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/control/Player/Menus/Menu visuals/V1/Items/Item_Ico_True_Blank.png"
-dest_files=["res://.godot/imported/Item_Ico_True_Blank.png-0d539ed30c7e9aebc7f2ae80e2abdab5.ctex"]
+source_file="res://Assets/UI/HUD/Item Icons/Simple Icons/Usable_Item_Icon.png"
+dest_files=["res://.godot/imported/Usable_Item_Icon.png-d6b3b978bb4f3e41d0632536e9cfb728.ctex"]
 
 [params]
 

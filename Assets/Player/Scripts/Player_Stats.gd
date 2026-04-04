@@ -1,5 +1,7 @@
 extends Node
 
+var test1: bool = false
+
 #region Universal Input Settup
 var Un_Forward: String
 var Un_Backward: String
@@ -25,14 +27,14 @@ var UnUI_Accept: String
 var UnUI_Return: String
 var UnUI_Unselect: String
 
-var UnHI_Up: String
-var UnHI_Down: String
-var UnHI_Left: String
-var UnHI_Right: String
-var UnHI_Accept: String
-var UnHI_Return: String
-var UnHI_Unselect: String
-#var Un_Ass: String
+var UnHUDIcon_Up: String
+var UnHUDIcon_Down: String
+var UnHUDIcon_Left: String
+var UnHUDIcon_Right: String
+var UnHUDIcon_Accept: String
+var UnHUDIcon_Return: String
+var UnHUDIcon_Unselect: String
+var UnHUDIcon_Interact: String
 #var Un_Ass: String
 #endregion
 
@@ -67,10 +69,10 @@ var Inv_Uitem1_Equiped: String  = "null"
 var Inv_Uitem2_Equiped: String  = "null"
 var Inv_Uitem3_Equiped: String  = "null"
 # Stamina related variables
-var Stamina_Max: int = 20 # Maximum amount of stamina the player can have
-var Stamina: int = 20 # Current amount of stamina the player has
+var Stamina_Max: float = 20.0 # Maximum amount of stamina the player can have
+var Stamina: float = 20.0 # Current amount of stamina the player has
 var Stamina_Regeneration_Amount: float = 2.0 # Amount of time (in seconds) waited for the stamina regeneration to begin
-var Stamina_Regeneration_Rate: float = 5.0 # Amount of points of Stamina regenerated
+var Stamina_Regeneration_Rate: float = 3.0 # Amount of points of Stamina regenerated
 # Health related variables
 var Health_Max: float = 10.0 # Maximum amount of health
 var Health: float = 10.0 # Current amount of health the player has

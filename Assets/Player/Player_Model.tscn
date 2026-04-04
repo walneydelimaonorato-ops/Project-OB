@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dnmewvnjcrtf7" path="res://Assets/Player/Scripts/Tools_Script.gd" id="2_qe5k5"]
 [ext_resource type="Script" uid="uid://celcg5cjm0h8e" path="res://Assets/Player/Scripts/Player_Manage.gd" id="3_7fhav"]
 [ext_resource type="PackedScene" uid="uid://c2rgs1dy80e6d" path="res://Assets/Player/hud.tscn" id="3_qe5k5"]
+[ext_resource type="PackedScene" uid="uid://h8wt3hlx4i85" path="res://Assets/Player/Models/Models.tscn" id="5_hs5eg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o54j3"]
 
@@ -50,15 +51,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09374118, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Head/Eyes" unique_id=1181736156]
-visible = false
-spot_range = 63.02009
-spot_angle = 89.99
+[node name="Models" parent="Head/Eyes" unique_id=1867517693 instance=ExtResource("5_hs5eg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17413068, -0.96205795)
 
 [node name="Ray1" type="RayCast3D" parent="Head" unique_id=1193247679]
 target_position = Vector3(0, 0, -200)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Head" unique_id=880807584]
-omni_range = 40.0
+visible = false
+distance_fade_begin = 2.0
+omni_range = 120.0
 
 [node name="HUD" parent="." unique_id=775426720 instance=ExtResource("3_qe5k5")]

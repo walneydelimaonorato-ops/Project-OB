@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b82ig1krqtfo5"
-path="res://.godot/imported/Stamina.png-1b7b7e429dc0c420d951e108182ab942.ctex"
+uid="uid://bkmalem207jhr"
+path="res://.godot/imported/Range_Tool_Icon.png-42381f6807b2cb1727dfbdab1795f616.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/HUD/Side HUD/Stamina.png"
-dest_files=["res://.godot/imported/Stamina.png-1b7b7e429dc0c420d951e108182ab942.ctex"]
+source_file="res://Assets/UI/HUD/Item Icons/Simple Icons/Range_Tool_Icon.png"
+dest_files=["res://.godot/imported/Range_Tool_Icon.png-42381f6807b2cb1727dfbdab1795f616.ctex"]
 
 [params]
 

@@ -8,6 +8,9 @@ func _ready() -> void:
 	
 	Regeneration_Timer_Startup()
 	PlayerRes.Stamina_Regeneration_Delay_Timer.timeout.connect(Start_Stamina_Regeneration)
+	
+	
+	
 #region Control Settup
 	match PlayerRes.Control_Mode:
 		"Key":
@@ -71,7 +74,7 @@ func Start_Stamina_Regeneration():
 	PlayerRes.Stamina_Regeneration_Active = true
 
 func Stamina_Regeneration_Process(delta):
-	if PlayerRes.Stamina_Regeneration_Active and PlayerRes.Stamina < PlayerRes.Stamina_Max:
+	if PlayerRes.Stamina_Regeneration_Active == true and PlayerRes.Stamina < PlayerRes.Stamina_Max:
 		PlayerRes.Stamina += PlayerRes.Stamina_Regeneration_Rate * delta
 		if PlayerRes.Stamina >= PlayerRes.Stamina_Max:
 			PlayerRes.Stamina = PlayerRes.Stamina_Max
@@ -83,7 +86,12 @@ func Stats_Decrease(Type, Value):
 		PlayerRes.Health -= Value
 	elif Type == "Stamina": 
 		PlayerRes.Stamina -= Value
+		PlayerRes.Stamina_Regeneration_Active = false
+		PlayerRes.Stamina_Regeneration_Delay_Timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	PlayerRes.Health = clamp(PlayerRes.Health, 0, PlayerRes.Health_Max)
+	PlayerRes.Stamina = clamp(PlayerRes.Stamina, 0, PlayerRes.Stamina_Max)
+	
 	Stamina_Regeneration_Process(delta)
