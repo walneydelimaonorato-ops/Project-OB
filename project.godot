@@ -238,6 +238,19 @@ Deb_Quit={
 ]
 }
 
+[layer_names]
+
+3d_render/layer_1="World"
+3d_render/layer_2="Player"
+3d_render/layer_3="Object"
+3d_render/layer_4="Entity"
+3d_render/layer_5="Special"
+3d_physics/layer_1="World"
+3d_physics/layer_2="Player"
+3d_physics/layer_3="Object"
+3d_physics/layer_4="Entity"
+3d_physics/layer_5="Special"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

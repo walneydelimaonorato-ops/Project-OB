@@ -1,5 +1,5 @@
-extends Node
-#class_name PlayerStats
+extends Resource
+class_name PlayerData
 
 var test1: bool = false
 
@@ -47,10 +47,12 @@ var Menu_mode: bool = false # Checks if the player is currently in a menu
 
 #region Signals
 signal Ready_Menu_Toggled(active: bool)
+signal Ray2_Entered(Collider)
+signal Ray2_Exited(Collider)
 #endregion
 
 #region Static Variables (never change)
-var Control_Mode: String = "Joy"
+@export_enum("Key", "Joy") var Control_Mode: String
 var Base_Speed: int = 4 # Speed used to move
 var Dummy_Speed: int = 4 # Fallback speed value
 var Run: int = 6 # Speed used when running
@@ -66,6 +68,9 @@ var SFX_Menu_Advance ="uid://q8d5kc4se4ux"
 #endregion
 
 #region Fluid Variables (change)
+# Aassss
+# var 
+
 # Menu related variables
 var Current_Focus: String = ""
 var Current_Menu: String = ""

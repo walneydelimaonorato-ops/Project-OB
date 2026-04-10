@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c4p7mlvgrwsjp"]
+
+[ext_resource type="Script" uid="uid://sy37mogf6jd" path="res://Assets/Objects/Obj/Rest/rest.gd" id="1_g438r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8njcc"]
+transparency = 1
+albedo_color = Color(0.3529412, 0.78431374, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g438r"]
+material = SubResource("StandardMaterial3D_8njcc")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8njcc"]
+height = 0.87609863
+radius = 0.3149414
+
+[node name="Rest" type="Node3D" unique_id=1692087272]
+script = ExtResource("1_g438r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1876232859]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_g438r")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=2128466809]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.3224995, 0)
+spot_range = 2.7
+spot_attenuation = -2.1
+spot_angle = 25.0
+
+[node name="Area3D" type="Area3D" parent="." unique_id=695749923]
+collision_layer = 5
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1443494310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5619507, 0)
+shape = SubResource("CylinderShape3D_8njcc")

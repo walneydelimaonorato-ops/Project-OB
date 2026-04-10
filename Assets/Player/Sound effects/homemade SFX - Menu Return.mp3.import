@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://21i1clqcr46v"
+path="res://.godot/imported/homemade SFX - Menu Return.mp3-e9195cf5a829fa50fe6b29aa44244d47.mp3str"
+
+[deps]
+
+source_file="res://Assets/Player/Sound effects/homemade SFX - Menu Return.mp3"
+dest_files=["res://.godot/imported/homemade SFX - Menu Return.mp3-e9195cf5a829fa50fe6b29aa44244d47.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

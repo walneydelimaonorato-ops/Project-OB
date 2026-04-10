@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://c22fdxmv2autu"]
 
 [ext_resource type="Script" uid="uid://iqsk8myqlik5" path="res://Assets/Player/Scripts/Player_Menus.gd" id="1_igvox"]
+[ext_resource type="AudioStream" uid="uid://q8d5kc4se4ux" path="res://Assets/Player/Sound effects/homemade SFX - Menu Advance.mp3" id="2_1mnw2"]
 [ext_resource type="Texture2D" uid="uid://c8t32tkwemh2k" path="res://Assets/UI/HUD/Ready_Menu_Configuration.png" id="2_ctvdn"]
+[ext_resource type="Texture2D" uid="uid://be0g2c660ubnc" path="res://Assets/UI/HUD/Item_Frame_Highlight.png" id="2_p60kn"]
 [ext_resource type="Texture2D" uid="uid://cmwqln80a4gu6" path="res://Assets/UI/HUD/Ready_Menu_Brace.png" id="3_3yn2l"]
+[ext_resource type="AudioStream" uid="uid://21i1clqcr46v" path="res://Assets/Player/Sound effects/homemade SFX - Menu Return.mp3" id="3_4rtwh"]
 [ext_resource type="Texture2D" uid="uid://bc5qwrri8hkyi" path="res://Assets/UI/HUD/Ready_Menu_Wear.png" id="4_67x8q"]
+[ext_resource type="AudioStream" uid="uid://toacqdgd367k" path="res://Assets/Player/Sound effects/homemade SFX - Menu Move.mp3" id="4_qmjen"]
 [ext_resource type="Texture2D" uid="uid://dqctj0g2crmvw" path="res://Assets/UI/HUD/Ready_Menu_ToolL.png" id="5_3ojjw"]
 [ext_resource type="Texture2D" uid="uid://dokiq8ck7v68y" path="res://Assets/UI/HUD/Ready_Menu_ToolR.png" id="6_p60kn"]
 [ext_resource type="Texture2D" uid="uid://dyp1tqlfs1r50" path="res://Assets/UI/HUD/Ready_Menu_Spell.png" id="7_1mnw2"]
@@ -28,9 +32,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Menus (Ready)" type="Node" parent="." unique_id=1966116628]
+unique_name_in_owner = true
 script = ExtResource("1_igvox")
 
+[node name="Menus (Selection)" type="Node" parent="." unique_id=1018472950]
+unique_name_in_owner = true
+
+[node name="Sounds" type="Node" parent="." unique_id=2055616778]
+
+[node name="Menu Advance" type="AudioStreamPlayer2D" parent="Sounds" unique_id=927100293]
+unique_name_in_owner = true
+stream = ExtResource("2_1mnw2")
+
+[node name="Menu Return" type="AudioStreamPlayer2D" parent="Sounds" unique_id=735376580]
+unique_name_in_owner = true
+stream = ExtResource("3_4rtwh")
+
+[node name="Menu Move" type="AudioStreamPlayer2D" parent="Sounds" unique_id=98856788]
+unique_name_in_owner = true
+stream = ExtResource("4_qmjen")
+
 [node name="Ready Menu" type="Control" parent="." unique_id=1970162750]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,15 +77,26 @@ scale = Vector2(0.3, 0.3)
 [node name="Ready Technical" type="HBoxContainer" parent="Ready Menu/Ready Menu Grid" unique_id=317046067]
 layout_mode = 2
 
-[node name="Ready Settings" type="TextureButton" parent="Ready Menu/Ready Menu Grid/Ready Technical" unique_id=523499570]
-unique_name_in_owner = true
-layout_mode = 2
-texture_normal = ExtResource("2_ctvdn")
-
 [node name="Ready Inventory" type="TextureButton" parent="Ready Menu/Ready Menu Grid/Ready Technical" unique_id=247728396]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../Ready Settings")
+focus_neighbor_bottom = NodePath("../../Ready Wear and Tool/Ready Brace")
+focus_next = NodePath(".")
 texture_normal = SubResource("CompressedTexture2D_qmjen")
+texture_focused = ExtResource("2_p60kn")
+
+[node name="Ready Settings" type="TextureButton" parent="Ready Menu/Ready Menu Grid/Ready Technical" unique_id=523499570]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath("../Ready Inventory")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../Ready Wear and Tool/Ready Wear")
+texture_normal = ExtResource("2_ctvdn")
+texture_focused = ExtResource("2_p60kn")
 
 [node name="Ready Wear and Tool" type="HBoxContainer" parent="Ready Menu/Ready Menu Grid" unique_id=1318905021]
 layout_mode = 2
@@ -67,22 +104,42 @@ layout_mode = 2
 [node name="Ready Brace" type="TextureButton" parent="Ready Menu/Ready Menu Grid/Ready Wear and Tool" unique_id=876079125]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../Ready Technical/Ready Inventory")
+focus_neighbor_right = NodePath("../Ready Wear")
+focus_neighbor_bottom = NodePath("../../Ready Spell and UItem/Ready Spell")
 texture_normal = ExtResource("3_3yn2l")
+texture_focused = ExtResource("2_p60kn")
 
 [node name="Ready Wear" type="TextureButton" parent="Ready Menu/Ready Menu Grid/Ready Wear and Tool" unique_id=1655599361]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath("../Ready Brace")
+focus_neighbor_top = NodePath("../../Ready Technical/Ready Settings")
+focus_neighbor_right = NodePath("../Ready Tool Left")
+focus_neighbor_bottom = NodePath("../../Ready Spell and UItem/Ready UItem 1")
 texture_normal = ExtResource("4_67x8q")
+texture_focused = ExtResource("2_p60kn")
 
 [node name="Ready Tool Left" type="TextureButton" parent="Ready Menu/Ready Menu Grid/Ready Wear and Tool" unique_id=2128015172]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath("../Ready Wear")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../Ready Tool Right")
+focus_neighbor_bottom = NodePath("../../Ready Spell and UItem/Ready UItem 2")
 texture_normal = ExtResource("5_3ojjw")
+texture_focused = ExtResource("2_p60kn")
 
 [node name="Ready Tool Right" type="TextureButton" parent="Ready Menu/Ready Menu Grid/Ready Wear and Tool" unique_id=1832157979]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath("../Ready Tool Left")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../../Ready Spell and UItem/Ready UItem 3")
 texture_normal = ExtResource("6_p60kn")
+texture_focused = ExtResource("2_p60kn")
 
 [node name="Ready Spell and UItem" type="HBoxContainer" parent="Ready Menu/Ready Menu Grid" unique_id=710250547]
 layout_mode = 2
@@ -90,22 +147,42 @@ layout_mode = 2
 [node name="Ready Spell" type="TextureButton" parent="Ready Menu/Ready Menu Grid/Ready Spell and UItem" unique_id=430057430]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../../Ready Wear and Tool/Ready Brace")
+focus_neighbor_right = NodePath("../Ready UItem 1")
+focus_neighbor_bottom = NodePath(".")
 texture_normal = ExtResource("7_1mnw2")
+texture_focused = ExtResource("2_p60kn")
 
 [node name="Ready UItem 1" type="TextureButton" parent="Ready Menu/Ready Menu Grid/Ready Spell and UItem" unique_id=1520320521]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath("../Ready Spell")
+focus_neighbor_top = NodePath("../../Ready Wear and Tool/Ready Wear")
+focus_neighbor_right = NodePath("../Ready UItem 2")
+focus_neighbor_bottom = NodePath(".")
 texture_normal = ExtResource("8_4rtwh")
+texture_focused = ExtResource("2_p60kn")
 
-[node name="Ready  UItem 2" type="TextureButton" parent="Ready Menu/Ready Menu Grid/Ready Spell and UItem" unique_id=1465180583]
+[node name="Ready UItem 2" type="TextureButton" parent="Ready Menu/Ready Menu Grid/Ready Spell and UItem" unique_id=1465180583]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath("../Ready UItem 1")
+focus_neighbor_top = NodePath("../../Ready Wear and Tool/Ready Tool Left")
+focus_neighbor_right = NodePath("../Ready UItem 3")
+focus_neighbor_bottom = NodePath(".")
 texture_normal = ExtResource("8_4rtwh")
+texture_focused = ExtResource("2_p60kn")
 
 [node name="Ready UItem 3" type="TextureButton" parent="Ready Menu/Ready Menu Grid/Ready Spell and UItem" unique_id=1074040005]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath("../Ready UItem 2")
+focus_neighbor_top = NodePath("../../Ready Wear and Tool/Ready Tool Right")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
 texture_normal = ExtResource("8_4rtwh")
+texture_focused = ExtResource("2_p60kn")
 
 [node name="Ready Menu Overlay" type="GridContainer" parent="Ready Menu" unique_id=2011448870]
 unique_name_in_owner = true
@@ -119,15 +196,15 @@ scale = Vector2(0.3, 0.3)
 [node name="Ready Technical Overlay" type="HBoxContainer" parent="Ready Menu/Ready Menu Overlay" unique_id=950422652]
 layout_mode = 2
 
-[node name="Ready Settings Overlay" type="TextureRect" parent="Ready Menu/Ready Menu Overlay/Ready Technical Overlay" unique_id=330508639]
-unique_name_in_owner = true
-layout_mode = 2
-texture = SubResource("CompressedTexture2D_3ojjw")
-
 [node name="Ready Inventory Overlay" type="TextureRect" parent="Ready Menu/Ready Menu Overlay/Ready Technical Overlay" unique_id=797188936]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("9_67x8q")
+
+[node name="Ready Settings Overlay" type="TextureRect" parent="Ready Menu/Ready Menu Overlay/Ready Technical Overlay" unique_id=330508639]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("CompressedTexture2D_3ojjw")
 
 [node name="Ready Wear and Tool Overlay" type="HBoxContainer" parent="Ready Menu/Ready Menu Overlay" unique_id=1157745896]
 layout_mode = 2
@@ -195,6 +272,7 @@ autowrap_mode = 0
 autowrap_trim_flags = 128
 
 [node name="Selection Menu" type="Control" parent="." unique_id=852856482]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -234,3 +312,14 @@ text = "[img=25]uid://bkmalem207jhr[/img]: AM-19"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Technical/Ready Inventory" to="Menus (Ready)" method="ready_inventory_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Technical/Ready Settings" to="Menus (Ready)" method="ready_settings_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Wear and Tool/Ready Brace" to="Menus (Ready)" method="ready_brace_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Wear and Tool/Ready Wear" to="Menus (Ready)" method="ready_wear_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Wear and Tool/Ready Tool Left" to="Menus (Ready)" method="ready_tool_left_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Wear and Tool/Ready Tool Right" to="Menus (Ready)" method="ready_tool_right_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready Spell" to="Menus (Ready)" method="ready_spell_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 1" to="Menus (Ready)" method="ready_u_item_1_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 2" to="Menus (Ready)" method="ready_u_item_2_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 3" to="Menus (Ready)" method="ready_u_item_3_pressed"]

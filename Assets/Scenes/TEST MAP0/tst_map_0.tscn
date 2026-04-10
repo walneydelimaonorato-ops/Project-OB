@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://c7p0xddbby67c" path="res://Assets/Scenes/TEST MAP0/TST_MAP0_texture_07_2.png" id="3_4jwc8"]
 [ext_resource type="Texture2D" uid="uid://daqcxc378cgqf" path="res://Assets/Scenes/TEST MAP0/TST_MAP0_Low_Cort_txtr.png" id="4_pu3bv"]
 [ext_resource type="PackedScene" uid="uid://yey3rq0j37ff" path="res://Assets/Player/Player_Model.tscn" id="5_vrmme"]
+[ext_resource type="PackedScene" uid="uid://6wv60fqqjwkq" path="res://Assets/Objects/Ent/Entity_Spawner.tscn" id="7_pu3bv"]
+[ext_resource type="PackedScene" uid="uid://c634adja7tyxp" path="res://Assets/Objects/Obj/Object_Spawner.tscn" id="7_rdq5i"]
+[ext_resource type="PackedScene" uid="uid://c4p7mlvgrwsjp" path="res://Assets/Objects/Obj/Rest/rest.tscn" id="8_rdq5i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4jwc8"]
 sky_top_color = Color(0.28045967, 0.49630553, 0.4515105, 1)
@@ -404,4 +407,13 @@ mesh = SubResource("ArrayMesh_gyfjl")
 shape = SubResource("ConcavePolygonShape3D_4hwr3")
 
 [node name="Player" parent="." unique_id=266518977 instance=ExtResource("5_vrmme")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1520524, 0.00015258789, -11.935417)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.369, 0, 4.788)
+
+[node name="Entity Spawner" parent="." unique_id=353231944 instance=ExtResource("7_pu3bv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.882505, 1.0853833, -0.38854265)
+
+[node name="Object Spawner" parent="." unique_id=1741486273 instance=ExtResource("7_rdq5i")]
+Objects = "Rest"
+
+[node name="Rest" parent="." unique_id=1692087272 instance=ExtResource("8_rdq5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1073818, -0.022961497, 4.135903)

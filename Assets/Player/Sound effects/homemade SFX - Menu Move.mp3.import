@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://toacqdgd367k"
+path="res://.godot/imported/homemade SFX - Menu Move.mp3-1cac78528db009c4c184ecee51bcf1c8.mp3str"
+
+[deps]
+
+source_file="res://Assets/Player/Sound effects/homemade SFX - Menu Move.mp3"
+dest_files=["res://.godot/imported/homemade SFX - Menu Move.mp3-1cac78528db009c4c184ecee51bcf1c8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

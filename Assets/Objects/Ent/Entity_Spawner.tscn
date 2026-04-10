@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://6wv60fqqjwkq"]
+
+[ext_resource type="Script" uid="uid://dn5hcco56ff8h" path="res://Assets/Objects/Ent/Entity_Spawner.gd" id="1_kx3xp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ql5fq"]
+transparency = 1
+albedo_color = Color(1, 0.5882353, 0.3137255, 0.5882353)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xdea6"]
+material = SubResource("StandardMaterial3D_ql5fq")
+
+[node name="Entity Spawner" type="Node3D" unique_id=353231944]
+script = ExtResource("1_kx3xp")
+
+[node name="Debug View" type="MeshInstance3D" parent="." unique_id=1830714546]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_xdea6")
+
+[node name="Debug Text" type="Label3D" parent="." unique_id=781177412]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 2
+outline_size = 0

@@ -224,6 +224,11 @@ vertical_alignment = 1
 
 [node name="Menus" parent="Control" unique_id=1806409522 instance=ExtResource("15_dtd46")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Control2" type="Control" parent="." unique_id=983476177]
 layout_mode = 3
@@ -243,6 +248,7 @@ offset_right = 137.0
 offset_bottom = 68.0
 
 [node name="Page 1" type="Label" parent="Control2/Debug Backdrop" unique_id=216793332]
+visible = false
 layout_mode = 2
 text = "Readily Variables:"
 
@@ -250,3 +256,15 @@ text = "Readily Variables:"
 visible = false
 layout_mode = 2
 text = "Invnetory checkup:"
+
+[node name="Page 3" type="Label" parent="Control2/Debug Backdrop" unique_id=614144741]
+layout_mode = 2
+text = "Miscellaneous checkups:"
+
+[node name="Focus Node" type="Label" parent="Control2" unique_id=170205039]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 597.0
+offset_right = 379.0
+offset_bottom = 620.0
+text = "Focus node"
