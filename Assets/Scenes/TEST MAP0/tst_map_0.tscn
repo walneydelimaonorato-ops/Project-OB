@@ -425,3 +425,5 @@ Objects = "Item"
 
 [node name="Test Cube" parent="." unique_id=1665853116 instance=ExtResource("8_rdq5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8954706, 0.4000003, 3.3785865)
+
+[editable path="Player"]

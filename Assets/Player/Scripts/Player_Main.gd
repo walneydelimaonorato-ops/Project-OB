@@ -60,3 +60,6 @@ func _input(input: InputEvent) -> void:
 			Head.rotation.y -= input.relative.x * PlayerVars.data.Key_Camera_Sens
 			Eyes.rotation.x -= input.relative.y * PlayerVars.data.Key_Camera_Sens
 			Eyes.rotation.x = clamp(Eyes.rotation.x, deg_to_rad(-85), deg_to_rad(85))
+	
+func butt():
+	PlayerVars.Health = 5

@@ -48,7 +48,7 @@ var Menu_mode: bool = false # Checks if the player is currently in a menu
 #region Signals
 signal Ready_Menu_Toggled(active: bool)
 signal Seletion_Menu_Toggled(active: bool)
-signal Ray2_Entered(Collider)
+signal Choice_Menu_Toggled(active: bool)
 signal Ray2_Exited(Collider)
 #endregion
 
@@ -75,9 +75,9 @@ var Actionable: bool
 # Menu related variables
 var Current_Focus: String = ""
 var Current_Menu: String = ""
-var Forward_Menu_Path: String = ""
 var Ready_Menu_Active: bool = false
 var Seletion_Menu_Active: bool = false
+var Choice_Menu_Active: bool = false
 
 # Inventory related variables
 var Inv_Brace_Equiped: String = "null"

@@ -6,6 +6,9 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_8xosk"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8xosk"]
+radius = 0.40234375
+
 [node name="Test Cube" type="Node3D" unique_id=1665853116]
 script = ExtResource("1_8xosk")
 
@@ -19,3 +22,8 @@ shape = SubResource("BoxShape3D_qycwh")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=320459799]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 mesh = SubResource("BoxMesh_8xosk")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1109649054]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1180724213]
+shape = SubResource("CylinderShape3D_8xosk")
