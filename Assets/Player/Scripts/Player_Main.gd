@@ -1,6 +1,7 @@
 extends CharacterBody3D
 @onready var PlayerVars: Node = %"Player Stats"
 @onready var StatsMan: Node = %"Stats Management"
+@onready var Action: Node = %Action
 
 @onready var Head: Node3D = %Head
 @onready var Eyes: Camera3D = %Eyes
@@ -50,6 +51,9 @@ func _input(input: InputEvent) -> void:
 	if Input.is_action_just_pressed(PlayerVars.data.Un_Ready_Menu):
 		PlayerVars.data.Ready_Menu_Active = !PlayerVars.data.Ready_Menu_Active
 		PlayerVars.data.emit_signal("Ready_Menu_Toggled", PlayerVars.data.Ready_Menu_Active)
+	
+	if Input.is_action_just_pressed(PlayerVars.data.Un_Tool_Alternive):
+		Action.Action_Alternative()
 	
 	if PlayerVars.data.Control_Mode == "Key":
 		if input is InputEventMouseMotion:

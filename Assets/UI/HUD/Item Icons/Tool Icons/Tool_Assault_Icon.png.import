@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpdhkde57ipm"
-path="res://.godot/imported/Tool_Assault_Icon_Low_Res.png-ffb29af1da777721719586cb1f97aa76.ctex"
+path="res://.godot/imported/Tool_Assault_Icon.png-fb7ad3013f664bc016dbe6c6d82c93b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/HUD/Item Icons/Tool Icons/Tool_Assault_Icon_Low_Res.png"
-dest_files=["res://.godot/imported/Tool_Assault_Icon_Low_Res.png-ffb29af1da777721719586cb1f97aa76.ctex"]
+source_file="res://Assets/UI/HUD/Item Icons/Tool Icons/Tool_Assault_Icon.png"
+dest_files=["res://.godot/imported/Tool_Assault_Icon.png-fb7ad3013f664bc016dbe6c6d82c93b7.ctex"]
 
 [params]
 

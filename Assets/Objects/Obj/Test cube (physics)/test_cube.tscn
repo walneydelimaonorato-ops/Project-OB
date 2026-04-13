@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://u0tbg3q3cv3q"]
+
+[ext_resource type="Script" uid="uid://c8hql70k0a8gw" path="res://Assets/Objects/Obj/Test cube (physics)/test_phys_cube.gd" id="1_8xosk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qycwh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8xosk"]
+
+[node name="Test Cube" type="Node3D" unique_id=1665853116]
+script = ExtResource("1_8xosk")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=398431772]
+collision_layer = 5
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=831754946]
+shape = SubResource("BoxShape3D_qycwh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=320459799]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+mesh = SubResource("BoxMesh_8xosk")

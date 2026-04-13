@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4p7mlvgrwsjp"]
 
 [ext_resource type="Script" uid="uid://sy37mogf6jd" path="res://Assets/Objects/Obj/Rest/rest.gd" id="1_g438r"]
+[ext_resource type="AudioStream" uid="uid://bmp8ns334hjfy" path="res://Assets/Objects/Obj/Rest/Rest.mp3" id="2_m1yji"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8njcc"]
 transparency = 1
@@ -22,6 +23,7 @@ mesh = SubResource("BoxMesh_g438r")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=2128466809]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2.3224995, 0)
+visible = false
 spot_range = 2.7
 spot_attenuation = -2.1
 spot_angle = 25.0
@@ -33,3 +35,9 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1443494310]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5619507, 0)
 shape = SubResource("CylinderShape3D_8njcc")
+
+[node name="Node" type="Node" parent="." unique_id=1921036011]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node" unique_id=319046964]
+unique_name_in_owner = true
+stream = ExtResource("2_m1yji")

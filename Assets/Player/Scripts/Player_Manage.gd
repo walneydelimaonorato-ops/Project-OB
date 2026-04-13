@@ -48,7 +48,7 @@ func _ready() -> void:
 			PlayerVars.data.UnUI_Unselect = "UI_Unselect"
 			
 			add_action_key("ui_accept", KEY_ENTER)
-			add_action_key("ui_cancel", KEY_TAB)
+			add_action_key("ui_cancel", KEY_SHIFT)
 			add_action_key("ui_select", KEY_BACKSPACE)
 			add_action_key("ui_up", KEY_UP)
 			add_action_key("ui_down", KEY_DOWN)
@@ -167,4 +167,6 @@ func Geneneral_Interaction(Ray, Method):
 		if Colidder.get_parent().has_method(Method): # Get the collider and execute the method
 			Colidder.get_parent().call(Method) # Executes the method
 			#print(Colidder)
-		
+
+func Set_Menu(Next_Menu):
+	PlayerVars.data.Current_Menu = Next_Menu

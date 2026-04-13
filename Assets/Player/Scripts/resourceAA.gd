@@ -47,6 +47,7 @@ var Menu_mode: bool = false # Checks if the player is currently in a menu
 
 #region Signals
 signal Ready_Menu_Toggled(active: bool)
+signal Seletion_Menu_Toggled(active: bool)
 signal Ray2_Entered(Collider)
 signal Ray2_Exited(Collider)
 #endregion
@@ -63,8 +64,8 @@ var Glass_flask_quantity_max: int = 6 # Maximum use quantity of Glass Flask
 # Stamina related variables
 var Dummy_Stamina_Regeneration_Rate: float = 5.0 # Amount of points of Stamina regenerated
 var Stamina_Regeneration_Delay_Timer # Timer related to the time needed before stamina begins regenerating
-# Sound pathing
-var SFX_Menu_Advance ="uid://q8d5kc4se4ux"
+# Ahhh
+var Actionable: bool
 #endregion
 
 #region Fluid Variables (change)
@@ -76,6 +77,7 @@ var Current_Focus: String = ""
 var Current_Menu: String = ""
 var Forward_Menu_Path: String = ""
 var Ready_Menu_Active: bool = false
+var Seletion_Menu_Active: bool = false
 
 # Inventory related variables
 var Inv_Brace_Equiped: String = "null"
@@ -111,48 +113,53 @@ var Wild_gold_quantity: int = 10 # Use quantity of Wild Gold
 #region IDs
 var Tool_ID = {
 	"Hand": {
-		"damage": 0, 
 		"picked?": true,
 		"equipped?": false, 
-		"can be used?": true
+		"damage": 0, 
 		},
 	"HandGun": {
-		"damage": 6, 
 		"picked?": true,
-		"usable?": true
+		"equipped?": false, 
+		"damage": 6, 
 		},
 	"AssaultRifle": {
+		"picked?": false,
+		"equipped?": false, 
 		"damage": 15, 
-		"picked?": true,
-		"usable?": true
 		},
 	"Sword": {
-		"damage": 20, 
 		"picked?": true,
-		"usable?": true
+		"equipped?": true, 
+		"damage": 20, 
 		},
 	"Dagger": {
+		"picked?": false,
+		"equipped?": false, 
 		"damage": 10,
-		"picked?": true,
-		"usable?": true
 		},
 	"SpecialBow": {
+		"picked?": false,
+		"equipped?": false, 
 		"damage": 25,
-		"picked?": true,
-		"usable?": true
 		},
 }
 
 var Wear_ID = {
 	"Unclothed": {
+		"picked?": false,
+		"equipped?": false, 
 		"weight": 0,
 		"def. redu.": -5,
 	},
 	"Upper Mewclad Arm.": {
+		"picked?": false,
+		"equipped?": false, 
 		"weight": 20,
 		"def. redu.": 4,
 	},
 	"Lower Mewclad Arm.": {
+		"picked?": false,
+		"equipped?": false, 
 		"weight": 12,
 		"def. redu.": 2,
 	}
@@ -160,39 +167,39 @@ var Wear_ID = {
 
 var Spell_ID = {
 	"null": {
+	"picked?": true,
+	"equipped?": false, 
 	"quantity": 0,
 	"max quantity": 0,
 	"damage": 0,
-	"picked?": true,
-	"usable?": true
 	},
 	"PotentiaSolis": {
+	"picked?": true,
+	"equipped?": false, 
 	"quantity": 6,
 	"max quantity": 6,
 	"damage": 20 + Divine_Damage_Bonus,
-	"picked?": true,
-	"usable?": true
 	},
 	"Misericordia": {
+	"picked?": true,
+	"equipped?": false, 
 	"quantity": 2,
 	"max quantity": 2,
 	"damage": 0,
-	"picked?": true,
-	"usable?": true
 	},
 	"Tywyll": {
+	"picked?": true,
+	"equipped?": false, 
 	"quantity": 10,
 	"max quantity": 10,
 	"damage": 10 + Heretic_Damage_Bonus,
-	"picked?": true,
-	"usable?": true
 	},
 	"Sunfire": {
+	"picked?": true,
+	"equipped?": false, 
 	"quantity": 99999,
 	"max quantity": 99999,
 	"damage": 99999,
-	"picked?": true,
-	"usable?": true
 	}
 }
 
@@ -200,17 +207,17 @@ var Brace_ID = {
 	"Golden Bra.": {
 	
 	"picked?": true,
-	"usable?": true
+	"equipped?": false, 
 	},
 	"Clorophyl Bra.": {
 	
 	"picked?": true,
-	"usable?": true
+	"equipped?": false, 
 	},
 	"power Bra.": {
 	
 	"picked?": true,
-	"usable?": true
+	"equipped?": false, 
 	}
 }
 

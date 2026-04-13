@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c86qnmdw72onj" path="res://Assets/Player/Scripts/Player_Main.gd" id="1_2nc12"]
 [ext_resource type="Script" uid="uid://l12mhsklk3he" path="res://Assets/Player/Scripts/Resource_Holder.gd" id="2_hs5eg"]
-[ext_resource type="Script" uid="uid://dnmewvnjcrtf7" path="res://Assets/Player/Scripts/Tools_Script.gd" id="2_qe5k5"]
+[ext_resource type="Script" uid="uid://dnmewvnjcrtf7" path="res://Assets/Player/Scripts/Actions_Script.gd" id="2_qe5k5"]
 [ext_resource type="Resource" uid="uid://limswx0jvht7" path="res://Assets/Player/Scripts/PlayerData01.tres" id="3_2r4ph"]
 [ext_resource type="Script" uid="uid://celcg5cjm0h8e" path="res://Assets/Player/Scripts/Player_Manage.gd" id="3_hs5eg"]
 [ext_resource type="PackedScene" uid="uid://c2rgs1dy80e6d" path="res://Assets/Player/hud.tscn" id="3_qe5k5"]
@@ -31,7 +31,7 @@ data = ExtResource("3_2r4ph")
 unique_name_in_owner = true
 script = ExtResource("3_hs5eg")
 
-[node name="Tools" type="Node" parent="Script Nodes" unique_id=348013422]
+[node name="Action" type="Node" parent="Script Nodes" unique_id=348013422]
 unique_name_in_owner = true
 script = ExtResource("2_qe5k5")
 
@@ -65,13 +65,14 @@ target_position = Vector3(0, 0, -200)
 [node name="Ray2" type="RayCast3D" parent="Head/Eyes" unique_id=670486846]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09374118, 0)
-target_position = Vector3(0, 0, -1.5)
+target_position = Vector3(0, 0, -2)
 collision_mask = 4
 collide_with_areas = true
 debug_shape_custom_color = Color(0, 1, 0, 1)
 debug_shape_thickness = 1
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Head" unique_id=880807584]
+visible = false
 distance_fade_begin = 2.0
 omni_range = 120.0
 

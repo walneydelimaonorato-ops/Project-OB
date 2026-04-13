@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dt014w4ctcem5"]
+
+[ext_resource type="Script" uid="uid://bx4dxcev5ot1x" path="res://Assets/Objects/Obj/Item/item.gd" id="1_5a1qw"]
+[ext_resource type="AudioStream" uid="uid://drj1ecba7lii4" path="res://Assets/Objects/Obj/Item/Item Pickup.mp3" id="2_2f5ro"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5hvv"]
+transparency = 1
+albedo_color = Color(1, 0.5529412, 0.96862745, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c5hvv"]
+material = SubResource("StandardMaterial3D_c5hvv")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5a1qw"]
+size = Vector3(1, 0.03, 1)
+
+[node name="Item" type="Node3D" unique_id=2044499245]
+script = ExtResource("1_5a1qw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1115946047]
+transform = Transform3D(1, 0, 0, 0, 0.03, 0, 0, 0, 1, 0, 0.03, 0)
+mesh = SubResource("BoxMesh_c5hvv")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1358014315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+collision_layer = 5
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1179113038]
+shape = SubResource("BoxShape3D_5a1qw")
+
+[node name="Node" type="Node" parent="." unique_id=991397489]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node" unique_id=1417579541]
+unique_name_in_owner = true
+stream = ExtResource("2_2f5ro")

@@ -45,18 +45,22 @@ scale = Vector2(0.23, 0.23)
 theme_override_constants/separation = 20
 
 [node name="Tool R" type="TextureRect" parent="Control/Side HUD/SidH Base" unique_id=2100138927]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("1_iygfw")
 
 [node name="Tool L" type="TextureRect" parent="Control/Side HUD/SidH Base" unique_id=1271525070]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("2_pvj0q")
 
 [node name="Spell" type="TextureRect" parent="Control/Side HUD/SidH Base" unique_id=407221199]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("3_bitai")
 
 [node name="UItem" type="TextureRect" parent="Control/Side HUD/SidH Base" unique_id=746143213]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("4_2qs60")
 
@@ -91,7 +95,11 @@ layout_mode = 2
 theme_override_constants/margin_top = 0
 
 [node name="Name ToolR" type="Label" parent="Control/Side HUD/SidH Names/SidH ToolR" unique_id=2061683929]
+unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("14_8hhtu")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("5_pvj0q")
 theme_override_font_sizes/font_size = 50
 text = "ToolR"
@@ -101,7 +109,11 @@ layout_mode = 2
 theme_override_constants/margin_bottom = 60
 
 [node name="Desc ToolR" type="Label" parent="Control/Side HUD/SidH Names/Desc ToolR" unique_id=1821371119]
+unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("14_8hhtu")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("5_pvj0q")
 theme_override_font_sizes/font_size = 50
 text = "Booty"
@@ -110,7 +122,11 @@ text = "Booty"
 layout_mode = 2
 
 [node name="Name ToolL" type="Label" parent="Control/Side HUD/SidH Names/SidH ToolL" unique_id=1209047639]
+unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("14_8hhtu")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("5_pvj0q")
 theme_override_font_sizes/font_size = 50
 text = "ToolL"
@@ -120,7 +136,11 @@ layout_mode = 2
 theme_override_constants/margin_bottom = 60
 
 [node name="Desc ToolL" type="Label" parent="Control/Side HUD/SidH Names/Desc ToolL" unique_id=1119248212]
+unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("14_8hhtu")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("5_pvj0q")
 theme_override_font_sizes/font_size = 50
 text = "Booty"
@@ -129,7 +149,11 @@ text = "Booty"
 layout_mode = 2
 
 [node name="Name Spell" type="Label" parent="Control/Side HUD/SidH Names/SidH Spell" unique_id=1571177560]
+unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("14_8hhtu")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("5_pvj0q")
 theme_override_font_sizes/font_size = 50
 text = "Spell"
@@ -139,7 +163,11 @@ layout_mode = 2
 theme_override_constants/margin_bottom = 60
 
 [node name="Desc Spell" type="Label" parent="Control/Side HUD/SidH Names/Desc Spell" unique_id=1810827285]
+unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("14_8hhtu")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("5_pvj0q")
 theme_override_font_sizes/font_size = 50
 text = "Booty"
@@ -148,7 +176,11 @@ text = "Booty"
 layout_mode = 2
 
 [node name="Name UItem" type="Label" parent="Control/Side HUD/SidH Names/SidH UItem" unique_id=1362818332]
+unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("14_8hhtu")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("5_pvj0q")
 theme_override_font_sizes/font_size = 50
 text = "UItem"
@@ -158,7 +190,11 @@ layout_mode = 2
 theme_override_constants/margin_bottom = 60
 
 [node name="Desc UItem" type="Label" parent="Control/Side HUD/SidH Names/Desc UItem" unique_id=653347177]
+unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("14_8hhtu")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("5_pvj0q")
 theme_override_font_sizes/font_size = 50
 text = "Booty"
@@ -190,6 +226,22 @@ fill_mode = 3
 texture_under = ExtResource("10_8hhtu")
 texture_over = ExtResource("7_vy47n")
 texture_progress = ExtResource("7_c66ss")
+
+[node name="Control" type="VBoxContainer" parent="Control" unique_id=1318770011]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 533.0
+offset_right = 266.0
+offset_bottom = 583.0
+
+[node name="Notification1" type="RichTextLabel" parent="Control/Control" unique_id=1971441667]
+layout_mode = 2
+theme = ExtResource("14_8hhtu")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+text = "Buttsauce"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [node name="Crosshair" type="TextureRect" parent="Control" unique_id=504402344]
 layout_mode = 1

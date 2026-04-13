@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://yey3rq0j37ff" path="res://Assets/Player/Player_Model.tscn" id="5_vrmme"]
 [ext_resource type="PackedScene" uid="uid://6wv60fqqjwkq" path="res://Assets/Objects/Ent/Entity_Spawner.tscn" id="7_pu3bv"]
 [ext_resource type="PackedScene" uid="uid://c634adja7tyxp" path="res://Assets/Objects/Obj/Object_Spawner.tscn" id="7_rdq5i"]
-[ext_resource type="PackedScene" uid="uid://c4p7mlvgrwsjp" path="res://Assets/Objects/Obj/Rest/rest.tscn" id="8_rdq5i"]
+[ext_resource type="PackedScene" uid="uid://u0tbg3q3cv3q" path="res://Assets/Objects/Obj/Test cube (physics)/test_cube.tscn" id="8_rdq5i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4jwc8"]
 sky_top_color = Color(0.28045967, 0.49630553, 0.4515105, 1)
@@ -415,5 +415,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.882505, 1.0853833, -0.38854
 [node name="Object Spawner" parent="." unique_id=1741486273 instance=ExtResource("7_rdq5i")]
 Objects = "Rest"
 
-[node name="Rest" parent="." unique_id=1692087272 instance=ExtResource("8_rdq5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1073818, -0.022961497, 4.135903)
+[node name="Object Spawner2" parent="." unique_id=1262418625 instance=ExtResource("7_rdq5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3914185, 0.3361802, 2.541551)
+Objects = "TST Box"
+
+[node name="Object Spawner3" parent="." unique_id=69682553 instance=ExtResource("7_rdq5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.562859, 0, 1.801888)
+Objects = "Item"
+
+[node name="Test Cube" parent="." unique_id=1665853116 instance=ExtResource("8_rdq5i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8954706, 0.4000003, 3.3785865)
