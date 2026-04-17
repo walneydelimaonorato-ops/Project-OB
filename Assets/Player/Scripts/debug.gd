@@ -67,6 +67,17 @@ func _process(_delta: float) -> void:
 	
 	page_3.text = "Menu Vars"
 	page_3.text += str("\rCurrent_Menu: " + player_stats.data.Current_Menu)
+	page_3.text += str("\rCurrent_SubMenu: " + player_stats.data.Current_SubMenu)
 	page_3.text += str("\rReady_Menu_Active: ", player_stats.data.Ready_Menu_Active)
+	
+	page_3.text += "\r........."
+	page_3.text += str("\rInv_Brace: ", player_stats.data.Inv_Brace_Equiped)
+	page_3.text += str("\rInv_Wear: ", player_stats.data.Inv_Wear_Equiped)
+	page_3.text += str("\rInv_ToolL: ", player_stats.data.Inv_ToolL_Equiped)
+	page_3.text += str("\rInv_ToolR: ", player_stats.data.Inv_ToolR_Equiped)
+	page_3.text += str("\rInv_Spell: ", player_stats.data.Inv_Spell_Equiped)
+	page_3.text += str("\rInv_Uitem1: ", player_stats.data.Inv_Uitem1_Equiped)
+	page_3.text += str("\rInv_Uitem2: ", player_stats.data.Inv_Uitem2_Equiped)
+	page_3.text += str("\rInv_Uitem3: ", player_stats.data.Inv_Uitem3_Equiped)
 	
 	focus_node.text = player_stats.data.Current_Focus

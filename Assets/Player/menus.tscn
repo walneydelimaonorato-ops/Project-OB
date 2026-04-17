@@ -335,6 +335,7 @@ autowrap_mode = 0
 justification_flags = 162
 
 [node name="Brace Golden" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces" unique_id=1201484760]
+unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_right = NodePath(".")
@@ -350,6 +351,50 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
 text = "[img=200]uid://davke1oama52w[/img]: Golden Brcs."
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="Brace Clorophyl" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces" unique_id=697233794]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("18_muclb")
+texture_focused = ExtResource("19_064ml")
+
+[node name="Brace Clorophyl" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Clorophyl" unique_id=2058256559]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[img=200]uid://davke1oama52w[/img]: Clrphyl Brcs."
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="Brace Power" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces" unique_id=1819797979]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("18_muclb")
+texture_focused = ExtResource("19_064ml")
+
+[node name="Brace Power" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Power" unique_id=1398388362]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[img=200]uid://davke1oama52w[/img]: Power Brcs."
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -379,7 +424,6 @@ justification_flags = 162
 
 [node name="Wear" type="VBoxContainer" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)" unique_id=299019856]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="Start of Wear" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Wear" unique_id=1209400255]
@@ -405,6 +449,7 @@ autowrap_mode = 0
 justification_flags = 162
 
 [node name="Wear Plain Clothes" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Wear" unique_id=1911114479]
+unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_right = NodePath(".")
@@ -419,7 +464,7 @@ theme = ExtResource("9_3yn2l")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
-text = "[img=200]uid://c244x88oddpii[/img]: Simple Clths."
+text = "[img=200]uid://bqi66glri2ec[/img]: Simple Clths."
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -656,6 +701,7 @@ justification_flags = 162
 
 [node name="UItems" type="VBoxContainer" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)" unique_id=1041217003]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Start of UItems" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems" unique_id=170828685]
@@ -733,6 +779,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Stance" type="RichTextLabel" parent="Choice Menu" unique_id=29269979]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 433.0
+offset_top = 495.0
+offset_right = 719.0
+offset_bottom = 518.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 0
+bbcode_enabled = true
+text = "butt burner "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
 [node name="Container" type="MarginContainer" parent="Choice Menu" unique_id=1757360428]
 layout_mode = 0
 offset_left = 433.0
@@ -751,6 +814,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Confirm" type="Button" parent="Choice Menu/Container/Yes_No Choice Box" unique_id=1377622002]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("9_3yn2l")
 theme_override_colors/font_color = Color(1, 1, 0, 1)
@@ -760,6 +824,7 @@ text = "butt sauce
 "
 
 [node name="Deny" type="Button" parent="Choice Menu/Container/Yes_No Choice Box" unique_id=1664976823]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("9_3yn2l")
 theme_override_colors/font_color = Color(1, 1, 0, 1)
@@ -777,3 +842,6 @@ text = "butt pudding
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 1" to="Menus (Ready)" method="ready_u_item_1_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 2" to="Menus (Ready)" method="ready_u_item_2_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 3" to="Menus (Ready)" method="ready_u_item_3_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool HandGun" to="Menus (Selection)" method="tool_handgun_pressed"]
+[connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Confirm" to="Menu (Choice)" method="on_confirm"]
+[connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Deny" to="Menu (Choice)" method="on_deny"]

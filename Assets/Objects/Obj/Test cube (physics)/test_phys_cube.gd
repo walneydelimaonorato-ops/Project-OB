@@ -1,13 +1,22 @@
 extends Node3D
 var HUD_Prompt: String = "TST Modular Choice Prompt"
-@onready var player: CharacterBody3D = $"../Player"
-
 
 func _ready() -> void:
-	pass # Replace with function body.
+	SignalBus.connect("reply_popup", on_reply_popup)
 
 func HUD_Element():
 	return HUD_Prompt
 
 func Iteraction():
-	print(player)
+	var Choice_Names = {
+		"stance_text": "Stance",
+		"yes_text": "Up",
+		"no_text": "Down"
+	}
+	SignalBus.emit_signal("request_popup", Choice_Names, self)
+
+func on_reply_popup(Choice_Answer):
+	if Choice_Answer == true:
+		print("Confirmed!")
+	elif Choice_Answer == false:
+		print("Denied!")

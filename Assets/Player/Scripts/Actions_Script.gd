@@ -8,3 +8,12 @@ func _ready() -> void:
 
 func Action_Alternative():
 	StatsMan.Geneneral_Interaction (%Ray2, "Iteraction")
+
+func Action_Primary(Direction):
+	match Direction:
+		"Right":
+			match PlayerRes.data.Inv_ToolR_Equiped:
+				pass
+		"Left":
+			match PlayerRes.data.Inv_ToolL_Equiped:
+				pass

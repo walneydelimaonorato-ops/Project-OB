@@ -49,7 +49,6 @@ var Menu_mode: bool = false # Checks if the player is currently in a menu
 signal Ready_Menu_Toggled(active: bool)
 signal Seletion_Menu_Toggled(active: bool)
 signal Choice_Menu_Toggled(active: bool)
-signal Ray2_Exited(Collider)
 #endregion
 
 #region Static Variables (never change)
@@ -75,6 +74,8 @@ var Actionable: bool
 # Menu related variables
 var Current_Focus: String = ""
 var Current_Menu: String = ""
+var Current_SubMenu: String = ""
+
 var Ready_Menu_Active: bool = false
 var Seletion_Menu_Active: bool = false
 var Choice_Menu_Active: bool = false
@@ -113,31 +114,43 @@ var Wild_gold_quantity: int = 10 # Use quantity of Wild Gold
 #region IDs
 var Tool_ID = {
 	"Hand": {
+		"dys name": " ", 
+		"sys name": "Hand",
 		"picked?": true,
 		"equipped?": false, 
 		"damage": 0, 
 		},
 	"HandGun": {
+		"dys name": " ",
+		"sys name": "HandGun",
 		"picked?": true,
 		"equipped?": false, 
 		"damage": 6, 
 		},
 	"AssaultRifle": {
-		"picked?": false,
+		"dys name": " ", 
+		"sys name": "AssaultRifle",
+		"picked?": true,
 		"equipped?": false, 
 		"damage": 15, 
 		},
 	"Sword": {
-		"picked?": true,
-		"equipped?": true, 
+		"dys name": " ", 
+		"sys name": "Sword",
+		"picked?": false,
+		"equipped?": false, 
 		"damage": 20, 
 		},
 	"Dagger": {
+		"dys name": " ", 
+		"sys name": "Dagger",
 		"picked?": false,
 		"equipped?": false, 
 		"damage": 10,
 		},
 	"SpecialBow": {
+		"dys name": " ", 
+		"sys name": "SpecialBow",
 		"picked?": false,
 		"equipped?": false, 
 		"damage": 25,
@@ -145,98 +158,126 @@ var Tool_ID = {
 }
 
 var Wear_ID = {
-	"Unclothed": {
-		"picked?": false,
+	"Plain": {
+		"dys name": " ", 
+		"sys name": " ",
+		"picked?": true,
 		"equipped?": false, 
 		"weight": 0,
 		"def. redu.": -5,
-	},
+		},
 	"Upper Mewclad Arm.": {
+		"dys name": " ", 
+		"sys name": " ",
 		"picked?": false,
 		"equipped?": false, 
 		"weight": 20,
 		"def. redu.": 4,
-	},
+		},
 	"Lower Mewclad Arm.": {
+		"dys name": " ", 
+		"sys name": " ",
 		"picked?": false,
 		"equipped?": false, 
 		"weight": 12,
 		"def. redu.": 2,
-	}
+		}
 }
 
 var Spell_ID = {
 	"null": {
-	"picked?": true,
-	"equipped?": false, 
-	"quantity": 0,
-	"max quantity": 0,
-	"damage": 0,
-	},
+		"dys name": " ", 
+		"sys name": " ",
+		"picked?": true,
+		"equipped?": false, 
+		"quantity": 0,
+		"max quantity": 0,
+		"damage": 0,
+		},
 	"PotentiaSolis": {
-	"picked?": true,
-	"equipped?": false, 
-	"quantity": 6,
-	"max quantity": 6,
-	"damage": 20 + Divine_Damage_Bonus,
-	},
+		"dys name": " ", 
+		"sys name": " ",
+		"picked?": true,
+		"equipped?": false, 
+		"quantity": 6,
+		"max quantity": 6,
+		"damage": 20 + Divine_Damage_Bonus,
+		},
 	"Misericordia": {
-	"picked?": true,
-	"equipped?": false, 
-	"quantity": 2,
-	"max quantity": 2,
-	"damage": 0,
-	},
+		"dys name": " ", 
+		"sys name": " ",
+		"picked?": true,
+		"equipped?": false, 
+		"quantity": 2,
+		"max quantity": 2,
+		"damage": 0,
+		},
 	"Tywyll": {
-	"picked?": true,
-	"equipped?": false, 
-	"quantity": 10,
-	"max quantity": 10,
-	"damage": 10 + Heretic_Damage_Bonus,
-	},
+		"dys name": " ", 
+		"sys name": " ",
+		"picked?": true,
+		"equipped?": false, 
+		"quantity": 10,
+		"max quantity": 10,
+		"damage": 10 + Heretic_Damage_Bonus,
+		},
 	"Sunfire": {
-	"picked?": true,
-	"equipped?": false, 
-	"quantity": 99999,
-	"max quantity": 99999,
-	"damage": 99999,
-	}
+		"dys name": " ", 
+		"sys name": " ",
+		"picked?": true,
+		"equipped?": false, 
+		"quantity": 99999,
+		"max quantity": 99999,
+		"damage": 99999,
+		}
 }
 
 var Brace_ID = {
 	"Golden Bra.": {
-	
-	"picked?": true,
-	"equipped?": false, 
-	},
+		"dys name": " ", 
+		"sys name": " ",
+		
+		"picked?": true,
+		"equipped?": false, 
+		},
 	"Clorophyl Bra.": {
-	
-	"picked?": true,
-	"equipped?": false, 
-	},
-	"power Bra.": {
-	
-	"picked?": true,
-	"equipped?": false, 
-	}
+		"dys name": " ", 
+		"sys name": " ",
+		
+		"picked?": true,
+		"equipped?": false, 
+		},
+	"Power Bra.": {
+		"dys name": " ", 
+		"sys name": " ",
+		
+		"picked?": true,
+		"equipped?": false, 
+		}
 }
 
 var UItem_ID = {
 	"null": {
-	"heal_values": 0,
-	"quantity": 0,
-	"special id": ""
-	},
+		"dys name": " ", 
+		"sys name": " ",
+		"heal_values": 0,
+		"quantity": 0,
+		"special id": ""
+		},
 	"Glass flask": {
-	"heal_values": Health_Max / 3,
-	"quantity": Glass_flask_quantity,
-	"special id": "renewable"
-	},
+		"dys name": " ", 
+		"sys name": " ",
+		"heal_values": Health_Max / 3,
+		"quantity": Glass_flask_quantity,
+		"special id": "renewable"
+		},
 	"Wild gold": {
-	"heal_values": 2,
-	"quantity": Wild_gold_quantity,
-	"special id": ""
-	}
+		"dys name": " ", 
+		"sys name": " ",
+		"heal_values": 2,
+		"quantity": Wild_gold_quantity,
+		"special id": ""
+		}
 }
 #endregion
 

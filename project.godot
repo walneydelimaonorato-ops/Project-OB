@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.6")
 [autoload]
 
 Global="*uid://chd33wii2ykgf"
+SignalBus="*uid://chyio332ihmub"
 
 [display]
 
