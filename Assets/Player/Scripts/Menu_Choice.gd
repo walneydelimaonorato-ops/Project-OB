@@ -7,6 +7,7 @@ extends Node
 func _ready() -> void:
 	SignalBus.connect("request_popup", on_request_popup)
 
+@warning_ignore("unused_parameter")
 func on_request_popup(Choice_Names, source):
 	%"Choice Menu".visible = true
 	%Stance.text = Choice_Names.stance_text

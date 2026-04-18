@@ -46,9 +46,15 @@ var Menu_mode: bool = false # Checks if the player is currently in a menu
 #endregion
 
 #region Signals
+@warning_ignore("unused_signal")
 signal Ready_Menu_Toggled(active: bool)
+@warning_ignore("unused_signal")
 signal Seletion_Menu_Toggled(active: bool)
+@warning_ignore("unused_signal")
 signal Choice_Menu_Toggled(active: bool)
+
+@warning_ignore("unused_signal")
+signal Tool_Rotation()
 #endregion
 
 #region Static Variables (never change)

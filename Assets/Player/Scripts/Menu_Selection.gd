@@ -12,6 +12,7 @@ func _input(_event: InputEvent) -> void:
 		exit()
 
 func exit():
+	PlayerRes.data.emit_signal("Tool_Rotation")
 	PlayerRes.data.Seletion_Menu_Active = !PlayerRes.data.Seletion_Menu_Active
 	PlayerRes.data.emit_signal("Seletion_Menu_Toggled", PlayerRes.data.Seletion_Menu_Active)
 	PlayerRes.data.Current_Menu = "Ready"
@@ -92,6 +93,7 @@ func Menu_Path():
 			%UItems.visible = true
 			MenuReady.focus_first_visible(%UItems)
 
+#region Tools Region
 func tool_handgun_pressed() -> void:
 	match PlayerRes.data.Current_SubMenu:
 		"Tool Right menu":
@@ -99,4 +101,20 @@ func tool_handgun_pressed() -> void:
 		"Tool Left menu":
 			PlayerRes.data.Inv_ToolL_Equiped = PlayerRes.data.Tool_ID["HandGun"]["sys name"]
 	PlayerRes.data.Tool_ID["HandGun"]["equipped?"] = true
+	exit()
+func tool_assault_pressed() -> void:
+	match PlayerRes.data.Current_SubMenu:
+		"Tool Right menu":
+			PlayerRes.data.Inv_ToolR_Equiped = PlayerRes.data.Tool_ID["AssaultRifle"]["sys name"]
+		"Tool Left menu":
+			PlayerRes.data.Inv_ToolL_Equiped = PlayerRes.data.Tool_ID["AssaultRifle"]["sys name"]
+	PlayerRes.data.Tool_ID["AssaultRifle"]["equipped?"] = true
+	exit()
+func tool_sword_pressed() -> void:
+	match PlayerRes.data.Current_SubMenu:
+		"Tool Right menu":
+			PlayerRes.data.Inv_ToolR_Equiped = PlayerRes.data.Tool_ID["Sword"]["sys name"]
+		"Tool Left menu":
+			PlayerRes.data.Inv_ToolL_Equiped = PlayerRes.data.Tool_ID["Sword"]["sys name"]
+	PlayerRes.data.Tool_ID["Sword"]["equipped?"] = true
 	exit()

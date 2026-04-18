@@ -54,6 +54,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09374118, 0)
 
 [node name="Models" parent="Head/Eyes" unique_id=1867517693 instance=ExtResource("5_hs5eg")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17413068, -0.96205795)
 
 [node name="Ray1" type="RayCast3D" parent="Head/Eyes" unique_id=1193247679]
@@ -70,10 +71,5 @@ collision_mask = 4
 collide_with_areas = true
 debug_shape_custom_color = Color(0, 1, 0, 1)
 debug_shape_thickness = 1
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Head" unique_id=880807584]
-visible = false
-distance_fade_begin = 2.0
-omni_range = 120.0
 
 [node name="HUD" parent="." unique_id=775426720 instance=ExtResource("3_qe5k5")]

@@ -842,6 +842,8 @@ text = "butt pudding
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 1" to="Menus (Ready)" method="ready_u_item_1_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 2" to="Menus (Ready)" method="ready_u_item_2_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 3" to="Menus (Ready)" method="ready_u_item_3_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Assault" to="Menus (Selection)" method="tool_assault_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool HandGun" to="Menus (Selection)" method="tool_handgun_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Sword" to="Menus (Selection)" method="tool_sword_pressed"]
 [connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Confirm" to="Menu (Choice)" method="on_confirm"]
 [connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Deny" to="Menu (Choice)" method="on_deny"]
