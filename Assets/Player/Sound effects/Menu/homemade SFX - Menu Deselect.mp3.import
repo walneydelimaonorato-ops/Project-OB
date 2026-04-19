@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2u11odmbjt6v"
+path="res://.godot/imported/homemade SFX - Menu Deselect.mp3-0e9c8ca13b4816d5a41f5b13a48c578a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Player/Sound effects/Menu/homemade SFX - Menu Deselect.mp3"
+dest_files=["res://.godot/imported/homemade SFX - Menu Deselect.mp3-0e9c8ca13b4816d5a41f5b13a48c578a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -12,6 +12,7 @@ func _input(_event: InputEvent) -> void:
 		exit()
 
 func exit():
+	%"Menu Return".play()
 	PlayerRes.data.emit_signal("Tool_Rotation")
 	PlayerRes.data.Seletion_Menu_Active = !PlayerRes.data.Seletion_Menu_Active
 	PlayerRes.data.emit_signal("Seletion_Menu_Toggled", PlayerRes.data.Seletion_Menu_Active)
@@ -118,3 +119,4 @@ func tool_sword_pressed() -> void:
 			PlayerRes.data.Inv_ToolL_Equiped = PlayerRes.data.Tool_ID["Sword"]["sys name"]
 	PlayerRes.data.Tool_ID["Sword"]["equipped?"] = true
 	exit()
+#endregion

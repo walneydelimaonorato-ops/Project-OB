@@ -171,22 +171,22 @@ func Set_Menu(Switch: bool, Next_Menu: String):
 	elif Switch == false:
 		PlayerRes.data.Current_SubMenu = Next_Menu
 
-@warning_ignore("unused_parameter")
-func Inventory_Update(Item):
-	match PlayerRes.data.Current_SubMenu:
-		"Brace menu":
-			pass
-		"Wear menu":
-			pass
-		"Tool Right menu":
-			pass
-		"Tool Left menu":
-			pass
-		"Spell menu":
-			pass
-		"UItem1 menu":
-			pass
-		"UItem2 menu":
-			pass
-		"UItem3 menu":
-			pass
+
+#func Inventory_Update(Item):
+	#match PlayerRes.data.Current_SubMenu:
+		#"Brace menu":
+			#pass
+		#"Wear menu":
+			#pass
+		#"Tool Right menu":
+			#pass
+		#"Tool Left menu":
+			#pass
+		#"Spell menu":
+			#pass
+		#"UItem1 menu":
+			#pass
+		#"UItem2 menu":
+			#pass
+		#"UItem3 menu":
+			#pass

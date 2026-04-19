@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://q8d5kc4se4ux"
+path="res://.godot/imported/homemade SFX - Menu Advance.mp3-586f8895f7e90db3f9355a2c31afa04b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Player/Sound effects/Menu/homemade SFX - Menu Advance.mp3"
+dest_files=["res://.godot/imported/homemade SFX - Menu Advance.mp3-586f8895f7e90db3f9355a2c31afa04b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,9 +1,11 @@
 extends Node
-@onready var PlayerVars: Node = $"../../../../Script Nodes/Player Stats"
+@onready var PlayerRes: Node = $"../../../../Script Nodes/Player Stats"
 @onready var StatsMan: Node = $"../../../../Script Nodes/Stats Management"
 
+var buttfocus: String = ""
+
 func _ready() -> void:
-	PlayerVars.data.Ready_Menu_Toggled.connect(set_Ready_Menu)
+	PlayerRes.data.Ready_Menu_Toggled.connect(set_Ready_Menu)
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
 
 #region Functions
@@ -28,8 +30,39 @@ func focus_first_visible(container):
 func _on_focus_changed(nodefocus: Control):
 	if nodefocus:
 		%"Menu Move".play()
-	#if not is_ancestor_of(%"Ready Menu"):
-		#focus_first_visible($"../Ready Menu/Ready Menu Grid/Ready Spell and UItem")
+		buttfocus = nodefocus.name
+
+func Remove_Item():
+	match buttfocus:
+		"Ready Inventory":
+			pass
+		"Ready Settings":
+			pass
+	
+		"Ready Brace":
+			pass
+		"Ready Wear":
+			pass
+		"Ready Tool Left":
+			PlayerRes.data.Tool_ID[PlayerRes.data.Inv_ToolL_Equiped]["equipped?"] = false
+			PlayerRes.data.Inv_ToolL_Equiped = "null"
+		"Ready Tool Right":
+			PlayerRes.data.Tool_ID[PlayerRes.data.Inv_ToolR_Equiped]["equipped?"] = false
+			PlayerRes.data.Inv_ToolR_Equiped = "null"
+	
+		"Ready Spell":
+			pass
+		"Ready UItem 1":
+			pass
+		"Ready UItem 2":
+			pass
+		"Ready UItem 3":
+			pass
+	PlayerRes.data.emit_signal("Tool_Rotation")
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed(PlayerRes.data.UnUI_Unselect):
+		Remove_Item()
 #endregion
 
 #region Technical
@@ -43,43 +76,43 @@ func ready_settings_pressed() -> void:
 #region Wear and Tool
 func ready_brace_pressed() -> void:
 	StatsMan.Set_Menu(false, "Brace menu")
-	PlayerVars.data.Seletion_Menu_Active = !PlayerVars.data.Seletion_Menu_Active
-	PlayerVars.data.emit_signal("Seletion_Menu_Toggled", PlayerVars.data.Seletion_Menu_Active)
+	PlayerRes.data.Seletion_Menu_Active = !PlayerRes.data.Seletion_Menu_Active
+	PlayerRes.data.emit_signal("Seletion_Menu_Toggled", PlayerRes.data.Seletion_Menu_Active)
 
 func ready_wear_pressed() -> void:
 	StatsMan.Set_Menu(false, "Wear menu")
-	PlayerVars.data.Seletion_Menu_Active = !PlayerVars.data.Seletion_Menu_Active
-	PlayerVars.data.emit_signal("Seletion_Menu_Toggled", PlayerVars.data.Seletion_Menu_Active)
+	PlayerRes.data.Seletion_Menu_Active = !PlayerRes.data.Seletion_Menu_Active
+	PlayerRes.data.emit_signal("Seletion_Menu_Toggled", PlayerRes.data.Seletion_Menu_Active)
 
 func ready_tool_left_pressed() -> void:
 	StatsMan.Set_Menu(false, "Tool Left menu")
-	PlayerVars.data.Seletion_Menu_Active = !PlayerVars.data.Seletion_Menu_Active
-	PlayerVars.data.emit_signal("Seletion_Menu_Toggled", PlayerVars.data.Seletion_Menu_Active)
+	PlayerRes.data.Seletion_Menu_Active = !PlayerRes.data.Seletion_Menu_Active
+	PlayerRes.data.emit_signal("Seletion_Menu_Toggled", PlayerRes.data.Seletion_Menu_Active)
 
 func ready_tool_right_pressed() -> void:
 	StatsMan.Set_Menu(false, "Tool Right menu")
-	PlayerVars.data.Seletion_Menu_Active = !PlayerVars.data.Seletion_Menu_Active
-	PlayerVars.data.emit_signal("Seletion_Menu_Toggled", PlayerVars.data.Seletion_Menu_Active)
+	PlayerRes.data.Seletion_Menu_Active = !PlayerRes.data.Seletion_Menu_Active
+	PlayerRes.data.emit_signal("Seletion_Menu_Toggled", PlayerRes.data.Seletion_Menu_Active)
 #endregion
 
 #region Spell and UItem
 func ready_spell_pressed() -> void:
 	StatsMan.Set_Menu(false, "Spell menu")
-	PlayerVars.data.Seletion_Menu_Active = !PlayerVars.data.Seletion_Menu_Active
-	PlayerVars.data.emit_signal("Seletion_Menu_Toggled", PlayerVars.data.Seletion_Menu_Active)
+	PlayerRes.data.Seletion_Menu_Active = !PlayerRes.data.Seletion_Menu_Active
+	PlayerRes.data.emit_signal("Seletion_Menu_Toggled", PlayerRes.data.Seletion_Menu_Active)
 
 func ready_u_item_1_pressed() -> void:
 	StatsMan.Set_Menu(false, "UItem1 menu")
-	PlayerVars.data.Seletion_Menu_Active = !PlayerVars.data.Seletion_Menu_Active
-	PlayerVars.data.emit_signal("Seletion_Menu_Toggled", PlayerVars.data.Seletion_Menu_Active)
+	PlayerRes.data.Seletion_Menu_Active = !PlayerRes.data.Seletion_Menu_Active
+	PlayerRes.data.emit_signal("Seletion_Menu_Toggled", PlayerRes.data.Seletion_Menu_Active)
 
 func ready_u_item_2_pressed() -> void:
 	StatsMan.Set_Menu(false, "UItem2 menu")
-	PlayerVars.data.Seletion_Menu_Active = !PlayerVars.data.Seletion_Menu_Active
-	PlayerVars.data.emit_signal("Seletion_Menu_Toggled", PlayerVars.data.Seletion_Menu_Active)
+	PlayerRes.data.Seletion_Menu_Active = !PlayerRes.data.Seletion_Menu_Active
+	PlayerRes.data.emit_signal("Seletion_Menu_Toggled", PlayerRes.data.Seletion_Menu_Active)
 
 func ready_u_item_3_pressed() -> void:
 	StatsMan.Set_Menu(false, "UItem3 menu")
-	PlayerVars.data.Seletion_Menu_Active = !PlayerVars.data.Seletion_Menu_Active
-	PlayerVars.data.emit_signal("Seletion_Menu_Toggled", PlayerVars.data.Seletion_Menu_Active)
+	PlayerRes.data.Seletion_Menu_Active = !PlayerRes.data.Seletion_Menu_Active
+	PlayerRes.data.emit_signal("Seletion_Menu_Toggled", PlayerRes.data.Seletion_Menu_Active)
 #endregion

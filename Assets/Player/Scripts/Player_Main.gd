@@ -49,8 +49,9 @@ func _process(_delta: float) -> void:
 
 func _input(input: InputEvent) -> void:
 	if Input.is_action_just_pressed(PlayerRes.data.Un_Ready_Menu):
-		PlayerRes.data.Ready_Menu_Active = !PlayerRes.data.Ready_Menu_Active
-		PlayerRes.data.emit_signal("Ready_Menu_Toggled", PlayerRes.data.Ready_Menu_Active)
+		if PlayerRes.data.Current_Menu == "Ready" or PlayerRes.data.Current_Menu == "none" or PlayerRes.data.Current_Menu == "":
+			PlayerRes.data.Ready_Menu_Active = !PlayerRes.data.Ready_Menu_Active
+			PlayerRes.data.emit_signal("Ready_Menu_Toggled", PlayerRes.data.Ready_Menu_Active)
 	
 	if Input.is_action_just_pressed(PlayerRes.data.Un_LPrimary_Tool_Use):
 		Action.Action_Primary("Left")

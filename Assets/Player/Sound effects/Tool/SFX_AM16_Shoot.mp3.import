@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bh7d5h502cqte"
+path="res://.godot/imported/SFX_AM16_Shoot.mp3-93b0e8c9eab20a31fef2c3be95eba770.mp3str"
+
+[deps]
+
+source_file="res://Assets/Player/Sound effects/Tool/SFX_AM16_Shoot.mp3"
+dest_files=["res://.godot/imported/SFX_AM16_Shoot.mp3-93b0e8c9eab20a31fef2c3be95eba770.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

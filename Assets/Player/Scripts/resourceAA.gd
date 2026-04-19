@@ -127,7 +127,7 @@ var Tool_ID = {
 		"damage": 0, 
 		},
 	"HandGun": {
-		"dys name": " ",
+		"dys name": "Abrams",
 		"sys name": "HandGun",
 		"picked?": true,
 		"equipped?": false, 
