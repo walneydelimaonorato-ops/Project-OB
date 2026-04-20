@@ -9,3 +9,6 @@ func HUD_Element():
 
 func Iteraction():
 	%AudioStreamPlayer2D.play()
+
+func Take_Damage():
+	print("buttlivk")

@@ -47,10 +47,14 @@ func Remove_Item():
 			if !PlayerRes.data.Inv_ToolL_Equiped == "null":
 				PlayerRes.data.Tool_ID[PlayerRes.data.Inv_ToolL_Equiped]["equipped?"] = false
 				PlayerRes.data.Inv_ToolL_Equiped = "null"
+			else:
+				%"Menu Return".play()
 		"Ready Tool Right":
 			if !PlayerRes.data.Inv_ToolR_Equiped == "null":
 				PlayerRes.data.Tool_ID[PlayerRes.data.Inv_ToolR_Equiped]["equipped?"] = false
 				PlayerRes.data.Inv_ToolR_Equiped = "null"
+			else:
+				%"Menu Return".play()
 	
 		"Ready Spell":
 			pass
@@ -92,9 +96,12 @@ func ready_tool_left_pressed() -> void:
 	PlayerRes.data.emit_signal("Seletion_Menu_Toggled", PlayerRes.data.Seletion_Menu_Active)
 
 func ready_tool_right_pressed() -> void:
-	StatsMan.Set_Menu(false, "Tool Right menu")
-	PlayerRes.data.Seletion_Menu_Active = !PlayerRes.data.Seletion_Menu_Active
-	PlayerRes.data.emit_signal("Seletion_Menu_Toggled", PlayerRes.data.Seletion_Menu_Active)
+	if PlayerRes.data.Inv_ToolR_Equiped == "null":
+		StatsMan.Set_Menu(false, "Tool Right menu")
+		PlayerRes.data.Seletion_Menu_Active = !PlayerRes.data.Seletion_Menu_Active
+		PlayerRes.data.emit_signal("Seletion_Menu_Toggled", PlayerRes.data.Seletion_Menu_Active)
+	else:
+		%"Menu Return".play()
 #endregion
 
 #region Spell and UItem

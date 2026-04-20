@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://6wv60fqqjwkq" path="res://Assets/Objects/Ent/Entity_Spawner.tscn" id="7_pu3bv"]
 [ext_resource type="PackedScene" uid="uid://c634adja7tyxp" path="res://Assets/Objects/Obj/Object_Spawner.tscn" id="7_rdq5i"]
 [ext_resource type="PackedScene" uid="uid://u0tbg3q3cv3q" path="res://Assets/Objects/Obj/Test cube (physics)/test_cube.tscn" id="8_rdq5i"]
+[ext_resource type="PackedScene" uid="uid://cjjbqhue88d3g" path="res://Assets/Objects/Ent/Test/Test.tscn" id="9_rj72a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4jwc8"]
 sky_top_color = Color(0.28045967, 0.49630553, 0.4515105, 1)
@@ -426,5 +427,8 @@ Objects = "Item"
 
 [node name="Test Cube" parent="." unique_id=1665853116 instance=ExtResource("8_rdq5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8954706, 0.4000003, 3.3785865)
+
+[node name="Root" parent="." unique_id=194563002 instance=ExtResource("9_rj72a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3499169, 1.4885489e-08, -3.03998)
 
 [editable path="Player"]

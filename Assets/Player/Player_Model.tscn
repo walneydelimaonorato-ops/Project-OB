@@ -58,8 +58,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17413068, -0.96205795)
 [node name="Ray1" type="RayCast3D" parent="Head/Eyes" unique_id=1193247679]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09374118, 0)
-visible = false
 target_position = Vector3(0, 0, -200)
+collision_mask = 8
+collide_with_areas = true
 
 [node name="Ray2" type="RayCast3D" parent="Head/Eyes" unique_id=670486846]
 unique_name_in_owner = true
