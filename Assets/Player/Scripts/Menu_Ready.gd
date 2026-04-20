@@ -44,11 +44,13 @@ func Remove_Item():
 		"Ready Wear":
 			pass
 		"Ready Tool Left":
-			PlayerRes.data.Tool_ID[PlayerRes.data.Inv_ToolL_Equiped]["equipped?"] = false
-			PlayerRes.data.Inv_ToolL_Equiped = "null"
+			if !PlayerRes.data.Inv_ToolL_Equiped == "null":
+				PlayerRes.data.Tool_ID[PlayerRes.data.Inv_ToolL_Equiped]["equipped?"] = false
+				PlayerRes.data.Inv_ToolL_Equiped = "null"
 		"Ready Tool Right":
-			PlayerRes.data.Tool_ID[PlayerRes.data.Inv_ToolR_Equiped]["equipped?"] = false
-			PlayerRes.data.Inv_ToolR_Equiped = "null"
+			if !PlayerRes.data.Inv_ToolR_Equiped == "null":
+				PlayerRes.data.Tool_ID[PlayerRes.data.Inv_ToolR_Equiped]["equipped?"] = false
+				PlayerRes.data.Inv_ToolR_Equiped = "null"
 	
 		"Ready Spell":
 			pass

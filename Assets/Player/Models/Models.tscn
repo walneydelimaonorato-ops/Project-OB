@@ -607,6 +607,9 @@ volume_db = -5.0
 stream = ExtResource("2_fa7cy")
 volume_db = -5.0
 
+[node name="Animations" type="Node" parent="." unique_id=489871341]
+unique_name_in_owner = true
+
 [node name="Master Rig" type="Node3D" parent="." unique_id=1489635491]
 
 [node name="TST_Sword" type="Node3D" parent="Master Rig" unique_id=1526135717]
@@ -618,7 +621,8 @@ transform = Transform3D(0.0001477313, -1.7763568e-15, -0.57000005, 2.2609952e-14
 mesh = SubResource("ArrayMesh_kinl4")
 
 [node name="Arm Left Rig" type="Node3D" parent="Master Rig" unique_id=292863608]
-transform = Transform3D(-0.8137976, 0.46984637, -0.3420202, 0.5, 0.8660254, 1.2904784e-08, 0.29619816, -0.1710101, -0.9396926, -0.2, 0, 0.7)
+transform = Transform3D(-0.81379753, 0.46984637, -0.3420202, 0.5, 0.8660254, 1.2904784e-08, 0.29619816, -0.1710101, -0.9396926, -0.2, 0, 0.7)
+visible = false
 
 [node name="Arm Left" type="MeshInstance3D" parent="Master Rig/Arm Left Rig" unique_id=719389888]
 mesh = SubResource("ArrayMesh_nfa0a")

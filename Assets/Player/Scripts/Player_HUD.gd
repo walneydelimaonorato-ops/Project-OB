@@ -9,11 +9,11 @@ extends CanvasLayer
 var Interact_Prompt: String = "General"
 
 func _ready() -> void:
-	pass
+	Side_HUD_Update()
+	PlayerRes.data.Tool_Rotation.connect(Side_HUD_Update)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	Side_HUD_Update()
 	Health.max_value = PlayerRes.data.Health_Max
 	Health.value = PlayerRes.data.Health
 	Stamina.max_value = PlayerRes.data.Stamina_Max
@@ -34,17 +34,29 @@ func Side_HUD_Update():
 	HUD_Visibility(%Spell, %"Name Spell", %"Desc Spell" , "Invisible")
 	HUD_Visibility(%UItem, %"Name UItem", %"Desc UItem", "Invisible")
 	match PlayerRes.data.Inv_ToolR_Equiped:
-		"nuhhhhhll":
+		"null":
 			%"Name ToolR".text = "Unequipped"
 			%"Desc ToolR".text = "<nothing>"
 		"HandGun":
 			HUD_Visibility(%"Tool R", %"Name ToolR", %"Desc ToolR", "Visible")
-			%"Name ToolR".text = "i be on the hillsfucken fuken dudes" #PlayerRes.data.Tool_ID["HandGun"]["dys name"]
+			%"Name ToolR".text = PlayerRes.data.Tool_ID["HandGun"]["dys name"]
 			%"Desc ToolR".text = "tasty souep"
+		"AssaultRifle":
+			HUD_Visibility(%"Tool R", %"Name ToolR", %"Desc ToolR", "Visible")
+			%"Name ToolR".text = PlayerRes.data.Tool_ID["AssaultRifle"]["dys name"]
+			%"Desc ToolR".text = "tasty coconut :3"
 	match PlayerRes.data.Inv_ToolL_Equiped:
 		"null":
 			%"Name ToolL".text = "Unequipped"
 			%"Desc ToolL".text = "<nothing>"
+		"HandGun":
+			HUD_Visibility(%"Tool L", %"Name ToolL", %"Desc ToolL", "Visible")
+			%"Name ToolL".text = PlayerRes.data.Tool_ID["HandGun"]["dys name"]
+			%"Desc ToolL".text = "tasty souep"
+		"AssaultRifle":
+			HUD_Visibility(%"Tool L", %"Name ToolL", %"Desc ToolL", "Visible")
+			%"Name ToolL".text = PlayerRes.data.Tool_ID["AssaultRifle"]["dys name"]
+			%"Desc ToolL".text = "tasty coconut :3"
 	match PlayerRes.data.Inv_Spell_Equiped:
 		"null":
 			%"Name ToolL".text = "Unequipped"

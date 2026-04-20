@@ -410,7 +410,8 @@ shape = SubResource("ConcavePolygonShape3D_4hwr3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.369, 0, 4.788)
 
 [node name="Entity Spawner" parent="." unique_id=353231944 instance=ExtResource("7_pu3bv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.882505, 1.0853833, -0.38854265)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.882505, 0.029737353, -0.6954162)
+Entitties = "Test"
 
 [node name="Object Spawner" parent="." unique_id=1741486273 instance=ExtResource("7_rdq5i")]
 Objects = "Rest"
