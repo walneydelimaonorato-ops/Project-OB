@@ -6,8 +6,8 @@ extends CharacterBody3D
 @onready var Head: Node3D = %Head
 @onready var Eyes: Camera3D = %Eyes
 
-var Un_LookUD := Vector2.ZERO
-var Un_LookLR := Vector2.ZERO
+#var Un_LookUD := Vector2.ZERO
+#var Un_LookLR := Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -29,8 +29,8 @@ func _physics_process(delta: float) -> void:
 		#Sprinting = false
 	
 	
-	var input_dir := Input.get_vector(PlayerRes.data.Un_Left, PlayerRes.data.Un_Right, PlayerRes.data.Un_Forward, PlayerRes.data.Un_Backward)
-	var direction := (Head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var input_dir = Input.get_vector(PlayerRes.data.Un_Left, PlayerRes.data.Un_Right, PlayerRes.data.Un_Forward, PlayerRes.data.Un_Backward)
+	var direction = (Head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * PlayerRes.data.Base_Speed
 		velocity.z = direction.z * PlayerRes.data.Base_Speed

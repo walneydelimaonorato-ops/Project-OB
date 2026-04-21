@@ -20,3 +20,6 @@ func on_reply_popup(Choice_Answer):
 		print("Confirmed!")
 	elif Choice_Answer == false:
 		print("Denied!")
+
+func Take_Damage():
+	print("loutsacue")

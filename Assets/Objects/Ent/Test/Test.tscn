@@ -1033,12 +1033,14 @@ bind/333/bone = -1
 bind/333/pose = Transform3D(-0.6330933, 0.5232394, 0.5704507, 0.5704507, -0.18277115, 0.80073756, 0.5232394, 0.83235526, -0.18277113, -0.42341682, 1.4186474, -0.3802086)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hs87f"]
-radius = 0.2861328
+radius = 0.27148438
 height = 1.4412842
 
-[node name="Root" type="CharacterBody3D" unique_id=194563002]
-collision_layer = 9
-collision_mask = 2
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8qdd8"]
+radius = 0.22607422
+height = 1.4412613
+
+[node name="Root" type="CharacterBody3D" unique_id=1228827169]
 script = ExtResource("1_8qdd8")
 
 [node name="Character" type="Node3D" parent="." unique_id=2067591190]
@@ -1050,6 +1052,13 @@ skin = SubResource("Skin_sa6et")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1010975253]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7255974, 0)
+collision_layer = 9
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=61604782]
 shape = SubResource("CapsuleShape3D_hs87f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=623401408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7250786, 0)
+shape = SubResource("CapsuleShape3D_8qdd8")
+debug_color = Color(0, 0, 0.69803923, 0.41960785)
