@@ -75,7 +75,7 @@ var Actionable: bool
 
 #region Fluid Variables (change)
 # Aassss
-# var 
+var Ammo_A: int = 0
 
 # Menu related variables
 var Current_Focus: String = ""
@@ -132,6 +132,8 @@ var Tool_ID = {
 		"picked?": true,
 		"equipped?": false, 
 		"damage": 6, 
+		"Ammo A": 0,
+		"Mag A": 0,
 		},
 	"AssaultRifle": {
 		"dys name": " ", 

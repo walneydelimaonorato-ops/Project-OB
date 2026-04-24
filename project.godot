@@ -13,6 +13,7 @@ config_version=5
 config/name="OATHBREAKER"
 run/main_scene="uid://1pdtqb482aod"
 config/features=PackedStringArray("4.6")
+config/icon="uid://bnatj3bn5b0af"
 
 [autoload]
 

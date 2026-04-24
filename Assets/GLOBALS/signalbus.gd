@@ -6,5 +6,7 @@ signal request_dialogue()
 
 signal request_damage(Damage_Number)
 
+signal item_transfer(Item_Sys_Name, Item_Type, Item_Quantity)
+
 func _ready() -> void:
 	print("Signal Bus working")

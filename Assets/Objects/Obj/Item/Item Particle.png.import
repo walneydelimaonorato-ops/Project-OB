@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c42yapide00yo"
-path.s3tc="res://.godot/imported/TST_Rest_Particle.png-d4336f44b0fd22751fbcb9a79084bab8.s3tc.ctex"
+uid="uid://bhcfg0jm4x0po"
+path.s3tc="res://.godot/imported/Item Particle.png-bd748aa7f4a7bdc3911efd2c9587699e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/control/Int rest/Particles/TST_Rest_Particle.png"
-dest_files=["res://.godot/imported/TST_Rest_Particle.png-d4336f44b0fd22751fbcb9a79084bab8.s3tc.ctex"]
+source_file="res://Assets/Objects/Obj/Item/Item Particle.png"
+dest_files=["res://.godot/imported/Item Particle.png-bd748aa7f4a7bdc3911efd2c9587699e.s3tc.ctex"]
 
 [params]
 

@@ -29,6 +29,7 @@ func _ready() -> void:
 	
 	Tool_Rotation()
 	PlayerRes.data.Tool_Rotation.connect(Tool_Rotation)
+	SignalBus.item_transfer.connect(Item_Pickup)
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
 	
 #region Control Settup
@@ -238,3 +239,10 @@ func Tool_Rotation():
 			Assault_Rig.scale.x = -1.0
 			General_Animations.play("Tools_Anims/Assault_Popup")
 #endregion
+
+func Item_Pickup(Item_Sys_Name, Item_Type, Item_Quantity):
+	match Item_Type:
+		"Special":
+			PlayerRes.data.Tool_ID[Item_Sys_Name]["picked?"] = true
+		"Ordinary":
+			pass

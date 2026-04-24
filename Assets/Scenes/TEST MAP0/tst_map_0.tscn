@@ -5,9 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://c7p0xddbby67c" path="res://Assets/Scenes/TEST MAP0/TST_MAP0_texture_07_2.png" id="3_4jwc8"]
 [ext_resource type="Texture2D" uid="uid://daqcxc378cgqf" path="res://Assets/Scenes/TEST MAP0/TST_MAP0_Low_Cort_txtr.png" id="4_pu3bv"]
 [ext_resource type="PackedScene" uid="uid://yey3rq0j37ff" path="res://Assets/Player/Player_Model.tscn" id="5_vrmme"]
-[ext_resource type="PackedScene" uid="uid://6wv60fqqjwkq" path="res://Assets/Objects/Ent/Entity_Spawner.tscn" id="7_pu3bv"]
-[ext_resource type="PackedScene" uid="uid://c634adja7tyxp" path="res://Assets/Objects/Obj/Object_Spawner.tscn" id="7_rdq5i"]
 [ext_resource type="PackedScene" uid="uid://u0tbg3q3cv3q" path="res://Assets/Objects/Obj/Test cube (physics)/test_cube.tscn" id="8_rdq5i"]
+[ext_resource type="PackedScene" uid="uid://dt014w4ctcem5" path="res://Assets/Objects/Obj/Item/item.tscn" id="8_rj72a"]
 [ext_resource type="PackedScene" uid="uid://cjjbqhue88d3g" path="res://Assets/Objects/Ent/Test/Test.tscn" id="9_rj72a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4jwc8"]
@@ -410,25 +409,14 @@ shape = SubResource("ConcavePolygonShape3D_4hwr3")
 [node name="Player" parent="." unique_id=266518977 instance=ExtResource("5_vrmme")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.369, 0, 4.788)
 
-[node name="Entity Spawner" parent="." unique_id=353231944 instance=ExtResource("7_pu3bv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.882505, 0.029737353, -0.6954162)
-Entitties = "Test"
-
-[node name="Object Spawner" parent="." unique_id=1741486273 instance=ExtResource("7_rdq5i")]
-Objects = "Rest"
-
-[node name="Object Spawner2" parent="." unique_id=1262418625 instance=ExtResource("7_rdq5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3914185, 0.3361802, 2.541551)
-Objects = "TST Box"
-
-[node name="Object Spawner3" parent="." unique_id=69682553 instance=ExtResource("7_rdq5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.562859, 0, 1.801888)
-Objects = "Item"
-
 [node name="Test Cube" parent="." unique_id=1665853116 instance=ExtResource("8_rdq5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8954706, 0.4000003, 3.3785865)
 
 [node name="Root" parent="." unique_id=194563002 instance=ExtResource("9_rj72a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3499169, 1.4885489e-08, -3.03998)
+
+[node name="Item" parent="." unique_id=2044499245 instance=ExtResource("8_rj72a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0588822, -2.9802322e-07, 1.3766923)
+Item = "Dagger"
 
 [editable path="Player"]
