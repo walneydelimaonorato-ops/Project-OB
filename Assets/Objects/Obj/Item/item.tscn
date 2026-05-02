@@ -354,6 +354,7 @@ script = ExtResource("1_5a1qw")
 
 [node name="Debug View" type="MeshInstance3D" parent="." unique_id=1115946047]
 transform = Transform3D(1, 0, 0, 0, 0.03, 0, 0, 0, 1, 0, 0.03, 0)
+visible = false
 mesh = SubResource("BoxMesh_c5hvv")
 
 [node name="Collision" type="Area3D" parent="." unique_id=1358014315]
@@ -375,7 +376,7 @@ draw_pass_1 = SubResource("QuadMesh_tjijl")
 
 [node name="Sound" type="Node" parent="." unique_id=991397489]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sound" unique_id=1417579541]
+[node name="Pick Up" type="AudioStreamPlayer2D" parent="Sound" unique_id=1417579541]
 unique_name_in_owner = true
 stream = ExtResource("2_2f5ro")
 

@@ -43,8 +43,7 @@ func Iteraction():
 	#print(Item)
 	#print(Item_Type)
 	#print(Ordinary_Quantity)
-	%AudioStreamPlayer2D.play()
-	#self.visible = false
+	%"Pick Up".play()
 	$Collision.set_collision_layer_value(3, false)
 	$Particles.emitting = false
 	$Models.visible = false

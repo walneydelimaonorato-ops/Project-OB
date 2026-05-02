@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://c22fdxmv2autu"]
 
 [ext_resource type="Script" uid="uid://iqsk8myqlik5" path="res://Assets/Player/Scripts/Menu_Ready.gd" id="1_igvox"]
-[ext_resource type="AudioStream" uid="uid://q8d5kc4se4ux" path="res://Assets/Player/Sound effects/homemade SFX - Menu Advance.mp3" id="2_1mnw2"]
+[ext_resource type="AudioStream" uid="uid://q8d5kc4se4ux" path="res://Assets/Player/Sound effects/Menu/homemade SFX - Menu Advance.mp3" id="2_1mnw2"]
 [ext_resource type="Texture2D" uid="uid://c8t32tkwemh2k" path="res://Assets/UI/HUD/Ready_Menu_Configuration.png" id="2_ctvdn"]
 [ext_resource type="Script" uid="uid://bmbvioflbulfh" path="res://Assets/Player/Scripts/Menu_Selection.gd" id="2_ev83p"]
 [ext_resource type="Texture2D" uid="uid://be0g2c660ubnc" path="res://Assets/UI/HUD/Item_Frame_Highlight.png" id="2_p60kn"]
 [ext_resource type="Texture2D" uid="uid://cmwqln80a4gu6" path="res://Assets/UI/HUD/Ready_Menu_Brace.png" id="3_3yn2l"]
-[ext_resource type="AudioStream" uid="uid://21i1clqcr46v" path="res://Assets/Player/Sound effects/homemade SFX - Menu Return.mp3" id="3_4rtwh"]
+[ext_resource type="AudioStream" uid="uid://21i1clqcr46v" path="res://Assets/Player/Sound effects/Menu/homemade SFX - Menu Return.mp3" id="3_4rtwh"]
 [ext_resource type="Script" uid="uid://6ffp7bhh3ka8" path="res://Assets/Player/Scripts/Menu_Choice.gd" id="3_064ml"]
 [ext_resource type="Texture2D" uid="uid://bc5qwrri8hkyi" path="res://Assets/UI/HUD/Ready_Menu_Wear.png" id="4_67x8q"]
-[ext_resource type="AudioStream" uid="uid://toacqdgd367k" path="res://Assets/Player/Sound effects/homemade SFX - Menu Move.mp3" id="4_qmjen"]
+[ext_resource type="AudioStream" uid="uid://toacqdgd367k" path="res://Assets/Player/Sound effects/Menu/homemade SFX - Menu Move.mp3" id="4_qmjen"]
 [ext_resource type="Texture2D" uid="uid://dqctj0g2crmvw" path="res://Assets/UI/HUD/Ready_Menu_ToolL.png" id="5_3ojjw"]
 [ext_resource type="Texture2D" uid="uid://dokiq8ck7v68y" path="res://Assets/UI/HUD/Ready_Menu_ToolR.png" id="6_p60kn"]
 [ext_resource type="Texture2D" uid="uid://dyp1tqlfs1r50" path="res://Assets/UI/HUD/Ready_Menu_Spell.png" id="7_1mnw2"]
@@ -424,6 +424,7 @@ justification_flags = 162
 
 [node name="Wear" type="VBoxContainer" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)" unique_id=299019856]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Start of Wear" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Wear" unique_id=1209400255]
@@ -470,6 +471,72 @@ scroll_active = false
 autowrap_mode = 0
 justification_flags = 162
 
+[node name="Wear Mewclad Down" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Wear" unique_id=676543779]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("18_muclb")
+texture_focused = ExtResource("19_064ml")
+
+[node name="Wear Mewclad Down" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Wear/Wear Mewclad Down" unique_id=1082504299]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[img=200]uid://bc1eahxnggs3n[/img]: Mwcld Arm.(U)"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="Wear Mewclad Up" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Wear" unique_id=424541296]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("18_muclb")
+texture_focused = ExtResource("19_064ml")
+
+[node name="Wear Mewclad Up" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Wear/Wear Mewclad Up" unique_id=845991224]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[img=200]uid://bc1eahxnggs3n[/img]: Mwcld Arm.(D)"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="Wear Leather Complete" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Wear" unique_id=1598676989]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("18_muclb")
+texture_focused = ExtResource("19_064ml")
+
+[node name="Wear Leather Complete" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Wear/Wear Leather Complete" unique_id=448130460]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[img=200]uid://bc1eahxnggs3n[/img]: Lthr Arm.(C)"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
 [node name="End of Wear" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Wear" unique_id=377759925]
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
@@ -494,7 +561,6 @@ justification_flags = 162
 
 [node name="Tools" type="VBoxContainer" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)" unique_id=1150022900]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="Start of Tool" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=2073192380]
@@ -514,6 +580,50 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
 text = "[img=100]uid://cqev7lw1fw74m[/img]Top"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="Tool Sword" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=1680521650]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("18_muclb")
+texture_focused = ExtResource("19_064ml")
+
+[node name="Tool Sword" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Sword" unique_id=1951617220]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 0.39215687, 0.39215687, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[img=200]uid://d3txjn55xf1sw[/img]: E. Trais"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="Tool Dagger" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=1556064356]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("18_muclb")
+texture_focused = ExtResource("19_064ml")
+
+[node name="Tool Dagger" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Dagger" unique_id=159713139]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[img=200]uid://cxpllkwkj3coo[/img]: L'Receveuse"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -563,28 +673,6 @@ scroll_active = false
 autowrap_mode = 0
 justification_flags = 162
 
-[node name="Tool Sword" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=1680521650]
-unique_name_in_owner = true
-layout_mode = 2
-focus_neighbor_left = NodePath(".")
-focus_neighbor_right = NodePath(".")
-texture_normal = ExtResource("18_muclb")
-texture_focused = ExtResource("19_064ml")
-
-[node name="Tool Sword" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Sword" unique_id=1951617220]
-layout_mode = 1
-offset_right = 648.0
-offset_bottom = 221.0
-theme = ExtResource("9_3yn2l")
-theme_override_colors/default_color = Color(1, 0.39215687, 0.39215687, 1)
-theme_override_font_sizes/normal_font_size = 80
-bbcode_enabled = true
-text = "[img=200]uid://d3txjn55xf1sw[/img]: E. Trais"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-justification_flags = 162
-
 [node name="Tool Bow" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=319975014]
 unique_name_in_owner = true
 layout_mode = 2
@@ -602,6 +690,28 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
 text = "[img=200]uid://c244x88oddpii[/img]: Huntress' Bow"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="Tool Placeholder" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=133731640]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("18_muclb")
+texture_focused = ExtResource("19_064ml")
+
+[node name="Tool Placeholder" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Placeholder" unique_id=697090679]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[img=200]uid://bc1eahxnggs3n[/img]: Place 585.0"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -672,6 +782,27 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
 text = "[img=200]uid://baatlbdf0r5c[/img]: L. Spear"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="Spell Heal" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Spells" unique_id=1784665928]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("18_muclb")
+texture_focused = ExtResource("19_064ml")
+
+[node name="Spell Heal" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Spells/Spell Heal" unique_id=927039327]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[img=200]uid://bc1eahxnggs3n[/img]: S. Healing"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -842,8 +973,10 @@ text = "butt pudding
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 1" to="Menus (Ready)" method="ready_u_item_1_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 2" to="Menus (Ready)" method="ready_u_item_2_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 3" to="Menus (Ready)" method="ready_u_item_3_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Sword" to="Menus (Selection)" method="tool_sword_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Dagger" to="Menus (Selection)" method="tool_dagger_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Assault" to="Menus (Selection)" method="tool_assault_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool HandGun" to="Menus (Selection)" method="tool_handgun_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Sword" to="Menus (Selection)" method="tool_sword_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Bow" to="Menus (Selection)" method="tool_bow_pressed"]
 [connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Confirm" to="Menu (Choice)" method="on_confirm"]
 [connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Deny" to="Menu (Choice)" method="on_deny"]

@@ -6,6 +6,8 @@ extends CharacterBody3D
 @onready var Head: Node3D = %Head
 @onready var Eyes: Camera3D = %Eyes
 
+var Running: bool
+
 #var Un_LookUD := Vector2.ZERO
 #var Un_LookLR := Vector2.ZERO
 
@@ -17,16 +19,14 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed(PlayerRes.data.Un_Jump) and is_on_floor():
 		StatsMan.Stats_Decrease("Stamina", 5)
-		PlayerRes.data.Health -= 1
 		velocity.y = 4.5
 	
 	if Input.is_action_pressed(PlayerRes.data.Un_Sprint): #and PlayerValue.Stamina > 0:
 		PlayerRes.data.Base_Speed = PlayerRes.data.Run # Current speed becomes running speed
-		#Sprinting = true
-		#PlayerValue.Stats_decrease("Stamina", 0.1)
-	else: #Input.is_action_just_released("In_Sprint"):
+		Running = true
+	else:
 		PlayerRes.data.Base_Speed = PlayerRes.data.Dummy_Speed # Current speed falls back to a set value
-		#Sprinting = false
+		Running = false
 	
 	
 	var input_dir = Input.get_vector(PlayerRes.data.Un_Left, PlayerRes.data.Un_Right, PlayerRes.data.Un_Forward, PlayerRes.data.Un_Backward)
@@ -34,6 +34,8 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * PlayerRes.data.Base_Speed
 		velocity.z = direction.z * PlayerRes.data.Base_Speed
+		if Running:
+			StatsMan.Stats_Decrease("Stamina", 0.15)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.15)
 		velocity.z = lerp(velocity.z, 0.0, 0.15)
@@ -67,5 +69,4 @@ func _input(input: InputEvent) -> void:
 			Eyes.rotation.x -= input.relative.y * PlayerRes.data.Key_Camera_Sens
 			Eyes.rotation.x = clamp(Eyes.rotation.x, deg_to_rad(-85), deg_to_rad(85))
 	
-func butt():
-	PlayerRes.Health = 5
+	

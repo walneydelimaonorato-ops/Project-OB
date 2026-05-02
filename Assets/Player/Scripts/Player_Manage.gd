@@ -7,6 +7,10 @@ extends Node
 @onready var Arm_Left_Rig: Node3D = $"../../Head/Eyes/Models/Master Rig/Arm Left Rig"
 @onready var Arm_Right_Rig: Node3D = $"../../Head/Eyes/Models/Master Rig/Arm Right Rig"
 
+@onready var Sword_Rig: Node3D = $"../../Head/Eyes/Models/Master Rig/Sword Rig"
+
+@onready var Dagger_Rig: Node3D = $"../../Head/Eyes/Models/Master Rig/Dagger Rig"
+
 @onready var Assault_Rig: Node3D = $"../../Head/Eyes/Models/Master Rig/Assault Rig"
 @onready var Assault_Shoot: AudioStreamPlayer2D = $"../../Head/Eyes/Models/Sounds/Assault Shoot"
 
@@ -30,6 +34,7 @@ func _ready() -> void:
 	Tool_Rotation()
 	PlayerRes.data.Tool_Rotation.connect(Tool_Rotation)
 	SignalBus.item_transfer.connect(Item_Pickup)
+	SignalBus.player_stat_change.connect(Stats_Decrease)
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
 	
 #region Control Settup
@@ -212,6 +217,8 @@ func Set_Menu(Switch: bool, Next_Menu: String):
 func Tool_Rotation():
 	Arm_Right_Rig.visible = false
 	Arm_Left_Rig.visible = false
+	Sword_Rig.visible = false
+	Dagger_Rig.visible = false
 	HandGun_Rig.visible = false
 	Assault_Rig.visible = false
 	
@@ -219,6 +226,12 @@ func Tool_Rotation():
 	match PlayerRes.data.Inv_ToolR_Equiped:
 		"null":
 			Arm_Right_Rig.visible = true
+		"Sword":
+			Sword_Rig.visible = true
+			Sword_Rig.scale.x = 1.0
+		"Dagger":
+			Dagger_Rig.visible = true
+			Dagger_Rig.scale.x = 1.0
 		"HandGun":
 			HandGun_Rig.visible = true
 			HandGun_Rig.scale.x = 1.0
@@ -230,6 +243,12 @@ func Tool_Rotation():
 	match PlayerRes.data.Inv_ToolL_Equiped:
 		"null":
 			Arm_Left_Rig.visible = true
+		"Sword":
+			Sword_Rig.visible = true
+			Sword_Rig.scale.x = -1.0
+		"Dagger":
+			Dagger_Rig.visible = true
+			Dagger_Rig.scale.x = -1.0
 		"HandGun":
 			HandGun_Rig.visible = true
 			HandGun_Rig.scale.x = -1.0

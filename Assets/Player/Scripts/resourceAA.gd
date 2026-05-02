@@ -46,14 +46,10 @@ var Menu_mode: bool = false # Checks if the player is currently in a menu
 #endregion
 
 #region Signals
-@warning_ignore("unused_signal")
 signal Ready_Menu_Toggled(active: bool)
-@warning_ignore("unused_signal")
 signal Seletion_Menu_Toggled(active: bool)
-@warning_ignore("unused_signal")
 signal Choice_Menu_Toggled(active: bool)
 
-@warning_ignore("unused_signal")
 signal Tool_Rotation()
 #endregion
 
@@ -76,6 +72,9 @@ var Actionable: bool
 #region Fluid Variables (change)
 # Aassss
 var Ammo_A: int = 0
+var Mag_A: int = 0
+
+var Ammo_C: int = 0
 
 # Menu related variables
 var Current_Focus: String = ""

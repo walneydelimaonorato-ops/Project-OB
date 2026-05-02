@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cihoh3xsacb8l"
+path="res://.godot/imported/STX_The_Still_Watch.mp3-bc134333d926eb7beefcd9157ae9d0e1.mp3str"
+
+[deps]
+
+source_file="res://Assets/Scenes/Title Screem/STX_The_Still_Watch.mp3"
+dest_files=["res://.godot/imported/STX_The_Still_Watch.mp3-bc134333d926eb7beefcd9157ae9d0e1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

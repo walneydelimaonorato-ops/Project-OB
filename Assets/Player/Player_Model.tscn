@@ -10,6 +10,8 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o54j3"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2r4ph"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thtal"]
 transparency = 1
 albedo_color = Color(0, 0, 1, 0.5882353)
@@ -35,9 +37,18 @@ script = ExtResource("3_hs5eg")
 unique_name_in_owner = true
 script = ExtResource("2_qe5k5")
 
-[node name="Collision" type="CollisionShape3D" parent="." unique_id=1599588568]
+[node name="Collision 1" type="CollisionShape3D" parent="." unique_id=1599588568]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_o54j3")
+
+[node name="Collision 2" type="Area3D" parent="." unique_id=146680117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 2
+collision_mask = 64
+
+[node name="Collision 2" type="CollisionShape3D" parent="Collision 2" unique_id=505691561]
+shape = SubResource("CapsuleShape3D_2r4ph")
+debug_color = Color(0.6745098, 0.69803923, 0, 1)
 
 [node name="Model" type="MeshInstance3D" parent="." unique_id=1418571723]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -59,7 +70,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17413068, -0.96205795)
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09374118, 0)
 target_position = Vector3(0, 0, -200)
-collision_mask = 12
+collision_mask = 8
 collide_with_areas = true
 
 [node name="Ray2" type="RayCast3D" parent="Head/Eyes" unique_id=670486846]
@@ -70,5 +81,8 @@ collision_mask = 4
 collide_with_areas = true
 debug_shape_custom_color = Color(0, 1, 0, 1)
 debug_shape_thickness = 1
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Head" unique_id=1793310147]
+omni_range = 184.756
 
 [node name="HUD" parent="." unique_id=775426720 instance=ExtResource("3_qe5k5")]

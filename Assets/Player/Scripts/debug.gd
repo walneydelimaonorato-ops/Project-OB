@@ -17,7 +17,7 @@ var Active: bool = false
 var Page: int = 0
 
 func _ready() -> void:
-	print("Debug working")
+	print("Debug working \r=========================")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

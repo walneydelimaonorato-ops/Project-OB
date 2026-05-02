@@ -256,11 +256,15 @@ Deb_Quit={
 3d_render/layer_3="Object"
 3d_render/layer_4="Entity"
 3d_render/layer_5="Special"
+3d_render/layer_6="Hitbox"
+3d_render/layer_7="Hurtbox"
 3d_physics/layer_1="World"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Object"
 3d_physics/layer_4="Entity"
 3d_physics/layer_5="Special"
+3d_physics/layer_6="Hitbox"
+3d_physics/layer_7="Hurtbox"
 
 [rendering]
 

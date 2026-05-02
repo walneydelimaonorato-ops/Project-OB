@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://1pdtqb482aod"]
 
-[ext_resource type="Texture2D" uid="uid://dvswk4iyevce" path="res://Assets/Scenes/Title Screem/TST_Title_Screen.png" id="1_jvbwn"]
 [ext_resource type="Script" uid="uid://cl2erxhx4jr6x" path="res://Assets/Scenes/Title Screem/Script/main_menu.gd" id="1_tq883"]
+[ext_resource type="Texture2D" uid="uid://curkdmtt7axkc" path="res://Assets/Scenes/Title Screem/Background.png" id="2_8bbc2"]
+[ext_resource type="AudioStream" uid="uid://cihoh3xsacb8l" path="res://Assets/Scenes/Title Screem/STX_The_Still_Watch.mp3" id="2_coo83"]
 [ext_resource type="Theme" uid="uid://ylysgsmxvcu1" path="res://Assets/UI/Main_UI_Theme.tres" id="2_movp4"]
+[ext_resource type="Texture2D" uid="uid://c8r1g51x2a2k7" path="res://Assets/Scenes/Title Screem/Title.png" id="5_8bbc2"]
 [ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="6_coo83"]
 
 [node name="Stem" type="Control" unique_id=888577079]
@@ -14,6 +16,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tq883")
 
+[node name="Title Music" type="AudioStreamPlayer2D" parent="." unique_id=974565447]
+stream = ExtResource("2_coo83")
+autoplay = true
+
 [node name="Background" type="TextureRect" parent="." unique_id=955626831]
 layout_mode = 1
 anchors_preset = 15
@@ -21,8 +27,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_jvbwn")
+texture = ExtResource("2_8bbc2")
 expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="." unique_id=96374179]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 86.0
+offset_right = 987.0
+offset_bottom = 207.00003
+scale = Vector2(0.73, 0.73)
+texture = ExtResource("5_8bbc2")
 
 [node name="1A" type="VBoxContainer" parent="." unique_id=170765454]
 visible = false
@@ -71,6 +86,13 @@ alignment = 0
 layout_mode = 2
 theme = ExtResource("2_movp4")
 text = "FNL_MAP_Train_Station
+"
+alignment = 0
+
+[node name="Map 3" type="Button" parent="2A" unique_id=1510002266]
+layout_mode = 2
+theme = ExtResource("2_movp4")
+text = "FNL_MAP_Cliffside
 "
 alignment = 0
 
@@ -136,3 +158,4 @@ autowrap_mode = 0
 [connection signal="pressed" from="1A/Exit Butt" to="." method="exit_pressed"]
 [connection signal="pressed" from="2A/Map 1" to="." method="map1_pressed"]
 [connection signal="pressed" from="2A/Map 2" to="." method="map2_pressed"]
+[connection signal="pressed" from="2A/Map 3" to="." method="map_3_pressed"]

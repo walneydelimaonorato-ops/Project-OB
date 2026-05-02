@@ -12,7 +12,6 @@ func _ready() -> void:
 	Side_HUD_Update()
 	PlayerRes.data.Tool_Rotation.connect(Side_HUD_Update)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	Health.max_value = PlayerRes.data.Health_Max
 	Health.value = PlayerRes.data.Health
@@ -40,7 +39,7 @@ func Side_HUD_Update():
 		"HandGun":
 			HUD_Visibility(%"Tool R", %"Name ToolR", %"Desc ToolR", "Visible")
 			%"Name ToolR".text = PlayerRes.data.Tool_ID["HandGun"]["dys name"]
-			%"Desc ToolR".text = "tasty souep"
+			%"Desc ToolR".text = str("Ammo: ", PlayerRes.data.Tool_ID["HandGun"]["Ammo A"], " // Mags: ", PlayerRes.data.Tool_ID["HandGun"]["Mag A"])
 		"AssaultRifle":
 			HUD_Visibility(%"Tool R", %"Name ToolR", %"Desc ToolR", "Visible")
 			%"Name ToolR".text = PlayerRes.data.Tool_ID["AssaultRifle"]["dys name"]
@@ -52,15 +51,15 @@ func Side_HUD_Update():
 		"HandGun":
 			HUD_Visibility(%"Tool L", %"Name ToolL", %"Desc ToolL", "Visible")
 			%"Name ToolL".text = PlayerRes.data.Tool_ID["HandGun"]["dys name"]
-			%"Desc ToolL".text = "tasty souep"
+			%"Desc ToolL".text = str("Ammo: ", PlayerRes.data.Tool_ID["HandGun"]["Ammo A"], " // Mags: ", PlayerRes.data.Tool_ID["HandGun"]["Mag A"])
 		"AssaultRifle":
 			HUD_Visibility(%"Tool L", %"Name ToolL", %"Desc ToolL", "Visible")
 			%"Name ToolL".text = PlayerRes.data.Tool_ID["AssaultRifle"]["dys name"]
 			%"Desc ToolL".text = "tasty coconut :3"
 	match PlayerRes.data.Inv_Spell_Equiped:
 		"null":
-			%"Name ToolL".text = "Unequipped"
-			%"Desc ToolL".text = "<nothing>"
+			%"Name Spell".text = "Unequipped"
+			%"Desc Spell".text = "<nothing>"
 
 func HUD_Visibility(Icon, Name, Description, State):
 	if State == "Visible":

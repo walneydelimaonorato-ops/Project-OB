@@ -119,4 +119,19 @@ func tool_sword_pressed() -> void:
 			PlayerRes.data.Inv_ToolL_Equiped = PlayerRes.data.Tool_ID["Sword"]["sys name"]
 	PlayerRes.data.Tool_ID["Sword"]["equipped?"] = true
 	exit()
+func tool_dagger_pressed() -> void:
+	match PlayerRes.data.Current_SubMenu:
+		"Tool Right menu":
+			PlayerRes.data.Inv_ToolR_Equiped = PlayerRes.data.Tool_ID["Dagger"]["sys name"]
+		"Tool Left menu":
+			PlayerRes.data.Inv_ToolL_Equiped = PlayerRes.data.Tool_ID["Dagger"]["sys name"]
+	PlayerRes.data.Tool_ID["Dagger"]["equipped?"] = true
+	exit()
+func tool_bow_pressed() -> void:
+	match PlayerRes.data.Current_SubMenu:
+		"Tool Right menu":
+			PlayerRes.data.Inv_ToolR_Equiped = PlayerRes.data.Tool_ID["SpecialBow"]["sys name"]
+		"Tool Left menu":
+			PlayerRes.data.Inv_ToolL_Equiped = PlayerRes.data.Tool_ID["SpecialBow"]["sys name"]
+	PlayerRes.data.Tool_ID["SpecialBow"]["equipped?"] = true
 #endregion

@@ -61,3 +61,7 @@ func map1_pressed() -> void:
 func map2_pressed() -> void:
 	Global.Next_Scene = "uid://c47b70iv613lg"
 	get_tree().change_scene_to_packed(Global.Load_New)
+
+func map_3_pressed() -> void:
+	Global.Next_Scene = "uid://cdd50mvv70oa7"
+	get_tree().change_scene_to_packed(Global.Load_New)
