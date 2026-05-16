@@ -5,19 +5,22 @@ extends Node
 @onready var MenuReady: Node = %"Menus (Ready)"
 
 func _ready() -> void:
-	PlayerRes.data.Seletion_Menu_Toggled.connect(set_Selection_Menu)
+	Global.Player_Data.Seletion_Menu_Toggled.connect(set_Selection_Menu)
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel") and PlayerRes.data.Current_Menu == "Selection":
+	if Input.is_action_just_pressed("ui_cancel") and Global.Player_Data.Current_Menu == "Selection":
 		exit()
 
 func exit():
 	%"Menu Return".play()
-	PlayerRes.data.emit_signal("Tool_Rotation")
-	PlayerRes.data.Seletion_Menu_Active = !PlayerRes.data.Seletion_Menu_Active
-	PlayerRes.data.emit_signal("Seletion_Menu_Toggled", PlayerRes.data.Seletion_Menu_Active)
-	PlayerRes.data.Current_Menu = "Ready"
+	Global.Player_Data.emit_signal("Tool_Rotation")
+	Global.Player_Data.Seletion_Menu_Active = !Global.Player_Data.Seletion_Menu_Active
+	Global.Player_Data.emit_signal("Seletion_Menu_Toggled", Global.Player_Data.Seletion_Menu_Active)
+	Global.Player_Data.Current_Menu = "Ready"
 	MenuReady.focus_first_visible($"../Ready Menu/Ready Menu Grid/Ready Wear and Tool")
+
+func Replace_Icon(Replaced_Texture, Icon_Path):
+	Replaced_Texture.texture = Icon_Path.texture_normal
 
 func set_Selection_Menu(active: bool):
 	%"Selection Menu".visible = active
@@ -46,19 +49,19 @@ func Item_Availabe_Lookup(Type, Item1, Key1, Key2, Item2):
 	Item2.visible = false
 	match Type:
 		"Braces":
-			if PlayerRes.data.Brace_ID[Item1][Key1] == true and PlayerRes.data.Brace_ID[Item1][Key2] == false:
+			if Global.Player_Data.Brace_ID[Item1][Key1] == true and Global.Player_Data.Brace_ID[Item1][Key2] == false:
 				Item2.visible = true
 		"Wear":
-			if PlayerRes.data.Wear_ID[Item1][Key1] == true and PlayerRes.data.Wear_ID[Item1][Key2] == false:
+			if Global.Player_Data.Wear_ID[Item1][Key1] == true and Global.Player_Data.Wear_ID[Item1][Key2] == false:
 				Item2.visible = true
 		"Tool":
-			if PlayerRes.data.Tool_ID[Item1][Key1] == true and PlayerRes.data.Tool_ID[Item1][Key2] == false:
+			if Global.Player_Data.Tool_ID[Item1][Key1] == true and Global.Player_Data.Tool_ID[Item1][Key2] == false:
 				Item2.visible = true
 		"Spell":
-			if PlayerRes.data.Spell_ID[Item1][Key1] == true and PlayerRes.data.Spell_ID[Item1][Key2] == false:
+			if Global.Player_Data.Spell_ID[Item1][Key1] == true and Global.Player_Data.Spell_ID[Item1][Key2] == false:
 				Item2.visible = true
 		"UItem":
-			if PlayerRes.data.UItem_ID[Item1][Key1] == true and PlayerRes.data.UItem_ID[Item1][Key2] == false:
+			if Global.Player_Data.UItem_ID[Item1][Key1] == true and Global.Player_Data.UItem_ID[Item1][Key2] == false:
 				Item2.visible = true
 
 func Menu_Path():
@@ -68,7 +71,7 @@ func Menu_Path():
 	%Tools.visible = false
 	%Spells.visible = false
 	%UItems.visible = false
-	match PlayerRes.data.Current_SubMenu:
+	match Global.Player_Data.Current_SubMenu:
 		"Brace menu":
 			%Braces.visible = true
 			MenuReady.focus_first_visible(%Braces)
@@ -96,42 +99,42 @@ func Menu_Path():
 
 #region Tools Region
 func tool_handgun_pressed() -> void:
-	match PlayerRes.data.Current_SubMenu:
+	match Global.Player_Data.Current_SubMenu:
 		"Tool Right menu":
-			PlayerRes.data.Inv_ToolR_Equiped = PlayerRes.data.Tool_ID["HandGun"]["sys name"]
+			Global.Player_Data.Inv_ToolR_Equiped = Global.Player_Data.Tool_ID["HandGun"]["sys name"]
 		"Tool Left menu":
-			PlayerRes.data.Inv_ToolL_Equiped = PlayerRes.data.Tool_ID["HandGun"]["sys name"]
-	PlayerRes.data.Tool_ID["HandGun"]["equipped?"] = true
+			Global.Player_Data.Inv_ToolL_Equiped = Global.Player_Data.Tool_ID["HandGun"]["sys name"]
+	Global.Player_Data.Tool_ID["HandGun"]["equipped?"] = true
 	exit()
 func tool_assault_pressed() -> void:
-	match PlayerRes.data.Current_SubMenu:
+	match Global.Player_Data.Current_SubMenu:
 		"Tool Right menu":
-			PlayerRes.data.Inv_ToolR_Equiped = PlayerRes.data.Tool_ID["AssaultRifle"]["sys name"]
+			Global.Player_Data.Inv_ToolR_Equiped = Global.Player_Data.Tool_ID["AssaultRifle"]["sys name"]
 		"Tool Left menu":
-			PlayerRes.data.Inv_ToolL_Equiped = PlayerRes.data.Tool_ID["AssaultRifle"]["sys name"]
-	PlayerRes.data.Tool_ID["AssaultRifle"]["equipped?"] = true
+			Global.Player_Data.Inv_ToolL_Equiped = Global.Player_Data.Tool_ID["AssaultRifle"]["sys name"]
+	Global.Player_Data.Tool_ID["AssaultRifle"]["equipped?"] = true
 	exit()
 func tool_sword_pressed() -> void:
-	match PlayerRes.data.Current_SubMenu:
+	match Global.Player_Data.Current_SubMenu:
 		"Tool Right menu":
-			PlayerRes.data.Inv_ToolR_Equiped = PlayerRes.data.Tool_ID["Sword"]["sys name"]
+			Global.Player_Data.Inv_ToolR_Equiped = Global.Player_Data.Tool_ID["Sword"]["sys name"]
 		"Tool Left menu":
-			PlayerRes.data.Inv_ToolL_Equiped = PlayerRes.data.Tool_ID["Sword"]["sys name"]
-	PlayerRes.data.Tool_ID["Sword"]["equipped?"] = true
+			Global.Player_Data.Inv_ToolL_Equiped = Global.Player_Data.Tool_ID["Sword"]["sys name"]
+	Global.Player_Data.Tool_ID["Sword"]["equipped?"] = true
 	exit()
 func tool_dagger_pressed() -> void:
-	match PlayerRes.data.Current_SubMenu:
+	match Global.Player_Data.Current_SubMenu:
 		"Tool Right menu":
-			PlayerRes.data.Inv_ToolR_Equiped = PlayerRes.data.Tool_ID["Dagger"]["sys name"]
+			Global.Player_Data.Inv_ToolR_Equiped = Global.Player_Data.Tool_ID["Dagger"]["sys name"]
 		"Tool Left menu":
-			PlayerRes.data.Inv_ToolL_Equiped = PlayerRes.data.Tool_ID["Dagger"]["sys name"]
-	PlayerRes.data.Tool_ID["Dagger"]["equipped?"] = true
+			Global.Player_Data.Inv_ToolL_Equiped = Global.Player_Data.Tool_ID["Dagger"]["sys name"]
+	Global.Player_Data.Tool_ID["Dagger"]["equipped?"] = true
 	exit()
 func tool_bow_pressed() -> void:
-	match PlayerRes.data.Current_SubMenu:
+	match Global.Player_Data.Current_SubMenu:
 		"Tool Right menu":
-			PlayerRes.data.Inv_ToolR_Equiped = PlayerRes.data.Tool_ID["SpecialBow"]["sys name"]
+			Global.Player_Data.Inv_ToolR_Equiped = Global.Player_Data.Tool_ID["SpecialBow"]["sys name"]
 		"Tool Left menu":
-			PlayerRes.data.Inv_ToolL_Equiped = PlayerRes.data.Tool_ID["SpecialBow"]["sys name"]
-	PlayerRes.data.Tool_ID["SpecialBow"]["equipped?"] = true
+			Global.Player_Data.Inv_ToolL_Equiped = Global.Player_Data.Tool_ID["SpecialBow"]["sys name"]
+	Global.Player_Data.Tool_ID["SpecialBow"]["equipped?"] = true
 #endregion

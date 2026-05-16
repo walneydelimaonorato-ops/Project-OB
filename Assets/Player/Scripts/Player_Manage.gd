@@ -29,10 +29,10 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	Regeneration_Timer_Startup()
-	PlayerRes.data.Stamina_Regeneration_Delay_Timer.timeout.connect(Start_Stamina_Regeneration)
+	Global.Player_Data.Stamina_Regeneration_Delay_Timer.timeout.connect(Start_Stamina_Regeneration)
 	
 	Tool_Rotation()
-	PlayerRes.data.Tool_Rotation.connect(Tool_Rotation)
+	Global.Player_Data.Tool_Rotation.connect(Tool_Rotation)
 	SignalBus.item_transfer.connect(Item_Pickup)
 	SignalBus.player_stat_change.connect(Stats_Decrease)
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
@@ -45,30 +45,30 @@ func _ready() -> void:
 	InputMap.action_erase_events("ui_left")
 	InputMap.action_erase_events("ui_right")
 	
-	match PlayerRes.data.Control_Mode:
+	match Global.Player_Data.Control_Mode:
 		"Key":
-			PlayerRes.data.Un_Forward = "In_Forward"
-			PlayerRes.data.Un_Backward = "In_Backward"
-			PlayerRes.data.Un_Left = "In_Left"
-			PlayerRes.data.Un_Right = "In_Right"
-			PlayerRes.data.Un_Jump = "In_Jump"
-			PlayerRes.data.Un_Use_UItem = "In_Use_Item"
-			PlayerRes.data.Un_Sprint = "In_Sprint"
-			PlayerRes.data.Un_Ready_Menu = "In_Pause"
-			PlayerRes.data.Un_RPrimary_Tool_Use = "In_Mouse_R"
-			PlayerRes.data.Un_LPrimary_Tool_Use = "In_Mouse_L"
-			PlayerRes.data.Un_RSecondary_Tool_Use = ""
-			PlayerRes.data.Un_LSecondary_Tool_Use = ""
-			PlayerRes.data.Un_Tool_Alternive = "In_Tool_Alt"
-			PlayerRes.data.Un_2Hand_Toggle = ""
+			Global.Player_Data.Un_Forward = "In_Forward"
+			Global.Player_Data.Un_Backward = "In_Backward"
+			Global.Player_Data.Un_Left = "In_Left"
+			Global.Player_Data.Un_Right = "In_Right"
+			Global.Player_Data.Un_Jump = "In_Jump"
+			Global.Player_Data.Un_Use_UItem = "In_Use_Item"
+			Global.Player_Data.Un_Sprint = "In_Sprint"
+			Global.Player_Data.Un_Ready_Menu = "In_Pause"
+			Global.Player_Data.Un_RPrimary_Tool_Use = "In_Mouse_R"
+			Global.Player_Data.Un_LPrimary_Tool_Use = "In_Mouse_L"
+			Global.Player_Data.Un_RSecondary_Tool_Use = ""
+			Global.Player_Data.Un_LSecondary_Tool_Use = ""
+			Global.Player_Data.Un_Tool_Alternive = "In_Tool_Alt"
+			Global.Player_Data.Un_2Hand_Toggle = ""
 			
-			PlayerRes.data.UnUI_Up = "UI_Up"
-			PlayerRes.data.UnUI_Down = "UI_Down"
-			PlayerRes.data.UnUI_Left = "UI_Left"
-			PlayerRes.data.UnUI_Right = "UI_Right"
-			PlayerRes.data.UnUI_Accept = "UI_Accept"
-			PlayerRes.data.UnUI_Accept = "UI_Accept"
-			PlayerRes.data.UnUI_Unselect = "UI_Unselect"
+			Global.Player_Data.UnUI_Up = "UI_Up"
+			Global.Player_Data.UnUI_Down = "UI_Down"
+			Global.Player_Data.UnUI_Left = "UI_Left"
+			Global.Player_Data.UnUI_Right = "UI_Right"
+			Global.Player_Data.UnUI_Accept = "UI_Accept"
+			Global.Player_Data.UnUI_Accept = "UI_Accept"
+			Global.Player_Data.UnUI_Unselect = "UI_Unselect"
 			
 			add_action_key("ui_accept", KEY_ENTER)
 			add_action_key("ui_cancel", KEY_SHIFT)
@@ -78,38 +78,38 @@ func _ready() -> void:
 			add_action_key("ui_left", KEY_LEFT)
 			add_action_key("ui_right", KEY_RIGHT)
 			
-			PlayerRes.data.UnHUDIcon_Up = "uid://bceq01ccemc8o"
-			PlayerRes.data.UnHUDIcon_Down = "uid://duiy16ed7ovil"
-			PlayerRes.data.UnHUDIcon_Left = "uid://beqbo453gynf1"
-			PlayerRes.data.UnHUDIcon_Right = "uid://cwgfmbtf38n10"
-			PlayerRes.data.UnHUDIcon_Accept = "uid://0cjin76csgan"
-			PlayerRes.data.UnHUDIcon_Return = "uid://d12fq4lnqjl7a"
-			PlayerRes.data.UnHUDIcon_Unselect = "uid://06v660kr4rts"
-			PlayerRes.data.UnHUDIcon_Interact = "uid://b1k76ih5cvb32"
+			Global.Player_Data.UnHUDIcon_Up = "uid://bceq01ccemc8o"
+			Global.Player_Data.UnHUDIcon_Down = "uid://duiy16ed7ovil"
+			Global.Player_Data.UnHUDIcon_Left = "uid://beqbo453gynf1"
+			Global.Player_Data.UnHUDIcon_Right = "uid://cwgfmbtf38n10"
+			Global.Player_Data.UnHUDIcon_Accept = "uid://0cjin76csgan"
+			Global.Player_Data.UnHUDIcon_Return = "uid://d12fq4lnqjl7a"
+			Global.Player_Data.UnHUDIcon_Unselect = "uid://06v660kr4rts"
+			Global.Player_Data.UnHUDIcon_Interact = "uid://b1k76ih5cvb32"
 		
 		"Joy":
-			PlayerRes.data.Un_Forward = "In_JoyL_Forward"
-			PlayerRes.data.Un_Backward = "In_JoyL_Backward"
-			PlayerRes.data.Un_Left = "In_JoyL_Left"
-			PlayerRes.data.Un_Right = "In_JoyL_Right"
-			PlayerRes.data.Un_Jump = "In_Joy_Jump"
-			PlayerRes.data.Un_Use_UItem = "In_Joy_Use_Item"
-			PlayerRes.data.Un_Sprint = "In_Joy_Sprint"
-			PlayerRes.data.Un_Ready_Menu = "In_Joy_Pause"
-			PlayerRes.data.Un_RPrimary_Tool_Use = "In_Joy_R2"
-			PlayerRes.data.Un_LPrimary_Tool_Use = "In_Joy_L2"
-			PlayerRes.data.Un_RSecondary_Tool_Use = ""
-			PlayerRes.data.Un_LSecondary_Tool_Use = ""
-			PlayerRes.data.Un_Tool_Alternive = "In_Joy_Tool_Alt"
-			PlayerRes.data.Un_2Hand_Toggle = ""
+			Global.Player_Data.Un_Forward = "In_JoyL_Forward"
+			Global.Player_Data.Un_Backward = "In_JoyL_Backward"
+			Global.Player_Data.Un_Left = "In_JoyL_Left"
+			Global.Player_Data.Un_Right = "In_JoyL_Right"
+			Global.Player_Data.Un_Jump = "In_Joy_Jump"
+			Global.Player_Data.Un_Use_UItem = "In_Joy_Use_Item"
+			Global.Player_Data.Un_Sprint = "In_Joy_Sprint"
+			Global.Player_Data.Un_Ready_Menu = "In_Joy_Pause"
+			Global.Player_Data.Un_RPrimary_Tool_Use = "In_Joy_R2"
+			Global.Player_Data.Un_LPrimary_Tool_Use = "In_Joy_L2"
+			Global.Player_Data.Un_RSecondary_Tool_Use = ""
+			Global.Player_Data.Un_LSecondary_Tool_Use = ""
+			Global.Player_Data.Un_Tool_Alternive = "In_Joy_Tool_Alt"
+			Global.Player_Data.Un_2Hand_Toggle = ""
 			
-			PlayerRes.data.UnUI_Up = "UI_Joy_Up"
-			PlayerRes.data.UnUI_Down = "UI_Joy_Down"
-			PlayerRes.data.UnUI_Left = "UI_Joy_Left"
-			PlayerRes.data.UnUI_Right = "UI_Joy_Right"
-			PlayerRes.data.UnUI_Accept = "UI_Joy_Accept"
-			PlayerRes.data.UnUI_Accept = "UI_Joy_Accept"
-			PlayerRes.data.UnUI_Unselect = "UI_Joy_Unselect"
+			Global.Player_Data.UnUI_Up = "UI_Joy_Up"
+			Global.Player_Data.UnUI_Down = "UI_Joy_Down"
+			Global.Player_Data.UnUI_Left = "UI_Joy_Left"
+			Global.Player_Data.UnUI_Right = "UI_Joy_Right"
+			Global.Player_Data.UnUI_Accept = "UI_Joy_Accept"
+			Global.Player_Data.UnUI_Accept = "UI_Joy_Accept"
+			Global.Player_Data.UnUI_Unselect = "UI_Joy_Unselect"
 			
 			add_action_button("ui_accept", JOY_BUTTON_A)
 			add_action_button("ui_cancel", JOY_BUTTON_X)
@@ -119,19 +119,19 @@ func _ready() -> void:
 			add_action_button("ui_left", JOY_BUTTON_DPAD_LEFT)
 			add_action_button("ui_right", JOY_BUTTON_DPAD_RIGHT)
 			
-			PlayerRes.data.UnHUDIcon_Up = "uid://bumwv083liw5g"
-			PlayerRes.data.UnHUDIcon_Down = "uid://dtmfxjgftvudj"
-			PlayerRes.data.UnHUDIcon_Left = "uid://ovx7jbm3tdnl"
-			PlayerRes.data.UnHUDIcon_Right = "uid://8p350oejc5ln"
-			PlayerRes.data.UnHUDIcon_Accept = "uid://ctvxynwec6rsy"
-			PlayerRes.data.UnHUDIcon_Return = "uid://pnd0l1xdxt3x"
-			PlayerRes.data.UnHUDIcon_Unselect = "uid://sdcs6qj0qc6x"
-			PlayerRes.data.UnHUDIcon_Interact = "uid://sdcs6qj0qc6x"
+			Global.Player_Data.UnHUDIcon_Up = "uid://bumwv083liw5g"
+			Global.Player_Data.UnHUDIcon_Down = "uid://dtmfxjgftvudj"
+			Global.Player_Data.UnHUDIcon_Left = "uid://ovx7jbm3tdnl"
+			Global.Player_Data.UnHUDIcon_Right = "uid://8p350oejc5ln"
+			Global.Player_Data.UnHUDIcon_Accept = "uid://ctvxynwec6rsy"
+			Global.Player_Data.UnHUDIcon_Return = "uid://pnd0l1xdxt3x"
+			Global.Player_Data.UnHUDIcon_Unselect = "uid://sdcs6qj0qc6x"
+			Global.Player_Data.UnHUDIcon_Interact = "uid://sdcs6qj0qc6x"
 #endregion
 
 func _process(delta: float) -> void:
-	PlayerRes.data.Health = clamp(PlayerRes.data.Health, 0, PlayerRes.data.Health_Max)
-	PlayerRes.data.Stamina = clamp(PlayerRes.data.Stamina, 0, PlayerRes.data.Stamina_Max)
+	Global.Player_Data.Health = clamp(Global.Player_Data.Health, 0, Global.Player_Data.Health_Max)
+	Global.Player_Data.Stamina = clamp(Global.Player_Data.Stamina, 0, Global.Player_Data.Stamina_Max)
 	
 	Stamina_Regeneration_Process(delta)
 	
@@ -139,34 +139,34 @@ func _process(delta: float) -> void:
 
 #region Stamina Regeneration Process
 func Regeneration_Timer_Startup():
-	PlayerRes.data.Stamina_Regeneration_Delay_Timer = Timer.new()
-	PlayerRes.data.Stamina_Regeneration_Delay_Timer.wait_time = PlayerRes.data.Stamina_Regeneration_Amount
-	PlayerRes.data.Stamina_Regeneration_Delay_Timer.one_shot = true
-	add_child(PlayerRes.data.Stamina_Regeneration_Delay_Timer)
+	Global.Player_Data.Stamina_Regeneration_Delay_Timer = Timer.new()
+	Global.Player_Data.Stamina_Regeneration_Delay_Timer.wait_time = Global.Player_Data.Stamina_Regeneration_Amount
+	Global.Player_Data.Stamina_Regeneration_Delay_Timer.one_shot = true
+	add_child(Global.Player_Data.Stamina_Regeneration_Delay_Timer)
 
 func Start_Stamina_Regeneration():
-	PlayerRes.data.Stamina_Regeneration_Active = true
+	Global.Player_Data.Stamina_Regeneration_Active = true
 
 func Stamina_Regeneration_Process(delta):
-	if PlayerRes.data.Stamina_Regeneration_Active == true and PlayerRes.data.Stamina < PlayerRes.data.Stamina_Max:
-		PlayerRes.data.Stamina += PlayerRes.data.Stamina_Regeneration_Rate * delta
-		if PlayerRes.data.Stamina >= PlayerRes.data.Stamina_Max:
-			PlayerRes.data.Stamina = PlayerRes.data.Stamina_Max
-			PlayerRes.data.Stamina_Regeneration_Active = false
+	if Global.Player_Data.Stamina_Regeneration_Active == true and Global.Player_Data.Stamina < Global.Player_Data.Stamina_Max:
+		Global.Player_Data.Stamina += Global.Player_Data.Stamina_Regeneration_Rate * delta
+		if Global.Player_Data.Stamina >= Global.Player_Data.Stamina_Max:
+			Global.Player_Data.Stamina = Global.Player_Data.Stamina_Max
+			Global.Player_Data.Stamina_Regeneration_Active = false
 #endregion
 
 func Stats_Decrease(Type, Value):
 	if Type == "Health":
-		PlayerRes.data.Health -= Value
+		Global.Player_Data.Health -= Value
 	elif Type == "Stamina": 
-		PlayerRes.data.Stamina -= Value
-		PlayerRes.data.Stamina_Regeneration_Active = false
-		PlayerRes.data.Stamina_Regeneration_Delay_Timer.start()
+		Global.Player_Data.Stamina -= Value
+		Global.Player_Data.Stamina_Regeneration_Active = false
+		Global.Player_Data.Stamina_Regeneration_Delay_Timer.start()
 
 func _on_focus_changed(node: Control):
 	if node:
 		#print(node.name)
-		PlayerRes.data.Current_Focus = node.name
+		Global.Player_Data.Current_Focus = node.name
 
 func add_action_key(action, keycode):
 	var ev = InputEventKey.new()
@@ -190,13 +190,13 @@ func Geneneral_Interaction(Ray, Method):
 
 func Set_Menu(Switch: bool, Next_Menu: String):
 	if Switch == true:
-		PlayerRes.data.Current_Menu = Next_Menu
+		Global.Player_Data.Current_Menu = Next_Menu
 	elif Switch == false:
-		PlayerRes.data.Current_SubMenu = Next_Menu
+		Global.Player_Data.Current_SubMenu = Next_Menu
 
 
 #func Inventory_Update(Item):
-	#match PlayerRes.data.Current_SubMenu:
+	#match Global.Player_Data.Current_SubMenu:
 		#"Brace menu":
 			#pass
 		#"Wear menu":
@@ -223,7 +223,7 @@ func Tool_Rotation():
 	Assault_Rig.visible = false
 	
 #region Tools
-	match PlayerRes.data.Inv_ToolR_Equiped:
+	match Global.Player_Data.Inv_ToolR_Equiped:
 		"null":
 			Arm_Right_Rig.visible = true
 		"Sword":
@@ -240,7 +240,7 @@ func Tool_Rotation():
 			Assault_Rig.visible = true
 			Assault_Rig.scale.x = 1.0
 			General_Animations.play("Tools_Anims/Assault_Popup")
-	match PlayerRes.data.Inv_ToolL_Equiped:
+	match Global.Player_Data.Inv_ToolL_Equiped:
 		"null":
 			Arm_Left_Rig.visible = true
 		"Sword":
@@ -262,6 +262,6 @@ func Tool_Rotation():
 func Item_Pickup(Item_Sys_Name, Item_Type, Item_Quantity):
 	match Item_Type:
 		"Special":
-			PlayerRes.data.Tool_ID[Item_Sys_Name]["picked?"] = true
+			Global.Player_Data.Tool_ID[Item_Sys_Name]["picked?"] = true
 		"Ordinary":
 			pass

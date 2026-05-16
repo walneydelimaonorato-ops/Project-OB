@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://4yagu8ikeell"]
+
+[ext_resource type="Script" uid="uid://c26k8kaduodsu" path="res://Assets/Objects/Obj/Transporter/transporter.gd" id="1_a4qxb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yw3th"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_a4qxb"]
+
+[node name="Root" type="Area3D" unique_id=1874345422]
+collision_layer = 64
+collision_mask = 2
+script = ExtResource("1_a4qxb")
+
+[node name="Shape" type="CollisionShape3D" parent="." unique_id=109698197]
+shape = SubResource("BoxShape3D_yw3th")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1524703909]
+mesh = SubResource("BoxMesh_a4qxb")
+
+[connection signal="area_entered" from="." to="." method="area_entered"]

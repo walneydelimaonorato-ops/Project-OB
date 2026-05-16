@@ -1,3 +1,3 @@
 extends Node
 
-@export var data: PlayerData
+#@export var data: PlayerData

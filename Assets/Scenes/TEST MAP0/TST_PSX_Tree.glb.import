@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cnkphpvtocg0e"
-path="res://.godot/imported/Map_Cliffside.glb-22460e3fb3781f483f828de575e36802.scn"
+uid="uid://dg0bnf4j7fo5l"
+path="res://.godot/imported/TST_PSX_Tree.glb-f64adaa5080245694a366a7531a6c9c2.scn"
 
 [deps]
 
-source_file="res://Assets/Scenes/FINAL MAP Cliffside/Map_Cliffside.glb"
-dest_files=["res://.godot/imported/Map_Cliffside.glb-22460e3fb3781f483f828de575e36802.scn"]
+source_file="res://Assets/Scenes/TEST MAP0/TST_PSX_Tree.glb"
+dest_files=["res://.godot/imported/TST_PSX_Tree.glb-f64adaa5080245694a366a7531a6c9c2.scn"]
 
 [params]
 

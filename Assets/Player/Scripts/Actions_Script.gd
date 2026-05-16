@@ -13,7 +13,7 @@ func Action_Alternative():
 func Action_Primary(Direction):
 	match Direction:
 		"Right":
-			match PlayerRes.data.Inv_ToolR_Equiped:
+			match Global.Player_Data.Inv_ToolR_Equiped:
 				"null":
 					pass
 				"HandGun":
@@ -23,11 +23,11 @@ func Action_Primary(Direction):
 					StatsMan.General_Animations.play("Tools_Anims/Assault_Shoot")
 					StatsMan.Assault_Shoot.play()
 					
-			if PlayerRes.data.Inv_ToolR_Equiped != "null":
-				SignalBus.emit_signal("request_damage", PlayerRes.data.Tool_ID[PlayerRes.data.Inv_ToolR_Equiped]["damage"])
+			if Global.Player_Data.Inv_ToolR_Equiped != "null":
+				SignalBus.emit_signal("request_damage", Global.Player_Data.Tool_ID[Global.Player_Data.Inv_ToolR_Equiped]["damage"])
 				StatsMan.Geneneral_Interaction(%Ray1, "Take_Damage")
 		"Left":
-			match PlayerRes.data.Inv_ToolL_Equiped:
+			match Global.Player_Data.Inv_ToolL_Equiped:
 				"null":
 					pass
 				"HandGun":
@@ -37,6 +37,6 @@ func Action_Primary(Direction):
 					StatsMan.General_Animations.play("Tools_Anims/Assault_Shoot")
 					StatsMan.Assault_Shoot.play()
 					
-			if PlayerRes.data.Inv_ToolL_Equiped != "null":
-				SignalBus.emit_signal("request_damage", PlayerRes.data.Tool_ID[PlayerRes.data.Inv_ToolL_Equiped]["damage"])
+			if Global.Player_Data.Inv_ToolL_Equiped != "null":
+				SignalBus.emit_signal("request_damage", Global.Player_Data.Tool_ID[Global.Player_Data.Inv_ToolL_Equiped]["damage"])
 				StatsMan.Geneneral_Interaction(%Ray1, "Take_Damage")

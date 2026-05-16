@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://haqbslplyx4"
-path.s3tc="res://.godot/imported/Map_Cliffside_Grass.png-495181ec7a10b9ccef8c1b375bbe0278.s3tc.ctex"
+uid="uid://doqlome8w0lck"
+path.s3tc="res://.godot/imported/TST_PSX_Tree_Image_4.png-1c1afadb0c00a14d29fb25c5e59b9058.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ce6eb0ab47b6bdbcff44b223fa71d114"
+"md5": "16678faf1e3e9c794b0bcfedbc57ce3f"
 }
 
 [deps]
 
-source_file="res://Assets/Scenes/FINAL MAP Cliffside/Map_Cliffside_Grass.png"
-dest_files=["res://.godot/imported/Map_Cliffside_Grass.png-495181ec7a10b9ccef8c1b375bbe0278.s3tc.ctex"]
+source_file="res://Assets/Scenes/TEST MAP0/TST_PSX_Tree_Image_4.png"
+dest_files=["res://.godot/imported/TST_PSX_Tree_Image_4.png-1c1afadb0c00a14d29fb25c5e59b9058.s3tc.ctex"]
 
 [params]
 

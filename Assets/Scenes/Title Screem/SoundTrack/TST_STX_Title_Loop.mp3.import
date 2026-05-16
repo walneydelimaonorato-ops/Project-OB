@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bq8cf6b0v5nhp"
+path="res://.godot/imported/TST_STX_Title_Loop.mp3-e912639c4d927e0563444682d313e8f7.mp3str"
+
+[deps]
+
+source_file="res://Assets/Scenes/Title Screem/SoundTrack/TST_STX_Title_Loop.mp3"
+dest_files=["res://.godot/imported/TST_STX_Title_Loop.mp3-e912639c4d927e0563444682d313e8f7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

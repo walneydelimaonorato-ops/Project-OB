@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c86qnmdw72onj" path="res://Assets/Player/Scripts/Player_Main.gd" id="1_2nc12"]
 [ext_resource type="Script" uid="uid://l12mhsklk3he" path="res://Assets/Player/Scripts/Resource_Holder.gd" id="2_hs5eg"]
 [ext_resource type="Script" uid="uid://dnmewvnjcrtf7" path="res://Assets/Player/Scripts/Actions_Script.gd" id="2_qe5k5"]
-[ext_resource type="Resource" uid="uid://limswx0jvht7" path="res://Assets/Player/Scripts/PlayerData01.tres" id="3_2r4ph"]
 [ext_resource type="Script" uid="uid://celcg5cjm0h8e" path="res://Assets/Player/Scripts/Player_Manage.gd" id="3_hs5eg"]
 [ext_resource type="PackedScene" uid="uid://c2rgs1dy80e6d" path="res://Assets/Player/hud.tscn" id="3_qe5k5"]
 [ext_resource type="PackedScene" uid="uid://h8wt3hlx4i85" path="res://Assets/Player/Models/Models.tscn" id="5_hs5eg"]
@@ -24,10 +23,9 @@ script = ExtResource("1_2nc12")
 
 [node name="Script Nodes" type="Node3D" parent="." unique_id=2102310861]
 
-[node name="Player Stats" type="Node" parent="Script Nodes" unique_id=1204249392]
+[node name="Player Stats" type="Node" parent="Script Nodes" unique_id=1237580655]
 unique_name_in_owner = true
 script = ExtResource("2_hs5eg")
-data = ExtResource("3_2r4ph")
 
 [node name="Stats Management" type="Node" parent="Script Nodes" unique_id=1083356557]
 unique_name_in_owner = true
@@ -83,6 +81,8 @@ debug_shape_custom_color = Color(0, 1, 0, 1)
 debug_shape_thickness = 1
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Head" unique_id=1793310147]
-omni_range = 184.756
+visible = false
+light_specular = 0.0
+omni_range = 185.0
 
 [node name="HUD" parent="." unique_id=775426720 instance=ExtResource("3_qe5k5")]

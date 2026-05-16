@@ -53,31 +53,31 @@ func _process(_delta: float) -> void:
 			page_3.visible = true
 	
 	page_1.text = "TST Vars"
-	page_1.text += str("\rStamina_Regeneration_Active: ", player_stats.data.Stamina_Regeneration_Active)
+	page_1.text += str("\rStamina_Regeneration_Active: ", Global.Player_Data.Stamina_Regeneration_Active)
 	#page_1.text += str("\rNULL" + )
 	
 	page_2.text = "HUD Vars"
-	page_2.text += str("\rControl_Mode: " + player_stats.data.Control_Mode)
-	page_2.text += str("\rHealth_Max: %d") % player_stats.data.Health_Max
-	page_2.text += str(" // Stamina_Max: %d") % player_stats.data.Stamina_Max
-	page_2.text += "\rHealth: %d" % player_stats.data.Health
-	page_2.text += "\rStamina: %.2f" % player_stats.data.Stamina
+	page_2.text += str("\rControl_Mode: " + Global.Player_Data.Control_Mode)
+	page_2.text += str("\rHealth_Max: %d") % Global.Player_Data.Health_Max
+	page_2.text += str(" // Stamina_Max: %d") % Global.Player_Data.Stamina_Max
+	page_2.text += "\rHealth: %d" % Global.Player_Data.Health
+	page_2.text += "\rStamina: %.2f" % Global.Player_Data.Stamina
 	page_2.text += str("\rBar_Health: %d") % health.value
 	page_2.text += str("\rBar_Stamina: %d") % stamina.value
 	
 	page_3.text = "Menu Vars"
-	page_3.text += str("\rCurrent_Menu: " + player_stats.data.Current_Menu)
-	page_3.text += str("\rCurrent_SubMenu: " + player_stats.data.Current_SubMenu)
-	page_3.text += str("\rReady_Menu_Active: ", player_stats.data.Ready_Menu_Active)
+	page_3.text += str("\rCurrent_Menu: " + Global.Player_Data.Current_Menu)
+	page_3.text += str("\rCurrent_SubMenu: " + Global.Player_Data.Current_SubMenu)
+	page_3.text += str("\rReady_Menu_Active: ", Global.Player_Data.Ready_Menu_Active)
 	
 	page_3.text += "\r........."
-	page_3.text += str("\rInv_Brace: ", player_stats.data.Inv_Brace_Equiped)
-	page_3.text += str("\rInv_Wear: ", player_stats.data.Inv_Wear_Equiped)
-	page_3.text += str("\rInv_ToolL: ", player_stats.data.Inv_ToolL_Equiped)
-	page_3.text += str("\rInv_ToolR: ", player_stats.data.Inv_ToolR_Equiped)
-	page_3.text += str("\rInv_Spell: ", player_stats.data.Inv_Spell_Equiped)
-	page_3.text += str("\rInv_Uitem1: ", player_stats.data.Inv_Uitem1_Equiped)
-	page_3.text += str("\rInv_Uitem2: ", player_stats.data.Inv_Uitem2_Equiped)
-	page_3.text += str("\rInv_Uitem3: ", player_stats.data.Inv_Uitem3_Equiped)
+	page_3.text += str("\rInv_Brace: ", Global.Player_Data.Inv_Brace_Equiped)
+	page_3.text += str("\rInv_Wear: ", Global.Player_Data.Inv_Wear_Equiped)
+	page_3.text += str("\rInv_ToolL: ", Global.Player_Data.Inv_ToolL_Equiped)
+	page_3.text += str("\rInv_ToolR: ", Global.Player_Data.Inv_ToolR_Equiped)
+	page_3.text += str("\rInv_Spell: ", Global.Player_Data.Inv_Spell_Equiped)
+	page_3.text += str("\rInv_Uitem1: ", Global.Player_Data.Inv_Uitem1_Equiped)
+	page_3.text += str("\rInv_Uitem2: ", Global.Player_Data.Inv_Uitem2_Equiped)
+	page_3.text += str("\rInv_Uitem3: ", Global.Player_Data.Inv_Uitem3_Equiped)
 	
-	focus_node.text = player_stats.data.Current_Focus
+	focus_node.text = Global.Player_Data.Current_Focus

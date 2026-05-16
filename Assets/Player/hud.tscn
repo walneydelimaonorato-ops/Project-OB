@@ -6,8 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://dyp1tqlfs1r50" path="res://Assets/UI/HUD/Ready_Menu_Spell.png" id="3_bitai"]
 [ext_resource type="Texture2D" uid="uid://1gq7ogm65b2r" path="res://Assets/UI/HUD/Ready_Menu_UItem.png" id="4_2qs60"]
 [ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="5_pvj0q"]
+[ext_resource type="Texture2D" uid="uid://qua4cq3ubssm" path="res://Assets/UI/HUD/Item Icons/_Ultilities/Item_Icon_Blank.png" id="6_g7t8a"]
 [ext_resource type="Texture2D" uid="uid://bltswoeonw3bs" path="res://Assets/UI/HUD/Golden_Cross_Range.png" id="7_2qs60"]
 [ext_resource type="Texture2D" uid="uid://cad1m7t48xa27" path="res://Assets/UI/HUD/Side HUD/Frame_Stamina_AA.png" id="7_2vfgr"]
+[ext_resource type="Texture2D" uid="uid://bc1eahxnggs3n" path="res://Assets/UI/HUD/Item Icons/Placeholder_Icon.png" id="7_bhcvo"]
 [ext_resource type="Texture2D" uid="uid://b0b2vsfbxq1a8" path="res://Assets/UI/HUD/Side HUD/Health.png" id="7_c66ss"]
 [ext_resource type="Texture2D" uid="uid://qjq03yc5xcfc" path="res://Assets/UI/HUD/Side HUD/Stamina_Lines_AA.png" id="7_l5jda"]
 [ext_resource type="Texture2D" uid="uid://bsk0xgutv14ex" path="res://Assets/UI/HUD/Side HUD/Frame_Health.png" id="7_vy47n"]
@@ -16,6 +18,9 @@
 [ext_resource type="Script" uid="uid://doilu7ex0syva" path="res://Assets/Player/Scripts/debug.gd" id="12_2vfgr"]
 [ext_resource type="Theme" uid="uid://ylysgsmxvcu1" path="res://Assets/UI/Main_UI_Theme.tres" id="14_8hhtu"]
 [ext_resource type="PackedScene" uid="uid://c22fdxmv2autu" path="res://Assets/Player/menus.tscn" id="15_dtd46"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kfml6"]
+load_path = "res://.godot/imported/Placeholder_Icon.png-304e947d8e45133990e7b80d782c6b80.ctex"
 
 [node name="HUD" type="CanvasLayer" unique_id=775426720]
 script = ExtResource("1_bitai")
@@ -73,15 +78,19 @@ theme_override_constants/separation = 20
 
 [node name="TR Over" type="TextureRect" parent="Control/Side HUD/SidH Overlay" unique_id=613960007]
 layout_mode = 2
+texture = SubResource("CompressedTexture2D_kfml6")
 
 [node name="TL Over" type="TextureRect" parent="Control/Side HUD/SidH Overlay" unique_id=1051551925]
 layout_mode = 2
+texture = ExtResource("6_g7t8a")
 
 [node name="S Over" type="TextureRect" parent="Control/Side HUD/SidH Overlay" unique_id=1634645620]
 layout_mode = 2
+texture = ExtResource("7_bhcvo")
 
 [node name="U Over" type="TextureRect" parent="Control/Side HUD/SidH Overlay" unique_id=1660138663]
 layout_mode = 2
+texture = ExtResource("7_bhcvo")
 
 [node name="SidH Names" type="VBoxContainer" parent="Control/Side HUD" unique_id=1950255623]
 layout_mode = 0

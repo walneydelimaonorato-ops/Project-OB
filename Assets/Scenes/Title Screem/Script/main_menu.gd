@@ -65,3 +65,14 @@ func map2_pressed() -> void:
 func map_3_pressed() -> void:
 	Global.Next_Scene = "uid://cdd50mvv70oa7"
 	get_tree().change_scene_to_packed(Global.Load_New)
+
+
+
+
+
+func _on_title_music_intro_finished() -> void:
+	%"Title Music Loop".play()
+
+
+func _on_title_music_loop_finished() -> void:
+	%"Title Music Loop".play()
