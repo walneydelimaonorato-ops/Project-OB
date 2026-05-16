@@ -102,39 +102,74 @@ func tool_handgun_pressed() -> void:
 	match Global.Player_Data.Current_SubMenu:
 		"Tool Right menu":
 			Global.Player_Data.Inv_ToolR_Equiped = Global.Player_Data.Tool_ID["HandGun"]["sys name"]
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready Tool Right", Global.Player_Data.Tool_ID["HandGun"]["Icon"])
 		"Tool Left menu":
 			Global.Player_Data.Inv_ToolL_Equiped = Global.Player_Data.Tool_ID["HandGun"]["sys name"]
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready Tool Left", Global.Player_Data.Tool_ID["HandGun"]["Icon"])
 	Global.Player_Data.Tool_ID["HandGun"]["equipped?"] = true
 	exit()
+
 func tool_assault_pressed() -> void:
 	match Global.Player_Data.Current_SubMenu:
 		"Tool Right menu":
 			Global.Player_Data.Inv_ToolR_Equiped = Global.Player_Data.Tool_ID["AssaultRifle"]["sys name"]
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready Tool Right", Global.Player_Data.Tool_ID["AssaultRifle"]["Icon"])
 		"Tool Left menu":
 			Global.Player_Data.Inv_ToolL_Equiped = Global.Player_Data.Tool_ID["AssaultRifle"]["sys name"]
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready Tool Left", Global.Player_Data.Tool_ID["AssaultRifle"]["Icon"])
 	Global.Player_Data.Tool_ID["AssaultRifle"]["equipped?"] = true
 	exit()
+
 func tool_sword_pressed() -> void:
 	match Global.Player_Data.Current_SubMenu:
 		"Tool Right menu":
 			Global.Player_Data.Inv_ToolR_Equiped = Global.Player_Data.Tool_ID["Sword"]["sys name"]
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready Tool Right", Global.Player_Data.Tool_ID["Sword"]["Icon"])
 		"Tool Left menu":
 			Global.Player_Data.Inv_ToolL_Equiped = Global.Player_Data.Tool_ID["Sword"]["sys name"]
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready Tool Left", Global.Player_Data.Tool_ID["Sword"]["Icon"])
 	Global.Player_Data.Tool_ID["Sword"]["equipped?"] = true
 	exit()
+
 func tool_dagger_pressed() -> void:
 	match Global.Player_Data.Current_SubMenu:
 		"Tool Right menu":
 			Global.Player_Data.Inv_ToolR_Equiped = Global.Player_Data.Tool_ID["Dagger"]["sys name"]
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready Tool Right", Global.Player_Data.Tool_ID["Dagger"]["Icon"])
 		"Tool Left menu":
 			Global.Player_Data.Inv_ToolL_Equiped = Global.Player_Data.Tool_ID["Dagger"]["sys name"]
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready Tool Left", Global.Player_Data.Tool_ID["Dagger"]["Icon"])
 	Global.Player_Data.Tool_ID["Dagger"]["equipped?"] = true
 	exit()
+
 func tool_bow_pressed() -> void:
 	match Global.Player_Data.Current_SubMenu:
 		"Tool Right menu":
 			Global.Player_Data.Inv_ToolR_Equiped = Global.Player_Data.Tool_ID["SpecialBow"]["sys name"]
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready Tool Right", Global.Player_Data.Tool_ID["SpecialBow"]["Icon"])
 		"Tool Left menu":
 			Global.Player_Data.Inv_ToolL_Equiped = Global.Player_Data.Tool_ID["SpecialBow"]["sys name"]
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready Tool Left", Global.Player_Data.Tool_ID["SpecialBow"]["Icon"])
 	Global.Player_Data.Tool_ID["SpecialBow"]["equipped?"] = true
+	exit()
 #endregion
+
+
+func brace_golden_pressed() -> void:
+	Global.Player_Data.Inv_Brace_Equiped = Global.Player_Data.Brace_ID["Golden Bra."]["sys name"]
+	Global.Player_Data.Brace_ID["Golden Bra."]["equipped?"] = true
+	Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready Brace", Global.Player_Data.Brace_ID["Golden Bra."]["Icon"])
+	exit()
+
+func brace_clorophyl_pressed() -> void:
+	Global.Player_Data.Inv_Brace_Equiped = Global.Player_Data.Brace_ID["Clorophyl Bra."]["sys name"]
+	Global.Player_Data.Brace_ID["Clorophyl Bra."]["equipped?"] = true
+	Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready Brace", Global.Player_Data.Brace_ID["Clorophyl Bra."]["Icon"])
+	exit()
+
+func brace_power_pressed() -> void:
+	Global.Player_Data.Inv_Brace_Equiped = Global.Player_Data.Brace_ID["Power Bra."]["sys name"]
+	Global.Player_Data.Brace_ID["Power Bra."]["equipped?"] = true
+	Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready Brace", Global.Player_Data.Brace_ID["Power Bra."]["Icon"])
+	
+	exit()

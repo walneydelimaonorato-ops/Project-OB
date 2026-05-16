@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://1gq7ogm65b2r" path="res://Assets/UI/HUD/Ready_Menu_UItem.png" id="8_4rtwh"]
 [ext_resource type="Theme" uid="uid://ylysgsmxvcu1" path="res://Assets/UI/Main_UI_Theme.tres" id="9_3yn2l"]
 [ext_resource type="Texture2D" uid="uid://dqjg5u7edkp8i" path="res://Assets/UI/HUD/Item_Frame.png" id="11_3ojjw"]
+[ext_resource type="Texture2D" uid="uid://bc1eahxnggs3n" path="res://Assets/UI/HUD/Item Icons/Placeholder_Icon.png" id="15_yi8xc"]
 [ext_resource type="Texture2D" uid="uid://da067puqegj" path="res://Assets/UI/HUD/Item Icons/_Ultilities/Item_Icon_Blank_Mini.png" id="16_iylj0"]
 [ext_resource type="Texture2D" uid="uid://ixbwtpeqnx0w" path="res://Assets/UI/HUD/Item Icons/_Ultilities/Item_Selected_Mini.png" id="17_iylj0"]
 [ext_resource type="Texture2D" uid="uid://qua4cq3ubssm" path="res://Assets/UI/HUD/Item Icons/_Ultilities/Item_Icon_Blank.png" id="18_muclb"]
@@ -26,9 +27,6 @@
 load_path = "res://.godot/imported/Ready_Menu_Bag.png-ffddf412d1b7c9a7e5e4a5ccb65bda06.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3ojjw"]
-load_path = "res://.godot/imported/Item_Icon_Blank.png-eca7c2acefeec849214f7d622767d50c.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p60kn"]
 load_path = "res://.godot/imported/Item_Icon_Blank.png-eca7c2acefeec849214f7d622767d50c.ctex"
 
 [node name="Menus" type="Control" unique_id=1806409522]
@@ -67,7 +65,6 @@ stream = ExtResource("4_qmjen")
 
 [node name="Ready Menu" type="Control" parent="." unique_id=1970162750]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -222,19 +219,25 @@ layout_mode = 2
 [node name="Ready Brace Overlay" type="TextureRect" parent="Ready Menu/Ready Menu Overlay/Ready Wear and Tool Overlay" unique_id=1316641349]
 unique_name_in_owner = true
 layout_mode = 2
+texture = ExtResource("15_yi8xc")
 
 [node name="Ready Wear Overlay" type="TextureRect" parent="Ready Menu/Ready Menu Overlay/Ready Wear and Tool Overlay" unique_id=1681156347]
 unique_name_in_owner = true
 layout_mode = 2
-texture = SubResource("CompressedTexture2D_p60kn")
+texture = ExtResource("15_yi8xc")
+expand_mode = 2
 
 [node name="Ready Tool Left Overlay" type="TextureRect" parent="Ready Menu/Ready Menu Overlay/Ready Wear and Tool Overlay" unique_id=1068618762]
 unique_name_in_owner = true
 layout_mode = 2
+texture = ExtResource("15_yi8xc")
+expand_mode = 2
 
 [node name="Ready Tool Right Overlay" type="TextureRect" parent="Ready Menu/Ready Menu Overlay/Ready Wear and Tool Overlay" unique_id=1431419423]
 unique_name_in_owner = true
 layout_mode = 2
+texture = ExtResource("15_yi8xc")
+expand_mode = 2
 
 [node name="Ready Spell and UItem Overlay" type="HBoxContainer" parent="Ready Menu/Ready Menu Overlay" unique_id=639979982]
 layout_mode = 2
@@ -309,7 +312,6 @@ layout_mode = 2
 
 [node name="Braces" type="VBoxContainer" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)" unique_id=589329469]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="Start of Braces" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces" unique_id=154292881]
@@ -395,6 +397,27 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
 text = "[img=200]uid://davke1oama52w[/img]: Power Brcs."
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="Brace Placeholder" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces" unique_id=783786112]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("18_muclb")
+texture_focused = ExtResource("19_064ml")
+
+[node name="Brace Placeholder" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Placeholder" unique_id=114313554]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[img=200]uid://bc1eahxnggs3n[/img]: Place 585.0"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -561,6 +584,7 @@ justification_flags = 162
 
 [node name="Tools" type="VBoxContainer" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)" unique_id=1150022900]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Start of Tool" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=2073192380]
@@ -696,7 +720,6 @@ autowrap_mode = 0
 justification_flags = 162
 
 [node name="Tool Placeholder" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=133731640]
-unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_right = NodePath(".")
@@ -973,6 +996,9 @@ text = "butt pudding
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 1" to="Menus (Ready)" method="ready_u_item_1_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 2" to="Menus (Ready)" method="ready_u_item_2_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 3" to="Menus (Ready)" method="ready_u_item_3_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Golden" to="Menus (Selection)" method="brace_golden_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Clorophyl" to="Menus (Selection)" method="brace_clorophyl_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Power" to="Menus (Selection)" method="brace_power_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Sword" to="Menus (Selection)" method="tool_sword_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Dagger" to="Menus (Selection)" method="tool_dagger_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Assault" to="Menus (Selection)" method="tool_assault_pressed"]

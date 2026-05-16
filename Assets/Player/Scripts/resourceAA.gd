@@ -49,6 +49,7 @@ var Menu_mode: bool = false # Checks if the player is currently in a menu
 signal Ready_Menu_Toggled(active: bool)
 signal Seletion_Menu_Toggled(active: bool)
 signal Choice_Menu_Toggled(active: bool)
+signal Menus_Visual_Update(Menu_Slot: String, Item_Texture: String)
 
 signal Tool_Rotation()
 #endregion
@@ -121,6 +122,7 @@ var Tool_ID = {
 	"Hand": {
 		"dys name": " ", 
 		"sys name": "Hand",
+		"Icon": "",
 		"picked?": true,
 		"equipped?": false, 
 		"damage": 0, 
@@ -128,6 +130,7 @@ var Tool_ID = {
 	"HandGun": {
 		"dys name": "Abrams",
 		"sys name": "HandGun",
+		"Icon": "uid://dev6yasoqfrik",
 		"picked?": true,
 		"equipped?": false, 
 		"damage": 6, 
@@ -135,22 +138,25 @@ var Tool_ID = {
 		"Mag A": 0,
 		},
 	"AssaultRifle": {
-		"dys name": " ", 
+		"dys name": "AM-16", 
 		"sys name": "AssaultRifle",
+		"Icon": "uid://bpdhkde57ipm",
 		"picked?": true,
 		"equipped?": false, 
 		"damage": 15, 
 		},
 	"Sword": {
-		"dys name": " ", 
+		"dys name": "E. Trais", 
 		"sys name": "Sword",
-		"picked?": false,
+		"Icon": "uid://d3txjn55xf1sw",
+		"picked?": true,
 		"equipped?": false, 
 		"damage": 20, 
 		},
 	"Dagger": {
 		"dys name": " ", 
 		"sys name": "Dagger",
+		"Icon": "uid://cxpllkwkj3coo",
 		"picked?": false,
 		"equipped?": false, 
 		"damage": 10,
@@ -158,6 +164,7 @@ var Tool_ID = {
 	"SpecialBow": {
 		"dys name": " ", 
 		"sys name": "SpecialBow",
+		"Icon": "uid://c244x88oddpii",
 		"picked?": false,
 		"equipped?": false, 
 		"damage": 25,
@@ -168,6 +175,7 @@ var Wear_ID = {
 	"Plain": {
 		"dys name": " ", 
 		"sys name": " ",
+		"Icon": "uid://bqi66glri2ec",
 		"picked?": true,
 		"equipped?": false, 
 		"weight": 0,
@@ -176,6 +184,7 @@ var Wear_ID = {
 	"Upper Mewclad Arm.": {
 		"dys name": " ", 
 		"sys name": " ",
+		"Icon": "",
 		"picked?": false,
 		"equipped?": false, 
 		"weight": 20,
@@ -184,6 +193,7 @@ var Wear_ID = {
 	"Lower Mewclad Arm.": {
 		"dys name": " ", 
 		"sys name": " ",
+		"Icon": "",
 		"picked?": false,
 		"equipped?": false, 
 		"weight": 12,
@@ -195,6 +205,7 @@ var Spell_ID = {
 	"null": {
 		"dys name": " ", 
 		"sys name": " ",
+		"Icon": "",
 		"picked?": true,
 		"equipped?": false, 
 		"quantity": 0,
@@ -204,6 +215,7 @@ var Spell_ID = {
 	"PotentiaSolis": {
 		"dys name": " ", 
 		"sys name": " ",
+		"Icon": "uid://baatlbdf0r5c",
 		"picked?": true,
 		"equipped?": false, 
 		"quantity": 6,
@@ -213,6 +225,7 @@ var Spell_ID = {
 	"Misericordia": {
 		"dys name": " ", 
 		"sys name": " ",
+		"Icon": "",
 		"picked?": true,
 		"equipped?": false, 
 		"quantity": 2,
@@ -222,6 +235,7 @@ var Spell_ID = {
 	"Tywyll": {
 		"dys name": " ", 
 		"sys name": " ",
+		"Icon": "",
 		"picked?": true,
 		"equipped?": false, 
 		"quantity": 10,
@@ -231,6 +245,7 @@ var Spell_ID = {
 	"Sunfire": {
 		"dys name": " ", 
 		"sys name": " ",
+		"Icon": "",
 		"picked?": true,
 		"equipped?": false, 
 		"quantity": 99999,
@@ -242,21 +257,24 @@ var Spell_ID = {
 var Brace_ID = {
 	"Golden Bra.": {
 		"dys name": " ", 
-		"sys name": " ",
+		"sys name": "Golden Bra.",
+		"Icon": "uid://davke1oama52w",
 		
 		"picked?": true,
 		"equipped?": false, 
 		},
 	"Clorophyl Bra.": {
 		"dys name": " ", 
-		"sys name": " ",
+		"sys name": "Clorophyl Bra.",
+		"Icon": "",
 		
 		"picked?": true,
 		"equipped?": false, 
 		},
 	"Power Bra.": {
 		"dys name": " ", 
-		"sys name": " ",
+		"sys name": "Power Bra.",
+		"Icon": "",
 		
 		"picked?": true,
 		"equipped?": false, 
@@ -267,6 +285,7 @@ var UItem_ID = {
 	"null": {
 		"dys name": " ", 
 		"sys name": " ",
+		"Icon": "",
 		"heal_values": 0,
 		"quantity": 0,
 		"special id": ""
@@ -274,6 +293,7 @@ var UItem_ID = {
 	"Glass flask": {
 		"dys name": " ", 
 		"sys name": " ",
+		"Icon": "",
 		"heal_values": Health_Max / 3,
 		"quantity": Glass_flask_quantity,
 		"special id": "renewable"
@@ -281,6 +301,7 @@ var UItem_ID = {
 	"Wild gold": {
 		"dys name": " ", 
 		"sys name": " ",
+		"Icon": "",
 		"heal_values": 2,
 		"quantity": Wild_gold_quantity,
 		"special id": ""

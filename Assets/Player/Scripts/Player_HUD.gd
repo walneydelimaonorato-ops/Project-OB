@@ -10,6 +10,7 @@ var Interact_Prompt: String = "General"
 
 func _ready() -> void:
 	Side_HUD_Update()
+	Global.Player_Data.Menus_Visual_Update.connect(Side_Menu_Visual_Update)
 	Global.Player_Data.Tool_Rotation.connect(Side_HUD_Update)
 
 func _process(_delta: float) -> void:
@@ -57,6 +58,7 @@ func Side_HUD_Update():
 			HUD_Visibility(%"Tool L", %"Name ToolL", %"Desc ToolL", "Visible")
 			%"Name ToolL".text = Global.Player_Data.Tool_ID["AssaultRifle"]["dys name"]
 			%"Desc ToolL".text = "tasty coconut :3"
+
 	match Global.Player_Data.Inv_Spell_Equiped:
 		"null":
 			%"Name Spell".text = "Unequipped"
@@ -72,5 +74,19 @@ func HUD_Visibility(Icon, Name, Description, State):
 		Name.self_modulate.a = 0.5
 		Description.self_modulate.a = 0.5
 
-func Replace_Icon(Replaced_Texture, Icon_Path):
-	Replaced_Texture.texture = Icon_Path.texture_normal
+func Side_Menu_Visual_Update(Menu_Slot, Item_Texture):
+	match Menu_Slot:
+		"Ready Tool Left":
+			%"TL Over".texture = load(Item_Texture)
+		"Ready Tool Right":
+			%"TR Over".texture = load(Item_Texture)
+		"Ready Spell":
+			%"S Over".texture = load(Item_Texture)
+		#"Ready UItem 1":
+			#%"Ready UItem 1 Overlay".texture = load(Item_Texture)
+		#"Ready UItem 2":
+			#%"Ready  UItem 2 Overlay".texture = load(Item_Texture)
+		#"Ready UItem 3":
+			#%"Ready UItem 3 Overlay".texture = load(Item_Texture)
+		_:
+			print(":3 ERROR: Side_Menu_Visual_Update")

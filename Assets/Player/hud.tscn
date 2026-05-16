@@ -19,9 +19,6 @@
 [ext_resource type="Theme" uid="uid://ylysgsmxvcu1" path="res://Assets/UI/Main_UI_Theme.tres" id="14_8hhtu"]
 [ext_resource type="PackedScene" uid="uid://c22fdxmv2autu" path="res://Assets/Player/menus.tscn" id="15_dtd46"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kfml6"]
-load_path = "res://.godot/imported/Placeholder_Icon.png-304e947d8e45133990e7b80d782c6b80.ctex"
-
 [node name="HUD" type="CanvasLayer" unique_id=775426720]
 script = ExtResource("1_bitai")
 
@@ -77,20 +74,28 @@ scale = Vector2(0.23, 0.23)
 theme_override_constants/separation = 20
 
 [node name="TR Over" type="TextureRect" parent="Control/Side HUD/SidH Overlay" unique_id=613960007]
+unique_name_in_owner = true
 layout_mode = 2
-texture = SubResource("CompressedTexture2D_kfml6")
+texture = ExtResource("7_bhcvo")
+expand_mode = 4
 
 [node name="TL Over" type="TextureRect" parent="Control/Side HUD/SidH Overlay" unique_id=1051551925]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("6_g7t8a")
+expand_mode = 4
 
 [node name="S Over" type="TextureRect" parent="Control/Side HUD/SidH Overlay" unique_id=1634645620]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("7_bhcvo")
+expand_mode = 4
 
 [node name="U Over" type="TextureRect" parent="Control/Side HUD/SidH Overlay" unique_id=1660138663]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("7_bhcvo")
+expand_mode = 4
 
 [node name="SidH Names" type="VBoxContainer" parent="Control/Side HUD" unique_id=1950255623]
 layout_mode = 0

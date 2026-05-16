@@ -6,6 +6,7 @@ var buttfocus: String = ""
 
 func _ready() -> void:
 	Global.Player_Data.Ready_Menu_Toggled.connect(set_Ready_Menu)
+	Global.Player_Data.Menus_Visual_Update.connect(Ready_Menu_Visual_Update)
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
 
 #region Functions
@@ -33,6 +34,8 @@ func _on_focus_changed(nodefocus: Control):
 		buttfocus = nodefocus.name
 
 func Remove_Item():
+	var Blank_Image: String = "res://Assets/UI/HUD/Item Icons/_Ultilities/Item_Icon_Blank.png"
+	
 	match buttfocus:
 		"Ready Inventory":
 			pass
@@ -40,18 +43,25 @@ func Remove_Item():
 			pass
 	
 		"Ready Brace":
-			pass
+			if !Global.Player_Data.Inv_Brace_Equiped == "null":
+				Global.Player_Data.Brace_ID[Global.Player_Data.Inv_Brace_Equiped]["equipped?"] = false
+				%"Ready Brace Overlay".texture = load(Blank_Image)
+				Global.Player_Data.Inv_Brace_Equiped = "null"
+			else:
+				%"Menu Return".play()
 		"Ready Wear":
 			pass
 		"Ready Tool Left":
 			if !Global.Player_Data.Inv_ToolL_Equiped == "null":
 				Global.Player_Data.Tool_ID[Global.Player_Data.Inv_ToolL_Equiped]["equipped?"] = false
+				%"Ready Tool Left Overlay".texture = load(Blank_Image)
 				Global.Player_Data.Inv_ToolL_Equiped = "null"
 			else:
 				%"Menu Return".play()
 		"Ready Tool Right":
 			if !Global.Player_Data.Inv_ToolR_Equiped == "null":
 				Global.Player_Data.Tool_ID[Global.Player_Data.Inv_ToolR_Equiped]["equipped?"] = false
+				%"Ready Tool Right Overlay".texture = load(Blank_Image)
 				Global.Player_Data.Inv_ToolR_Equiped = "null"
 			else:
 				%"Menu Return".play()
@@ -65,6 +75,33 @@ func Remove_Item():
 		"Ready UItem 3":
 			pass
 	Global.Player_Data.emit_signal("Tool_Rotation")
+
+func Ready_Menu_Visual_Update(Menu_Slot, Item_Texture):
+	match Menu_Slot:
+		"Ready Inventory":
+			pass
+		"Ready Settings":
+			pass
+	
+		"Ready Brace":
+			%"Ready Brace Overlay".texture = load(Item_Texture)
+		"Ready Wear":
+			%"Ready Wear Overlay".texture = load(Item_Texture)
+		"Ready Tool Left":
+			%"Ready Tool Left Overlay".texture = load(Item_Texture)
+		"Ready Tool Right":
+			%"Ready Tool Right Overlay".texture = load(Item_Texture)
+	
+		"Ready Spell":
+			%"Ready Spell Overlay".texture = load(Item_Texture)
+		"Ready UItem 1":
+			%"Ready UItem 1 Overlay".texture = load(Item_Texture)
+		"Ready UItem 2":
+			%"Ready  UItem 2 Overlay".texture = load(Item_Texture)
+		"Ready UItem 3":
+			%"Ready UItem 3 Overlay".texture = load(Item_Texture)
+		_:
+			print(":3 ERROR: Ready_Menu_Visual_Update")
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed(Global.Player_Data.UnUI_Unselect):
@@ -81,19 +118,27 @@ func ready_settings_pressed() -> void:
 
 #region Wear and Tool
 func ready_brace_pressed() -> void:
-	StatsMan.Set_Menu(false, "Brace menu")
-	Global.Player_Data.Seletion_Menu_Active = !Global.Player_Data.Seletion_Menu_Active
-	Global.Player_Data.emit_signal("Seletion_Menu_Toggled", Global.Player_Data.Seletion_Menu_Active)
+	if Global.Player_Data.Inv_Brace_Equiped == "null":
+		StatsMan.Set_Menu(false, "Brace menu")
+		Global.Player_Data.Seletion_Menu_Active = !Global.Player_Data.Seletion_Menu_Active
+		Global.Player_Data.emit_signal("Seletion_Menu_Toggled", Global.Player_Data.Seletion_Menu_Active)
+	else:
+		%"Menu Return".play()
 
 func ready_wear_pressed() -> void:
-	StatsMan.Set_Menu(false, "Wear menu")
-	Global.Player_Data.Seletion_Menu_Active = !Global.Player_Data.Seletion_Menu_Active
-	Global.Player_Data.emit_signal("Seletion_Menu_Toggled", Global.Player_Data.Seletion_Menu_Active)
-
+	if Global.Player_Data.Inv_Wear_Equiped == "null":
+		StatsMan.Set_Menu(false, "Wear menu")
+		Global.Player_Data.Seletion_Menu_Active = !Global.Player_Data.Seletion_Menu_Active
+		Global.Player_Data.emit_signal("Seletion_Menu_Toggled", Global.Player_Data.Seletion_Menu_Active)
+	else:
+		%"Menu Return".play()
 func ready_tool_left_pressed() -> void:
-	StatsMan.Set_Menu(false, "Tool Left menu")
-	Global.Player_Data.Seletion_Menu_Active = !Global.Player_Data.Seletion_Menu_Active
-	Global.Player_Data.emit_signal("Seletion_Menu_Toggled", Global.Player_Data.Seletion_Menu_Active)
+	if Global.Player_Data.Inv_ToolL_Equiped == "null":
+		StatsMan.Set_Menu(false, "Tool Left menu")
+		Global.Player_Data.Seletion_Menu_Active = !Global.Player_Data.Seletion_Menu_Active
+		Global.Player_Data.emit_signal("Seletion_Menu_Toggled", Global.Player_Data.Seletion_Menu_Active)
+	else:
+		%"Menu Return".play()
 
 func ready_tool_right_pressed() -> void:
 	if Global.Player_Data.Inv_ToolR_Equiped == "null":
