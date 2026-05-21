@@ -13,13 +13,17 @@ func Iteraction():
 		"yes_text": "Up",
 		"no_text": "Down"
 	}
-	SignalBus.emit_signal("request_popup", Choice_Names, self)
+	SignalBus.emit_signal("request_popup", Choice_Names, "Test box")
 
-func on_reply_popup(Choice_Answer):
-	if Choice_Answer == true:
-		print("Confirmed!")
-	elif Choice_Answer == false:
-		print("Denied!")
+func on_reply_popup(Choice_Answer, Address_To):
+	if Address_To == "Test box":
+		if Choice_Answer == "Up":
+			print("Confirmed!")
+		elif Choice_Answer == "Down":
+			print("Denied!")
+	else:
+		pass
+		#print("ERROR: on_reply_popup no matching Address_To")
 
 func Take_Damage():
 	print("loutsacue")

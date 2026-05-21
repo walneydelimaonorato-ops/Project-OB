@@ -19,6 +19,7 @@ var Un_LSecondary_Tool_Use: String
 var Un_Tool_Alternive: String
 var Un_2Hand_Toggle: String
 var Un_Use_UItem: String 
+var Un_Cycle_UItem: String
 
 var UnUI_Up: String
 var UnUI_Down: String
@@ -51,11 +52,18 @@ signal Seletion_Menu_Toggled(active: bool)
 signal Choice_Menu_Toggled(active: bool)
 signal Menus_Visual_Update(Menu_Slot: String, Item_Texture: String)
 
-signal Tool_Rotation()
+signal UItem_Cycle()
+signal UItem_Use()
+
+signal Stats_Change(Operation: String, Type: String, Value: int)
+signal Player_Stats_Management_Update_In()
+signal Player_Stats_Management_Update_Out()
+
+signal Tool_and_HUD_Rotation()
 #endregion
 
 #region Static Variables (never change)
-@export_enum("Key", "Joy") var Control_Mode: String
+var Control_Mode: String = "Key"
 var Base_Speed: int = 4 # Speed used to move
 var Dummy_Speed: int = 4 # Fallback speed value
 var Run: int = 6 # Speed used when running
@@ -71,10 +79,28 @@ var Actionable: bool
 #endregion
 
 #region Fluid Variables (change)
+# Can / Can't setters
+var Can_Open_Menus: bool
+var Can_Use_Sword: bool
+var Can_Use_Dagger: bool
+var Can_Use_HandGun: bool
+var Can_Use_AssaultRifle: bool
+var Can_Show_UI_Side: bool
+var Can_Show_UI_Stats: bool
+var Can_Show_Prompts: bool
+var Can_Move: bool
+var Can_Sprint: bool
+var Can_Look: bool
+var Can_Use_Menus: bool
+var Can_Use_UItems: bool
+
+var Player_Status_1: String
+var Player_Status_2: String
+var Player_Status_3: String
+
 # Aassss
 var Ammo_A: int = 0
 var Mag_A: int = 0
-
 var Ammo_C: int = 0
 
 # Menu related variables
@@ -95,6 +121,8 @@ var Inv_Spell_Equiped: String = "null"
 var Inv_Uitem1_Equiped: String = "null"
 var Inv_Uitem2_Equiped: String = "null"
 var Inv_Uitem3_Equiped: String = "null"
+var Cycle_Uitem_Active: String = "null"
+var Cycle_Uitem_Index: int = 1
 
 # Stamina related variables
 var Stamina_Max: float = 20.0 # Maximum amount of stamina the player can have
@@ -284,24 +312,38 @@ var Brace_ID = {
 var UItem_ID = {
 	"null": {
 		"dys name": " ", 
-		"sys name": " ",
-		"Icon": "",
+		"sys name": "null",
+		"Icon": "uid://qua4cq3ubssm",
+	},
+	"Sigil": {
+		"dys name": " ", 
+		"sys name": "Sigil",
+		"Icon": "uid://di03rqvlhqp7q",
+		"picked?": true,
+		"equipped?": false,
+		
 		"heal_values": 0,
 		"quantity": 0,
 		"special id": ""
 		},
-	"Glass flask": {
+	"Glass Flask": {
 		"dys name": " ", 
-		"sys name": " ",
-		"Icon": "",
+		"sys name": "Glass Flask",
+		"Icon": "uid://13ylgt0ylimp",
+		"picked?": true,
+		"equipped?": false, 
+		
 		"heal_values": Health_Max / 3,
 		"quantity": Glass_flask_quantity,
 		"special id": "renewable"
 		},
-	"Wild gold": {
+	"Wild Gold": {
 		"dys name": " ", 
-		"sys name": " ",
-		"Icon": "",
+		"sys name": "Wild Gold",
+		"Icon": "uid://v22tjgao7mso",
+		"picked?": true,
+		"equipped?": false, 
+		
 		"heal_values": 2,
 		"quantity": Wild_gold_quantity,
 		"special id": ""

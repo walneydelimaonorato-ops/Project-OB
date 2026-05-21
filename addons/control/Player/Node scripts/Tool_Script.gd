@@ -447,17 +447,17 @@ func UItem_Rotate():
 		#2:
 			#Usable_Item.play("Wild Gold Petal")
 	#
-	## Item Rotation
-	## Keyboard
-	#if player.Key_C and PlayerValue.Menu_mode == false:
-		#if Input.is_action_just_pressed("In_Key_Rot_Down"): # Rotates "Usable Item selection" index
-			#PlayerValue.Usable_Item_Selected += 1
-	## Joypad
-	#if player.Joy_C  and PlayerValue.Menu_mode == false:
-		#if Input.is_action_just_released("In_Joy_Rot_Down"):
-			#PlayerValue.Usable_Item_Selected += 1
-	#
-	#PlayerValue.Usable_Item_Selected = wrapi(PlayerValue.Usable_Item_Selected, 1, PlayerValue.UItem_Max)
+	# Item Rotation
+	# Keyboard
+	if player.Key_C and PlayerValue.Menu_mode == false:
+		if Input.is_action_just_pressed("In_Key_Rot_Down"): # Rotates "Usable Item selection" index
+			PlayerValue.Usable_Item_Selected += 1
+	# Joypad
+	if player.Joy_C  and PlayerValue.Menu_mode == false:
+		if Input.is_action_just_released("In_Joy_Rot_Down"):
+			PlayerValue.Usable_Item_Selected += 1
+	
+	PlayerValue.Usable_Item_Selected = wrapi(PlayerValue.Usable_Item_Selected, 1, PlayerValue.UItem_Max)
 
 func Tool_Gen_Interaction():
 	if not Interact_Ray.is_colliding():

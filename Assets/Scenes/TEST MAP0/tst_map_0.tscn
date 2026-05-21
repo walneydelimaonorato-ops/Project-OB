@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b2154orcqa6ei" path="res://Assets/Scenes/TEST MAP0/TST_PSX_Tree_Image_1.png" id="10_rptus"]
 [ext_resource type="Texture2D" uid="uid://s7xrgduj4g74" path="res://Assets/Scenes/TEST MAP0/TST_PSX_Tree_Image_0.png" id="11_087wc"]
 [ext_resource type="Texture2D" uid="uid://bq6ota2ewi1wd" path="res://Assets/Scenes/TEST MAP0/TST_PSX_Tree_Image_2.png" id="12_5xvts"]
+[ext_resource type="ArrayOccluder3D" uid="uid://3yh4u24yb72x" path="res://Assets/Scenes/TEST MAP0/tst_map_0.occ" id="13_087wc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4jwc8"]
 sky_top_color = Color(0.28045967, 0.49630553, 0.4515105, 1)
@@ -655,6 +656,10 @@ transform = Transform3D(0.3674295, 0.298508, -0.83802545, -0.0559149, 1.9615629,
 
 [node name="Object_6" type="MeshInstance3D" parent="TST_PSX_Tree/GLTF_SceneRootNode/TALLER ROCK_1" unique_id=1574102613]
 mesh = SubResource("ArrayMesh_um7q3")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." unique_id=1536455641]
+occluder = ExtResource("13_087wc")
+bake_mask = 4293918721
 
 [editable path="Player"]
 [editable path="Player/Head/Eyes/Models"]

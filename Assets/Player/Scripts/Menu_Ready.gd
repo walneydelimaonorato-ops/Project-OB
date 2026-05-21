@@ -5,6 +5,8 @@ extends Node
 var buttfocus: String = ""
 
 func _ready() -> void:
+	%"Ready Menu".visible = false
+	%"Selection Menu".visible = false
 	Global.Player_Data.Ready_Menu_Toggled.connect(set_Ready_Menu)
 	Global.Player_Data.Menus_Visual_Update.connect(Ready_Menu_Visual_Update)
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
@@ -69,12 +71,27 @@ func Remove_Item():
 		"Ready Spell":
 			pass
 		"Ready UItem 1":
-			pass
+			if !Global.Player_Data.Inv_Uitem1_Equiped == "null":
+				Global.Player_Data.UItem_ID[Global.Player_Data.Inv_Uitem1_Equiped]["equipped?"] = false
+				%"Ready UItem 1 Overlay".texture = load(Blank_Image)
+				Global.Player_Data.Inv_Uitem1_Equiped = "null"
+			else:
+				%"Menu Return".play()
 		"Ready UItem 2":
-			pass
+			if !Global.Player_Data.Inv_Uitem2_Equiped == "null":
+				Global.Player_Data.UItem_ID[Global.Player_Data.Inv_Uitem2_Equiped]["equipped?"] = false
+				%"Ready UItem 2 Overlay".texture = load(Blank_Image)
+				Global.Player_Data.Inv_Uitem2_Equiped = "null"
+			else:
+				%"Menu Return".play()
 		"Ready UItem 3":
-			pass
-	Global.Player_Data.emit_signal("Tool_Rotation")
+			if !Global.Player_Data.Inv_Uitem3_Equiped == "null":
+				Global.Player_Data.UItem_ID[Global.Player_Data.Inv_Uitem3_Equiped]["equipped?"] = false
+				%"Ready UItem 3 Overlay".texture = load(Blank_Image)
+				Global.Player_Data.Inv_Uitem3_Equiped = "null"
+			else:
+				%"Menu Return".play()
+	Global.Player_Data.emit_signal("Tool_and_HUD_Rotation")
 
 func Ready_Menu_Visual_Update(Menu_Slot, Item_Texture):
 	match Menu_Slot:
@@ -97,11 +114,11 @@ func Ready_Menu_Visual_Update(Menu_Slot, Item_Texture):
 		"Ready UItem 1":
 			%"Ready UItem 1 Overlay".texture = load(Item_Texture)
 		"Ready UItem 2":
-			%"Ready  UItem 2 Overlay".texture = load(Item_Texture)
+			%"Ready UItem 2 Overlay".texture = load(Item_Texture)
 		"Ready UItem 3":
 			%"Ready UItem 3 Overlay".texture = load(Item_Texture)
 		_:
-			print(":3 ERROR: Ready_Menu_Visual_Update")
+			print("MANUAL ERROR: <Ready_Menu_Visual_Update> Argument out of scope")
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed(Global.Player_Data.UnUI_Unselect):

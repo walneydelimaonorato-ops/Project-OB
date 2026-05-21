@@ -11,6 +11,9 @@ var Running: bool
 #var Un_LookUD := Vector2.ZERO
 #var Un_LookLR := Vector2.ZERO
 
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -18,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle jump.
 	if Input.is_action_just_pressed(Global.Player_Data.Un_Jump) and is_on_floor():
-		StatsMan.Stats_Decrease("Stamina", 5)
+		Global.Player_Data.emit_signal("Stats_Change", "Decrease", "Stamina", 5)
 		velocity.y = 4.5
 	
 	if Input.is_action_pressed(Global.Player_Data.Un_Sprint): #and PlayerValue.Stamina > 0:
@@ -35,11 +38,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * Global.Player_Data.Base_Speed
 		velocity.z = direction.z * Global.Player_Data.Base_Speed
 		if Running:
-			StatsMan.Stats_Decrease("Stamina", 0.15)
+			Global.Player_Data.emit_signal("Stats_Change", "Decrease", "Stamina", 0.2)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.15)
 		velocity.z = lerp(velocity.z, 0.0, 0.15)
 	move_and_slide()
+	Camera_Tilt(input_dir.x, delta)
 
 func _process(_delta: float) -> void:
 	if Global.Player_Data.Control_Mode == "Joy":
@@ -47,7 +51,6 @@ func _process(_delta: float) -> void:
 		Head.rotation.y -= look_in.y * Global.Player_Data.Joy_Camera_Sens
 		Eyes.rotation.x -= look_in.x * Global.Player_Data.Joy_Camera_Sens
 		Eyes.rotation.x = clamp(Eyes.rotation.x, deg_to_rad(-85), deg_to_rad(85))
-
 
 func _input(input: InputEvent) -> void:
 	if Input.is_action_just_pressed(Global.Player_Data.Un_Ready_Menu):
@@ -60,6 +63,12 @@ func _input(input: InputEvent) -> void:
 	if Input.is_action_just_pressed(Global.Player_Data.Un_RPrimary_Tool_Use):
 		Action.Action_Primary("Right")
 	
+	if Input.is_action_just_pressed(Global.Player_Data.Un_Cycle_UItem):
+		Global.Player_Data.emit_signal("UItem_Cycle")
+	
+	if Input.is_action_just_pressed(Global.Player_Data.Un_Use_UItem):
+		Global.Player_Data.emit_signal("UItem_Use") #UItem_Use
+	
 	if Input.is_action_just_pressed(Global.Player_Data.Un_Tool_Alternive):
 		Action.Action_Alternative()
 	
@@ -68,5 +77,9 @@ func _input(input: InputEvent) -> void:
 			Head.rotation.y -= input.relative.x * Global.Player_Data.Key_Camera_Sens
 			Eyes.rotation.x -= input.relative.y * Global.Player_Data.Key_Camera_Sens
 			Eyes.rotation.x = clamp(Eyes.rotation.x, deg_to_rad(-85), deg_to_rad(85))
-	
-	
+
+func Camera_Tilt(input_x, delta):
+	if Eyes:
+		Eyes.rotation.z = lerp(Eyes.rotation.z, -input_x * 0.1, 10 * delta)
+	if %Models:
+		%Models.rotation.z = lerp(%Models.rotation.z, -input_x * 0.05, 10 * delta)

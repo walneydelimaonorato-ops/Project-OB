@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b0b2vsfbxq1a8" path="res://Assets/UI/HUD/Side HUD/Health.png" id="7_c66ss"]
 [ext_resource type="Texture2D" uid="uid://qjq03yc5xcfc" path="res://Assets/UI/HUD/Side HUD/Stamina_Lines_AA.png" id="7_l5jda"]
 [ext_resource type="Texture2D" uid="uid://bsk0xgutv14ex" path="res://Assets/UI/HUD/Side HUD/Frame_Health.png" id="7_vy47n"]
+[ext_resource type="Texture2D" uid="uid://13ylgt0ylimp" path="res://Assets/UI/HUD/Item Icons/UItems/UItem_Flask_Icon.png" id="8_bhcvo"]
 [ext_resource type="Texture2D" uid="uid://crw7mq7c182fr" path="res://Assets/UI/HUD/Side HUD/Stamina_AA.png" id="8_lqkoi"]
 [ext_resource type="Texture2D" uid="uid://denq0vupr60gy" path="res://Assets/UI/HUD/Side HUD/Health_Eyes.png" id="10_8hhtu"]
 [ext_resource type="Script" uid="uid://doilu7ex0syva" path="res://Assets/Player/Scripts/debug.gd" id="12_2vfgr"]
@@ -94,7 +95,7 @@ expand_mode = 4
 [node name="U Over" type="TextureRect" parent="Control/Side HUD/SidH Overlay" unique_id=1660138663]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("7_bhcvo")
+texture = ExtResource("8_bhcvo")
 expand_mode = 4
 
 [node name="SidH Names" type="VBoxContainer" parent="Control/Side HUD" unique_id=1950255623]
@@ -324,8 +325,13 @@ layout_mode = 2
 text = "Invnetory checkup:"
 
 [node name="Page 3" type="Label" parent="Control2/Debug Backdrop" unique_id=614144741]
+visible = false
 layout_mode = 2
 text = "Miscellaneous checkups:"
+
+[node name="Page 4" type="Label" parent="Control2/Debug Backdrop" unique_id=242942176]
+layout_mode = 2
+text = "Cans"
 
 [node name="Focus Node" type="Label" parent="Control2" unique_id=170205039]
 layout_mode = 0

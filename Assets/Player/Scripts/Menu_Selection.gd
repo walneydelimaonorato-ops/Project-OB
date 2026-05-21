@@ -13,14 +13,11 @@ func _input(_event: InputEvent) -> void:
 
 func exit():
 	%"Menu Return".play()
-	Global.Player_Data.emit_signal("Tool_Rotation")
+	Global.Player_Data.emit_signal("Tool_and_HUD_Rotation")
 	Global.Player_Data.Seletion_Menu_Active = !Global.Player_Data.Seletion_Menu_Active
 	Global.Player_Data.emit_signal("Seletion_Menu_Toggled", Global.Player_Data.Seletion_Menu_Active)
 	Global.Player_Data.Current_Menu = "Ready"
 	MenuReady.focus_first_visible($"../Ready Menu/Ready Menu Grid/Ready Wear and Tool")
-
-func Replace_Icon(Replaced_Texture, Icon_Path):
-	Replaced_Texture.texture = Icon_Path.texture_normal
 
 func set_Selection_Menu(active: bool):
 	%"Selection Menu".visible = active
@@ -154,7 +151,7 @@ func tool_bow_pressed() -> void:
 	exit()
 #endregion
 
-
+#region Braces Region
 func brace_golden_pressed() -> void:
 	Global.Player_Data.Inv_Brace_Equiped = Global.Player_Data.Brace_ID["Golden Bra."]["sys name"]
 	Global.Player_Data.Brace_ID["Golden Bra."]["equipped?"] = true
@@ -173,3 +170,41 @@ func brace_power_pressed() -> void:
 	Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready Brace", Global.Player_Data.Brace_ID["Power Bra."]["Icon"])
 	
 	exit()
+#endregion
+
+func uitem_sigil_pressed() -> void:
+	match Global.Player_Data.Current_SubMenu:
+		"UItem1 menu":
+			Global.Player_Data.Inv_Uitem1_Equiped = Global.Player_Data.UItem_ID["Sigil"]["sys name"]
+			Global.Player_Data.UItem_ID["Sigil"]["equipped?"] = true
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready UItem 1", Global.Player_Data.UItem_ID["Sigil"]["Icon"])
+			exit()
+		"UItem2 menu":
+			Global.Player_Data.Inv_Uitem2_Equiped = Global.Player_Data.UItem_ID["Sigil"]["sys name"]
+			Global.Player_Data.UItem_ID["Sigil"]["equipped?"] = true
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready UItem 2", Global.Player_Data.UItem_ID["Sigil"]["Icon"])
+			exit()
+		"UItem3 menu":
+			Global.Player_Data.Inv_Uitem3_Equiped = Global.Player_Data.UItem_ID["Sigil"]["sys name"]
+			Global.Player_Data.UItem_ID["Sigil"]["equipped?"] = true
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready UItem 3", Global.Player_Data.UItem_ID["Sigil"]["Icon"])
+			exit()
+
+
+func uitem_green_flask_pressed() -> void:
+	match Global.Player_Data.Current_SubMenu:
+		"UItem1 menu":
+			Global.Player_Data.Inv_Uitem1_Equiped = Global.Player_Data.UItem_ID["Glass Flask"]["sys name"]
+			Global.Player_Data.UItem_ID["Glass Flask"]["equipped?"] = true
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready UItem 1", Global.Player_Data.UItem_ID["Glass Flask"]["Icon"])
+			exit()
+		"UItem2 menu":
+			Global.Player_Data.Inv_Uitem2_Equiped = Global.Player_Data.UItem_ID["Glass Flask"]["sys name"]
+			Global.Player_Data.UItem_ID["Glass Flask"]["equipped?"] = true
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready UItem 2", Global.Player_Data.UItem_ID["Glass Flask"]["Icon"])
+			exit()
+		"UItem3 menu":
+			Global.Player_Data.Inv_Uitem3_Equiped = Global.Player_Data.UItem_ID["Glass Flask"]["sys name"]
+			Global.Player_Data.UItem_ID["Glass Flask"]["equipped?"] = true
+			Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready UItem 3", Global.Player_Data.UItem_ID["Glass Flask"]["Icon"])
+			exit()

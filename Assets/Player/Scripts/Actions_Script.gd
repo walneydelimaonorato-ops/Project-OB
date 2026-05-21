@@ -4,7 +4,6 @@ extends Node
 
 func _ready() -> void:
 	print("Player Action working")
-	
 
 func Action_Alternative():
 	StatsMan.Geneneral_Interaction(%Ray2, "Iteraction")

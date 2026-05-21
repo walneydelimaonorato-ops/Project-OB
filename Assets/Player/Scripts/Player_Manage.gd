@@ -26,15 +26,16 @@ var Colidder
 func _ready() -> void:
 	print("Player Management working")
 	
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
 	Regeneration_Timer_Startup()
 	Global.Player_Data.Stamina_Regeneration_Delay_Timer.timeout.connect(Start_Stamina_Regeneration)
 	
 	Tool_Rotation()
-	Global.Player_Data.Tool_Rotation.connect(Tool_Rotation)
+	Global.Player_Data.Stats_Change.connect(Stats_Decrease)
+	Global.Player_Data.Stats_Change.connect(Stats_Increase)
+	Global.Player_Data.Tool_and_HUD_Rotation.connect(Tool_Rotation)
 	SignalBus.item_transfer.connect(Item_Pickup)
 	SignalBus.player_stat_change.connect(Stats_Decrease)
+	SignalBus.player_stat_change.connect(Stats_Increase)
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
 	
 #region Control Settup
@@ -53,6 +54,7 @@ func _ready() -> void:
 			Global.Player_Data.Un_Right = "In_Right"
 			Global.Player_Data.Un_Jump = "In_Jump"
 			Global.Player_Data.Un_Use_UItem = "In_Use_Item"
+			Global.Player_Data.Un_Cycle_UItem = "In_Cycle_UItem"
 			Global.Player_Data.Un_Sprint = "In_Sprint"
 			Global.Player_Data.Un_Ready_Menu = "In_Pause"
 			Global.Player_Data.Un_RPrimary_Tool_Use = "In_Mouse_R"
@@ -94,6 +96,7 @@ func _ready() -> void:
 			Global.Player_Data.Un_Right = "In_JoyL_Right"
 			Global.Player_Data.Un_Jump = "In_Joy_Jump"
 			Global.Player_Data.Un_Use_UItem = "In_Joy_Use_Item"
+			Global.Player_Data.Un_Cycle_UItem = "In_Joy_Cycle_UItem"
 			Global.Player_Data.Un_Sprint = "In_Joy_Sprint"
 			Global.Player_Data.Un_Ready_Menu = "In_Joy_Pause"
 			Global.Player_Data.Un_RPrimary_Tool_Use = "In_Joy_R2"
@@ -150,18 +153,33 @@ func Start_Stamina_Regeneration():
 func Stamina_Regeneration_Process(delta):
 	if Global.Player_Data.Stamina_Regeneration_Active == true and Global.Player_Data.Stamina < Global.Player_Data.Stamina_Max:
 		Global.Player_Data.Stamina += Global.Player_Data.Stamina_Regeneration_Rate * delta
+		Global.Player_Data.emit_signal("Tool_and_HUD_Rotation")
 		if Global.Player_Data.Stamina >= Global.Player_Data.Stamina_Max:
 			Global.Player_Data.Stamina = Global.Player_Data.Stamina_Max
 			Global.Player_Data.Stamina_Regeneration_Active = false
 #endregion
 
-func Stats_Decrease(Type, Value):
-	if Type == "Health":
-		Global.Player_Data.Health -= Value
-	elif Type == "Stamina": 
-		Global.Player_Data.Stamina -= Value
-		Global.Player_Data.Stamina_Regeneration_Active = false
-		Global.Player_Data.Stamina_Regeneration_Delay_Timer.start()
+func Stats_Decrease(Operation, Type, Value):
+	if Operation == "Decrease":
+		match Type:
+			"Health":
+				Global.Player_Data.Health -= Value
+			"Stamina": 
+				Global.Player_Data.Stamina -= Value
+				Global.Player_Data.Stamina_Regeneration_Active = false
+				Global.Player_Data.Stamina_Regeneration_Delay_Timer.start()
+	else:
+		pass
+	Global.Player_Data.emit_signal("Tool_and_HUD_Rotation")
+
+func Stats_Increase(Operation, Type, Value):
+	if Operation == "Increase":
+		match Type:
+			"Health":
+				Global.Player_Data.Health += Value
+	else:
+		pass
+	Global.Player_Data.emit_signal("Tool_and_HUD_Rotation")
 
 func _on_focus_changed(node: Control):
 	if node:

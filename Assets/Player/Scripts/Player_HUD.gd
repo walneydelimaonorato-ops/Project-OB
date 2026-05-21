@@ -11,14 +11,12 @@ var Interact_Prompt: String = "General"
 func _ready() -> void:
 	Side_HUD_Update()
 	Global.Player_Data.Menus_Visual_Update.connect(Side_Menu_Visual_Update)
-	Global.Player_Data.Tool_Rotation.connect(Side_HUD_Update)
+	Global.Player_Data.Tool_and_HUD_Rotation.connect(Side_HUD_Update)
+
 
 func _process(_delta: float) -> void:
-	Health.max_value = Global.Player_Data.Health_Max
-	Health.value = Global.Player_Data.Health
-	Stamina.max_value = Global.Player_Data.Stamina_Max
-	Stamina.value = Global.Player_Data.Stamina
-	
+	pass
+
 func _physics_process(_delta: float) -> void:
 	%"Interact Prompt".text = "[img=30]" + Global.Player_Data.UnHUDIcon_Interact + "[/img]: " + Interact_Prompt
 	if %Ray2.is_colliding():
@@ -29,10 +27,17 @@ func _physics_process(_delta: float) -> void:
 		%"Interact Prompt".visible = false
 
 func Side_HUD_Update():
+	#Health.value = lerp(Health.value, Global.Player_Data.Health, 0.5)
+	Health.max_value = Global.Player_Data.Health_Max
+	Health.value = Global.Player_Data.Health
+	Stamina.max_value = Global.Player_Data.Stamina_Max
+	Stamina.value = Global.Player_Data.Stamina
+	
 	HUD_Visibility(%"Tool R", %"Name ToolR", %"Desc ToolR", "Invisible")
 	HUD_Visibility(%"Tool L", %"Name ToolL", %"Desc ToolL", "Invisible")
 	HUD_Visibility(%Spell, %"Name Spell", %"Desc Spell" , "Invisible")
 	HUD_Visibility(%UItem, %"Name UItem", %"Desc UItem", "Invisible")
+	
 	match Global.Player_Data.Inv_ToolR_Equiped:
 		"null":
 			%"Name ToolR".text = "Unequipped"
@@ -59,10 +64,18 @@ func Side_HUD_Update():
 			%"Name ToolL".text = Global.Player_Data.Tool_ID["AssaultRifle"]["dys name"]
 			%"Desc ToolL".text = "tasty coconut :3"
 
-	match Global.Player_Data.Inv_Spell_Equiped:
+	match Global.Player_Data.Cycle_Uitem_Active:
 		"null":
-			%"Name Spell".text = "Unequipped"
-			%"Desc Spell".text = "<nothing>"
+			%"Name UItem".text = "Unequipped"
+			%"Desc UItem".text = "<nothing>"
+		"Sigil":
+			HUD_Visibility(%UItem, %"Name UItem", %"Desc UItem", "Visible")
+			%"Name UItem".text = "Sigil of Violence"
+			%"Desc UItem".text = "Not enough..."
+		"Glass Flask":
+			HUD_Visibility(%UItem, %"Name UItem", %"Desc UItem", "Visible")
+			%"Name UItem".text = "Flask"
+			%"Desc UItem".text = "paraguard"
 
 func HUD_Visibility(Icon, Name, Description, State):
 	if State == "Visible":
@@ -82,11 +95,11 @@ func Side_Menu_Visual_Update(Menu_Slot, Item_Texture):
 			%"TR Over".texture = load(Item_Texture)
 		"Ready Spell":
 			%"S Over".texture = load(Item_Texture)
-		#"Ready UItem 1":
-			#%"Ready UItem 1 Overlay".texture = load(Item_Texture)
+		"Ready UItem 1":
+			%"U Over".texture = load(Item_Texture)
 		#"Ready UItem 2":
 			#%"Ready  UItem 2 Overlay".texture = load(Item_Texture)
 		#"Ready UItem 3":
 			#%"Ready UItem 3 Overlay".texture = load(Item_Texture)
 		_:
-			print(":3 ERROR: Side_Menu_Visual_Update")
+			print("MANUAL ERROR: <Side_Menu_Visual_Update> Argument out of scope")

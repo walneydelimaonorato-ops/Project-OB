@@ -245,18 +245,25 @@ layout_mode = 2
 [node name="Ready Spell Overlay" type="TextureRect" parent="Ready Menu/Ready Menu Overlay/Ready Spell and UItem Overlay" unique_id=1408352614]
 unique_name_in_owner = true
 layout_mode = 2
+texture = ExtResource("15_yi8xc")
 
 [node name="Ready UItem 1 Overlay" type="TextureRect" parent="Ready Menu/Ready Menu Overlay/Ready Spell and UItem Overlay" unique_id=1519795519]
 unique_name_in_owner = true
 layout_mode = 2
+texture = ExtResource("15_yi8xc")
+expand_mode = 2
 
-[node name="Ready  UItem 2 Overlay" type="TextureRect" parent="Ready Menu/Ready Menu Overlay/Ready Spell and UItem Overlay" unique_id=1419364901]
+[node name="Ready UItem 2 Overlay" type="TextureRect" parent="Ready Menu/Ready Menu Overlay/Ready Spell and UItem Overlay" unique_id=1419364901]
 unique_name_in_owner = true
 layout_mode = 2
+texture = ExtResource("15_yi8xc")
+expand_mode = 2
 
 [node name="Ready UItem 3 Overlay" type="TextureRect" parent="Ready Menu/Ready Menu Overlay/Ready Spell and UItem Overlay" unique_id=1664347242]
 unique_name_in_owner = true
 layout_mode = 2
+texture = ExtResource("15_yi8xc")
+expand_mode = 2
 
 [node name="Ready Tips" type="RichTextLabel" parent="Ready Menu" unique_id=1235794607]
 unique_name_in_owner = true
@@ -279,7 +286,6 @@ autowrap_trim_flags = 128
 
 [node name="Selection Menu" type="Control" parent="." unique_id=852856482]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -312,6 +318,7 @@ layout_mode = 2
 
 [node name="Braces" type="VBoxContainer" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)" unique_id=589329469]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Start of Braces" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces" unique_id=154292881]
@@ -855,7 +862,6 @@ justification_flags = 162
 
 [node name="UItems" type="VBoxContainer" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)" unique_id=1041217003]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="Start of UItems" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems" unique_id=170828685]
@@ -896,6 +902,48 @@ theme_override_colors/default_color = Color(1, 0.39215687, 0.39215687, 1)
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
 text = "[img=200]uid://di03rqvlhqp7q[/img]: Sigil"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="UItem Green Flask" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems" unique_id=1160923153]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("18_muclb")
+texture_focused = ExtResource("19_064ml")
+
+[node name="UItem Green Flask" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems/UItem Green Flask" unique_id=513978270]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[img=200]uid://13ylgt0ylimp[/img]: Green Flask"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="UItem Placeholder2" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems" unique_id=1781451650]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("18_muclb")
+texture_focused = ExtResource("19_064ml")
+
+[node name="UItem Placeholder" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems/UItem Placeholder2" unique_id=1617230424]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[img=200]uid://bc1eahxnggs3n[/img]: Place 585.0"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1004,5 +1052,7 @@ text = "butt pudding
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Assault" to="Menus (Selection)" method="tool_assault_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool HandGun" to="Menus (Selection)" method="tool_handgun_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Bow" to="Menus (Selection)" method="tool_bow_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems/UItem Sigil" to="Menus (Selection)" method="uitem_sigil_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems/UItem Green Flask" to="Menus (Selection)" method="uitem_green_flask_pressed"]
 [connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Confirm" to="Menu (Choice)" method="on_confirm"]
 [connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Deny" to="Menu (Choice)" method="on_deny"]
