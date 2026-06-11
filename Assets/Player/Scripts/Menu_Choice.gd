@@ -1,6 +1,6 @@
 extends Node
 @onready var PlayerVars: Node = $"../../../../Script Nodes/Player Stats"
-@onready var StatsMan: Node = $"../../../../Script Nodes/Stats Management"
+# STATSMAN Node = $"../../../../Script Nodes/Stats Management"
 @onready var MenuReady: Node = %"Menus (Ready)"
 
 var Local_Confirm_Name: String

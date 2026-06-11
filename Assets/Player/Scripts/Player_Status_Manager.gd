@@ -1,24 +1,26 @@
 extends Node
 
 func _ready() -> void:
+	Global.Player_Data.Player_Status_Master = "Alive"
+	#SignalBus
 	print("Player Status Manager Working")
+	Stats_Assigning()
+	
 
-func Stats_Sorting():
-	match Global.Player_Data.Player_Status_1:
+func Stats_Assigning():
+	match Global.Player_Data.Player_Status_Master:
 		"Alive":
-			pass
+			Player_Permissions_Setting("Can_Move", "Yes")
+			Player_Permissions_Setting("Can_Look", "Yes")
 		"Dead":
-			Global.Player_Data.Can_Open_Menus = false
-			Global.Player_Data.Can_Show_UI_Side = false
-			Global.Player_Data.Can_Show_UI_Stats = false
-			Global.Player_Data.Can_Show_Prompts = false
-			Global.Player_Data.Can_Move = false
-			Global.Player_Data.Can_Look = false
-			Global.Player_Data.Can_Use_UItems = false
-			#Global.Player_Data.aa = false
+			Player_Permissions_Setting("Can_Menus", "No")
+			Player_Permissions_Setting("Can_Show_UI_Side", "No")
+			Player_Permissions_Setting("Can_Show_UI_Stats", "No")
+			Player_Permissions_Setting("Can_Show_Prompts", "No")
+			Player_Permissions_Setting("Can_Move", "No")
+			Player_Permissions_Setting("Can_Look", "No")
+			Player_Permissions_Setting("Can_Use_UItems", "No")
 		"Undead":
-			pass
-		_:
 			pass
 	
 	match Global.Player_Data.Player_Status_2:
@@ -26,3 +28,27 @@ func Stats_Sorting():
 	
 	match Global.Player_Data.Player_Status_3:
 		pass
+
+func Stats_Setting(Target, Setting):
+	match Target:
+		"Player Status Master":
+			Global.Player_Data.Player_Status_Master = Setting
+		"Player Status 1":
+			Global.Player_Data.Player_Status_1 = Setting
+		"Player Status 2":
+			Global.Player_Data.Player_Status_2 = Setting
+		"Player Status 3":
+			Global.Player_Data.Player_Status_3 = Setting
+
+func Player_Permissions_Setting(Permission: String, Setting: String):
+	if !Global.Player_Data.Player_Perms.has(Permission):
+		push_error("Unknown permission: " + Permission)
+		return
+	
+	match Setting:
+		"Flip":
+			Global.Player_Data.Player_Perms[Permission] = !Global.Player_Data.Player_Perms[Permission]
+		"Yes":
+			Global.Player_Data.Player_Perms[Permission] = true
+		"No":
+			Global.Player_Data.Player_Perms[Permission] = false

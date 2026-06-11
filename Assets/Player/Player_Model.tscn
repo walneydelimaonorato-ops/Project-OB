@@ -89,7 +89,6 @@ debug_shape_custom_color = Color(0, 1, 0, 1)
 debug_shape_thickness = 1
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Head" unique_id=1793310147]
-visible = false
 light_specular = 0.0
 omni_range = 185.0
 

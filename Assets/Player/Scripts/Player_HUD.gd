@@ -1,6 +1,6 @@
 extends CanvasLayer
 @onready var PlayerRes: Node = %"Player Stats"
-@onready var StatsMan: Node = %"Stats Management"
+# STATSMAN Node = %"Player Management"
 
 @onready var Interact: RichTextLabel = %"Interact Prompt"
 @onready var Health: TextureProgressBar = %Health
@@ -10,23 +10,26 @@ var Interact_Prompt: String = "General"
 
 func _ready() -> void:
 	Side_HUD_Update()
-	Global.Player_Data.Menus_Visual_Update.connect(Side_Menu_Visual_Update)
-	Global.Player_Data.Tool_and_HUD_Rotation.connect(Side_HUD_Update)
+	SignalBus.Menus_Visual_Update.connect(Side_Menu_Visual_Update)
+	SignalBus.HUD_Update.connect(Side_HUD_Update)
+	SignalBus.Sig_Interaction_HUD_Return.connect(Interact_Message_Display)
 
 
 func _process(_delta: float) -> void:
-	pass
-
-func _physics_process(_delta: float) -> void:
 	%"Interact Prompt".text = "[img=30]" + Global.Player_Data.UnHUDIcon_Interact + "[/img]: " + Interact_Prompt
 	if %Ray2.is_colliding():
 		%"Interact Prompt".visible = true
-		StatsMan.Geneneral_Interaction(%Ray2, "HUD_Element")
-		Interact_Prompt = StatsMan.Colidder.get_parent().HUD_Prompt
+		SignalBus.emit_signal("Sig_General_Interaction", %Ray2, "HUD_Element")
 	if !%Ray2.is_colliding():
 		%"Interact Prompt".visible = false
 
+func Interact_Message_Display(Message):
+	Interact_Prompt = Message.get_parent().HUD_Prompt
+
 func Side_HUD_Update():
+	%Stamina.visible = Global.Player_Data.Player_Perms.Can_Show_UI_Stats
+	%Health.visible = Global.Player_Data.Player_Perms.Can_Show_UI_Stats
+	
 	#Health.value = lerp(Health.value, Global.Player_Data.Health, 0.5)
 	Health.max_value = Global.Player_Data.Health_Max
 	Health.value = Global.Player_Data.Health

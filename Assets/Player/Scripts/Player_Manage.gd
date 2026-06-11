@@ -30,12 +30,14 @@ func _ready() -> void:
 	Global.Player_Data.Stamina_Regeneration_Delay_Timer.timeout.connect(Start_Stamina_Regeneration)
 	
 	Tool_Rotation()
-	Global.Player_Data.Stats_Change.connect(Stats_Decrease)
-	Global.Player_Data.Stats_Change.connect(Stats_Increase)
-	Global.Player_Data.Tool_and_HUD_Rotation.connect(Tool_Rotation)
+	SignalBus.Variable_Operation.connect(Stats_Decrease)
+	SignalBus.Variable_Operation.connect(Stats_Increase)
+	SignalBus.Tool_Rotation.connect(Tool_Rotation)
 	SignalBus.item_transfer.connect(Item_Pickup)
 	SignalBus.player_stat_change.connect(Stats_Decrease)
 	SignalBus.player_stat_change.connect(Stats_Increase)
+	SignalBus.Sig_General_Interaction.connect(Geneneral_Interaction)
+	SignalBus.Sig_Set_Menu.connect(Set_Menu)
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
 	
 #region Control Settup
@@ -153,7 +155,7 @@ func Start_Stamina_Regeneration():
 func Stamina_Regeneration_Process(delta):
 	if Global.Player_Data.Stamina_Regeneration_Active == true and Global.Player_Data.Stamina < Global.Player_Data.Stamina_Max:
 		Global.Player_Data.Stamina += Global.Player_Data.Stamina_Regeneration_Rate * delta
-		Global.Player_Data.emit_signal("Tool_and_HUD_Rotation")
+		SignalBus.emit_signal("HUD_Update")
 		if Global.Player_Data.Stamina >= Global.Player_Data.Stamina_Max:
 			Global.Player_Data.Stamina = Global.Player_Data.Stamina_Max
 			Global.Player_Data.Stamina_Regeneration_Active = false
@@ -170,7 +172,7 @@ func Stats_Decrease(Operation, Type, Value):
 				Global.Player_Data.Stamina_Regeneration_Delay_Timer.start()
 	else:
 		pass
-	Global.Player_Data.emit_signal("Tool_and_HUD_Rotation")
+	SignalBus.emit_signal("HUD_Update")
 
 func Stats_Increase(Operation, Type, Value):
 	if Operation == "Increase":
@@ -179,7 +181,7 @@ func Stats_Increase(Operation, Type, Value):
 				Global.Player_Data.Health += Value
 	else:
 		pass
-	Global.Player_Data.emit_signal("Tool_and_HUD_Rotation")
+	SignalBus.emit_signal("HUD_Update")
 
 func _on_focus_changed(node: Control):
 	if node:
@@ -202,8 +204,9 @@ func Geneneral_Interaction(Ray, Method):
 		return
 	elif Ray.is_colliding():
 		Colidder = Ray.get_collider()
-		if Colidder.get_parent().has_method(Method): # Get the collider and execute the method
+		if Colidder.get_parent().has_method(Method): # If the collider has the method
 			Colidder.get_parent().call(Method) # Executes the method
+			SignalBus.emit_signal("Sig_Interaction_HUD_Return", Colidder)
 			#print(Colidder)
 
 func Set_Menu(Switch: bool, Next_Menu: String):
@@ -275,7 +278,7 @@ func Tool_Rotation():
 			Assault_Rig.visible = true
 			Assault_Rig.scale.x = -1.0
 			General_Animations.play("Tools_Anims/Assault_Popup")
-#endregion
+			#endregion
 
 func Item_Pickup(Item_Sys_Name, Item_Type, Item_Quantity):
 	match Item_Type:

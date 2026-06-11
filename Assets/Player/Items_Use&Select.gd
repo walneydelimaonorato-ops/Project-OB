@@ -2,11 +2,13 @@ extends Node
 
 func _ready() -> void:
 	print("Items Use & Select working")
-	Global.Player_Data.UItem_Cycle.connect(UItem_Cycle)
-	Global.Player_Data.UItem_Use.connect(UItem_Use)
+	SignalBus.UItem_Cycle.connect(UItem_Cycle)
+	SignalBus.UItem_Use.connect(UItem_Use)
 	SignalBus.connect("reply_popup", UItem_Consume_Prompt)
 	
-	Global.Player_Data.Tool_and_HUD_Rotation.connect(UItem_Activating)
+	SignalBus.Tool_Rotation.connect(UItem_Activating)
+	
+	
 
 func UItem_Cycle():
 	Global.Player_Data.Cycle_Uitem_Index += 1
@@ -21,7 +23,7 @@ func UItem_Activating():
 		3:
 			Global.Player_Data.Cycle_Uitem_Active = Global.Player_Data.Inv_Uitem3_Equiped
 	
-	Global.Player_Data.emit_signal("Menus_Visual_Update", "Ready UItem 1", Global.Player_Data.UItem_ID[Global.Player_Data.Cycle_Uitem_Active]["Icon"])
+	SignalBus.emit_signal("Menus_Visual_Update", "Ready UItem 1", Global.Player_Data.UItem_ID[Global.Player_Data.Cycle_Uitem_Active]["Icon"])
 
 func UItem_Index_Centrilizing():
 	#print("Index at: ", str(Global.Player_Data.Cycle_Uitem_Index))
@@ -38,7 +40,7 @@ func UItem_Use():
 				}
 			SignalBus.emit_signal("request_popup", Choice_Names, "Sigil use")
 		"Glass Flask":
-			Global.Player_Data.emit_signal("Stats_Change", "Increase", "Health", 5) #Global.Player_Data.UItem_ID["Glass Flask"]["heal_values"]
+			SignalBus.emit_signal("Stats_Change", "Increase", "Health", 5) #Global.Player_Data.UItem_ID["Glass Flask"]["heal_values"]
 
 func UItem_Consume_Prompt(Choice_Answer, Address_To):
 	match Address_To:

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbeuu5atxngao"
-path.s3tc="res://.godot/imported/Map_Cliffside4_Grass-Dirt Sides.png-4aa04c3300c416af84fcafab72a05376.s3tc.ctex"
+uid="uid://dcye7btu2u7ex"
+path.s3tc="res://.godot/imported/Map_Cliffside7_Wood-Bark.png-c58d4cfe485bf6494546665f605fbd9c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "0417d099f720ace3cf613d725db29afc"
+"md5": "06c458196810f159b3d8bfbbaf67c97b"
 }
 
 [deps]
 
-source_file="res://Assets/Scenes/FINAL MAP Cliffside/Map_Cliffside4_Grass-Dirt Sides.png"
-dest_files=["res://.godot/imported/Map_Cliffside4_Grass-Dirt Sides.png-4aa04c3300c416af84fcafab72a05376.s3tc.ctex"]
+source_file="res://Assets/Scenes/FINAL MAP Cliffside/Map_Cliffside7_Wood-Bark.png"
+dest_files=["res://.godot/imported/Map_Cliffside7_Wood-Bark.png-c58d4cfe485bf6494546665f605fbd9c.s3tc.ctex"]
 
 [params]
 

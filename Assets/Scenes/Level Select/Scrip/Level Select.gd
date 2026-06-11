@@ -49,3 +49,13 @@ func beta_1_pressed() -> void:
 func final_1_pressed() -> void:
 	Global.Next_Scene = "uid://c47b70iv613lg"
 	get_tree().change_scene_to_packed(Global.Load_New)
+
+
+func test_2_pressed() -> void:
+	Global.Next_Scene = "uid://di3qwlwxlql45"
+	get_tree().change_scene_to_packed(Global.Load_New)
+
+
+func beta_2_pressed() -> void:
+	Global.Next_Scene = "uid://bale17m85tpdj"
+	get_tree().change_scene_to_packed(Global.Load_New)

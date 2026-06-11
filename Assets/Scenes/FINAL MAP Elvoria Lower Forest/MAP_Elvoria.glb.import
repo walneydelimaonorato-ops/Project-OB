@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bio1nsmr5w0r6"
-path="res://.godot/imported/Map_Cliffside4.glb-19c32752c0b6fd67d08a332d24c2bcaf.scn"
+uid="uid://bhncvi54b3nis"
+path="res://.godot/imported/MAP_Elvoria.glb-9e88f583d4722483b30c6971991a8480.scn"
 
 [deps]
 
-source_file="res://Assets/Scenes/FINAL MAP Cliffside/Map_Cliffside4.glb"
-dest_files=["res://.godot/imported/Map_Cliffside4.glb-19c32752c0b6fd67d08a332d24c2bcaf.scn"]
+source_file="res://Assets/Scenes/FINAL MAP Elvoria Lower Forest/MAP_Elvoria.glb"
+dest_files=["res://.godot/imported/MAP_Elvoria.glb-9e88f583d4722483b30c6971991a8480.scn"]
 
 [params]
 

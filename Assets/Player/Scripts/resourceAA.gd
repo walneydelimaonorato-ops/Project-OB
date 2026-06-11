@@ -47,19 +47,15 @@ var Menu_mode: bool = false # Checks if the player is currently in a menu
 #endregion
 
 #region Signals
-signal Ready_Menu_Toggled(active: bool)
-signal Seletion_Menu_Toggled(active: bool)
-signal Choice_Menu_Toggled(active: bool)
-signal Menus_Visual_Update(Menu_Slot: String, Item_Texture: String)
 
-signal UItem_Cycle()
-signal UItem_Use()
 
-signal Stats_Change(Operation: String, Type: String, Value: int)
-signal Player_Stats_Management_Update_In()
-signal Player_Stats_Management_Update_Out()
 
-signal Tool_and_HUD_Rotation()
+
+
+
+
+
+signal Update_Stats()
 #endregion
 
 #region Static Variables (never change)
@@ -80,23 +76,29 @@ var Actionable: bool
 
 #region Fluid Variables (change)
 # Can / Can't setters
-var Can_Open_Menus: bool
-var Can_Use_Sword: bool
-var Can_Use_Dagger: bool
-var Can_Use_HandGun: bool
-var Can_Use_AssaultRifle: bool
-var Can_Show_UI_Side: bool
-var Can_Show_UI_Stats: bool
-var Can_Show_Prompts: bool
-var Can_Move: bool
-var Can_Sprint: bool
-var Can_Look: bool
-var Can_Use_Menus: bool
-var Can_Use_UItems: bool
+var Player_Perms = {
+	"Can_Open_Menus": true,
+	"Can_Use_Sword": false,
+	"Can_Use_Dagger": false,
+	"Can_Use_HandGun": false,
+	"Can_Use_AssaultRifle": false,
+	"Can_Show_UI_Side": false,
+	"Can_Show_UI_Stats": false,
+	"Can_Show_Prompts": false,
+	"Can_Move": false,
+	"Can_Sprint": false,
+	"Can_Look": false,
+	"Can_Use_Menus": true,
+	"Can_Use_UItems": false,
+}
 
+
+var Player_Status_Master: String
 var Player_Status_1: String
 var Player_Status_2: String
 var Player_Status_3: String
+
+var Debug_Fly: bool = false
 
 # Aassss
 var Ammo_A: int = 0
