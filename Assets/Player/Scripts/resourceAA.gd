@@ -92,6 +92,12 @@ var Player_Perms = {
 	"Can_Use_UItems": false,
 }
 
+# Variables related to: Tap or Hold Interval
+var TH_Active: bool = true
+var TH_Timing: float = 0.00
+var TH_Threshold: float = 2.25
+var TH_Tapped: bool = false
+var TH_Held: bool = false
 
 var Player_Status_Master: String
 var Player_Status_1: String

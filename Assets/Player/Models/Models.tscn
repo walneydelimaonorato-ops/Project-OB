@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bh7d5h502cqte" path="res://Assets/Player/Sound effects/Tool/SFX_AM16_Shoot.mp3" id="2_fa7cy"]
 [ext_resource type="Texture2D" uid="uid://b5tee5wwcpbq7" path="res://Assets/Player/Models/TST_M1911_CODBOW_TEXTURE.png" id="2_y0boj"]
 [ext_resource type="AnimationLibrary" uid="uid://cnktrf8bpqdxj" path="res://Assets/Player/Models/Tools_Anims.res" id="3_qvoq0"]
+[ext_resource type="Script" uid="uid://h4ghkodc5ouj" path="res://Assets/Player/Scripts/Animations.gd" id="3_xiis2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lb5y"]
 resource_name = "Material.001"
@@ -712,13 +713,16 @@ graph_offset = Vector2(-20.40329, 63.246246)
 position = Vector2(0, 0.66494334)
 stream = ExtResource("1_3x1hw")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="Assault Shoot" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1757938809]
 stream = ExtResource("2_fa7cy")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="Animations" type="Node" parent="." unique_id=489871341]
 unique_name_in_owner = true
+script = ExtResource("3_xiis2")
 
 [node name="Master Rig" type="Node3D" parent="." unique_id=1489635491]
 
@@ -737,12 +741,12 @@ visible = false
 mesh = SubResource("ArrayMesh_273gk")
 
 [node name="Assault Rig" type="Node3D" parent="Master Rig" unique_id=80406720]
-visible = false
 
 [node name="Assault Body" type="Node3D" parent="Master Rig/Assault Rig" unique_id=1137400601]
 transform = Transform3D(-1.3113416e-09, -0.03, 0, -1.3113416e-09, 5.7320566e-17, 0.03, -0.03, 1.3113416e-09, -1.3113416e-09, 0.234, 0, 0.5)
 
 [node name="M14 Body" type="MeshInstance3D" parent="Master Rig/Assault Rig/Assault Body" unique_id=2037432293]
+transform = Transform3D(1, -3.5527137e-15, 3.5527137e-15, 3.5527137e-15, 1, 0, -3.5527137e-15, 2.1175824e-22, 1, 0.6386204, 0.09259367, -3.9457286e-06)
 mesh = SubResource("ArrayMesh_r6dqq")
 
 [node name="Assault Bolt" type="Node3D" parent="Master Rig/Assault Rig" unique_id=1279279349]

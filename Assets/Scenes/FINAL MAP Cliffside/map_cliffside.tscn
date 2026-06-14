@@ -1141,7 +1141,7 @@ sky_mode = 1
 environment = SubResource("Environment_daew7")
 
 [node name="Player" parent="." unique_id=266518977 instance=ExtResource("31_1txry")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9260521, -0.013266087, -0.4502859)
+transform = Transform3D(0.5043618, 0, 0.8634924, 0, 1, 0, -0.8634924, 0, 0.5043618, 0.9260521, -0.013266087, -0.4502859)
 
 [node name="Root" parent="." unique_id=1874345422 instance=ExtResource("4_5lfxj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.260168, -0.9924573, 3.7051735)

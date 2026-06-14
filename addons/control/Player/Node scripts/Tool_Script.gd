@@ -159,23 +159,26 @@ func Passive_Items():
 	elif PlayerValue.Inv_Brace_Equiped != "Power Bra.":
 		PlayerValue.Physical_Damage_Bonus = 0
 
-#func Alternative_Timer(Action_Released, Press_Function, Hold_Function, delta: float) -> void:
-	#PlayerValue.inter_button_tapped = true
-	#PlayerValue.inter_button_held = true
-	#
-	#if PlayerValue.inter_button_tapped:
-		#PlayerValue.inter_press_time += delta
-		#
-		#if Input.is_action_just_released(Action_Released):
-			#if !PlayerValue.inter_button_held:
-				#Hold_Function
-				#PlayerValue.inter_button_tapped = false
-				#PlayerValue.inter_press_time = 0.0
-			#
-		#if PlayerValue.inter_press_time >= PlayerValue.inter_hold_treshold and !PlayerValue.inter_button_held:
-			#PlayerValue.inter_button_held = false
-			#Press_Function
-			#PlayerValue.inter_press_time = 0.0
+
+
+func Alternative_Timer(Action_Released, Press_Function, Hold_Function, delta: float) -> void:
+	PlayerValue.inter_button_tapped = true
+	PlayerValue.inter_button_held = true
+	
+	if PlayerValue.inter_button_tapped:
+		PlayerValue.inter_press_time += delta
+		
+		if Input.is_action_just_released(Action_Released):
+			if !PlayerValue.inter_button_held:
+				Hold_Function
+				PlayerValue.inter_button_tapped = false
+				PlayerValue.inter_press_time = 0.0
+			
+		if PlayerValue.inter_press_time >= PlayerValue.inter_hold_treshold and !PlayerValue.inter_button_held:
+			PlayerValue.inter_button_held = false
+			Press_Function
+			PlayerValue.inter_press_time = 0.0
+
 
 
 func Tool_HandlingR():

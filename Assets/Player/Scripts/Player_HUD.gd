@@ -24,7 +24,8 @@ func _process(_delta: float) -> void:
 		%"Interact Prompt".visible = false
 
 func Interact_Message_Display(Message):
-	Interact_Prompt = Message.get_parent().HUD_Prompt
+	if Message.get_parent().has_method("HUD_Element"):
+		Interact_Prompt = Message.get_parent().HUD_Prompt
 
 func Side_HUD_Update():
 	%Stamina.visible = Global.Player_Data.Player_Perms.Can_Show_UI_Stats

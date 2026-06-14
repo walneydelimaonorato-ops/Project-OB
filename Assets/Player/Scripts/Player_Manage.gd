@@ -25,6 +25,7 @@ var Colidder
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Player Management working")
+	print("Instance ID", self.get_instance_id())
 	
 	Regeneration_Timer_Startup()
 	Global.Player_Data.Stamina_Regeneration_Delay_Timer.timeout.connect(Start_Stamina_Regeneration)
@@ -38,6 +39,8 @@ func _ready() -> void:
 	SignalBus.player_stat_change.connect(Stats_Increase)
 	SignalBus.Sig_General_Interaction.connect(Geneneral_Interaction)
 	SignalBus.Sig_Set_Menu.connect(Set_Menu)
+	SignalBus.Tap_Hold_Interval.connect(Hold_Tap_Interval)
+	# Hold_Tap_Timing(Global.Player_Data.Un_Tool_Alternive, get_process_delta_time())
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
 	
 #region Control Settup
@@ -135,6 +138,12 @@ func _ready() -> void:
 #endregion
 
 func _process(delta: float) -> void:
+	if not Global.Player_Data.TH_Active:
+		return
+	Global.Player_Data.TH_Timing += delta
+	
+		
+	
 	Global.Player_Data.Health = clamp(Global.Player_Data.Health, 0, Global.Player_Data.Health_Max)
 	Global.Player_Data.Stamina = clamp(Global.Player_Data.Stamina, 0, Global.Player_Data.Stamina_Max)
 	
@@ -286,3 +295,48 @@ func Item_Pickup(Item_Sys_Name, Item_Type, Item_Quantity):
 			Global.Player_Data.Tool_ID[Item_Sys_Name]["picked?"] = true
 		"Ordinary":
 			pass
+
+func Hold_Tap_Interval(Release_Input): #, delta: float) -> void:
+	Global.Player_Data.TH_Active = true
+	Global.Player_Data.TH_Tapped = false
+	Global.Player_Data.TH_Held = false
+	
+	if Input.is_action_just_released(Global.Player_Data.Un_Tool_Alternive):
+		Global.Player_Data.TH_Active = false
+		
+		if Global.Player_Data.TH_Timing < Global.Player_Data.TH_Threshold:
+			Global.Player_Data.TH_Tapped = true
+			Global.Player_Data.TH_Held = false
+			print("Tapped: ", Global.Player_Data.TH_Tapped, " // Held: ", Global.Player_Data.TH_Held, " (Timing: ", Global.Player_Data.TH_Timing, ")")
+			Global.Player_Data.TH_Timing = 0.0
+		
+	if Global.Player_Data.TH_Timing >= Global.Player_Data.TH_Threshold:
+		Global.Player_Data.TH_Active = false
+		Global.Player_Data.TH_Tapped = false
+		Global.Player_Data.TH_Held = true
+		print("Tapped: ", Global.Player_Data.TH_Tapped, " // Held: ", Global.Player_Data.TH_Held, " (Timing: ", Global.Player_Data.TH_Timing, ")")
+		Global.Player_Data.TH_Timing = 0.0
+		
+	#print("<===Hold_Tap_Timing initialized===>")
+	##var Active: bool = true
+	##var Timing: float = 0.00
+	##var Threshold: float = 0.25
+	#print("Variables initialized")
+	#
+	#if Active == true:
+		#print("Timer started")
+		#Timing += 1
+		#print(Timing)
+	#
+	#if Input.is_action_just_released(Release_Input):
+		#Active = false
+		#print("Timer ended", Timing)
+	#
+	#if Timing < Threshold:
+		#print("Released early")
+		#pass
+	#
+	#elif Timing >= Threshold:
+		#Active = false
+		#print("Timer expired")
+		#pass

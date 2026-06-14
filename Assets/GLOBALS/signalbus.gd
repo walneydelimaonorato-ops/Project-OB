@@ -7,6 +7,17 @@ signal Debug_Sig1()
 signal UItem_Cycle()
 # Input signal
 signal UItem_Use()
+# Input signal
+signal Action_Alternative()
+# Input Signal
+signal Action_Primary(Direction: String)
+
+# Animations signal
+signal Player_Animations(Animation_Name: String)
+# Sound signal
+#signal Player_Sound(Sound_Name: String)
+signal Tap_Hold_Interval(Release_Input)
+
 # 
 signal Sig_General_Interaction(Ray: RayCast3D, Method: String)
 signal Sig_Interaction_HUD_Return(Message)

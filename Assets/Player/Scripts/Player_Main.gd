@@ -71,9 +71,11 @@ func _input(input: InputEvent) -> void:
 			SignalBus.emit_signal("Ready_Menu_Toggled", Global.Player_Data.Ready_Menu_Active)
 	
 	if Input.is_action_just_pressed(Global.Player_Data.Un_LPrimary_Tool_Use):
-		Action.Action_Primary("Left")
+		#Action.Action_Primary("Left")
+		SignalBus.emit_signal("Action_Primary", "Left")
 	if Input.is_action_just_pressed(Global.Player_Data.Un_RPrimary_Tool_Use):
-		Action.Action_Primary("Right")
+		#Action.Action_Primary("Right")
+		SignalBus.emit_signal("Action_Primary", "Right")
 	
 	if Input.is_action_just_pressed(Global.Player_Data.Un_Cycle_UItem):
 		Global.Player_Data.emit_signal("UItem_Cycle")
@@ -81,8 +83,13 @@ func _input(input: InputEvent) -> void:
 	if Input.is_action_just_pressed(Global.Player_Data.Un_Use_UItem):
 		Global.Player_Data.emit_signal("UItem_Use") #UItem_Use
 	
-	if Input.is_action_just_pressed(Global.Player_Data.Un_Tool_Alternive):
-		Action.Action_Alternative()
+	if Input.is_action_pressed(Global.Player_Data.Un_Tool_Alternive):
+		#pass
+		SignalBus.emit_signal("Tap_Hold_Interval", Global.Player_Data.Un_Tool_Alternive)
+		#print(SignalBus.Tap_Hold_Interval.get_connections())
+		
+		#SignalBus.emit_signal("Action_Alternative")
+		#Action.Action_Alternative()
 	
 	if Global.Player_Data.Control_Mode == "Key":
 		if input is InputEventMouseMotion and Global.Player_Data.Player_Perms.Can_Look == true:
