@@ -40,7 +40,11 @@ func Menu_Matchup(Switch_To_Menu: String):
 		"Sub Control Layout":
 			%"Menu forward".play()
 			%"Page Options".visible = true
+			print("\r")
+			print(%"SubPage Input Showcase".visible)
 			%"SubPage Input Showcase".visible = !%"SubPage Input Showcase".visible
+			print(%"SubPage Input Showcase".visible)
+			print("\r")
 
 func Hints_Matchup():
 	match Global.Player_Data.Control_Mode:

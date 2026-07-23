@@ -1,47 +1,86 @@
 [gd_scene format=3 uid="uid://yey3rq0j37ff"]
 
 [ext_resource type="Script" uid="uid://c86qnmdw72onj" path="res://Assets/Player/Scripts/Player_Main.gd" id="1_2nc12"]
-[ext_resource type="Script" uid="uid://l12mhsklk3he" path="res://Assets/Player/Scripts/Resource_Holder.gd" id="2_hs5eg"]
-[ext_resource type="Script" uid="uid://dnmewvnjcrtf7" path="res://Assets/Player/Scripts/Actions_Script.gd" id="2_qe5k5"]
-[ext_resource type="Script" uid="uid://celcg5cjm0h8e" path="res://Assets/Player/Scripts/Player_Manage.gd" id="3_hs5eg"]
+[ext_resource type="Script" uid="uid://dnmewvnjcrtf7" path="res://Assets/Player/Scripts/Interactions/Actions_Script.gd" id="2_qe5k5"]
+[ext_resource type="Script" uid="uid://celcg5cjm0h8e" path="res://Assets/Player/Scripts/Managers/Player_Main_Manager.gd" id="3_hs5eg"]
 [ext_resource type="PackedScene" uid="uid://c2rgs1dy80e6d" path="res://Assets/Player/hud.tscn" id="3_qe5k5"]
-[ext_resource type="Script" uid="uid://i4bvsiarcjvi" path="res://Assets/Player/Scripts/Player_Status_Manager.gd" id="4_32kx7"]
+[ext_resource type="Script" uid="uid://gdmfbg86aicp" path="res://Assets/Player/Scripts/Managers/Player Stamina Regeneration.gd" id="4_7o3jc"]
+[ext_resource type="Script" uid="uid://i4bvsiarcjvi" path="res://Assets/Player/Scripts/Managers/Player Permission Manager.gd" id="4_32kx7"]
 [ext_resource type="Script" uid="uid://bkgvq66k63d3e" path="res://Assets/Player/Items_Use&Select.gd" id="5_2r4ph"]
+[ext_resource type="Script" uid="uid://bgad4e5eyo42s" path="res://Assets/Player/Scripts/Interactions/Tools Sub-routine.gd" id="5_32kx7"]
 [ext_resource type="PackedScene" uid="uid://h8wt3hlx4i85" path="res://Assets/Player/Models/Models.tscn" id="5_hs5eg"]
+[ext_resource type="Script" uid="uid://cemp6arjo8v4c" path="res://Assets/Player/Scripts/Managers/Player_HoldTap.gd" id="5_or1rc"]
+[ext_resource type="Script" uid="uid://02p3gggxlokp" path="res://Assets/Player/Scripts/Hud/Stylized Camera.gd" id="9_w4pk3"]
+
+[sub_resource type="GDScript" id="GDScript_2r4ph"]
+script/source = "extends Node
+
+#@export var data: PlayerData
+"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o54j3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2r4ph"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thtal"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32kx7"]
 transparency = 1
 albedo_color = Color(0, 0, 1, 0.5882353)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ynrmx"]
-material = SubResource("StandardMaterial3D_thtal")
+material = SubResource("StandardMaterial3D_32kx7")
 
 [node name="Player" type="CharacterBody3D" unique_id=266518977]
 script = ExtResource("1_2nc12")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1195453727]
+unique_name_in_owner = true
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1128083939]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Style" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1937713403]
+unique_name_in_owner = true
 
 [node name="Script Nodes" type="Node3D" parent="." unique_id=2102310861]
 
 [node name="Player Stats" type="Node" parent="Script Nodes" unique_id=1237580655]
 unique_name_in_owner = true
-script = ExtResource("2_hs5eg")
+script = SubResource("GDScript_2r4ph")
 
 [node name="Player Management" type="Node" parent="Script Nodes" unique_id=1083356557]
 unique_name_in_owner = true
 script = ExtResource("3_hs5eg")
 
-[node name="Player Stats Manager" type="Node" parent="Script Nodes" unique_id=965493414]
+[node name="Player Permission Manager" type="Node" parent="Script Nodes/Player Management" unique_id=965493414]
 script = ExtResource("4_32kx7")
+
+[node name="Player Stamina Regeneration" type="Node" parent="Script Nodes/Player Management" unique_id=649914525]
+script = ExtResource("4_7o3jc")
+
+[node name="Player Hold-Tap" type="Node" parent="Script Nodes/Player Management" unique_id=629913420]
+script = ExtResource("5_or1rc")
 
 [node name="Action" type="Node" parent="Script Nodes" unique_id=348013422]
 unique_name_in_owner = true
 script = ExtResource("2_qe5k5")
 
+[node name="Tool SubRoutine" type="Node" parent="Script Nodes/Action" unique_id=1067371393]
+script = ExtResource("5_32kx7")
+
 [node name="Items" type="Node" parent="Script Nodes" unique_id=1873774302]
 script = ExtResource("5_2r4ph")
+
+[node name="Style Camera" type="Node" parent="Script Nodes" unique_id=1264889339]
+script = ExtResource("9_w4pk3")
 
 [node name="Collision 1" type="CollisionShape3D" parent="." unique_id=1599588568]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 1, 0)
@@ -71,6 +110,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09374118, 0)
 [node name="Models" parent="Head/Eyes" unique_id=1867517693 instance=ExtResource("5_hs5eg")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17413068, -0.96205795)
+visible = false
 
 [node name="Ray2" type="RayCast3D" parent="Head/Eyes" unique_id=670486846]
 unique_name_in_owner = true
@@ -88,7 +128,8 @@ target_position = Vector3(0, 0, -200)
 collision_mask = 8
 collide_with_areas = true
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Head" unique_id=1793310147]
+[node name="OmniLight3D" type="OmniLight3D" parent="Head/Eyes" unique_id=1793310147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09374118, 0)
 light_specular = 0.0
 omni_range = 185.0
 

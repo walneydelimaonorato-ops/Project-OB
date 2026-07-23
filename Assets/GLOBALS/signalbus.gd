@@ -12,12 +12,11 @@ signal Action_Alternative()
 # Input Signal
 signal Action_Primary(Direction: String)
 
+
 # Animations signal
 signal Player_Animations(Animation_Name: String)
-# Sound signal
 #signal Player_Sound(Sound_Name: String)
 signal Tap_Hold_Interval(Release_Input)
-
 # 
 signal Sig_General_Interaction(Ray: RayCast3D, Method: String)
 signal Sig_Interaction_HUD_Return(Message)
@@ -26,15 +25,31 @@ signal Sig_Set_Menu(Switch: bool, Next_Menu: String)
 # Performs operations on determined variables
 signal Variable_Operation(Operation: String, Type: String, Value: int)
 
+# Signal for setting the menus (not to be confused with the submenus)
+signal Menu_Setting(Menu: String)
+# Signal for setting the submenus (not to be confused with the menus)
+signal SubMenu_Setting(SubMenu: String)
+
 # Toggles the Ready Menu
-signal Ready_Menu_Toggled(active: bool)
+signal faltyReady_Menu_Toggled(active: bool)
 # Toggles the Selection Menu
-signal Seletion_Menu_Toggled(active: bool)
+signal faltySeletion_Menu_Toggled(active: bool)
 # Toggles the Choice Menu
-signal Choice_Menu_Toggled(active: bool)
+signal faltyChoice_Menu_Toggled(active: bool)
 
 # Update signal for the visuals of menus
-signal Menus_Visual_Update(Menu_Slot: String, Item_Texture: String)
+signal faultyMenus_Visual_Update(Menu_Slot: String, Item_Texture: String)
+
+#region Side HUD Information
+# Update signal for the visual icons in Side HUD
+signal Side_HUD_Overlay_Update(Menu_Slot: String, Item_Texture: String)
+# Update signal for the Health and Stamina and etc
+signal Side_Status_Update()
+signal Side_HUD_Update()
+#endregion
+
+signal Ready_Menu_Overlay_Update(Menu_Slot: String, Item_Texture: String)
+
 # Update signal for Status Management
 signal Player_Stats_Management_Update_In()
 signal Player_Stats_Management_Update_Out()
@@ -43,7 +58,7 @@ signal Set_Sats(Target: String, Setting: String)
 
 # Signal used to update the Side HUD and rotate Equipped items in the hand
 signal Tool_Rotation()
-signal HUD_Update()
+signal faultyHUD_Update()
 
 # Makes a request for a choice prompt popup
 signal request_popup(Choice_Names: String, Address_From: String)
@@ -55,6 +70,16 @@ signal request_dialogue()
 signal player_stat_change(Operation: String, Stats_Type: String, Damage_Number: String)
 # Carries-over items to the player
 signal item_transfer(Item_Sys_Name: String, Item_Type: String, Item_Quantity: int)
+
+#Signal to call SubRoutines
+signal SubRoutine_Call(Tool: String, Routine: String)
+
+# Menu related signals
+
+signal focus_first_visible(container)
+signal MSelection_Item_Sorting()
+signal FMenu_Return(Return_Path: String)
+
 #endregion
 
 
@@ -62,4 +87,4 @@ signal item_transfer(Item_Sys_Name: String, Item_Type: String, Item_Quantity: in
 signal request_damage(Damage_Number: int)
 
 func _ready() -> void:
-	print("Signal Bus working")
+	print_rich("[color=red]Signal Bus Working[/color]")

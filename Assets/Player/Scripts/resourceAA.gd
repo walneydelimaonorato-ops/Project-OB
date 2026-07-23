@@ -62,7 +62,7 @@ signal Update_Stats()
 var Control_Mode: String = "Key"
 var Base_Speed: int = 4 # Speed used to move
 var Dummy_Speed: int = 4 # Fallback speed value
-var Run: int = 6 # Speed used when running
+var Run: int = 14 # Speed used when running
 var Key_Camera_Sens: float = 0.003
 var Joy_Camera_Sens: float = 0.075
 # UItem quantity
@@ -83,7 +83,7 @@ var Player_Perms = {
 	"Can_Use_HandGun": false,
 	"Can_Use_AssaultRifle": false,
 	"Can_Show_UI_Side": false,
-	"Can_Show_UI_Stats": false,
+	"Can_Show_UI_Stats": true,
 	"Can_Show_Prompts": false,
 	"Can_Move": false,
 	"Can_Sprint": false,
@@ -93,7 +93,8 @@ var Player_Perms = {
 }
 
 # Variables related to: Tap or Hold Interval
-var TH_Active: bool = true
+var TH_Active_Valid: bool = false
+var TH_Active: bool = false
 var TH_Timing: float = 0.00
 var TH_Threshold: float = 2.25
 var TH_Tapped: bool = false
@@ -113,7 +114,7 @@ var Ammo_C: int = 0
 
 # Menu related variables
 var Current_Focus: String = ""
-var Current_Menu: String = ""
+var Current_Menu: String = "null"
 var Current_SubMenu: String = ""
 
 var Ready_Menu_Active: bool = false
@@ -170,8 +171,8 @@ var Tool_ID = {
 		"picked?": true,
 		"equipped?": false, 
 		"damage": 6, 
-		"Ammo A": 0,
-		"Mag A": 0,
+		"Ammo": 0,
+		"Mag": 0,
 		},
 	"AssaultRifle": {
 		"dys name": "AM-16", 
@@ -180,6 +181,8 @@ var Tool_ID = {
 		"picked?": true,
 		"equipped?": false, 
 		"damage": 15, 
+		"Ammo": 0,
+		"Mag": 0,
 		},
 	"Sword": {
 		"dys name": "E. Trais", 
@@ -324,7 +327,7 @@ var UItem_ID = {
 		"Icon": "uid://qua4cq3ubssm",
 	},
 	"Sigil": {
-		"dys name": " ", 
+		"dys name": "Sigil of Violence", 
 		"sys name": "Sigil",
 		"Icon": "uid://di03rqvlhqp7q",
 		"picked?": true,
@@ -335,7 +338,7 @@ var UItem_ID = {
 		"special id": ""
 		},
 	"Glass Flask": {
-		"dys name": " ", 
+		"dys name": "Glass Flask", 
 		"sys name": "Glass Flask",
 		"Icon": "uid://13ylgt0ylimp",
 		"picked?": true,
@@ -360,4 +363,4 @@ var UItem_ID = {
 #endregion
 
 func _ready() -> void:
-	print("Player Stats working")
+	print_rich("[color=#ffdf00]Player Stats Working[/color]")

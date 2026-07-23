@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://c2rgs1dy80e6d"]
 
-[ext_resource type="Script" uid="uid://dcinsclc6n64e" path="res://Assets/Player/Scripts/Player_HUD.gd" id="1_bitai"]
+[ext_resource type="Script" uid="uid://dcinsclc6n64e" path="res://Assets/Player/Scripts/Hud/Interact Message Dysplay.gd" id="1_bitai"]
 [ext_resource type="Texture2D" uid="uid://dokiq8ck7v68y" path="res://Assets/UI/HUD/Ready_Menu_ToolR.png" id="1_iygfw"]
+[ext_resource type="Script" uid="uid://com40g2qs5jav" path="res://Assets/Player/Scripts/Hud/Side Status.gd" id="2_kfml6"]
 [ext_resource type="Texture2D" uid="uid://dqctj0g2crmvw" path="res://Assets/UI/HUD/Ready_Menu_ToolL.png" id="2_pvj0q"]
 [ext_resource type="Texture2D" uid="uid://dyp1tqlfs1r50" path="res://Assets/UI/HUD/Ready_Menu_Spell.png" id="3_bitai"]
 [ext_resource type="Texture2D" uid="uid://1gq7ogm65b2r" path="res://Assets/UI/HUD/Ready_Menu_UItem.png" id="4_2qs60"]
@@ -13,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://b0b2vsfbxq1a8" path="res://Assets/UI/HUD/Side HUD/Health.png" id="7_c66ss"]
 [ext_resource type="Texture2D" uid="uid://qjq03yc5xcfc" path="res://Assets/UI/HUD/Side HUD/Stamina_Lines_AA.png" id="7_l5jda"]
 [ext_resource type="Texture2D" uid="uid://bsk0xgutv14ex" path="res://Assets/UI/HUD/Side HUD/Frame_Health.png" id="7_vy47n"]
-[ext_resource type="Texture2D" uid="uid://13ylgt0ylimp" path="res://Assets/UI/HUD/Item Icons/UItems/UItem_Flask_Icon.png" id="8_bhcvo"]
 [ext_resource type="Texture2D" uid="uid://crw7mq7c182fr" path="res://Assets/UI/HUD/Side HUD/Stamina_AA.png" id="8_lqkoi"]
+[ext_resource type="Script" uid="uid://bllj182b0al1w" path="res://Assets/Player/Scripts/Hud/Side HUD.gd" id="9_fgg28"]
 [ext_resource type="Texture2D" uid="uid://denq0vupr60gy" path="res://Assets/UI/HUD/Side HUD/Health_Eyes.png" id="10_8hhtu"]
 [ext_resource type="Script" uid="uid://doilu7ex0syva" path="res://Assets/Player/Scripts/debug.gd" id="12_2vfgr"]
 [ext_resource type="Theme" uid="uid://ylysgsmxvcu1" path="res://Assets/UI/Main_UI_Theme.tres" id="14_8hhtu"]
@@ -31,6 +32,43 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Side Status" type="Control" parent="Control" unique_id=1321882971]
+anchors_preset = 0
+offset_top = -9.0
+offset_right = 40.0
+offset_bottom = 31.0
+
+[node name="Side Status Script" type="Node" parent="Control/Side Status" unique_id=1148424137]
+script = ExtResource("2_kfml6")
+
+[node name="Stamina" type="TextureProgressBar" parent="Control/Side Status" unique_id=1751602861]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 9.0
+offset_top = 286.0
+offset_right = 53.0
+offset_bottom = 503.0
+step = 0.0
+value = 37.05
+fill_mode = 3
+texture_under = ExtResource("7_l5jda")
+texture_over = ExtResource("7_2vfgr")
+texture_progress = ExtResource("8_lqkoi")
+
+[node name="Health" type="TextureProgressBar" parent="Control/Side Status" unique_id=1604637162]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 9.0
+offset_top = 225.0
+offset_right = 53.0
+offset_bottom = 442.0
+step = 0.0
+value = 27.775
+fill_mode = 3
+texture_under = ExtResource("10_8hhtu")
+texture_over = ExtResource("7_vy47n")
+texture_progress = ExtResource("7_c66ss")
+
 [node name="Side HUD" type="Control" parent="Control" unique_id=617442304]
 layout_mode = 1
 anchor_left = 0.012
@@ -39,6 +77,9 @@ anchor_right = 0.02
 anchor_bottom = 0.909
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Side HUD Script" type="Node" parent="Control/Side HUD" unique_id=301419928]
+script = ExtResource("9_fgg28")
 
 [node name="SidH Base" type="VBoxContainer" parent="Control/Side HUD" unique_id=1280932830]
 layout_mode = 0
@@ -77,7 +118,7 @@ theme_override_constants/separation = 20
 [node name="TR Over" type="TextureRect" parent="Control/Side HUD/SidH Overlay" unique_id=613960007]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("7_bhcvo")
+texture = ExtResource("6_g7t8a")
 expand_mode = 4
 
 [node name="TL Over" type="TextureRect" parent="Control/Side HUD/SidH Overlay" unique_id=1051551925]
@@ -95,7 +136,7 @@ expand_mode = 4
 [node name="U Over" type="TextureRect" parent="Control/Side HUD/SidH Overlay" unique_id=1660138663]
 unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("8_bhcvo")
+texture = ExtResource("6_g7t8a")
 expand_mode = 4
 
 [node name="SidH Names" type="VBoxContainer" parent="Control/Side HUD" unique_id=1950255623]
@@ -214,44 +255,15 @@ theme_override_fonts/font = ExtResource("5_pvj0q")
 theme_override_font_sizes/font_size = 50
 text = "Booty"
 
-[node name="Stamina" type="TextureProgressBar" parent="Control/Side HUD" unique_id=1751602861]
-unique_name_in_owner = true
+[node name="Notifications" type="VBoxContainer" parent="Control" unique_id=1318770011]
 visible = false
-layout_mode = 0
-offset_left = -4.8240004
-offset_top = -154.568
-offset_right = 39.176
-offset_bottom = 62.432007
-step = 0.0
-value = 37.05
-fill_mode = 3
-texture_under = ExtResource("7_l5jda")
-texture_over = ExtResource("7_2vfgr")
-texture_progress = ExtResource("8_lqkoi")
-
-[node name="Health" type="TextureProgressBar" parent="Control/Side HUD" unique_id=1604637162]
-unique_name_in_owner = true
-visible = false
-layout_mode = 0
-offset_left = -4.8240004
-offset_top = -215.568
-offset_right = 39.176
-offset_bottom = 1.4320068
-step = 0.0
-value = 27.775
-fill_mode = 3
-texture_under = ExtResource("10_8hhtu")
-texture_over = ExtResource("7_vy47n")
-texture_progress = ExtResource("7_c66ss")
-
-[node name="Control" type="VBoxContainer" parent="Control" unique_id=1318770011]
 layout_mode = 0
 offset_left = 188.0
 offset_top = 533.0
 offset_right = 266.0
 offset_bottom = 583.0
 
-[node name="Notification1" type="RichTextLabel" parent="Control/Control" unique_id=1971441667]
+[node name="Notification1" type="RichTextLabel" parent="Control/Notifications" unique_id=1971441667]
 layout_mode = 2
 theme = ExtResource("14_8hhtu")
 theme_override_colors/default_color = Color(1, 1, 1, 1)

@@ -1,0 +1,21 @@
+NPC_BLOODMOTHER_INTRO:
+	LINE01:
+		"Son..."
+	LINE02:
+		"I know we were'nt the best but..."
+	LINE03:
+		"Has it really come down to this?"
+	LINE04:
+		"Amends can still be made, child..."
+
+NPC_BLOODMOTHER_DEATH:
+	LINE01:
+		"Spoiled children..."
+	LINE02:
+		"Wattering the land with your Mother's blood"
+	LINE03:
+		"..."
+	LINE04:
+		"Curse you freaks... your children too"
+	LINE005:
+		"And our grandchildren forever more..."

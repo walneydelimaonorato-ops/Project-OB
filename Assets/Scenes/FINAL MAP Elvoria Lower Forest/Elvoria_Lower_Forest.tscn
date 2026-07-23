@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bale17m85tpdj"]
 
 [ext_resource type="PackedScene" uid="uid://yey3rq0j37ff" path="res://Assets/Player/Player_Model.tscn" id="2_emalw"]
+[ext_resource type="PackedScene" uid="uid://ban1pjytwehd5" path="res://Assets/Scenes/FINAL MAP Elvoria Lower Forest/MAP_Elvoria.glb" id="2_mlhxi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fp7jo"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -26,3 +27,5 @@ shadow_enabled = true
 
 [node name="Player" parent="." unique_id=266518977 instance=ExtResource("2_emalw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.040703, 0, 15.959802)
+
+[node name="MAP_Elvoria" parent="." unique_id=1585867289 instance=ExtResource("2_mlhxi")]

@@ -12,6 +12,8 @@ var Running: bool
 #var Un_LookLR := Vector2.ZERO
 
 func _ready() -> void:
+	print_rich("[color=green]Player Working[/color] [color=#b76e79]\r=========================[/color]")
+	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
@@ -22,7 +24,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Global.Player_Data.Debug_Fly == false:
 		if Input.is_action_just_pressed(Global.Player_Data.Un_Jump) and is_on_floor():
-			Global.Player_Data.emit_signal("Stats_Change", "Decrease", "Stamina", 5)
+			#Global.Player_Data.emit_signal("Stats_Change", "Decrease", "Stamina", 5)
+			%SubViewportContainer.stretch_shrink = 1
 			velocity.y = 4.5
 	
 	elif Global.Player_Data.Debug_Fly == true:
@@ -35,6 +38,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Input.is_action_pressed(Global.Player_Data.Un_Sprint): #and PlayerValue.Stamina > 0:
+		%SubViewportContainer.stretch_shrink = 3
 		Global.Player_Data.Base_Speed = Global.Player_Data.Run # Current speed becomes running speed
 		Running = true
 	else:
@@ -66,9 +70,8 @@ func _process(_delta: float) -> void:
 
 func _input(input: InputEvent) -> void:
 	if Input.is_action_just_pressed(Global.Player_Data.Un_Ready_Menu):
-		if Global.Player_Data.Current_Menu == "Ready" or Global.Player_Data.Current_Menu == "none" or Global.Player_Data.Current_Menu == "":
-			Global.Player_Data.Ready_Menu_Active = !Global.Player_Data.Ready_Menu_Active
-			SignalBus.emit_signal("Ready_Menu_Toggled", Global.Player_Data.Ready_Menu_Active)
+		if Global.Player_Data.Current_Menu == "null" or Global.Player_Data.Current_Menu == "Ready":
+			SignalBus.emit_signal("Menu_Setting", "Ready")
 	
 	if Input.is_action_just_pressed(Global.Player_Data.Un_LPrimary_Tool_Use):
 		#Action.Action_Primary("Left")
@@ -78,18 +81,14 @@ func _input(input: InputEvent) -> void:
 		SignalBus.emit_signal("Action_Primary", "Right")
 	
 	if Input.is_action_just_pressed(Global.Player_Data.Un_Cycle_UItem):
-		Global.Player_Data.emit_signal("UItem_Cycle")
+		SignalBus.emit_signal("UItem_Cycle")
 	
 	if Input.is_action_just_pressed(Global.Player_Data.Un_Use_UItem):
-		Global.Player_Data.emit_signal("UItem_Use") #UItem_Use
+		SignalBus.emit_signal("UItem_Use") #UItem_Use
 	
-	if Input.is_action_pressed(Global.Player_Data.Un_Tool_Alternive):
-		#pass
-		SignalBus.emit_signal("Tap_Hold_Interval", Global.Player_Data.Un_Tool_Alternive)
+	if Input.is_action_just_pressed(Global.Player_Data.Un_Tool_Alternive):
+		SignalBus.emit_signal("Tap_Hold_Interval")
 		#print(SignalBus.Tap_Hold_Interval.get_connections())
-		
-		#SignalBus.emit_signal("Action_Alternative")
-		#Action.Action_Alternative()
 	
 	if Global.Player_Data.Control_Mode == "Key":
 		if input is InputEventMouseMotion and Global.Player_Data.Player_Perms.Can_Look == true:

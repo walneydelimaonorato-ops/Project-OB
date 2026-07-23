@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bh7d5h502cqte" path="res://Assets/Player/Sound effects/Tool/SFX_AM16_Shoot.mp3" id="2_fa7cy"]
 [ext_resource type="Texture2D" uid="uid://b5tee5wwcpbq7" path="res://Assets/Player/Models/TST_M1911_CODBOW_TEXTURE.png" id="2_y0boj"]
 [ext_resource type="AnimationLibrary" uid="uid://cnktrf8bpqdxj" path="res://Assets/Player/Models/Tools_Anims.res" id="3_qvoq0"]
-[ext_resource type="Script" uid="uid://h4ghkodc5ouj" path="res://Assets/Player/Scripts/Animations.gd" id="3_xiis2"]
+[ext_resource type="Script" uid="uid://h4ghkodc5ouj" path="res://Assets/Player/Scripts/Animations/Animations.gd" id="3_xiis2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lb5y"]
 resource_name = "Material.001"
@@ -727,6 +727,7 @@ script = ExtResource("3_xiis2")
 [node name="Master Rig" type="Node3D" parent="." unique_id=1489635491]
 
 [node name="Arm Left Rig" type="Node3D" parent="Master Rig" unique_id=292863608]
+unique_name_in_owner = true
 transform = Transform3D(-0.81379753, 0.46984637, -0.3420202, 0.5, 0.8660254, 1.2904784e-08, 0.29619816, -0.1710101, -0.9396926, -0.2, 0, 0.7)
 visible = false
 
@@ -734,6 +735,7 @@ visible = false
 mesh = SubResource("ArrayMesh_nfa0a")
 
 [node name="Arm Right Rig" type="Node3D" parent="Master Rig" unique_id=2023940726]
+unique_name_in_owner = true
 transform = Transform3D(-0.81379765, -0.4698463, 0.3420202, -0.5, 0.8660254, 0, -0.2961982, -0.1710101, -0.9396926, 0.2, 0, 0.7)
 visible = false
 
@@ -741,6 +743,8 @@ visible = false
 mesh = SubResource("ArrayMesh_273gk")
 
 [node name="Assault Rig" type="Node3D" parent="Master Rig" unique_id=80406720]
+unique_name_in_owner = true
+visible = false
 
 [node name="Assault Body" type="Node3D" parent="Master Rig/Assault Rig" unique_id=1137400601]
 transform = Transform3D(-1.3113416e-09, -0.03, 0, -1.3113416e-09, 5.7320566e-17, 0.03, -0.03, 1.3113416e-09, -1.3113416e-09, 0.234, 0, 0.5)
@@ -751,6 +755,7 @@ mesh = SubResource("ArrayMesh_r6dqq")
 
 [node name="Assault Bolt" type="Node3D" parent="Master Rig/Assault Rig" unique_id=1279279349]
 transform = Transform3D(-1.3113416e-09, -0.03, 0, -1.3113416e-09, 5.7320566e-17, 0.03, -0.03, 1.3113416e-09, -1.3113416e-09, 0.234, 0, 0.5)
+visible = false
 
 [node name="M14 Bolt" type="MeshInstance3D" parent="Master Rig/Assault Rig/Assault Bolt" unique_id=437714599]
 mesh = SubResource("ArrayMesh_xi0vh")
@@ -762,7 +767,7 @@ transform = Transform3D(-1.3113416e-09, -0.03, 0, -1.3113416e-09, 5.7320566e-17,
 mesh = SubResource("ArrayMesh_y65sm")
 
 [node name="Hand Gun Rig" type="Node3D" parent="Master Rig" unique_id=249410669]
-visible = false
+unique_name_in_owner = true
 
 [node name="Hand Gun Body" type="Node3D" parent="Master Rig/Hand Gun Rig" unique_id=1099233229]
 transform = Transform3D(-1.3113414e-09, -0.029999994, 0, -1.3113414e-09, 5.732055e-17, 0.029999994, -0.029999994, 1.3113414e-09, -1.3113414e-09, 0.234, 0, 0.5)
@@ -786,6 +791,7 @@ transform = Transform3D(1, -3.5527137e-15, -2.1175824e-22, 3.5527137e-15, 1, 3.5
 mesh = SubResource("ArrayMesh_3kohm")
 
 [node name="Latern Rig" type="Node3D" parent="Master Rig" unique_id=1957117171]
+unique_name_in_owner = true
 transform = Transform3D(-0.9845031, -0.030452112, 0.17270249, 0, 0.98480767, 0.17364816, -0.17536671, 0.17095716, -0.96954626, 0.2, 0.1, 0.47391155)
 visible = false
 
@@ -806,6 +812,7 @@ transform = Transform3D(1.0000002, -1.8626451e-09, -4.4703484e-08, 1.8626451e-09
 omni_range = 120.0
 
 [node name="Dagger Rig" type="Node3D" parent="Master Rig" unique_id=1106058275]
+unique_name_in_owner = true
 transform = Transform3D(-1.3113417e-08, -0.3, -1.3113417e-08, 0, -1.3113417e-08, 0.3, -0.3, 1.3113417e-08, 5.7320567e-16, 0.204, 0, 0.532)
 visible = false
 
@@ -814,6 +821,7 @@ transform = Transform3D(1, -7.1054274e-15, 7.1054274e-15, 7.1054274e-15, 1, -4.2
 mesh = SubResource("ArrayMesh_cy6vq")
 
 [node name="Sword Rig" type="Node3D" parent="Master Rig" unique_id=1363311496]
+unique_name_in_owner = true
 visible = false
 
 [node name="Sword" type="Node3D" parent="Master Rig/Sword Rig" unique_id=463660776]
@@ -837,6 +845,7 @@ mesh = SubResource("ArrayMesh_4r0uf")
 [node name="Node3D" type="Node3D" parent="Master Rig" unique_id=1975014163]
 
 [node name="General Animations" type="AnimationPlayer" parent="." unique_id=254822941]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_qvoq0")
 libraries/Tools_Anims = ExtResource("3_qvoq0")
 

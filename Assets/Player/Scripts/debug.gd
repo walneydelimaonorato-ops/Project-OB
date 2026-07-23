@@ -1,7 +1,7 @@
 extends Node
 
 @onready var player_stats: Node = $"../../../Script Nodes/Player Stats"
-@onready var stats_management: Node = $"../../../Script Nodes/Stats Management"
+#@onready var stats_management: Node = $"../../../Script Nodes/Stats Management"
 
 @onready var health: TextureProgressBar = %Health
 @onready var stamina: TextureProgressBar = %Stamina
@@ -16,10 +16,10 @@ extends Node
 @onready var focus_node: Label = $"../Focus Node"
 
 var Active: bool = false
-var Page: int = 0
+var Page: int = 3
 
 func _ready() -> void:
-	print("Debug working \r=========================")
+	print_rich("[color=#ffdf00]Debug Working[/color]")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -81,11 +81,20 @@ func _process(_delta: float) -> void:
 	page_2.text += "\rStamina: %.2f" % Global.Player_Data.Stamina
 	page_2.text += str("\rBar_Health: %d") % health.value
 	page_2.text += str("\rBar_Stamina: %d") % stamina.value
+	page_2.text += "\r."
+	page_2.text += str("\rTH_Active: ", Global.Player_Data.TH_Active)
+	page_2.text += str("\rTH_Active_Valid: ", Global.Player_Data.TH_Active_Valid)
+	page_2.text += str("\rTH_Tapped: ", Global.Player_Data.TH_Tapped)
+	page_2.text += str("\rTH_Held: ", Global.Player_Data.TH_Held)
+	#page_2.text += str("\r: ", Global.Player_Data.)
+	page_2.text += str("\rTH_Timing: ", Global.Player_Data.TH_Timing)
 	
 	page_3.text = "Menu Vars"
 	page_3.text += str("\rCurrent_Menu: " + Global.Player_Data.Current_Menu)
 	page_3.text += str("\rCurrent_SubMenu: " + Global.Player_Data.Current_SubMenu)
 	page_3.text += str("\rReady_Menu_Active: ", Global.Player_Data.Ready_Menu_Active)
+	page_3.text += str("\rSeletion_Menu_Active: ", Global.Player_Data.Seletion_Menu_Active)
+	page_3.text += str("\rChoice_Menu_Active: ", Global.Player_Data.Choice_Menu_Active)
 	
 	page_3.text += "\r........."
 	page_3.text += str("\rInv_Brace: ", Global.Player_Data.Inv_Brace_Equiped)
