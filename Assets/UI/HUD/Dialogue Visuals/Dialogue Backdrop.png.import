@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfkldsmp20ijm"
-path.s3tc="res://.godot/imported/TST_PSX_Tree_tree leaves.png-ebd30d9641164e99dc67590a5c3e2538.s3tc.ctex"
+uid="uid://ctwojkkhnhap7"
+path="res://.godot/imported/Dialogue Backdrop.png-38f201cd082fe314abc963e6656a9882.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "20822d2de3b506461c48ad86e554cad3"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Scenes/TEST MAP0/TST_PSX_Tree_tree leaves.png"
-dest_files=["res://.godot/imported/TST_PSX_Tree_tree leaves.png-ebd30d9641164e99dc67590a5c3e2538.s3tc.ctex"]
+source_file="res://Assets/UI/HUD/Dialogue Visuals/Dialogue Backdrop.png"
+dest_files=["res://.godot/imported/Dialogue Backdrop.png-38f201cd082fe314abc963e6656a9882.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -27,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -41,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

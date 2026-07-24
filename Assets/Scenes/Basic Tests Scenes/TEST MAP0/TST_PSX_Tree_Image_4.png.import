@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bq6ota2ewi1wd"
-path.s3tc="res://.godot/imported/TST_PSX_Tree_Image_2.png-1136e245acc2be91bac41a1cd4a82386.s3tc.ctex"
+uid="uid://doqlome8w0lck"
+path.s3tc="res://.godot/imported/TST_PSX_Tree_Image_4.png-b727cbfedd9bc7bb65dffe96ea9878df.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "2c0f9c23c4564142da91548c3acfb242"
+"md5": "16678faf1e3e9c794b0bcfedbc57ce3f"
 }
 
 [deps]
 
-source_file="res://Assets/Scenes/TEST MAP0/TST_PSX_Tree_Image_2.png"
-dest_files=["res://.godot/imported/TST_PSX_Tree_Image_2.png-1136e245acc2be91bac41a1cd4a82386.s3tc.ctex"]
+source_file="res://Assets/Scenes/Basic Tests Scenes/TEST MAP0/TST_PSX_Tree_Image_4.png"
+dest_files=["res://.godot/imported/TST_PSX_Tree_Image_4.png-b727cbfedd9bc7bb65dffe96ea9878df.s3tc.ctex"]
 
 [params]
 

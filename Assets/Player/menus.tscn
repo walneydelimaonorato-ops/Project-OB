@@ -19,7 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://dokiq8ck7v68y" path="res://Assets/UI/HUD/Ready_Menu_ToolR.png" id="6_p60kn"]
 [ext_resource type="Texture2D" uid="uid://dyp1tqlfs1r50" path="res://Assets/UI/HUD/Ready_Menu_Spell.png" id="7_1mnw2"]
 [ext_resource type="Texture2D" uid="uid://1gq7ogm65b2r" path="res://Assets/UI/HUD/Ready_Menu_UItem.png" id="8_4rtwh"]
+[ext_resource type="Script" uid="uid://bsnqhyrcnj8iu" path="res://Assets/Player/Scripts/Managers/Interaction Manager/Interaction Manager.gd" id="8_nouok"]
 [ext_resource type="Theme" uid="uid://ylysgsmxvcu1" path="res://Assets/UI/Main_UI_Theme.tres" id="9_3yn2l"]
+[ext_resource type="Script" uid="uid://8o5md3im0fu1" path="res://Assets/Player/Scripts/Managers/Interaction Manager/Dialogue Manager.gd" id="9_5uvif"]
 [ext_resource type="Texture2D" uid="uid://dqjg5u7edkp8i" path="res://Assets/UI/HUD/Item_Frame.png" id="11_3ojjw"]
 [ext_resource type="Texture2D" uid="uid://bc1eahxnggs3n" path="res://Assets/UI/HUD/Item Icons/Placeholder_Icon.png" id="15_yi8xc"]
 [ext_resource type="Texture2D" uid="uid://da067puqegj" path="res://Assets/UI/HUD/Item Icons/_Ultilities/Item_Icon_Blank_Mini.png" id="16_iylj0"]
@@ -27,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://qua4cq3ubssm" path="res://Assets/UI/HUD/Item Icons/_Ultilities/Item_Icon_Blank.png" id="18_muclb"]
 [ext_resource type="Texture2D" uid="uid://bpasig3i8jae3" path="res://Assets/UI/HUD/Item Icons/_Ultilities/Item_Icon_Selected.png" id="19_064ml"]
 [ext_resource type="Texture2D" uid="uid://c1idnxxkukvpp" path="res://Assets/UI/HUD/hgggggiub.png" id="20_muclb"]
+[ext_resource type="Texture2D" uid="uid://ctwojkkhnhap7" path="res://Assets/UI/HUD/Dialogue Visuals/Dialogue Backdrop.png" id="28_xgkss"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qmjen"]
 load_path = "res://.godot/imported/Ready_Menu_Bag.png-ffddf412d1b7c9a7e5e4a5ccb65bda06.ctex"
@@ -48,26 +51,31 @@ script = ExtResource("1_h6ym2")
 [node name="Menu Return" type="Node" parent="Player Menus Management" unique_id=1669042523]
 script = ExtResource("2_pi4b7")
 
-[node name="Menus (Ready)" type="Node" parent="." unique_id=1966116628]
-unique_name_in_owner = true
+[node name="Menus (Ready)" type="Node" parent="Player Menus Management" unique_id=1966116628]
 script = ExtResource("1_igvox")
 
-[node name="Menu Redirect" type="Node" parent="Menus (Ready)" unique_id=1864969636]
+[node name="Menu Redirect" type="Node" parent="Player Menus Management/Menus (Ready)" unique_id=1864969636]
 script = ExtResource("3_sid2l")
 
-[node name="Menu Remove Item" type="Node" parent="Menus (Ready)" unique_id=1593901827]
+[node name="Menu Remove Item" type="Node" parent="Player Menus Management/Menus (Ready)" unique_id=1593901827]
 script = ExtResource("5_xgkss")
 
-[node name="Menus (Selection)" type="Node" parent="." unique_id=1018472950]
+[node name="Menus (Selection)" type="Node" parent="Player Menus Management" unique_id=1018472950]
 
-[node name="Item Selected" type="Node" parent="Menus (Selection)" unique_id=2138721204]
+[node name="Item Selected" type="Node" parent="Player Menus Management/Menus (Selection)" unique_id=2138721204]
 script = ExtResource("3_flw64")
 
-[node name="Items Sorting" type="Node" parent="Menus (Selection)" unique_id=1267405493]
+[node name="Items Sorting" type="Node" parent="Player Menus Management/Menus (Selection)" unique_id=1267405493]
 script = ExtResource("4_olneg")
 
-[node name="Menu (Choice)" type="Node" parent="." unique_id=356019334]
+[node name="Interaction Manager" type="Node" parent="Player Menus Management" unique_id=981159296]
+script = ExtResource("8_nouok")
+
+[node name="Menu (Choice)" type="Node" parent="Player Menus Management/Interaction Manager" unique_id=356019334]
 script = ExtResource("3_064ml")
+
+[node name="Menu (Dialogue)" type="Node" parent="Player Menus Management/Interaction Manager" unique_id=1090605547]
+script = ExtResource("9_5uvif")
 
 [node name="Sounds" type="Node" parent="." unique_id=2055616778]
 
@@ -85,6 +93,7 @@ stream = ExtResource("4_qmjen")
 
 [node name="Ready Menu" type="Control" parent="." unique_id=1970162750]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -309,6 +318,7 @@ autowrap_trim_flags = 128
 
 [node name="Selection Menu" type="Control" parent="." unique_id=852856482]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1057,25 +1067,67 @@ theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
 text = "butt pudding
 "
 
-[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Technical/Ready Inventory" to="Menus (Ready)/Menu Redirect" method="ready_inventory_pressed"]
-[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Technical/Ready Settings" to="Menus (Ready)/Menu Redirect" method="ready_settings_pressed"]
-[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Wear and Tool/Ready Brace" to="Menus (Ready)/Menu Redirect" method="ready_brace_pressed"]
-[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Wear and Tool/Ready Wear" to="Menus (Ready)/Menu Redirect" method="ready_wear_pressed"]
-[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Wear and Tool/Ready Tool Left" to="Menus (Ready)/Menu Redirect" method="ready_tool_left_pressed"]
-[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Wear and Tool/Ready Tool Right" to="Menus (Ready)/Menu Redirect" method="ready_tool_right_pressed"]
-[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready Spell" to="Menus (Ready)/Menu Redirect" method="ready_spell_pressed"]
-[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 1" to="Menus (Ready)/Menu Redirect" method="ready_u_item_1_pressed"]
-[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 2" to="Menus (Ready)/Menu Redirect" method="ready_u_item_2_pressed"]
-[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 3" to="Menus (Ready)/Menu Redirect" method="ready_u_item_3_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Golden" to="Menus (Selection)/Item Selected" method="brace_golden_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Clorophyl" to="Menus (Selection)/Item Selected" method="brace_clorophyl_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Power" to="Menus (Selection)/Item Selected" method="brace_power_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Sword" to="Menus (Selection)/Item Selected" method="tool_sword_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Dagger" to="Menus (Selection)/Item Selected" method="tool_dagger_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Assault" to="Menus (Selection)/Item Selected" method="tool_assault_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool HandGun" to="Menus (Selection)/Item Selected" method="tool_handgun_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Bow" to="Menus (Selection)/Item Selected" method="tool_bow_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems/UItem Sigil" to="Menus (Selection)/Item Selected" method="uitem_sigil_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems/UItem Green Flask" to="Menus (Selection)/Item Selected" method="uitem_green_flask_pressed"]
-[connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Confirm" to="Menu (Choice)" method="on_confirm"]
-[connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Deny" to="Menu (Choice)" method="on_deny"]
+[node name="Dialogue Menu" type="Control" parent="." unique_id=767959069]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dialogue Container" type="MarginContainer" parent="Dialogue Menu" unique_id=1991351506]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = 528.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Dialogue Backdrop" type="TextureRect" parent="Dialogue Menu/Dialogue Container" unique_id=2040775477]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5882353)
+layout_mode = 2
+texture = ExtResource("28_xgkss")
+
+[node name="Current Voice" type="AudioStreamPlayer2D" parent="Dialogue Menu/Dialogue Container" unique_id=899593521]
+unique_name_in_owner = true
+position = Vector2(0, -528)
+
+[node name="Current Book" type="RichTextLabel" parent="Dialogue Menu/Dialogue Container" unique_id=1708585527]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 23)
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 0
+text = "aaaa"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Technical/Ready Inventory" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_inventory_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Technical/Ready Settings" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_settings_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Wear and Tool/Ready Brace" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_brace_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Wear and Tool/Ready Wear" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_wear_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Wear and Tool/Ready Tool Left" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_tool_left_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Wear and Tool/Ready Tool Right" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_tool_right_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready Spell" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_spell_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 1" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_u_item_1_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 2" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_u_item_2_pressed"]
+[connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 3" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_u_item_3_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Golden" to="Player Menus Management/Menus (Selection)/Item Selected" method="brace_golden_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Clorophyl" to="Player Menus Management/Menus (Selection)/Item Selected" method="brace_clorophyl_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Power" to="Player Menus Management/Menus (Selection)/Item Selected" method="brace_power_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Sword" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_sword_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Dagger" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_dagger_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Assault" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_assault_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool HandGun" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_handgun_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Bow" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_bow_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems/UItem Sigil" to="Player Menus Management/Menus (Selection)/Item Selected" method="uitem_sigil_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems/UItem Green Flask" to="Player Menus Management/Menus (Selection)/Item Selected" method="uitem_green_flask_pressed"]
+[connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Confirm" to="Player Menus Management/Interaction Manager/Menu (Choice)" method="on_confirm"]
+[connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Deny" to="Player Menus Management/Interaction Manager/Menu (Choice)" method="on_deny"]
+[connection signal="finished" from="Dialogue Menu/Dialogue Container/Current Voice" to="Player Menus Management/Interaction Manager/Menu (Dialogue)" method="_current_voice_finished"]

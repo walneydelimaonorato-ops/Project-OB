@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7p0xddbby67c"
-path.s3tc="res://.godot/imported/TST_MAP0_texture_07_2.png-d7c0f366bac3479983696549d21744da.s3tc.ctex"
+uid="uid://bjwrpixacqh1n"
+path.s3tc="res://.godot/imported/TST_MAP1_Leaves_Gold-Float.png-7de40b9b393fb0e591010936658a5e01.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "96961ca959c7e2bb2a900214f1324a1e"
+"md5": "d7be3bc391c77a6e928d1b75b854f3a7"
 }
 
 [deps]
 
-source_file="res://Assets/Scenes/TEST MAP0/TST_MAP0_texture_07_2.png"
-dest_files=["res://.godot/imported/TST_MAP0_texture_07_2.png-d7c0f366bac3479983696549d21744da.s3tc.ctex"]
+source_file="res://Assets/Scenes/Basic Tests Scenes/TEST MAP1/TST_MAP1_Leaves_Gold-Float.png"
+dest_files=["res://.godot/imported/TST_MAP1_Leaves_Gold-Float.png-7de40b9b393fb0e591010936658a5e01.s3tc.ctex"]
 
 [params]
 

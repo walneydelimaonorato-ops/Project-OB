@@ -32,6 +32,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Menus" parent="Control" unique_id=1806409522 instance=ExtResource("15_dtd46")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
 [node name="Side Status" type="Control" parent="Control" unique_id=1321882971]
 anchors_preset = 0
 offset_top = -9.0
@@ -302,14 +310,6 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Menus" parent="Control" unique_id=1806409522 instance=ExtResource("15_dtd46")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="Control2" type="Control" parent="." unique_id=983476177]
 layout_mode = 3

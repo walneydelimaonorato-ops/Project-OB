@@ -32,7 +32,7 @@ material = SubResource("StandardMaterial3D_32kx7")
 [node name="Player" type="CharacterBody3D" unique_id=266518977]
 script = ExtResource("1_2nc12")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1195453727]
+[node name="SubViewport" type="SubViewportContainer" parent="." unique_id=1195453727]
 unique_name_in_owner = true
 texture_filter = 1
 anchors_preset = 15
@@ -41,13 +41,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
+stretch_shrink = 3
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1128083939]
+[node name="SubViewport" type="SubViewport" parent="SubViewport" unique_id=1128083939]
 handle_input_locally = false
-size = Vector2i(1152, 648)
+size = Vector2i(384, 216)
 render_target_update_mode = 4
 
-[node name="Style" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1937713403]
+[node name="Style" type="Camera3D" parent="SubViewport/SubViewport" unique_id=1937713403]
 unique_name_in_owner = true
 
 [node name="Script Nodes" type="Node3D" parent="." unique_id=2102310861]

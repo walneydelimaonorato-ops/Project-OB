@@ -1,10 +1,12 @@
 extends Node
 
 func _ready() -> void:
+	print_rich("[color=#ffdf00]Player Menus Management Work[/color]")
 	
 	%"Ready Menu".visible = false
 	%"Selection Menu".visible = false
 	%"Choice Menu".visible = false
+	%"Dialogue Menu".visible = false
 	
 	SignalBus.Ready_Menu_Overlay_Update.connect(Ready_Menu_Overlay_Update)
 	SignalBus.focus_first_visible.connect(focus_first_visible)

@@ -75,10 +75,14 @@ signal item_transfer(Item_Sys_Name: String, Item_Type: String, Item_Quantity: in
 signal SubRoutine_Call(Tool: String, Routine: String)
 
 # Menu related signals
-
 signal focus_first_visible(container)
 signal MSelection_Item_Sorting()
 signal FMenu_Return(Return_Path: String)
+
+# Interaction related signals
+signal Interaction_Manager_Request(Interaction: String, Address: String, Param1: String, Param2: String)
+signal Dialogue_Manager(Address: String, Param1: String, Param2: String)
+signal NPC_Dialogue(Shelf: String, Book: String)
 
 #endregion
 

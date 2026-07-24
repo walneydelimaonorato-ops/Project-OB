@@ -1,11 +1,13 @@
 extends Node
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if %SubViewport.visible == true:
+		print_rich("[color=#ffdf00]Stylized Camera: [/color][color=green]Enabled[/color]")
+	else:
+		print_rich("[color=#ffdf00]Stylized Camera: [/color][color=red]Disabled[/color]")
+	%Style.visible = %SubViewport.visible
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	%Style.global_transform = %Eyes.global_transform
+	if %SubViewport.visible == true:
+		%Style.global_transform = %Eyes.global_transform

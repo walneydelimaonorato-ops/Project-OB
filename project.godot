@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="OATHBREAKER"
+config/version="UNAUTHORIZED 000"
 run/main_scene="uid://1pdtqb482aod"
 config/features=PackedStringArray("4.7")
 config/icon="uid://bnatj3bn5b0af"
@@ -32,6 +33,7 @@ gdscript/warnings/inferred_declaration=2
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [input]

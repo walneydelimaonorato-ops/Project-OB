@@ -25,7 +25,6 @@ func _physics_process(delta: float) -> void:
 	if Global.Player_Data.Debug_Fly == false:
 		if Input.is_action_just_pressed(Global.Player_Data.Un_Jump) and is_on_floor():
 			#Global.Player_Data.emit_signal("Stats_Change", "Decrease", "Stamina", 5)
-			%SubViewportContainer.stretch_shrink = 1
 			velocity.y = 4.5
 	
 	elif Global.Player_Data.Debug_Fly == true:
@@ -38,7 +37,6 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Input.is_action_pressed(Global.Player_Data.Un_Sprint): #and PlayerValue.Stamina > 0:
-		%SubViewportContainer.stretch_shrink = 3
 		Global.Player_Data.Base_Speed = Global.Player_Data.Run # Current speed becomes running speed
 		Running = true
 	else:

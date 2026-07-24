@@ -63,7 +63,6 @@ layout_mode = 2
 
 [node name="Test" type="VBoxContainer" parent="Scroller/Maps" unique_id=1885991100]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="Test 1" type="Button" parent="Scroller/Maps/Test" unique_id=421711111]
@@ -71,7 +70,7 @@ layout_mode = 2
 theme = ExtResource("2_112qj")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
-text = "//TEST_1 (Test Level)"
+text = "//TEST_1 (Test Level 0)"
 alignment = 0
 
 [node name="Test 2" type="Button" parent="Scroller/Maps/Test" unique_id=1560759695]
@@ -79,7 +78,7 @@ layout_mode = 2
 theme = ExtResource("2_112qj")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
-text = "//TEST_2 (Church)"
+text = "//TEST_2 (Test Level 1)"
 alignment = 0
 
 [node name="Test 3" type="Button" parent="Scroller/Maps/Test" unique_id=92398873]
@@ -91,6 +90,7 @@ text = "//TEST_3"
 
 [node name="Beta" type="VBoxContainer" parent="Scroller/Maps" unique_id=974865761]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Beta 1" type="Button" parent="Scroller/Maps/Beta" unique_id=1847101641]

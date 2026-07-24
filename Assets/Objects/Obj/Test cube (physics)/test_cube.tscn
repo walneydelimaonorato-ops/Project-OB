@@ -26,4 +26,5 @@ mesh = SubResource("BoxMesh_8xosk")
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1109649054]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1180724213]
+visible = false
 shape = SubResource("CylinderShape3D_8xosk")
