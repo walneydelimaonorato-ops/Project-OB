@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bpasig3i8jae3" path="res://Assets/UI/HUD/Item Icons/_Ultilities/Item_Icon_Selected.png" id="19_064ml"]
 [ext_resource type="Texture2D" uid="uid://c1idnxxkukvpp" path="res://Assets/UI/HUD/hgggggiub.png" id="20_muclb"]
 [ext_resource type="Texture2D" uid="uid://ctwojkkhnhap7" path="res://Assets/UI/HUD/Dialogue Visuals/Dialogue Backdrop.png" id="28_xgkss"]
+[ext_resource type="AudioStream" uid="uid://bilpxmllyi2qn" path="res://Assets/Dialogue/TEST NPC/NPC_TEST_INTRODUCTION_001.mp3" id="31_wg5x1"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qmjen"]
 load_path = "res://.godot/imported/Ready_Menu_Bag.png-ffddf412d1b7c9a7e5e4a5ccb65bda06.ctex"
@@ -1092,6 +1093,7 @@ texture = ExtResource("28_xgkss")
 [node name="Current Voice" type="AudioStreamPlayer2D" parent="Dialogue Menu/Dialogue Container" unique_id=899593521]
 unique_name_in_owner = true
 position = Vector2(0, -528)
+stream = ExtResource("31_wg5x1")
 
 [node name="Current Book" type="RichTextLabel" parent="Dialogue Menu/Dialogue Container" unique_id=1708585527]
 unique_name_in_owner = true
