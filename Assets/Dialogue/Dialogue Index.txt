@@ -1,3 +1,33 @@
+NPC_TEST_INTRODUCTION
+BOOK1 "This is a test introduction"
+VOICE NPC_TEST_INTRODUCTION_001.mp3
+
+BOOK2 "This is an example of the next line"
+VOICE NPC_TEST_INTRODUCTION_001.mp3
+
+BOOK3 "Pretty neat, right?"
+VOICE NPC_TEST_INTRODUCTION_001.mp3
+PASS A "BOOK4A"
+PASS B "BOOK4B"
+
+BOOK4A "Awesome, I know"
+VOICE NPC_TEST_INTRODUCTION_001.mp3
+
+BOOK4B "Really? It might not look like much"
+VOICE NPC_TEST_INTRODUCTION_001.mp3
+
+BOOK5A "It took SO MUCH to put together"
+VOICE NPC_TEST_INTRODUCTION_001.mp3
+
+BOOK5B "But this spent 3 days in the oven!"
+VOICE NPC_TEST_INTRODUCTION_001.mp3
+
+BOOK6 "Im probably taking too much of your time"
+VOICE NPC_TEST_INTRODUCTION_001.mp3
+
+BOOK7 "..."
+VOICE NPC_TEST_INTRODUCTION_001.mp3
+
 NPC_BLOODMOTHER_INTRO:
 	LINE01:
 		"Son..."

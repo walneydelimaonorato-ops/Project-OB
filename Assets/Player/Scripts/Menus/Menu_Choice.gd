@@ -4,10 +4,28 @@ var Local_Confirm_Name: String
 var Local_Deny_Name: String
 var Local_Adress_Name: String
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	print_rich("[color=#ffdf00]Choice Menu Working[/color]")
 	SignalBus.connect("request_popup", on_request_popup)
+	SignalBus.connect("Interaction_Prompt_Manager", butt)
+
+func butt(Address: String, Ch_Name: String, Ch_Confirm: String, Ch_Deny: String):
+	
+	%"Choice Menu".visible = true
+	%Stance.text = Ch_Name
+	%Confirm.text = Ch_Confirm
+	%Deny.text = Ch_Deny
+	SignalBus.emit_signal("focus_first_visible", %"Yes_No Choice Box")
+
+
+
+
+
+
+
+
+
 
 func on_request_popup(Choice_Names, Address_From):
 	Local_Confirm_Name = Choice_Names.yes_text
