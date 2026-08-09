@@ -6,20 +6,20 @@ func _ready() -> void:
 	SignalBus.Side_HUD_Overlay_Update.connect(Side_Menu_Overlay_Update)
 	SignalBus.Side_HUD_Update.connect(Side_HUD_Update)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func Side_HUD_Update():
+	%"Side HUD".visible = Global.Player_Data.Player_Perms["Can_Show_UI_Side"]
+	
 	HUD_Visibility(%"Tool R", %"Name ToolR", %"Desc ToolR", "Invisible")
 	HUD_Visibility(%"Tool L", %"Name ToolL", %"Desc ToolL", "Invisible")
-	HUD_Visibility(%Spell, %"Name Spell", %"Desc Spell" , "Invisible")
+	#HUD_Visibility(%Spell, %"Name Spell", %"Desc Spell" , "Invisible")
 	HUD_Visibility(%UItem, %"Name UItem", %"Desc UItem", "Invisible")
 	
 	match Global.Player_Data.Inv_ToolR_Equiped:
 		"null":
 			%"Name ToolR".text = "Unequipped"
 			%"Desc ToolR".text = "<nothing>"
+			Side_Menu_Overlay_Update("Ready Tool Right", "uid://qua4cq3ubssm")
+	
 		"HandGun":
 			HUD_Visibility(%"Tool R", %"Name ToolR", %"Desc ToolR", "Visible")
 			%"Name ToolR".text = Global.Player_Data.Tool_ID["HandGun"]["dys name"]
@@ -28,11 +28,13 @@ func Side_HUD_Update():
 			HUD_Visibility(%"Tool R", %"Name ToolR", %"Desc ToolR", "Visible")
 			%"Name ToolR".text = Global.Player_Data.Tool_ID["AssaultRifle"]["dys name"]
 			%"Desc ToolR".text = "tasty coconut :3"
-
+	
 	match Global.Player_Data.Inv_ToolL_Equiped:
 		"null":
 			%"Name ToolL".text = "Unequipped"
 			%"Desc ToolL".text = "<nothing>"
+			Side_Menu_Overlay_Update("Ready Tool Left", "uid://qua4cq3ubssm")
+	
 		"HandGun":
 			HUD_Visibility(%"Tool L", %"Name ToolL", %"Desc ToolL", "Visible")
 			%"Name ToolL".text = Global.Player_Data.Tool_ID["HandGun"]["dys name"]
@@ -41,11 +43,13 @@ func Side_HUD_Update():
 			HUD_Visibility(%"Tool L", %"Name ToolL", %"Desc ToolL", "Visible")
 			%"Name ToolL".text = Global.Player_Data.Tool_ID["AssaultRifle"]["dys name"]
 			%"Desc ToolL".text = str("Ammo: ", Global.Player_Data.Tool_ID["AssaultRifle"]["Ammo"], " // Mags: ", Global.Player_Data.Tool_ID["AssaultRifle"]["Mag"])
-
+	
 	match Global.Player_Data.Cycle_Uitem_Active:
 		"null":
 			%"Name UItem".text = "Unequipped"
 			%"Desc UItem".text = "<nothing>"
+			Side_Menu_Overlay_Update("Ready UItem 1", "uid://qua4cq3ubssm")
+	
 		"Sigil":
 			HUD_Visibility(%UItem, %"Name UItem", %"Desc UItem", "Visible")
 			%"Name UItem".text = Global.Player_Data.UItem_ID["Sigil"]["dys name"]

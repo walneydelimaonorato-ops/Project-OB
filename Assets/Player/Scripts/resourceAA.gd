@@ -80,7 +80,7 @@ var Player_Perms = {
 	"Can_Open_Menus": true,
 	"Can_Use_Sword": false,
 	"Can_Use_Dagger": false,
-	"Can_Use_HandGun": false,
+	"Can_Use_HandGun": true,
 	"Can_Use_AssaultRifle": false,
 	"Can_Show_UI_Side": false,
 	"Can_Show_UI_Stats": true,
@@ -171,7 +171,7 @@ var Tool_ID = {
 		"picked?": true,
 		"equipped?": false, 
 		"damage": 6, 
-		"Ammo": 0,
+		"Ammo": 3,
 		"Mag": 0,
 		},
 	"AssaultRifle": {

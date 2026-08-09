@@ -28,6 +28,7 @@ func Action_Alternative(Direction):
 					AssaultRifle("Reload")
 
 func Action_Primary(Direction):
+	SignalBus.emit_signal("Player_Permissions_Conditionals")
 	match Direction:
 		"Right":
 			match Global.Player_Data.Inv_ToolR_Equiped:

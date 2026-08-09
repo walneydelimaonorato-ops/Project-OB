@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bjx42pmeq3smb"]
+
+[ext_resource type="Script" uid="uid://dxnfafyyfvmpo" path="res://Assets/Scenes/Utility/Loading Screen/loading.gd" id="1_tfmtj"]
+[ext_resource type="Texture2D" uid="uid://48o16kkenl08" path="res://Assets/UI/Miscelleneous/Loading.png" id="2_glwpg"]
+[ext_resource type="VideoStream" uid="uid://x75gnjdghcni" path="res://Assets/Scenes/Utility/Loading Screen/Load_movie_1.ogv" id="3_x7q88"]
+
+[node name="Loading" type="Node2D" unique_id=549489489]
+script = ExtResource("1_tfmtj")
+
+[node name="Loading movie 1" type="VideoStreamPlayer" parent="." unique_id=596799455]
+unique_name_in_owner = true
+offset_right = 1151.0
+offset_bottom = 648.0
+stream = ExtResource("3_x7q88")
+volume_db = 5.0
+autoplay = true
+expand = true
+
+[node name="Loading Progress" type="TextureProgressBar" parent="." unique_id=1842236943]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 924.0
+offset_top = 438.0
+offset_right = 1127.0
+offset_bottom = 638.0
+grow_horizontal = 2
+grow_vertical = 2
+step = 0.1
+value = 99.0
+rounded = true
+fill_mode = 4
+texture_progress = ExtResource("2_glwpg")
+
+[connection signal="finished" from="Loading movie 1" to="." method="_on_loading_movie_1_finished"]

@@ -1,5 +1,4 @@
 extends Node
-@onready var PlayerRes: Node = $"../../../../Script Nodes/Player Stats"
 # STATSMAN Node = $"../../../../Script Nodes/Stats Management"
 
 var buttfocus: String = ""

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://swg00c6sqsjc"]
+
+[ext_resource type="PackedScene" uid="uid://yey3rq0j37ff" path="res://Assets/Player/Player_Model.tscn" id="1_oxplu"]
+[ext_resource type="PackedScene" uid="uid://ciauf1k83tiw3" path="res://Assets/Scenes/Beta/BETA MAP2/MAP_BETA2.glb" id="2_omiq2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oxplu"]
+sky_top_color = Color(0.28045967, 0.49630553, 0.4515105, 1)
+sky_horizon_color = Color(0.63370097, 0.6878222, 0.65543854, 1)
+ground_bottom_color = Color(0.1806137, 0.18125296, 0.09651319, 1)
+ground_horizon_color = Color(0.63370097, 0.6878222, 0.65543854, 1)
+
+[sub_resource type="Sky" id="Sky_omiq2"]
+sky_material = SubResource("ProceduralSkyMaterial_oxplu")
+
+[sub_resource type="Environment" id="Environment_adja6"]
+background_mode = 2
+sky = SubResource("Sky_omiq2")
+tonemap_mode = 2
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_oxplu"]
+data = PackedVector3Array(-1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="Root" type="Node3D" unique_id=389659187]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=553526316]
+environment = SubResource("Environment_adja6")
+
+[node name="Player" parent="." unique_id=266518977 instance=ExtResource("1_oxplu")]
+
+[node name="MAP_BETA2" parent="." unique_id=417114578 instance=ExtResource("2_omiq2")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MAP_BETA2/Ground" parent_id_path=PackedInt32Array(417114578, 2044211910) index="0" unique_id=758862575]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MAP_BETA2/Ground/StaticBody3D" unique_id=851621601]
+shape = SubResource("ConcavePolygonShape3D_oxplu")
+
+[editable path="MAP_BETA2"]

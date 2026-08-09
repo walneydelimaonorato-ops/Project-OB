@@ -3,13 +3,16 @@ extends Node
 func _ready() -> void:
 	print_rich("[color=#b76e79]=========================\r[/color] [color=#ffdf00]Player Permission Manager Working[/color]")
 	Global.Player_Data.Player_Status_Master = "Alive"
-	Stats_Assigning()
+	Bulk_Permission_Assigning()
+	
+	SignalBus.Player_Permissions_Conditionals.connect(Player_Permissions_Conditionals)
 
-func Stats_Assigning():
+func Bulk_Permission_Assigning():
 	match Global.Player_Data.Player_Status_Master:
 		"Alive":
 			Player_Permissions_Setting("Can_Move", "Yes")
 			Player_Permissions_Setting("Can_Look", "Yes")
+			Player_Permissions_Setting("Can_Show_UI_Side", "Yes")
 		"Dead":
 			Player_Permissions_Setting("Can_Menus", "No")
 			Player_Permissions_Setting("Can_Show_UI_Side", "No")
@@ -26,6 +29,9 @@ func Stats_Assigning():
 	
 	match Global.Player_Data.Player_Status_3:
 		pass
+	
+	SignalBus.emit_signal("Side_HUD_Update")
+	
 
 func Stats_Setting(Target, Setting):
 	match Target:
@@ -50,3 +56,14 @@ func Player_Permissions_Setting(Permission: String, Setting: String):
 			Global.Player_Data.Player_Perms[Permission] = true
 		"No":
 			Global.Player_Data.Player_Perms[Permission] = false
+
+func Player_Permissions_Conditionals():
+	if Global.Player_Data.Tool_ID["HandGun"]["Ammo"] <= 0:
+		Player_Permissions_Setting("Can_Use_HandGun", "No")
+	elif Global.Player_Data.Tool_ID["HandGun"]["Ammo"] > 0:
+		Player_Permissions_Setting("Can_Use_HandGun", "Yes")
+	
+	if Global.Player_Data.Health <= 0:
+		Global.Player_Data.Player_Status_Master = "Dead"
+		Bulk_Permission_Assigning()
+	

@@ -53,8 +53,12 @@ signal Ready_Menu_Overlay_Update(Menu_Slot: String, Item_Texture: String)
 # Update signal for Status Management
 signal Player_Stats_Management_Update_In()
 signal Player_Stats_Management_Update_Out()
-# Signal used to actually set the plauer status
+
+#region New Code Region
+# Signal used to actually set the pluer status
 signal Set_Sats(Target: String, Setting: String)
+signal Player_Permissions_Conditionals()
+#endregion
 
 # Signal used to update the Side HUD and rotate Equipped items in the hand
 signal Tool_Rotation()
@@ -82,6 +86,7 @@ signal FMenu_Return(Return_Path: String)
 # Interaction related signals
 signal Interaction_Manager_Request(Interaction: String, Address: String, Param1: String, Param2: String)
 signal Interaction_Prompt_Manager(Address: String, Ch_Name: String, Ch_Confirm: String, Ch_Deny: String)
+signal Interaction_Prompt_Manager_Response(Address: String, Response: bool)
 signal NPC_Dialogue(Shelf: String, Book: String)
 
 #endregion

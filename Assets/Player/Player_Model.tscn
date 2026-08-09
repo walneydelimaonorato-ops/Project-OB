@@ -34,6 +34,7 @@ script = ExtResource("1_2nc12")
 
 [node name="SubViewport" type="SubViewportContainer" parent="." unique_id=1195453727]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,7 +47,7 @@ stretch_shrink = 3
 [node name="SubViewport" type="SubViewport" parent="SubViewport" unique_id=1128083939]
 handle_input_locally = false
 size = Vector2i(384, 216)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Style" type="Camera3D" parent="SubViewport/SubViewport" unique_id=1937713403]
 unique_name_in_owner = true
@@ -111,7 +112,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09374118, 0)
 [node name="Models" parent="Head/Eyes" unique_id=1867517693 instance=ExtResource("5_hs5eg")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17413068, -0.96205795)
-visible = false
 
 [node name="Ray2" type="RayCast3D" parent="Head/Eyes" unique_id=670486846]
 unique_name_in_owner = true
@@ -131,6 +131,7 @@ collide_with_areas = true
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Head/Eyes" unique_id=1793310147]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09374118, 0)
+visible = false
 light_specular = 0.0
 omni_range = 185.0
 

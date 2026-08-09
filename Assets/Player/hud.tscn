@@ -32,14 +32,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Menus" parent="Control" unique_id=1806409522 instance=ExtResource("15_dtd46")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
-
 [node name="Side Status" type="Control" parent="Control" unique_id=1321882971]
 anchors_preset = 0
 offset_top = -9.0
@@ -78,6 +70,7 @@ texture_over = ExtResource("7_vy47n")
 texture_progress = ExtResource("7_c66ss")
 
 [node name="Side HUD" type="Control" parent="Control" unique_id=617442304]
+unique_name_in_owner = true
 layout_mode = 1
 anchor_left = 0.012
 anchor_top = 0.666
@@ -108,6 +101,7 @@ texture = ExtResource("2_pvj0q")
 
 [node name="Spell" type="TextureRect" parent="Control/Side HUD/SidH Base" unique_id=407221199]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 texture = ExtResource("3_bitai")
 
@@ -137,6 +131,7 @@ expand_mode = 4
 
 [node name="S Over" type="TextureRect" parent="Control/Side HUD/SidH Overlay" unique_id=1634645620]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 texture = ExtResource("7_bhcvo")
 expand_mode = 4
@@ -180,7 +175,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("5_pvj0q")
 theme_override_font_sizes/font_size = 50
-text = "Booty"
+text = "Booty aaaaaaaaaaaaa"
 
 [node name="SidH ToolL" type="MarginContainer" parent="Control/Side HUD/SidH Names" unique_id=1316408240]
 layout_mode = 2
@@ -210,6 +205,7 @@ theme_override_font_sizes/font_size = 50
 text = "Booty"
 
 [node name="SidH Spell" type="MarginContainer" parent="Control/Side HUD/SidH Names" unique_id=1733682864]
+visible = false
 layout_mode = 2
 
 [node name="Name Spell" type="Label" parent="Control/Side HUD/SidH Names/SidH Spell" unique_id=1571177560]
@@ -223,6 +219,7 @@ theme_override_font_sizes/font_size = 50
 text = "Spell"
 
 [node name="Desc Spell" type="MarginContainer" parent="Control/Side HUD/SidH Names" unique_id=560448979]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_bottom = 60
 
@@ -311,6 +308,14 @@ autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Menus" parent="Control" unique_id=1806409522 instance=ExtResource("15_dtd46")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
 [node name="Control2" type="Control" parent="." unique_id=983476177]
 layout_mode = 3
 anchors_preset = 15
@@ -355,6 +360,7 @@ layout_mode = 2
 text = "Cans"
 
 [node name="Focus Node" type="Label" parent="Control2" unique_id=170205039]
+visible = false
 layout_mode = 0
 offset_left = 188.0
 offset_top = 597.0

@@ -130,6 +130,7 @@ func Stats_Decrease(Operation, Type, Value):
 	else:
 		pass
 	SignalBus.emit_signal("Side_Status_Update")
+	SignalBus.emit_signal("Player_Permissions_Conditionals")
 
 func Stats_Increase(Operation, Type, Value):
 	if Operation == "Increase":

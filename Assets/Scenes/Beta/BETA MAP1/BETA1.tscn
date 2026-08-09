@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://l4fompyd1m4k"]
+
+[ext_resource type="Texture2D" uid="uid://clq4qy3dpo011" path="res://Assets/Scenes/Beta/BETA MAP1/BETA_Panorama.png" id="1_t13xw"]
+[ext_resource type="PackedScene" uid="uid://c55kv27311jk4" path="res://Assets/Scenes/Beta/BETA MAP1/MAP_BETA1.glb" id="3_75en4"]
+[ext_resource type="PackedScene" uid="uid://yey3rq0j37ff" path="res://Assets/Player/Player_Model.tscn" id="14_rx27d"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_112qj"]
+panorama = ExtResource("1_t13xw")
+energy_multiplier = 0.9
+
+[sub_resource type="Sky" id="Sky_t13xw"]
+sky_material = SubResource("PanoramaSkyMaterial_112qj")
+
+[sub_resource type="Environment" id="Environment_yu7r3"]
+background_mode = 2
+sky = SubResource("Sky_t13xw")
+tonemap_mode = 2
+
+[node name="Stem" type="Node3D" unique_id=1903329044]
+
+[node name="Player" parent="." unique_id=266518977 instance=ExtResource("14_rx27d")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=589153695]
+environment = SubResource("Environment_yu7r3")
+
+[node name="MAP_BETA1" parent="." unique_id=1435342142 instance=ExtResource("3_75en4")]
+
+[node name="_Collision" parent="MAP_BETA1" index="0" unique_id=233205368]
+visible = false
+
+[editable path="MAP_BETA1"]

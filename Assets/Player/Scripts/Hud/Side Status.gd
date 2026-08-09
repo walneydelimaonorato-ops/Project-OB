@@ -5,10 +5,6 @@ func _ready() -> void:
 	Side_Status_Update()
 	SignalBus.Side_Status_Update.connect(Side_Status_Update)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func Side_Status_Update():
 	%Stamina.visible = Global.Player_Data.Player_Perms.Can_Show_UI_Stats
 	%Health.visible = Global.Player_Data.Player_Perms.Can_Show_UI_Stats

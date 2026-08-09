@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cqhq1cwbpob5s"]
+
+[ext_resource type="Script" uid="uid://j7vt7g2i517e" path="res://Assets/Scenes/Utility/Splash Screen/splash_screen.gd" id="1_s2t0y"]
+
+[node name="Root" type="Node2D" unique_id=2078303166]
+script = ExtResource("1_s2t0y")
+
+[node name="Label" type="Label" parent="." unique_id=1366177187]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "999"

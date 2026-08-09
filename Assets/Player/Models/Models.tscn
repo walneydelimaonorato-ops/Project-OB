@@ -208,6 +208,7 @@ shadow_mesh = SubResource("ArrayMesh_dja2o")
 resource_name = "Material.001"
 cull_mode = 2
 albedo_texture = ExtResource("2_y0boj")
+metallic_specular = 0.0
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cx0qs"]
@@ -248,6 +249,7 @@ shadow_mesh = SubResource("ArrayMesh_cx0qs")
 resource_name = "Material.002"
 cull_mode = 2
 albedo_texture = ExtResource("2_y0boj")
+metallic_specular = 0.0
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lumt0"]

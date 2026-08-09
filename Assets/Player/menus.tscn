@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bpasig3i8jae3" path="res://Assets/UI/HUD/Item Icons/_Ultilities/Item_Icon_Selected.png" id="19_064ml"]
 [ext_resource type="Texture2D" uid="uid://c1idnxxkukvpp" path="res://Assets/UI/HUD/hgggggiub.png" id="20_muclb"]
 [ext_resource type="Texture2D" uid="uid://ctwojkkhnhap7" path="res://Assets/UI/HUD/Dialogue Visuals/Dialogue Backdrop.png" id="28_xgkss"]
+[ext_resource type="Texture2D" uid="uid://dub02484c00ma" path="res://Assets/UI/HUD/Baggage_Frame.png" id="31_wg5x1"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qmjen"]
 load_path = "res://.godot/imported/Ready_Menu_Bag.png-ffddf412d1b7c9a7e5e4a5ccb65bda06.ctex"
@@ -624,7 +625,6 @@ justification_flags = 162
 
 [node name="Tools" type="VBoxContainer" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)" unique_id=1150022900]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="Start of Tool" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=2073192380]
@@ -895,6 +895,7 @@ justification_flags = 162
 
 [node name="UItems" type="VBoxContainer" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)" unique_id=1041217003]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Start of UItems" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems" unique_id=170828685]
@@ -1069,6 +1070,7 @@ text = "butt pudding
 
 [node name="Dialogue Menu" type="Control" parent="." unique_id=767959069]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1107,6 +1109,143 @@ scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Baggage Menu" type="Control" parent="." unique_id=524540406]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="NinePatchRect" parent="Baggage Menu" unique_id=716123161]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 0
+offset_left = 160.0
+offset_top = 200.0
+offset_right = 2264.9998
+offset_bottom = 1989.9999
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("31_wg5x1")
+region_rect = Rect2(5, 4, 390, 392)
+
+[node name="TextureRect2" type="NinePatchRect" parent="Baggage Menu" unique_id=1031909611]
+modulate = Color(1, 1, 1, 0.78431374)
+layout_mode = 0
+offset_left = 581.0
+offset_top = 200.0
+offset_right = 2720.9995
+offset_bottom = 1989.9999
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("31_wg5x1")
+region_rect = Rect2(5, 4, 390, 392)
+
+[node name="Baggage Holder" type="HBoxContainer" parent="Baggage Menu" unique_id=64693094]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 200.0
+offset_right = 2437.0
+offset_bottom = 1989.9999
+scale = Vector2(0.2, 0.2)
+
+[node name="Item Brief" type="VBoxContainer" parent="Baggage Menu/Baggage Holder" unique_id=1227413635]
+clip_contents = true
+layout_mode = 2
+
+[node name="Lenght" type="Label" parent="Baggage Menu/Baggage Holder/Item Brief" unique_id=1905724894]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 1
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+[node name="Start of Brief" type="TextureButton" parent="Baggage Menu/Baggage Holder/Item Brief" unique_id=1374606568]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("16_iylj0")
+texture_focused = ExtResource("17_iylj0")
+
+[node name="Start of List" type="RichTextLabel" parent="Baggage Menu/Baggage Holder/Item Brief/Start of Brief" unique_id=1043130990]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[img=100]uid://cqev7lw1fw74m[/img]Top"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="Brief Placeholder" type="TextureButton" parent="Baggage Menu/Baggage Holder/Item Brief" unique_id=1978494215]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("18_muclb")
+texture_focused = ExtResource("19_064ml")
+
+[node name="Brief Placeholder" type="RichTextLabel" parent="Baggage Menu/Baggage Holder/Item Brief/Brief Placeholder" unique_id=956402119]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[img=200]uid://bc1eahxnggs3n[/img]: Aaaaaaaaaaaaaaaaaaaaaaaaaaa"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="Brief Sword" type="TextureButton" parent="Baggage Menu/Baggage Holder/Item Brief" unique_id=1457227911]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+texture_normal = ExtResource("18_muclb")
+texture_focused = ExtResource("19_064ml")
+
+[node name="Brief Sword" type="RichTextLabel" parent="Baggage Menu/Baggage Holder/Item Brief/Brief Sword" unique_id=727644200]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[img=200]uid://d3txjn55xf1sw[/img]: Ewyllys Trais"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="End of Brief" type="TextureButton" parent="Baggage Menu/Baggage Holder/Item Brief" unique_id=1515203684]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+texture_normal = ExtResource("16_iylj0")
+texture_focused = ExtResource("17_iylj0")
+
+[node name="End of List" type="RichTextLabel" parent="Baggage Menu/Baggage Holder/Item Brief/End of Brief" unique_id=995253854]
+layout_mode = 1
+offset_right = 648.0
+offset_bottom = 221.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[img=100]uid://w1gqa20dtsoa[/img]Bottom"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="Item Big" type="VBoxContainer" parent="Baggage Menu/Baggage Holder" unique_id=1913035078]
+layout_mode = 2
 
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Technical/Ready Inventory" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_inventory_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Technical/Ready Settings" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_settings_pressed"]
