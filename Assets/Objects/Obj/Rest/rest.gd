@@ -7,7 +7,7 @@ func _ready() -> void:
 func HUD_Element():
 	return HUD_Prompt
 
-func Iteraction():
+func Interact():
 	%AudioStreamPlayer2D.play()
 
 func Take_Damage():

@@ -10,7 +10,7 @@ func Interaction_Sorter(Interaction: String, Address: String, Param1: String, Pa
 		"Dialogue":
 			SignalBus.emit_signal("NPC_Dialogue", Param1, Param2)
 		"Object":
-			pass
+			SignalBus.emit_signal("Object_Interaction", Param1, Param2)
 		"Item":
 			pass
 

@@ -13,10 +13,11 @@ extends Node
 @onready var Page_4S: HBoxContainer = $"../Debug Backdrop/Page 4s"
 @onready var page_4: Label = $"../Debug Backdrop/Page 4s/Page 4"
 @onready var page_4A: Label = $"../Debug Backdrop/Page 4s/Page 4A"
+@onready var page_5s: HBoxContainer = $"../Debug Backdrop/Page 5s"
 @onready var focus_node: Label = $"../Focus Node"
 
 var Active: bool = false
-var Page: int = 3
+var Page: int = 1
 
 func _ready() -> void:
 	print_rich("[color=#ffdf00]Debug Working[/color]")
@@ -40,7 +41,7 @@ func _process(_delta: float) -> void:
 		get_tree().change_scene_to_packed(Global.Load_New)
 	
 	
-	Page = clamp(Page, 1, 4)
+	Page = clamp(Page, 1, 5)
 	
 	if Active == true:
 		debug_backdrop.visible = true
@@ -53,21 +54,31 @@ func _process(_delta: float) -> void:
 			page_2.visible = false
 			page_3.visible = false
 			Page_4S.visible = false
+			page_5s.visible = false
 		2:
 			page_1.visible = false
 			page_2.visible = true
 			page_3.visible = false
 			Page_4S.visible = false
+			page_5s.visible = false
 		3:
 			page_1.visible = false
 			page_2.visible = false
 			page_3.visible = true
 			Page_4S.visible = false
+			page_5s.visible = false
 		4:
 			page_1.visible = false
 			page_2.visible = false
 			page_3.visible = false
 			Page_4S.visible = true
+			page_5s.visible = false
+		5:
+			page_1.visible = false
+			page_2.visible = false
+			page_3.visible = false
+			Page_4S.visible = false
+			page_5s.visible = true
 	
 	page_1.text = "TST Vars"
 	page_1.text += str("\rPosition: ", $"../../..".position)

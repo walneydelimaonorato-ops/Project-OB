@@ -10,7 +10,7 @@ var Icon1: String
 var Icon2: String
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	
 	Hints_Matchup()
 	%"Page Main".visible = true

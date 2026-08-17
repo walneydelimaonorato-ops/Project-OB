@@ -38,11 +38,17 @@ gdscript/warnings/inferred_declaration=2
 [display]
 
 window/size/mode=3
+window/size/resizable=false
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
 enabled=PackedStringArray()
+
+[global_group]
+
+"Cull Monitor"=""
+Animations=""
 
 [input]
 

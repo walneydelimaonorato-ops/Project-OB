@@ -712,12 +712,14 @@ graph_offset = Vector2(-20.40329, 63.246246)
 [node name="Sounds" type="Node" parent="." unique_id=2013220374]
 
 [node name="HandGun Shoot" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1824102849]
+visible = false
 position = Vector2(0, 0.66494334)
 stream = ExtResource("1_3x1hw")
 volume_db = -5.0
 bus = &"SFX"
 
 [node name="Assault Shoot" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1757938809]
+visible = false
 stream = ExtResource("2_fa7cy")
 volume_db = -5.0
 bus = &"SFX"
@@ -731,7 +733,6 @@ script = ExtResource("3_xiis2")
 [node name="Arm Left Rig" type="Node3D" parent="Master Rig" unique_id=292863608]
 unique_name_in_owner = true
 transform = Transform3D(-0.81379753, 0.46984637, -0.3420202, 0.5, 0.8660254, 1.2904784e-08, 0.29619816, -0.1710101, -0.9396926, -0.2, 0, 0.7)
-visible = false
 
 [node name="Arm Left" type="MeshInstance3D" parent="Master Rig/Arm Left Rig" unique_id=719389888]
 mesh = SubResource("ArrayMesh_nfa0a")
@@ -739,14 +740,12 @@ mesh = SubResource("ArrayMesh_nfa0a")
 [node name="Arm Right Rig" type="Node3D" parent="Master Rig" unique_id=2023940726]
 unique_name_in_owner = true
 transform = Transform3D(-0.81379765, -0.4698463, 0.3420202, -0.5, 0.8660254, 0, -0.2961982, -0.1710101, -0.9396926, 0.2, 0, 0.7)
-visible = false
 
 [node name="Arm Right" type="MeshInstance3D" parent="Master Rig/Arm Right Rig" unique_id=1228656626]
 mesh = SubResource("ArrayMesh_273gk")
 
 [node name="Assault Rig" type="Node3D" parent="Master Rig" unique_id=80406720]
 unique_name_in_owner = true
-visible = false
 
 [node name="Assault Body" type="Node3D" parent="Master Rig/Assault Rig" unique_id=1137400601]
 transform = Transform3D(-1.3113416e-09, -0.03, 0, -1.3113416e-09, 5.7320566e-17, 0.03, -0.03, 1.3113416e-09, -1.3113416e-09, 0.234, 0, 0.5)
@@ -757,7 +756,6 @@ mesh = SubResource("ArrayMesh_r6dqq")
 
 [node name="Assault Bolt" type="Node3D" parent="Master Rig/Assault Rig" unique_id=1279279349]
 transform = Transform3D(-1.3113416e-09, -0.03, 0, -1.3113416e-09, 5.7320566e-17, 0.03, -0.03, 1.3113416e-09, -1.3113416e-09, 0.234, 0, 0.5)
-visible = false
 
 [node name="M14 Bolt" type="MeshInstance3D" parent="Master Rig/Assault Rig/Assault Bolt" unique_id=437714599]
 mesh = SubResource("ArrayMesh_xi0vh")
@@ -795,7 +793,6 @@ mesh = SubResource("ArrayMesh_3kohm")
 [node name="Latern Rig" type="Node3D" parent="Master Rig" unique_id=1957117171]
 unique_name_in_owner = true
 transform = Transform3D(-0.9845031, -0.030452112, 0.17270249, 0, 0.98480767, 0.17364816, -0.17536671, 0.17095716, -0.96954626, 0.2, 0.1, 0.47391155)
-visible = false
 
 [node name="Arm" type="MeshInstance3D" parent="Master Rig/Latern Rig" unique_id=1923576173]
 transform = Transform3D(0.88458353, 0.4663818, 0, -0.4663818, 0.88458353, 0, 0, 0, 1, 0, 0, 0)
@@ -803,6 +800,7 @@ mesh = SubResource("ArrayMesh_hweum")
 
 [node name="Latern" type="MeshInstance3D" parent="Master Rig/Latern Rig" unique_id=1278941129]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021632459, -0.20741445, 0.16378862)
+visible = false
 mesh = SubResource("ArrayMesh_j8qgd")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Master Rig/Latern Rig/Latern" unique_id=569172737]
@@ -824,7 +822,6 @@ mesh = SubResource("ArrayMesh_cy6vq")
 
 [node name="Sword Rig" type="Node3D" parent="Master Rig" unique_id=1363311496]
 unique_name_in_owner = true
-visible = false
 
 [node name="Sword" type="Node3D" parent="Master Rig/Sword Rig" unique_id=463660776]
 transform = Transform3D(-1.3113416e-09, -0.03, 0, -1.3113416e-09, 5.7320566e-17, 0.03, -0.03, 1.3113416e-09, -1.3113416e-09, 0.218, 0.101, 0.54)
@@ -845,6 +842,7 @@ transform = Transform3D(-1.3113416e-09, -0.03, 0, -1.3113416e-09, 5.7320566e-17,
 mesh = SubResource("ArrayMesh_4r0uf")
 
 [node name="Node3D" type="Node3D" parent="Master Rig" unique_id=1975014163]
+visible = false
 
 [node name="General Animations" type="AnimationPlayer" parent="." unique_id=254822941]
 unique_name_in_owner = true

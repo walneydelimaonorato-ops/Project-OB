@@ -1,12 +1,10 @@
 extends Node
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print_rich("[color=#ffdf00]Player Animations Working[/color]")
 	Tool_Rotation()
 	SignalBus.Player_Animations.connect(Play_Animation)
 	SignalBus.Tool_Rotation.connect(Tool_Rotation)
-
 
 func Play_Animation(Animation_Name):
 	%"General Animations".play(Animation_Name)

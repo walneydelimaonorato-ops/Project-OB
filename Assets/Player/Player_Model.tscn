@@ -34,7 +34,6 @@ script = ExtResource("1_2nc12")
 
 [node name="SubViewport" type="SubViewportContainer" parent="." unique_id=1195453727]
 unique_name_in_owner = true
-visible = false
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,7 +46,7 @@ stretch_shrink = 3
 [node name="SubViewport" type="SubViewport" parent="SubViewport" unique_id=1128083939]
 handle_input_locally = false
 size = Vector2i(384, 216)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="Style" type="Camera3D" parent="SubViewport/SubViewport" unique_id=1937713403]
 unique_name_in_owner = true
@@ -112,6 +111,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09374118, 0)
 [node name="Models" parent="Head/Eyes" unique_id=1867517693 instance=ExtResource("5_hs5eg")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17413068, -0.96205795)
+visible = false
+
+[node name="Arm Left Rig" parent="Head/Eyes/Models/Master Rig" parent_id_path=PackedInt32Array(1867517693, 1489635491) index="0" unique_id=292863608]
+visible = false
+
+[node name="Arm Right Rig" parent="Head/Eyes/Models/Master Rig" parent_id_path=PackedInt32Array(1867517693, 1489635491) index="1" unique_id=2023940726]
+visible = false
+
+[node name="Assault Rig" parent="Head/Eyes/Models/Master Rig" parent_id_path=PackedInt32Array(1867517693, 1489635491) index="2" unique_id=80406720]
+visible = false
+
+[node name="Latern Rig" parent="Head/Eyes/Models/Master Rig" parent_id_path=PackedInt32Array(1867517693, 1489635491) index="4" unique_id=1957117171]
+visible = false
+
+[node name="Sword Rig" parent="Head/Eyes/Models/Master Rig" parent_id_path=PackedInt32Array(1867517693, 1489635491) index="6" unique_id=1363311496]
+visible = false
 
 [node name="Ray2" type="RayCast3D" parent="Head/Eyes" unique_id=670486846]
 unique_name_in_owner = true
@@ -136,3 +151,5 @@ light_specular = 0.0
 omni_range = 185.0
 
 [node name="HUD" parent="." unique_id=775426720 instance=ExtResource("3_qe5k5")]
+
+[editable path="Head/Eyes/Models"]

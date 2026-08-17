@@ -12,7 +12,7 @@ func _ready() -> void:
 func HUD_Element():
 	return HUD_Prompt
 
-func Iteraction():
+func Interact():
 	var Choice_Names = {
 		"stance_text": Stance_text,
 		"yes_text": Yes_Text,

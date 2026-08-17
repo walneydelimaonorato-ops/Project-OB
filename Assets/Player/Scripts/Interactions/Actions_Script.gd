@@ -50,7 +50,7 @@ func Action_Primary(Direction):
 func Hand(Action_Type: String):
 	match Action_Type:
 		"Interact":
-			SignalBus.emit_signal("Sig_General_Interaction", %Ray2, "Iteraction")
+			SignalBus.emit_signal("Sig_General_Interaction", %Ray2, "Interact")
 			SignalBus.emit_signal("Player_Animations", "Tools_Anims/LeftHand_Interact")
 
 func HandGun(Action_Type: String):

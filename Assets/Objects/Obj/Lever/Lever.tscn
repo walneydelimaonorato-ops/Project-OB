@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b6kxrs8upo3b8"]
+
+[ext_resource type="Script" uid="uid://mk28ujurmuv8" path="res://Assets/Objects/Obj/Lever/Lever.gd" id="1_c51ec"]
+[ext_resource type="PackedScene" uid="uid://xc41xcgg3f0h" path="res://Assets/Objects/Obj/Lever/Lever Model.glb" id="2_ljloq"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_k4mt7"]
+height = 0.8687134
+radius = 0.57128906
+
+[node name="Lever" type="Node3D" unique_id=1650204760]
+script = ExtResource("1_c51ec")
+
+[node name="Lever Model" parent="." unique_id=280101310 instance=ExtResource("2_ljloq")]
+
+[node name="Lever Handle Rig" parent="Lever Model/Lever" parent_id_path=PackedInt32Array(280101310, 121410943) index="0" unique_id=1520184362]
+transform = Transform3D(0.6427874, 0.7660446, 1.0292486e-07, -0.7660446, 0.6427874, -4.7994668e-08, -1.0292486e-07, -4.7994668e-08, 1, 0, 0, 0)
+
+[node name="Lever Soft Coll" type="Area3D" parent="." unique_id=1529978514]
+collision_layer = 5
+collision_mask = 2
+
+[node name="Lever Coll" type="CollisionShape3D" parent="Lever Soft Coll" unique_id=1134614313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43911743, 0)
+shape = SubResource("CylinderShape3D_k4mt7")
+
+[node name="Lever Hard Coll" type="StaticBody3D" parent="." unique_id=274355359]
+
+[node name="Lever Coll" type="CollisionShape3D" parent="Lever Hard Coll" unique_id=1499103016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4402418, 0)
+shape = SubResource("CylinderShape3D_k4mt7")
+
+[editable path="Lever Model"]

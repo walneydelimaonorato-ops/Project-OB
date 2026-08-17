@@ -23,9 +23,9 @@ tonemap_mode = 2
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=589153695]
 environment = SubResource("Environment_yu7r3")
 
-[node name="MAP_BETA1" parent="." unique_id=1435342142 instance=ExtResource("3_75en4")]
+[node name="MAP_BETA1" parent="." unique_id=1435342142 groups=["Cull Monitor"] instance=ExtResource("3_75en4")]
 
-[node name="_Collision" parent="MAP_BETA1" index="0" unique_id=233205368]
+[node name="_Collision" parent="MAP_BETA1" index="0" unique_id=1424019153]
 visible = false
 
 [editable path="MAP_BETA1"]

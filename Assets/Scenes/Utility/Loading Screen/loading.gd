@@ -6,7 +6,7 @@ var progress: Array[float] = []
 var loading_done: bool = false
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	ResourceLoader.load_threaded_request(Global.Next_Scene)
 
 func _process(_delta: float) -> void:

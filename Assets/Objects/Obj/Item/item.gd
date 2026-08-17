@@ -38,7 +38,7 @@ func _ready() -> void:
 func HUD_Element():
 	return HUD_Prompt
 
-func Iteraction():
+func Interact():
 	SignalBus.emit_signal("item_transfer", Item, Item_Type, Ordinary_Quantity)
 	#print(Item)
 	#print(Item_Type)

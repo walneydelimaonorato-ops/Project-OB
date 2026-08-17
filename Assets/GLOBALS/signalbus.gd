@@ -85,9 +85,12 @@ signal FMenu_Return(Return_Path: String)
 
 # Interaction related signals
 signal Interaction_Manager_Request(Interaction: String, Address: String, Param1: String, Param2: String)
+
 signal Interaction_Prompt_Manager(Address: String, Ch_Name: String, Ch_Confirm: String, Ch_Deny: String)
 signal Interaction_Prompt_Manager_Response(Address: String, Response: bool)
+
 signal NPC_Dialogue(Shelf: String, Book: String)
+signal Object_Interaction(ID: String, To_Call: String)
 
 #endregion
 
