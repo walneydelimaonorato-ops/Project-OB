@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bcnecbbuw1kyu"
-path="res://.godot/imported/MAP_BETA1.glb-df9931f18aeebc0bea7d4dbef8b72875.scn"
+uid="uid://1lnv48bentw"
+path="res://.godot/imported/MAP TEST 1.glb-edf1b2891a6a16dd91f2b4fe28b3aeac.scn"
 
 [deps]
 
-source_file="res://Assets/Scenes/Test/TEST MAP1/MAP_BETA1.glb"
-dest_files=["res://.godot/imported/MAP_BETA1.glb-df9931f18aeebc0bea7d4dbef8b72875.scn"]
+source_file="res://Assets/Scenes/Test/TEST MAP1/MAP TEST 1.glb"
+dest_files=["res://.godot/imported/MAP TEST 1.glb-edf1b2891a6a16dd91f2b4fe28b3aeac.scn"]
 
 [params]
 
@@ -39,16 +39,7 @@ import_script/path="uid://3jxo66utq0ac"
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:Lever": {
-"import/skip_import": true
-},
-"PATH:Lever_001": {
-"import/skip_import": true
-}
-}
-}
+_subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
 gltf/texture_map_mode=1

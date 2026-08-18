@@ -1,26 +1,35 @@
 [gd_scene format=3 uid="uid://4tdiqq1xjk6l"]
 
 [ext_resource type="Script" uid="uid://mqnu3pj8hge6" path="res://Assets/Objects/Obj/Door/Door.gd" id="1_bqg5c"]
+[ext_resource type="Script" uid="uid://bsxfsigo7y6lv" path="res://Assets/Objects/Obj/Door/Door Configuration.gd" id="2_8hyck"]
 [ext_resource type="PackedScene" uid="uid://car7lriheins4" path="res://Assets/Objects/Obj/Door/Door Model.glb" id="2_wcpuh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k4mt7"]
 size = Vector3(1.2060547, 2.0058594, 0.2998047)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wcpuh"]
+size = Vector3(1.2060547, 2.0058594, 1.1496582)
+
 [node name="Door" type="Node3D" unique_id=973905536]
 script = ExtResource("1_bqg5c")
 
+[node name="Door Configuration" type="Node" parent="." unique_id=529237693]
+script = ExtResource("2_8hyck")
+
 [node name="Door Model2" parent="." unique_id=632454510 instance=ExtResource("2_wcpuh")]
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1642999050]
+[node name="StaticBody3D" type="StaticBody3D" parent="Door Model2/Door Rig" parent_id_path=PackedInt32Array(632454510, 2101970003) index="1" unique_id=1907669569]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1626482653]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60447407, 1.0039063, 0.0024414063)
-shape = SubResource("BoxShape3D_k4mt7")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1907669569]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1627859989]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door Model2/Door Rig/StaticBody3D" unique_id=1627859989]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5997788, 1.0051847, 0)
 shape = SubResource("BoxShape3D_k4mt7")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1642999050]
+collision_layer = 5
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1626482653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60447407, 1.0039063, -0.42248535)
+shape = SubResource("BoxShape3D_wcpuh")
 
 [editable path="Door Model2"]

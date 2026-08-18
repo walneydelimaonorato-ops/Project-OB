@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8n474e3j0si5"
-path.s3tc="res://.godot/imported/MAP_BETA1_Leaves_Gold-Float.png-e114061ab0c7046835c05201b379c059.s3tc.ctex"
+uid="uid://bxfugq1xtlgsp"
+path.s3tc="res://.godot/imported/MAP BETA1_Leaves_Gold-Float.png-4338ec60fcf98c458b79a45fe7497588.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/Scenes/Test/TEST MAP1/MAP_BETA1_Leaves_Gold-Float.png"
-dest_files=["res://.godot/imported/MAP_BETA1_Leaves_Gold-Float.png-e114061ab0c7046835c05201b379c059.s3tc.ctex"]
+source_file="res://Assets/Scenes/Beta/BETA MAP1/MAP BETA1_Leaves_Gold-Float.png"
+dest_files=["res://.godot/imported/MAP BETA1_Leaves_Gold-Float.png-4338ec60fcf98c458b79a45fe7497588.s3tc.ctex"]
 
 [params]
 

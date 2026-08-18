@@ -1,7 +1,7 @@
 extends Node
 
 func _ready() -> void:
-	print_rich("[color=#b76e79]=========================\r[/color] [color=#ffdf00]Player Permission Manager Working[/color]")
+	print_rich("[color=#b76e79]\r. \r. \r. \r. \r. \r=========================\r[/color] [color=#ffdf00]Player Permission Manager Working[/color]")
 	Global.Player_Data.Player_Status_Master = "Alive"
 	Bulk_Permission_Assigning()
 	

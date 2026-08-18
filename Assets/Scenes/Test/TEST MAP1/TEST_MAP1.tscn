@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bg0wiapurcbjc" path="res://Assets/Scenes/Utility/Sky boxes/Test2.png" id="1_oogln"]
 [ext_resource type="Script" uid="uid://cjo40mnyys5to" path="res://Assets/Scenes/Test/TEST MAP1/TEST MAP1 Scripts/TEST MAP1 Root.gd" id="1_t72pj"]
 [ext_resource type="PackedScene" uid="uid://yey3rq0j37ff" path="res://Assets/Player/Player_Model.tscn" id="2_pqppf"]
-[ext_resource type="PackedScene" uid="uid://bcnecbbuw1kyu" path="res://Assets/Scenes/Test/TEST MAP1/MAP_BETA1.glb" id="5_bf5xw"]
 [ext_resource type="PackedScene" uid="uid://b6kxrs8upo3b8" path="res://Assets/Objects/Obj/Lever/Lever.tscn" id="7_aes54"]
+[ext_resource type="PackedScene" uid="uid://1lnv48bentw" path="res://Assets/Scenes/Test/TEST MAP1/MAP TEST 1.glb" id="7_dla61"]
 [ext_resource type="PackedScene" uid="uid://4tdiqq1xjk6l" path="res://Assets/Objects/Obj/Door/Door.tscn" id="8_dla61"]
 [ext_resource type="Script" uid="uid://cjyvyf0a1qkgw" path="res://Assets/Scenes/Test/TEST MAP1/TEST MAP1 Scripts/NPC Test.gd" id="10_yis4x"]
 
@@ -25,7 +25,7 @@ tonemap_mode = 2
 height = 2.0292969
 radius = 0.39111328
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_aes54"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lxy1g"]
 data = PackedVector3Array(0.29999998, 0, -0.27089998, 0.29999998, 0.2667, 1, 0.29999998, 0, 1, 0.29999998, 0.1373, -0.27089998, 0.29999998, 0.2667, 1, 0.29999998, 0, -0.27089998, 0.29999998, 0.2667, 1, 0.29999998, 0.1373, -0.27089998, 0.29999998, 0.2667, -1, 0.29999998, 0.2667, -1, 0.29999998, 0.1373, -0.27089998, 0.29999998, 0.1373, -0.4376, 0.29999998, 0.2667, -1, 0.29999998, 0.1373, -0.4376, 0.29999998, 0, -0.4376, 0.29999998, 0.2667, -1, 0.29999998, 0, -0.4376, 0.29999998, 0, -1, 0.3667, 0.1373, -0.4376, 0.3667, 0, -1, 0.3667, 0, -0.4376, 0.3667, 0.1373, -0.4376, 0.3667, 0.2667, -1, 0.3667, 0, -1, 0.3667, 0.2667, -1, 0.3667, 0.1373, -0.4376, 0.3667, 0.1373, -0.27089998, 0.3667, 0.2667, -1, 0.3667, 0.1373, -0.27089998, 0.3667, 0, 1, 0.3667, 0, 1, 0.3667, 0.1373, -0.27089998, 0.3667, 0, -0.27089998, 0.3667, 0.2667, -1, 0.3667, 0, 1, 0.3667, 0.2667, 1, -0.5, -0.0174, -0.52, -0.4849, 0.0624, -0.5112, -0.5, 0.0624, -0.52, -0.5, -0.0174, -0.52, -0.4849, -0.0174, -0.5112, -0.4849, 0.0624, -0.5112, -0.4849, -0.0174, -0.5112, -0.4849, 0.0624, -0.49379998, -0.4849, 0.0624, -0.5112, -0.4849, -0.0174, -0.5112, -0.4849, -0.0174, -0.49379998, -0.4849, 0.0624, -0.49379998, -0.4849, -0.0174, -0.49379998, -0.5, 0.0624, -0.4851, -0.4849, 0.0624, -0.49379998, -0.4849, -0.0174, -0.49379998, -0.5, -0.0174, -0.4851, -0.5, 0.0624, -0.4851, -0.5, -0.0174, -0.4851, -0.5151, 0.0624, -0.49379998, -0.5, 0.0624, -0.4851, -0.5, -0.0174, -0.4851, -0.5151, -0.0174, -0.49379998, -0.5151, 0.0624, -0.49379998, -0.5151, -0.0174, -0.49379998, -0.5151, 0.0624, -0.5112, -0.5151, 0.0624, -0.49379998, -0.5151, -0.0174, -0.49379998, -0.5151, -0.0174, -0.5112, -0.5151, 0.0624, -0.5112, -0.5151, -0.0174, -0.5112, -0.5, 0.0624, -0.52, -0.5151, 0.0624, -0.5112, -0.5151, -0.0174, -0.5112, -0.5, -0.0174, -0.52, -0.5, 0.0624, -0.52, -1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1, 1, 0, 1, 0.29999998, 0.1373, -0.4376, 0.3667, 0, -0.4376, 0.29999998, 0, -0.4376, 0.29999998, 0.1373, -0.4376, 0.3667, 0.1373, -0.4376, 0.3667, 0, -0.4376, 0.29999998, 0, -0.27089998, 0.3667, 0.1373, -0.27089998, 0.29999998, 0.1373, -0.27089998, 0.29999998, 0, -0.27089998, 0.3667, 0, -0.27089998, 0.3667, 0.1373, -0.27089998)
 
 [node name="Root" type="Node3D" unique_id=1999242060]
@@ -50,21 +50,6 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0742188, 0)
 shape = SubResource("CylinderShape3D_wglcv")
 
-[node name="MAP_BETA1" parent="." unique_id=1379882862 instance=ExtResource("5_bf5xw")]
-
-[node name="Player Model" parent="MAP_BETA1" index="1" unique_id=168563272]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6685605, 0, 0)
-
-[node name="Collision" parent="MAP_BETA1" index="4" unique_id=1527057670]
-visible = false
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MAP_BETA1/Collision" index="0" unique_id=1311429286]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MAP_BETA1/Collision/StaticBody3D" unique_id=306906245]
-shape = SubResource("ConcavePolygonShape3D_aes54")
-
-[node name="AnimationPlayer" parent="MAP_BETA1" index="8" unique_id=135228717 groups=["Animations"]]
-
 [node name="Levers" type="Node3D" parent="." unique_id=1114584260]
 
 [node name="Lever 1" parent="Levers" unique_id=230659223 instance=ExtResource("7_aes54")]
@@ -81,6 +66,19 @@ CLSS_LEVER_CALL = "Open"
 
 [node name="Door" parent="Doors" unique_id=973905536 instance=ExtResource("8_dla61")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6087875, 0, -10.554897)
+HUD_Prompt = "Open"
 CLSS_DOOR_MATCH = "Balls"
 
-[editable path="MAP_BETA1"]
+[node name="MAP TEST 1" parent="." unique_id=348453595 instance=ExtResource("7_dla61")]
+
+[node name="Collision" parent="MAP TEST 1" index="3" unique_id=1166015693]
+visible = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MAP TEST 1/Collision" index="0" unique_id=958888510]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MAP TEST 1/Collision/StaticBody3D" unique_id=2121569949]
+shape = SubResource("ConcavePolygonShape3D_lxy1g")
+
+[editable path="Doors/Door"]
+[editable path="Doors/Door/Door Model2"]
+[editable path="MAP TEST 1"]

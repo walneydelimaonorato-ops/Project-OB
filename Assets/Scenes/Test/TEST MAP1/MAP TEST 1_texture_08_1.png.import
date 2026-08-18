@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj6xplj8xi4ur"
-path.s3tc="res://.godot/imported/TST_MAP1_Rock_1.png-ac7e9ca272489461bca23703ba5d96c1.s3tc.ctex"
+uid="uid://df1xowjc16s7h"
+path.s3tc="res://.godot/imported/MAP TEST 1_texture_08_1.png-b03c84abfb8f3c87ad683087c9e8d91d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "7944a2f6c95b8309c8acfe128d3849ec"
+}
 
 [deps]
 
-source_file="res://Assets/Scenes/Test/TEST MAP1/TST_MAP1_Rock_1.png"
-dest_files=["res://.godot/imported/TST_MAP1_Rock_1.png-ac7e9ca272489461bca23703ba5d96c1.s3tc.ctex"]
+source_file="res://Assets/Scenes/Test/TEST MAP1/MAP TEST 1_texture_08_1.png"
+dest_files=["res://.godot/imported/MAP TEST 1_texture_08_1.png-b03c84abfb8f3c87ad683087c9e8d91d.s3tc.ctex"]
 
 [params]
 

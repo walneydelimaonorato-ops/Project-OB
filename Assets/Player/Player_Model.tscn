@@ -34,6 +34,7 @@ script = ExtResource("1_2nc12")
 
 [node name="SubViewport" type="SubViewportContainer" parent="." unique_id=1195453727]
 unique_name_in_owner = true
+visible = false
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,7 +47,7 @@ stretch_shrink = 3
 [node name="SubViewport" type="SubViewport" parent="SubViewport" unique_id=1128083939]
 handle_input_locally = false
 size = Vector2i(384, 216)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Style" type="Camera3D" parent="SubViewport/SubViewport" unique_id=1937713403]
 unique_name_in_owner = true

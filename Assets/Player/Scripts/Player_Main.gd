@@ -12,7 +12,7 @@ var Running: bool
 #var Un_LookLR := Vector2.ZERO
 
 func _ready() -> void:
-	print_rich("[color=green]Player Working[/color] [color=#b76e79]\r=========================[/color]")
+	print_rich("[color=green]Player Working[/color] [color=#b76e79]\r========================= \r. \r. \r. \r. \r.[/color]")
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 

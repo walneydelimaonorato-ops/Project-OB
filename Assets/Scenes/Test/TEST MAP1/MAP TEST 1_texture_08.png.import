@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eaf5ujme3eiu"
-path.s3tc="res://.godot/imported/MAP_BETA1_texture_08.png-3fd927c5f6fcaf83941c8f06fc28220d.s3tc.ctex"
+uid="uid://b16mo6rnaarld"
+path.s3tc="res://.godot/imported/MAP TEST 1_texture_08.png-0e28c8549280885ac8cec09a8937d585.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/Scenes/Test/TEST MAP1/MAP_BETA1_texture_08.png"
-dest_files=["res://.godot/imported/MAP_BETA1_texture_08.png-3fd927c5f6fcaf83941c8f06fc28220d.s3tc.ctex"]
+source_file="res://Assets/Scenes/Test/TEST MAP1/MAP TEST 1_texture_08.png"
+dest_files=["res://.godot/imported/MAP TEST 1_texture_08.png-0e28c8549280885ac8cec09a8937d585.s3tc.ctex"]
 
 [params]
 

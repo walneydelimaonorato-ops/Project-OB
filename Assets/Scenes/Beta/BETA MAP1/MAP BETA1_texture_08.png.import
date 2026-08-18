@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jbo5c4as36dp"
-path.s3tc="res://.godot/imported/MAP_BETA1_Wood_Bark_Birch.png-7ff8493e1c933387ebd597ce40d48771.s3tc.ctex"
+uid="uid://cpn1asuv2m46q"
+path.s3tc="res://.godot/imported/MAP BETA1_texture_08.png-0ee1d15af934f75d3d43f38c1e90b020.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "a5160797a27faa6ebcf2b988481245e8"
+"md5": "02c3a6329dea886b32f5166a2c05c93b"
 }
 
 [deps]
 
-source_file="res://Assets/Scenes/Test/TEST MAP1/MAP_BETA1_Wood_Bark_Birch.png"
-dest_files=["res://.godot/imported/MAP_BETA1_Wood_Bark_Birch.png-7ff8493e1c933387ebd597ce40d48771.s3tc.ctex"]
+source_file="res://Assets/Scenes/Beta/BETA MAP1/MAP BETA1_texture_08.png"
+dest_files=["res://.godot/imported/MAP BETA1_texture_08.png-0ee1d15af934f75d3d43f38c1e90b020.s3tc.ctex"]
 
 [params]
 
