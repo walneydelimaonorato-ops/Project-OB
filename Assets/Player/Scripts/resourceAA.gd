@@ -2,6 +2,7 @@ extends Resource
 class_name PlayerData
 
 var test1: bool = false
+var Developer_Mode: bool = true
 
 #region Universal Input Settup
 var Un_Forward: String

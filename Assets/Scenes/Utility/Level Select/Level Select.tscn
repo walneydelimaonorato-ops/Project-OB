@@ -63,7 +63,6 @@ layout_mode = 2
 
 [node name="Test" type="VBoxContainer" parent="Scroller/Maps" unique_id=1885991100]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="Test 1" type="Button" parent="Scroller/Maps/Test" unique_id=421711111]
@@ -92,6 +91,7 @@ alignment = 0
 
 [node name="Beta" type="VBoxContainer" parent="Scroller/Maps" unique_id=974865761]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Beta 1" type="Button" parent="Scroller/Maps/Beta" unique_id=1847101641]

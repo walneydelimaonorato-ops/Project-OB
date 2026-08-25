@@ -52,7 +52,7 @@ func final_1_pressed() -> void:
 
 
 func test_2_pressed() -> void:
-	Global.Next_Scene = "C:/Users/Walney/Desktop/Project OB GitHub/Project-OB/Assets/Scenes/Basic Tests Scenes/TEST MAP1/TEST_MAP1.tscn"
+	Global.Next_Scene = "uid://bvnu5ll1csc13"
 	get_tree().change_scene_to_packed(Global.Load_New)
 
 

@@ -112,7 +112,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09374118, 0)
 [node name="Models" parent="Head/Eyes" unique_id=1867517693 instance=ExtResource("5_hs5eg")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17413068, -0.96205795)
-visible = false
 
 [node name="Arm Left Rig" parent="Head/Eyes/Models/Master Rig" parent_id_path=PackedInt32Array(1867517693, 1489635491) index="0" unique_id=292863608]
 visible = false

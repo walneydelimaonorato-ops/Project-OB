@@ -23,7 +23,7 @@ func _ready() -> void:
 	print_rich("[color=#ffdf00]Debug Working[/color]")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Deb_Toggle"):
 		Active = not Active
 		Global.Player_Data.Debug_Fly = not Global.Player_Data.Debug_Fly
