@@ -3,6 +3,7 @@ class_name PlayerData
 
 var test1: bool = false
 var Developer_Mode: bool = true
+var Context_Debug: int = 0
 
 #region Universal Input Settup
 var Un_Forward: String
@@ -108,6 +109,8 @@ var Player_Status_3: String
 
 var Debug_Fly: bool = false
 
+var Sin: int = 0
+
 # Aassss
 var Ammo_A: int = 0
 var Mag_A: int = 0
@@ -173,6 +176,7 @@ var Tool_ID = {
 		"equipped?": false, 
 		"damage": 6, 
 		"Ammo": 3,
+		"Max Ammo": 12,
 		"Mag": 0,
 		},
 	"AssaultRifle": {
@@ -183,6 +187,7 @@ var Tool_ID = {
 		"equipped?": false, 
 		"damage": 15, 
 		"Ammo": 0,
+		"Max Ammo": 20,
 		"Mag": 0,
 		},
 	"Sword": {

@@ -21,7 +21,7 @@ func _ready() -> void:
 				visible_object[object] = true
 	
 	print_rich("[color=orange]Total Monitored Actors: ", monitored_objects.size())
-	$"../Debug Backdrop/Page 5s/VBoxContainer/Total Actor".text = str("Total: ", monitored_objects.size())
+	$"../Debug Backdrop/Page Container/Page 5s/VBoxContainer/Total Actor".text = str("Total: ", monitored_objects.size())
 	print_rich("[color=orange]Initial Viaible Actors: ", visible_object.size())
 	
 	Update()

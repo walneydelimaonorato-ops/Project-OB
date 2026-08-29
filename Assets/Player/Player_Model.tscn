@@ -11,12 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://h8wt3hlx4i85" path="res://Assets/Player/Models/Models.tscn" id="5_hs5eg"]
 [ext_resource type="Script" uid="uid://cemp6arjo8v4c" path="res://Assets/Player/Scripts/Managers/Player_HoldTap.gd" id="5_or1rc"]
 [ext_resource type="Script" uid="uid://02p3gggxlokp" path="res://Assets/Player/Scripts/Hud/Stylized Camera.gd" id="9_w4pk3"]
-
-[sub_resource type="GDScript" id="GDScript_2r4ph"]
-script/source = "extends Node
-
-#@export var data: PlayerData
-"
+[ext_resource type="Script" uid="uid://dijwjcn2m3hu5" path="res://Assets/Player/Save Files/Save_File_Manager.gd" id="10_2r3yr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o54j3"]
 
@@ -54,10 +49,6 @@ unique_name_in_owner = true
 
 [node name="Script Nodes" type="Node3D" parent="." unique_id=2102310861]
 
-[node name="Player Stats" type="Node" parent="Script Nodes" unique_id=1237580655]
-unique_name_in_owner = true
-script = SubResource("GDScript_2r4ph")
-
 [node name="Player Management" type="Node" parent="Script Nodes" unique_id=1083356557]
 unique_name_in_owner = true
 script = ExtResource("3_hs5eg")
@@ -83,6 +74,9 @@ script = ExtResource("5_2r4ph")
 
 [node name="Style Camera" type="Node" parent="Script Nodes" unique_id=1264889339]
 script = ExtResource("9_w4pk3")
+
+[node name="Save File Manager" type="Node" parent="Script Nodes" unique_id=1478414656]
+script = ExtResource("10_2r3yr")
 
 [node name="Collision 1" type="CollisionShape3D" parent="." unique_id=1599588568]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 1, 0)

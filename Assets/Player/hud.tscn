@@ -19,8 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://denq0vupr60gy" path="res://Assets/UI/HUD/Side HUD/Health_Eyes.png" id="10_8hhtu"]
 [ext_resource type="Theme" uid="uid://ylysgsmxvcu1" path="res://Assets/UI/Main_UI_Theme.tres" id="14_8hhtu"]
 [ext_resource type="PackedScene" uid="uid://c22fdxmv2autu" path="res://Assets/Player/menus.tscn" id="15_dtd46"]
-[ext_resource type="Script" uid="uid://0nco37m6s8j3" path="res://Assets/Player/Scripts/Managers/Player Debug.gd" id="20_fgg28"]
-[ext_resource type="Script" uid="uid://bb44sy4hd443p" path="res://Assets/Player/Scripts/culling_debug.gd" id="21_fgg28"]
+[ext_resource type="PackedScene" uid="uid://4shc5vkdc64y" path="res://Assets/Player/debug.tscn" id="20_kfml6"]
 
 [node name="HUD" type="CanvasLayer" unique_id=775426720]
 script = ExtResource("1_bitai")
@@ -317,98 +316,5 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=740188116]
-layout_mode = 0
-offset_left = 197.0
-offset_top = 23.0
-offset_right = 237.0
-offset_bottom = 63.0
-
-[node name="Debug Tree" type="Control" parent="." unique_id=983476177]
+[node name="Debug Tree" parent="." unique_id=519178113 instance=ExtResource("20_kfml6")]
 unique_name_in_owner = true
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Debug" type="Node" parent="Debug Tree" unique_id=1553917473]
-script = ExtResource("20_fgg28")
-
-[node name="Culling Debug" type="Node" parent="Debug Tree" unique_id=1868701029]
-script = ExtResource("21_fgg28")
-
-[node name="Debug Backdrop" type="PanelContainer" parent="Debug Tree" unique_id=1768842289]
-layout_mode = 0
-offset_right = 137.0
-offset_bottom = 23.000015
-
-[node name="Page 1" type="Label" parent="Debug Tree/Debug Backdrop" unique_id=216793332]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-text = "Readily Variables:"
-
-[node name="Page 2" type="Label" parent="Debug Tree/Debug Backdrop" unique_id=1824348478]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-text = "Invnetory checkup:"
-
-[node name="Page 3" type="Label" parent="Debug Tree/Debug Backdrop" unique_id=614144741]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-text = "Miscellaneous checkups:"
-
-[node name="Page 4s" type="HBoxContainer" parent="Debug Tree/Debug Backdrop" unique_id=501624826]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="Page 4" type="Label" parent="Debug Tree/Debug Backdrop/Page 4s" unique_id=242942176]
-layout_mode = 2
-text = "Cans"
-
-[node name="Page 4A" type="Label" parent="Debug Tree/Debug Backdrop/Page 4s" unique_id=912186039]
-layout_mode = 2
-text = "Cants"
-
-[node name="Page 5s" type="HBoxContainer" parent="Debug Tree/Debug Backdrop" unique_id=2066083595]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Debug Tree/Debug Backdrop/Page 5s" unique_id=1176467962]
-layout_mode = 2
-
-[node name="Header" type="Label" parent="Debug Tree/Debug Backdrop/Page 5s/VBoxContainer" unique_id=9160509]
-layout_mode = 2
-text = "Actors Count:
-==============="
-
-[node name="Visible Actor" type="Label" parent="Debug Tree/Debug Backdrop/Page 5s/VBoxContainer" unique_id=1845763703]
-layout_mode = 2
-text = "Visible: "
-
-[node name="Culled Actor" type="Label" parent="Debug Tree/Debug Backdrop/Page 5s/VBoxContainer" unique_id=461832387]
-layout_mode = 2
-text = "Culled: "
-
-[node name="Total Actor" type="Label" parent="Debug Tree/Debug Backdrop/Page 5s/VBoxContainer" unique_id=1102217691]
-layout_mode = 2
-text = "Total: "
-
-[node name="Visible Actor List" type="VBoxContainer" parent="Debug Tree/Debug Backdrop/Page 5s" unique_id=1418338976]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Focus Node" type="Label" parent="Debug Tree" unique_id=170205039]
-visible = false
-layout_mode = 0
-offset_left = 188.0
-offset_top = 597.0
-offset_right = 379.0
-offset_bottom = 620.0
-text = "Focus node"

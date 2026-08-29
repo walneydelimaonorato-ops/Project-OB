@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="SaveFileA" format=3 uid="uid://bdc5ksufftjuc"]
+
+[ext_resource type="Script" uid="uid://xmqocd6vraqg" path="res://Assets/Player/Save Files/Save File A.gd" id="1_2fwn6"]
+
+[resource]
+script = ExtResource("1_2fwn6")
+metadata/_custom_type_script = "uid://xmqocd6vraqg"

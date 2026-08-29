@@ -14,7 +14,8 @@ var Running: bool
 func _ready() -> void:
 	print_rich("[color=green]Player Working[/color] [color=#b76e79]\r========================= \r. \r. \r. \r. \r.[/color]")
 	
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_MAX
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -24,8 +25,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Global.Player_Data.Debug_Fly == false:
 		if Input.is_action_just_pressed(Global.Player_Data.Un_Jump) and is_on_floor():
-			#Global.Player_Data.emit_signal("Stats_Change", "Decrease", "Stamina", 5)
 			velocity.y = 4.5
+			SignalBus.emit_signal("Save_Character_Data")
 	
 	elif Global.Player_Data.Debug_Fly == true:
 		if Input.is_action_pressed(Global.Player_Data.Un_Jump):
@@ -72,10 +73,12 @@ func _input(input: InputEvent) -> void:
 			SignalBus.emit_signal("Menu_Setting", "Ready")
 	
 	if Input.is_action_just_pressed(Global.Player_Data.Un_LPrimary_Tool_Use):
-		#Action.Action_Primary("Left")
+		SignalBus.emit_signal("Save_File_Write")
+		
 		SignalBus.emit_signal("Action_Primary", "Left")
 	if Input.is_action_just_pressed(Global.Player_Data.Un_RPrimary_Tool_Use):
-		#Action.Action_Primary("Right")
+		SignalBus.emit_signal("Save_File_Read")
+		
 		SignalBus.emit_signal("Action_Primary", "Right")
 	
 	if Input.is_action_just_pressed(Global.Player_Data.Un_Cycle_UItem):
@@ -88,7 +91,7 @@ func _input(input: InputEvent) -> void:
 		SignalBus.emit_signal("Tap_Hold_Interval")
 		#print(SignalBus.Tap_Hold_Interval.get_connections())
 	
-	if Global.Player_Data.Control_Mode == "Key":
+	if Global.Player_Data.Control_Mode == "Key" and Global.Player_Data.Context_Debug == 0:
 		if input is InputEventMouseMotion and Global.Player_Data.Player_Perms.Can_Look == true:
 			Head.rotation.y -= input.relative.x * Global.Player_Data.Key_Camera_Sens
 			Eyes.rotation.x -= input.relative.y * Global.Player_Data.Key_Camera_Sens

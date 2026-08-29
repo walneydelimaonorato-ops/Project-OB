@@ -512,6 +512,7 @@ alignment = 0
 
 [node name="SubPage Input Showcase" type="Control" parent="." unique_id=736420752]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 0
 offset_left = 230.0
 offset_top = 209.0
@@ -719,7 +720,6 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="Title" type="TextureRect" parent="." unique_id=96374179]
-visible = false
 layout_mode = 0
 offset_left = 50.0
 offset_top = 86.0

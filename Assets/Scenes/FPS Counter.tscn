@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://fbjesgifv3jo"]
 
 [ext_resource type="Theme" uid="uid://ylysgsmxvcu1" path="res://Assets/UI/Main_UI_Theme.tres" id="1_njxlc"]
-[ext_resource type="Script" uid="uid://carum7cduwthn" path="res://Assets/Scenes/FPS.gd" id="2_x2faj"]
 
 [node name="FpsCounter" type="Control" unique_id=1423358301]
 layout_mode = 3
@@ -24,4 +23,3 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("1_njxlc")
 text = "FPS: "
-script = ExtResource("2_x2faj")

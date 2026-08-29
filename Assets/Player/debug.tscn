@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://4shc5vkdc64y"]
+
+[ext_resource type="Script" uid="uid://0nco37m6s8j3" path="res://Assets/Player/Scripts/Managers/Player Debug.gd" id="1_6ms5k"]
+[ext_resource type="Theme" uid="uid://buutafly06f6f" path="res://debug_UI.tres" id="2_bwpwa"]
+[ext_resource type="Script" uid="uid://dq4cglt5dc7ug" path="res://Assets/Player/Scripts/Managers/Player Debug Context.gd" id="3_bwpwa"]
+
+[node name="Debug Tree" type="Control" unique_id=519178113]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Debug" type="Node" parent="." unique_id=1746655452]
+script = ExtResource("1_6ms5k")
+
+[node name="Debug Monitoring" type="Node" parent="." unique_id=157878030]
+
+[node name="Debug Backdrop" type="PanelContainer" parent="." unique_id=861237934]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 137.0
+offset_bottom = 23.000015
+
+[node name="Debug Background" type="ColorRect" parent="Debug Backdrop" unique_id=1937789988]
+layout_mode = 2
+color = Color(1, 1, 1, 0.5882353)
+
+[node name="Page Container" type="VBoxContainer" parent="Debug Backdrop" unique_id=1798288647]
+layout_mode = 2
+theme = ExtResource("2_bwpwa")
+
+[node name="Page 1" type="RichTextLabel" parent="Debug Backdrop/Page Container" unique_id=2121743531]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Readily Variables:"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Page 2" type="RichTextLabel" parent="Debug Backdrop/Page Container" unique_id=1159457346]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Invnetory checkup:"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Page 3" type="RichTextLabel" parent="Debug Backdrop/Page Container" unique_id=391801347]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Miscellaneous checkups:"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Page 4" type="RichTextLabel" parent="Debug Backdrop/Page Container" unique_id=1206817187]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Page 5" type="RichTextLabel" parent="Debug Backdrop/Page Container" unique_id=67678832]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Page 6" type="RichTextLabel" parent="Debug Backdrop/Page Container" unique_id=348934067]
+unique_name_in_owner = true
+layout_mode = 2
+text = "asss"
+
+[node name="Page 4s" type="HBoxContainer" parent="Debug Backdrop/Page Container" unique_id=2046146287]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Page 4" type="Label" parent="Debug Backdrop/Page Container/Page 4s" unique_id=1509117562]
+layout_mode = 2
+text = "Cans"
+
+[node name="Page 4A" type="Label" parent="Debug Backdrop/Page Container/Page 4s" unique_id=2033628823]
+layout_mode = 2
+text = "Cants"
+
+[node name="Page 5s" type="HBoxContainer" parent="Debug Backdrop/Page Container" unique_id=1462556404]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Debug Backdrop/Page Container/Page 5s" unique_id=1535815870]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="Debug Backdrop/Page Container/Page 5s/VBoxContainer" unique_id=326877214]
+layout_mode = 2
+text = "Actors Count:
+==============="
+
+[node name="Visible Actor" type="Label" parent="Debug Backdrop/Page Container/Page 5s/VBoxContainer" unique_id=178949804]
+layout_mode = 2
+text = "Visible: "
+
+[node name="Culled Actor" type="Label" parent="Debug Backdrop/Page Container/Page 5s/VBoxContainer" unique_id=1091278208]
+layout_mode = 2
+text = "Culled: "
+
+[node name="Total Actor" type="Label" parent="Debug Backdrop/Page Container/Page 5s/VBoxContainer" unique_id=1066604512]
+layout_mode = 2
+text = "Total: "
+
+[node name="Visible Actor List" type="VBoxContainer" parent="Debug Backdrop/Page Container/Page 5s" unique_id=912265486]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Context Backdrop" type="PanelContainer" parent="." unique_id=856711967]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 937.0
+offset_right = 1152.0
+offset_bottom = 25.0
+
+[node name="Context Background" type="ColorRect" parent="Context Backdrop" unique_id=658854505]
+layout_mode = 2
+color = Color(1, 1, 1, 0.5882353)
+
+[node name="Context Container" type="VBoxContainer" parent="Context Backdrop" unique_id=1137321249]
+layout_mode = 2
+theme = ExtResource("2_bwpwa")
+alignment = 2
+
+[node name="Context 1" type="Button" parent="Context Backdrop/Context Container" unique_id=385037850]
+layout_mode = 2
+text = "Permission Flipper"
+
+[node name="Context Tree" type="Control" parent="." unique_id=1777152173]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Context" type="Node" parent="Context Tree" unique_id=1711099008]
+script = ExtResource("3_bwpwa")
+
+[node name="Context 1" type="PanelContainer" parent="Context Tree" unique_id=1278792970]
+visible = false
+layout_mode = 0
+offset_left = 146.0
+offset_top = 43.0
+offset_right = 929.0
+offset_bottom = 598.0
+
+[node name="Context Background" type="ColorRect" parent="Context Tree/Context 1" unique_id=435686540]
+layout_mode = 2
+color = Color(1, 1, 1, 0.5882353)
+
+[node name="Context 1 Container" type="VBoxContainer" parent="Context Tree/Context 1" unique_id=1731019433]
+layout_mode = 2
+theme = ExtResource("2_bwpwa")
+
+[node name="Health Cntext" type="HBoxContainer" parent="Context Tree/Context 1/Context 1 Container" unique_id=1055684457]
+layout_mode = 2
+
+[node name="Health Button" type="Button" parent="Context Tree/Context 1/Context 1 Container/Health Cntext" unique_id=1461230288]
+layout_mode = 2
+text = "Health:"
+
+[node name="Health Edit" type="LineEdit" parent="Context Tree/Context 1/Context 1 Container/Health Cntext" unique_id=1147349781]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "00"
+max_length = 2
+
+[node name="Focus Inspector" type="PanelContainer" parent="." unique_id=1918074511]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 186.0
+offset_top = 597.0
+offset_right = 308.0
+offset_bottom = 622.0
+
+[node name="Context Background" type="ColorRect" parent="Focus Inspector" unique_id=1261987180]
+layout_mode = 2
+color = Color(1, 1, 1, 0.5882353)
+
+[node name="Focus Node" type="Label" parent="Focus Inspector" unique_id=331788868]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_bwpwa")
+text = "Focus node"
+
+[connection signal="pressed" from="Context Tree/Context 1/Context 1 Container/Health Cntext/Health Button" to="Context Tree/Context" method="health_button_pressed"]

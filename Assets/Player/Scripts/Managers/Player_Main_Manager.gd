@@ -8,6 +8,7 @@ func _ready() -> void:
 	print_rich("[color=#ffdf00]Player Management Working[/color]")
 	#print("Instance ID", self.get_instance_id())
 	
+	SignalBus.Save_Character_Data.connect(Save_Character_Data)
 	
 	SignalBus.Variable_Operation.connect(Stats_Decrease)
 	SignalBus.Variable_Operation.connect(Stats_Increase)
@@ -113,6 +114,10 @@ func _ready() -> void:
 			Global.Player_Data.UnHUDIcon_Unselect = "uid://sdcs6qj0qc6x"
 			Global.Player_Data.UnHUDIcon_Interact = "uid://sdcs6qj0qc6x"
 #endregion
+
+func Save_Character_Data():
+	Global.Player_Data.Sin = 7
+
 
 func _process(delta: float) -> void:
 	Global.Player_Data.Health = clamp(Global.Player_Data.Health, 0, Global.Player_Data.Health_Max)
