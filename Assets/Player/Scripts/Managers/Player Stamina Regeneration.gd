@@ -1,7 +1,5 @@
 extends Node
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print_rich("[color=#ffdf00]Stamina Regeneration Working[/color]")
 	Regeneration_Timer_Startup()

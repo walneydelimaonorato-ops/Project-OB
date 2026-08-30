@@ -8,8 +8,6 @@ func _ready() -> void:
 	print_rich("[color=#ffdf00]Player Management Working[/color]")
 	#print("Instance ID", self.get_instance_id())
 	
-	SignalBus.Save_Character_Data.connect(Save_Character_Data)
-	
 	SignalBus.Variable_Operation.connect(Stats_Decrease)
 	SignalBus.Variable_Operation.connect(Stats_Increase)
 	SignalBus.item_transfer.connect(Item_Pickup)

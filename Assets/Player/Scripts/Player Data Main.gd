@@ -5,6 +5,9 @@ var test1: bool = false
 var Developer_Mode: bool = true
 var Context_Debug: int = 0
 
+var Player_Position: Vector3
+var Player_Rotation: Vector3
+
 #region Universal Input Settup
 var Un_Forward: String
 var Un_Backward: String
@@ -108,8 +111,6 @@ var Player_Status_2: String
 var Player_Status_3: String
 
 var Debug_Fly: bool = false
-
-var Sin: int = 0
 
 # Aassss
 var Ammo_A: int = 0

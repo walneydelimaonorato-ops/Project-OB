@@ -14,8 +14,8 @@ var Running: bool
 func _ready() -> void:
 	print_rich("[color=green]Player Working[/color] [color=#b76e79]\r========================= \r. \r. \r. \r. \r.[/color]")
 	
-	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	Input.mouse_mode = Input.MOUSE_MODE_MAX
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#Input.mouse_mode = Input.MOUSE_MODE_MAX
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -26,7 +26,6 @@ func _physics_process(delta: float) -> void:
 	if Global.Player_Data.Debug_Fly == false:
 		if Input.is_action_just_pressed(Global.Player_Data.Un_Jump) and is_on_floor():
 			velocity.y = 4.5
-			SignalBus.emit_signal("Save_Character_Data")
 	
 	elif Global.Player_Data.Debug_Fly == true:
 		if Input.is_action_pressed(Global.Player_Data.Un_Jump):
@@ -61,6 +60,9 @@ func _physics_process(delta: float) -> void:
 		Camera_Tilt(input_dir.x, input_dir.y, delta)
 
 func _process(_delta: float) -> void:
+	Global.Player_Data.Player_Position = self.global_position
+	Global.Player_Data.Player_Rotation = self.global_rotation
+	
 	if Global.Player_Data.Control_Mode == "Joy":
 		var look_in = Input.get_vector("In_JoyR_Up", "In_JoyR_Down", "In_JoyR_Left", "In_JoyR_Right")
 		Head.rotation.y -= look_in.y * Global.Player_Data.Joy_Camera_Sens
@@ -73,11 +75,9 @@ func _input(input: InputEvent) -> void:
 			SignalBus.emit_signal("Menu_Setting", "Ready")
 	
 	if Input.is_action_just_pressed(Global.Player_Data.Un_LPrimary_Tool_Use):
-		SignalBus.emit_signal("Save_File_Write")
 		
 		SignalBus.emit_signal("Action_Primary", "Left")
 	if Input.is_action_just_pressed(Global.Player_Data.Un_RPrimary_Tool_Use):
-		SignalBus.emit_signal("Save_File_Read")
 		
 		SignalBus.emit_signal("Action_Primary", "Right")
 	

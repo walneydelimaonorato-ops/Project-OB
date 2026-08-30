@@ -9,6 +9,7 @@ func HUD_Element():
 
 func Interact():
 	%AudioStreamPlayer2D.play()
+	PlayerSaveManager.Write_Save()
 
 func Take_Damage():
 	print("buttlivk")

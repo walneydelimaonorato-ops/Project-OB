@@ -24,7 +24,7 @@ boot_splash/minimum_display_time=3000
 
 Global="*uid://chd33wii2ykgf"
 SignalBus="*uid://chyio332ihmub"
-FpsCounter="*uid://fbjesgifv3jo"
+PlayerSaveManager="*uid://cjhpqq7jo4sml"
 
 [debug]
 

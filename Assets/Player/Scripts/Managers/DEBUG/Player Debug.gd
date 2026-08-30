@@ -4,10 +4,9 @@ var Current_Index: int = 6
 var Min_Index: int = 1
 var Max_Index: int = 6
 
-
 func _ready() -> void:
 	if Global.Player_Data.Developer_Mode == false:
-		%"Debug Tree".queue_free()
+		$"..".queue_free()
 		print_rich("[color=purple]CURRENTLY RUNNING IN: RETAIL MODE")
 	else:
 		print_rich("[color=purple]CURRENTLY RUNNING IN: DEVELOPER MODE")
@@ -25,6 +24,7 @@ func _input(event: InputEvent) -> void:
 		%"Debug Backdrop".visible = !%"Debug Backdrop".visible
 		%"Focus Inspector".visible = %"Debug Backdrop".visible
 	
+	
 	if Input.is_action_just_pressed("Deb_Increase"):
 		Page_Flip(true)
 	if Input.is_action_just_pressed("Deb_Decrease"):
@@ -40,6 +40,7 @@ func _input(event: InputEvent) -> void:
 			Global.Player_Data.Context_Debug = 1
 			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 		else:
+			%"Context Tree".visible = false
 			Global.Player_Data.Context_Debug = 0
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -84,14 +85,11 @@ func Monitoring():
 		%"Page 1".text += str("\rDFPS: ", Engine.get_frames_drawn())
 		%"Page 1".text += str("\rPosition: ", $"../../..".position)
 		%"Page 1".text += str("\rSpeed: ", $"../../..".velocity.length())
-		%"Page 1".text += str("Sin: ", Global.Save_File_A.Sin)
 	
 	elif %"Page 2".visible == true:
 		%"Page 2".text = str(Pager, "Stats")
 		%"Page 2".text += str("\rHealth: ", Global.Player_Data.Health, "/", Global.Player_Data.Health_Max)
 		%"Page 2".text += str("\rStamina: ", Global.Player_Data.Stamina, "/", Global.Player_Data.Stamina_Max)
-	
-	#Global.Player_Data.
 	
 	elif %"Page 3".visible == true:
 		%"Page 3".text = str(Pager, "Superf. Inventory Inspect")
@@ -116,5 +114,3 @@ func Monitoring():
 	
 	elif %"Page 5".visible == true:
 		%"Page 5".text = str(Pager, "Save File Insight")
-		%"Page 5".text += str("\rSin: ", Global.Save_File_A.Character_File_A["Sin"])
-	

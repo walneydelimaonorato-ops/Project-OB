@@ -92,9 +92,7 @@ signal Interaction_Prompt_Manager_Response(Address: String, Response: bool)
 signal NPC_Dialogue(Shelf: String, Book: String)
 signal Object_Interaction(ID: String, To_Call: String)
 
-signal Save_Character_Data()
-signal Save_File_Write()
-signal Save_File_Read()
+signal Load_save_Visual_Update()
 #endregion
 
 

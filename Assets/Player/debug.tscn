@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://4shc5vkdc64y"]
 
-[ext_resource type="Script" uid="uid://0nco37m6s8j3" path="res://Assets/Player/Scripts/Managers/Player Debug.gd" id="1_6ms5k"]
+[ext_resource type="Script" uid="uid://0nco37m6s8j3" path="res://Assets/Player/Scripts/Managers/DEBUG/Player Debug.gd" id="1_6ms5k"]
 [ext_resource type="Theme" uid="uid://buutafly06f6f" path="res://debug_UI.tres" id="2_bwpwa"]
-[ext_resource type="Script" uid="uid://dq4cglt5dc7ug" path="res://Assets/Player/Scripts/Managers/Player Debug Context.gd" id="3_bwpwa"]
+[ext_resource type="Script" uid="uid://dq4cglt5dc7ug" path="res://Assets/Player/Scripts/Managers/DEBUG/Player Debug Context.gd" id="3_bwpwa"]
+[ext_resource type="Script" uid="uid://g28uqcc5j40q" path="res://Assets/Player/Scripts/Managers/DEBUG/context_1.gd" id="4_xjamk"]
 
 [node name="Debug Tree" type="Control" unique_id=519178113]
 layout_mode = 3
@@ -19,6 +20,7 @@ script = ExtResource("1_6ms5k")
 
 [node name="Debug Backdrop" type="PanelContainer" parent="." unique_id=861237934]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_right = 137.0
 offset_bottom = 23.000015
@@ -136,47 +138,24 @@ layout_mode = 2
 theme = ExtResource("2_bwpwa")
 alignment = 2
 
+[node name="Context 3" type="Button" parent="Context Backdrop/Context Container" unique_id=339242947]
+layout_mode = 2
+text = "Load Save Data"
+alignment = 0
+
+[node name="Context 4" type="Button" parent="Context Backdrop/Context Container" unique_id=1440518335]
+layout_mode = 2
+text = "Write Save Data"
+alignment = 0
+
+[node name="Context 2" type="Button" parent="Context Backdrop/Context Container" unique_id=971338448]
+layout_mode = 2
+text = "Save Data Insight"
+alignment = 0
+
 [node name="Context 1" type="Button" parent="Context Backdrop/Context Container" unique_id=385037850]
 layout_mode = 2
 text = "Permission Flipper"
-
-[node name="Context Tree" type="Control" parent="." unique_id=1777152173]
-unique_name_in_owner = true
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Context" type="Node" parent="Context Tree" unique_id=1711099008]
-script = ExtResource("3_bwpwa")
-
-[node name="Context 1" type="PanelContainer" parent="Context Tree" unique_id=1278792970]
-visible = false
-layout_mode = 0
-offset_left = 146.0
-offset_top = 43.0
-offset_right = 929.0
-offset_bottom = 598.0
-
-[node name="Context Background" type="ColorRect" parent="Context Tree/Context 1" unique_id=435686540]
-layout_mode = 2
-color = Color(1, 1, 1, 0.5882353)
-
-[node name="Context 1 Container" type="VBoxContainer" parent="Context Tree/Context 1" unique_id=1731019433]
-layout_mode = 2
-theme = ExtResource("2_bwpwa")
-
-[node name="Health Cntext" type="HBoxContainer" parent="Context Tree/Context 1/Context 1 Container" unique_id=1055684457]
-layout_mode = 2
-
-[node name="Health Button" type="Button" parent="Context Tree/Context 1/Context 1 Container/Health Cntext" unique_id=1461230288]
-layout_mode = 2
-text = "Health:"
-
-[node name="Health Edit" type="LineEdit" parent="Context Tree/Context 1/Context 1 Container/Health Cntext" unique_id=1147349781]
-unique_name_in_owner = true
-layout_mode = 2
-placeholder_text = "00"
-max_length = 2
 
 [node name="Focus Inspector" type="PanelContainer" parent="." unique_id=1918074511]
 unique_name_in_owner = true
@@ -196,4 +175,77 @@ layout_mode = 2
 theme = ExtResource("2_bwpwa")
 text = "Focus node"
 
-[connection signal="pressed" from="Context Tree/Context 1/Context 1 Container/Health Cntext/Health Button" to="Context Tree/Context" method="health_button_pressed"]
+[node name="Context Tree" type="Control" parent="." unique_id=1777152173]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Context" type="Node" parent="Context Tree" unique_id=1711099008]
+script = ExtResource("3_bwpwa")
+
+[node name="Context 1" type="PanelContainer" parent="Context Tree" unique_id=1278792970]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 937.0
+offset_bottom = 647.0
+
+[node name="Context 1" type="Node" parent="Context Tree/Context 1" unique_id=1069565107]
+script = ExtResource("4_xjamk")
+
+[node name="Context Background" type="ColorRect" parent="Context Tree/Context 1" unique_id=435686540]
+layout_mode = 2
+color = Color(1, 1, 1, 0.5882353)
+
+[node name="Context 1 Container" type="VBoxContainer" parent="Context Tree/Context 1" unique_id=1731019433]
+layout_mode = 2
+theme = ExtResource("2_bwpwa")
+
+[node name="Context Box" type="HBoxContainer" parent="Context Tree/Context 1/Context 1 Container" unique_id=387073069]
+layout_mode = 2
+
+[node name="Context Label" type="RichTextLabel" parent="Context Tree/Context 1/Context 1 Container/Context Box" unique_id=2076193955]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save Data Insight"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Next" type="Button" parent="Context Tree/Context 1/Context 1 Container/Context Box" unique_id=461625874]
+layout_mode = 2
+text = "<NXT>"
+
+[node name="Back" type="Button" parent="Context Tree/Context 1/Context 1 Container/Context Box" unique_id=375410599]
+layout_mode = 2
+text = "<LST>"
+
+[node name="LabelsA Box" type="HBoxContainer" parent="Context Tree/Context 1/Context 1 Container" unique_id=1228747115]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LabelA1" type="RichTextLabel" parent="Context Tree/Context 1/Context 1 Container/LabelsA Box" unique_id=803133767]
+unique_name_in_owner = true
+layout_mode = 2
+text = "aaa"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="LabelsB Box" type="HBoxContainer" parent="Context Tree/Context 1/Context 1 Container" unique_id=394780106]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LabelB1" type="RichTextLabel" parent="Context Tree/Context 1/Context 1 Container/LabelsB Box" unique_id=1305515403]
+unique_name_in_owner = true
+layout_mode = 2
+text = "aaa"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[connection signal="pressed" from="Context Backdrop/Context Container/Context 3" to="Context Tree/Context" method="context_3_pressed"]
+[connection signal="pressed" from="Context Backdrop/Context Container/Context 4" to="Context Tree/Context" method="context_4_pressed"]
+[connection signal="pressed" from="Context Backdrop/Context Container/Context 2" to="Context Tree/Context" method="context_2_pressed"]
+[connection signal="pressed" from="Context Tree/Context 1/Context 1 Container/Context Box/Next" to="Context Tree/Context 1/Context 1" method="NEXT"]
+[connection signal="pressed" from="Context Tree/Context 1/Context 1 Container/Context Box/Back" to="Context Tree/Context 1/Context 1" method="LAST"]

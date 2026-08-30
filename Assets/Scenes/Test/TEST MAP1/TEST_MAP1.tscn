@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6kxrs8upo3b8" path="res://Assets/Objects/Obj/Lever/Lever.tscn" id="7_aes54"]
 [ext_resource type="PackedScene" uid="uid://1lnv48bentw" path="res://Assets/Scenes/Test/TEST MAP1/MAP TEST 1.glb" id="7_dla61"]
 [ext_resource type="PackedScene" uid="uid://4tdiqq1xjk6l" path="res://Assets/Objects/Obj/Door/Door.tscn" id="8_dla61"]
+[ext_resource type="PackedScene" uid="uid://c4p7mlvgrwsjp" path="res://Assets/Objects/Obj/Rest/rest.tscn" id="8_lxy1g"]
 [ext_resource type="Script" uid="uid://cjyvyf0a1qkgw" path="res://Assets/Scenes/Test/TEST MAP1/TEST MAP1 Scripts/NPC Test.gd" id="10_yis4x"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6x7ll"]
@@ -78,6 +79,9 @@ visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MAP TEST 1/Collision/StaticBody3D" unique_id=2121569949]
 shape = SubResource("ConcavePolygonShape3D_lxy1g")
+
+[node name="Rest" parent="." unique_id=1692087272 instance=ExtResource("8_lxy1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.122685, 0.37750053, -4.4325337)
 
 [editable path="Doors/Door"]
 [editable path="Doors/Door/Door Model2"]

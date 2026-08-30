@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://h8wt3hlx4i85" path="res://Assets/Player/Models/Models.tscn" id="5_hs5eg"]
 [ext_resource type="Script" uid="uid://cemp6arjo8v4c" path="res://Assets/Player/Scripts/Managers/Player_HoldTap.gd" id="5_or1rc"]
 [ext_resource type="Script" uid="uid://02p3gggxlokp" path="res://Assets/Player/Scripts/Hud/Stylized Camera.gd" id="9_w4pk3"]
-[ext_resource type="Script" uid="uid://dijwjcn2m3hu5" path="res://Assets/Player/Save Files/Save_File_Manager.gd" id="10_2r3yr"]
+[ext_resource type="Script" uid="uid://cw2pp6xuvdu2t" path="res://Assets/Player/Scripts/Managers/Load Save Visual Update.gd" id="10_2r3yr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o54j3"]
 
@@ -75,7 +75,7 @@ script = ExtResource("5_2r4ph")
 [node name="Style Camera" type="Node" parent="Script Nodes" unique_id=1264889339]
 script = ExtResource("9_w4pk3")
 
-[node name="Save File Manager" type="Node" parent="Script Nodes" unique_id=1478414656]
+[node name="Load Save Visual Update" type="Node" parent="Script Nodes" unique_id=1478414656]
 script = ExtResource("10_2r3yr")
 
 [node name="Collision 1" type="CollisionShape3D" parent="." unique_id=1599588568]
