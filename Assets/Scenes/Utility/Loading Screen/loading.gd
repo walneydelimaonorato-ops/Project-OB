@@ -6,6 +6,7 @@ var progress: Array[float] = []
 var loading_done: bool = false
 
 func _ready() -> void:
+	loading_done = false
 	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	ResourceLoader.load_threaded_request(Global.Next_Scene)
 
@@ -27,7 +28,6 @@ func _on_loading_movie_1_finished() -> void:
 	print("Load finished")
 	#if loading_done == true:
 		#var scene = ResourceLoader.load_threaded_get(Global.Next_Scene)
-		#loading_done = false
 		#get_tree().change_scene_to_packed(scene)
 	#else:
 		#%"Loading movie 1".play()

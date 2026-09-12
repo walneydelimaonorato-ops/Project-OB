@@ -6,7 +6,6 @@ var Colidder
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print_rich("[color=#ffdf00]Player Management Working[/color]")
-	#print("Instance ID", self.get_instance_id())
 	
 	SignalBus.Variable_Operation.connect(Stats_Decrease)
 	SignalBus.Variable_Operation.connect(Stats_Increase)
@@ -113,10 +112,6 @@ func _ready() -> void:
 			Global.Player_Data.UnHUDIcon_Interact = "uid://sdcs6qj0qc6x"
 #endregion
 
-func Save_Character_Data():
-	Global.Player_Data.Sin = 7
-
-
 func _process(delta: float) -> void:
 	Global.Player_Data.Health = clamp(Global.Player_Data.Health, 0, Global.Player_Data.Health_Max)
 	Global.Player_Data.Stamina = clamp(Global.Player_Data.Stamina, 0, Global.Player_Data.Stamina_Max)
@@ -133,7 +128,7 @@ func Stats_Decrease(Operation, Type, Value):
 	else:
 		pass
 	SignalBus.emit_signal("Side_Status_Update")
-	SignalBus.emit_signal("Player_Permissions_Conditionals")
+	#SignalBus.emit_signal("Player_Permissions_Conditionals")
 
 func Stats_Increase(Operation, Type, Value):
 	if Operation == "Increase":
@@ -168,14 +163,6 @@ func Geneneral_Interaction(Ray, Method):
 		if Colidder.get_parent().has_method(Method): # If the collider has the method
 			Colidder.get_parent().call(Method) # Executes the method
 			SignalBus.emit_signal("Sig_Interaction_HUD_Return", Colidder)
-			#print(Colidder)
-
-#func Set_Menu(Switch: bool, Next_Menu: String):
-	#if Switch == true:
-		#Global.Player_Data.Current_Menu = Next_Menu
-	#elif Switch == false:
-		#Global.Player_Data.Current_SubMenu = Next_Menu
-
 
 
 func Item_Pickup(Item_Sys_Name, Item_Type, Item_Quantity):

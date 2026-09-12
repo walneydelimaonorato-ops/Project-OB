@@ -9,7 +9,7 @@ func context_2_pressed() -> void:
 	%"Context 1".visible = !%"Context 1".visible
 
 func context_3_pressed() -> void:
-	PlayerSaveManager.Load_Save()
+	PlayerSaveManager.Load_Save(false)
 
 func context_4_pressed() -> void:
 	PlayerSaveManager.Write_Save()

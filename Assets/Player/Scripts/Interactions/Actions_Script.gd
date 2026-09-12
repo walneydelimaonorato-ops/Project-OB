@@ -57,9 +57,10 @@ func HandGun(Action_Type: String):
 	match Action_Type:
 		"Shoot":
 			if Global.Player_Data.Player_Perms["Can_Use_HandGun"] == true:
+				SignalBus.emit_signal("Variable_Operation", "Decrease", "Stamina", 2.0)
 				SignalBus.emit_signal("Player_Animations", "Tools_Anims/HandGun_Shoot")
 				SignalBus.emit_signal("SubRoutine_Call", "HandGun", "Ammunition Loss")
-				SignalBus.emit_signal("request_damage", Global.Player_Data.Tool_ID["HandGun"]["damage"])
+				SignalBus.emit_signal("request_damage", Global.Inventory_Data.Tool_ID["HandGun"]["damage"])
 				SignalBus.emit_signal("Sig_General_Interaction", %Ray1, "Take_Damage")
 			else:
 				# PLay jamming sound
@@ -72,9 +73,10 @@ func AssaultRifle(Action_Type: String):
 	match Action_Type:
 		"Shoot":
 			if Global.Player_Data.Player_Perms["Can_Use_AssaultRifle"] == true:
+				SignalBus.emit_signal("Variable_Operation", "Decrease", "Stamina", 3.5)
 				SignalBus.emit_signal("Player_Animations", "Tools_Anims/Assault_Shoot")
 				SignalBus.emit_signal("SubRoutine_Call", "AssaultRifle", "Ammunition Loss")
-				SignalBus.emit_signal("request_damage", Global.Player_Data.Tool_ID["AssaultRifle"]["damage"])
+				SignalBus.emit_signal("request_damage", Global.Inventory_Data.Tool_ID["AssaultRifle"]["damage"])
 				SignalBus.emit_signal("Sig_General_Interaction", %Ray1, "Take_Damage")
 
 func Sword(Action_Type):

@@ -31,7 +31,7 @@ unique_name_in_owner = true
 
 [node name="MAP_BETA2" parent="." unique_id=383889422 instance=ExtResource("2_omiq2")]
 
-[node name="Start Possition" parent="MAP_BETA2" index="25" unique_id=743340035]
+[node name="Start Possition" parent="MAP_BETA2" index="31" unique_id=1990876637]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.125618, -1, 68.05922)
 
 [editable path="MAP_BETA2"]

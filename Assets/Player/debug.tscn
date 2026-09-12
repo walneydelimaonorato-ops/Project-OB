@@ -4,14 +4,20 @@
 [ext_resource type="Theme" uid="uid://buutafly06f6f" path="res://debug_UI.tres" id="2_bwpwa"]
 [ext_resource type="Script" uid="uid://dq4cglt5dc7ug" path="res://Assets/Player/Scripts/Managers/DEBUG/Player Debug Context.gd" id="3_bwpwa"]
 [ext_resource type="Script" uid="uid://g28uqcc5j40q" path="res://Assets/Player/Scripts/Managers/DEBUG/context_1.gd" id="4_xjamk"]
+[ext_resource type="Script" uid="uid://b5gahxseugbso" path="res://Assets/Player/Scripts/Managers/DEBUG/Free Camera Controls.gd" id="5_rbdv1"]
+[ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="6_5hh50"]
 
-[node name="Debug Tree" type="Control" unique_id=519178113]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="SphereShape3D" id="SphereShape3D_k4mt7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wglcv"]
+render_priority = 126
+transparency = 1
+albedo_color = Color(1, 0, 0.5882353, 0.39215687)
+
+[sub_resource type="SphereMesh" id="SphereMesh_k4mt7"]
+material = SubResource("StandardMaterial3D_wglcv")
+
+[node name="Debug Tree" type="Node3D" unique_id=247982300]
 
 [node name="Debug" type="Node" parent="." unique_id=1746655452]
 script = ExtResource("1_6ms5k")
@@ -20,8 +26,6 @@ script = ExtResource("1_6ms5k")
 
 [node name="Debug Backdrop" type="PanelContainer" parent="." unique_id=861237934]
 unique_name_in_owner = true
-visible = false
-layout_mode = 0
 offset_right = 137.0
 offset_bottom = 23.000015
 
@@ -71,6 +75,7 @@ autowrap_mode = 0
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+bbcode_enabled = true
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -124,7 +129,6 @@ layout_mode = 2
 
 [node name="Context Backdrop" type="PanelContainer" parent="." unique_id=856711967]
 unique_name_in_owner = true
-layout_mode = 0
 offset_left = 937.0
 offset_right = 1152.0
 offset_bottom = 25.0
@@ -159,7 +163,7 @@ text = "Permission Flipper"
 
 [node name="Focus Inspector" type="PanelContainer" parent="." unique_id=1918074511]
 unique_name_in_owner = true
-layout_mode = 0
+visible = false
 offset_left = 186.0
 offset_top = 597.0
 offset_right = 308.0
@@ -177,6 +181,8 @@ text = "Focus node"
 
 [node name="Context Tree" type="Control" parent="." unique_id=1777152173]
 unique_name_in_owner = true
+visible = false
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -243,6 +249,45 @@ text = "aaa"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+
+[node name="Free Cam Backdrop" type="PanelContainer" parent="." unique_id=1381137904]
+unique_name_in_owner = true
+offset_top = 623.0
+offset_right = 226.0
+offset_bottom = 648.0
+
+[node name="Debug Background" type="ColorRect" parent="Free Cam Backdrop" unique_id=1659842072]
+layout_mode = 2
+color = Color(1, 1, 1, 0.5882353)
+
+[node name="Label" type="Label" parent="Free Cam Backdrop" unique_id=175037389]
+layout_mode = 2
+theme = ExtResource("2_bwpwa")
+text = "Free Camera Active"
+
+[node name="Free Cam Body" type="CharacterBody3D" parent="." unique_id=1895275282]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("5_rbdv1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Free Cam Body" unique_id=1846552165]
+shape = SubResource("SphereShape3D_k4mt7")
+
+[node name="Free Cam" type="Camera3D" parent="Free Cam Body" unique_id=302227577]
+unique_name_in_owner = true
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Free Cam Body" unique_id=338857899]
+mesh = SubResource("SphereMesh_k4mt7")
+
+[node name="Label3D" type="Label3D" parent="Free Cam Body" unique_id=1884066922]
+transform = Transform3D(0.86, 0, 0, 0, 0.86, 0, 0, 0, 0.86, 0, 0, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 127
+text = "FREE CAM"
+font = ExtResource("6_5hh50")
 
 [connection signal="pressed" from="Context Backdrop/Context Container/Context 3" to="Context Tree/Context" method="context_3_pressed"]
 [connection signal="pressed" from="Context Backdrop/Context Container/Context 4" to="Context Tree/Context" method="context_4_pressed"]

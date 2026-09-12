@@ -5,6 +5,7 @@ func _ready() -> void:
 	Global.Player_Data.Player_Status_Master = "Alive"
 	Bulk_Permission_Assigning()
 	
+	SignalBus.Player_Permissions_Changer.connect(Player_Permissions_Setting)
 	SignalBus.Player_Permissions_Conditionals.connect(Player_Permissions_Conditionals)
 
 func Bulk_Permission_Assigning():
@@ -31,7 +32,7 @@ func Bulk_Permission_Assigning():
 		pass
 	
 	SignalBus.emit_signal("Side_HUD_Update")
-	
+
 
 func Stats_Setting(Target, Setting):
 	match Target:
@@ -45,6 +46,7 @@ func Stats_Setting(Target, Setting):
 			Global.Player_Data.Player_Status_3 = Setting
 
 func Player_Permissions_Setting(Permission: String, Setting: String):
+	
 	if !Global.Player_Data.Player_Perms.has(Permission):
 		push_error("Unknown permission: " + Permission)
 		return
@@ -56,14 +58,28 @@ func Player_Permissions_Setting(Permission: String, Setting: String):
 			Global.Player_Data.Player_Perms[Permission] = true
 		"No":
 			Global.Player_Data.Player_Perms[Permission] = false
+	
 
 func Player_Permissions_Conditionals():
-	if Global.Player_Data.Tool_ID["HandGun"]["Ammo"] <= 0:
+	if Global.Inventory_Data.Tool_ID["HandGun"]["Ammo"] <= 0:
 		Player_Permissions_Setting("Can_Use_HandGun", "No")
-	elif Global.Player_Data.Tool_ID["HandGun"]["Ammo"] > 0:
+	elif Global.Inventory_Data.Tool_ID["HandGun"]["Ammo"] > 0:
 		Player_Permissions_Setting("Can_Use_HandGun", "Yes")
+	
+	if Global.Inventory_Data.Tool_ID["AssaultRifle"]["Ammo"] <= 0:
+		Player_Permissions_Setting("Can_Use_AssaultRifle", "No")
+	elif Global.Inventory_Data.Tool_ID["AssaultRifle"]["Ammo"] > 0:
+		Player_Permissions_Setting("Can_Use_AssaultRifle", "Yes")
+		
 	
 	if Global.Player_Data.Health <= 0:
 		Global.Player_Data.Player_Status_Master = "Dead"
 		Bulk_Permission_Assigning()
+	elif Global.Player_Data.Health > 0:
+		Global.Player_Data.Player_Status_Master = "Alive"
+		Bulk_Permission_Assigning()
 	
+	if Global.Player_Data.Stamina <= 0 :
+		Player_Permissions_Setting("Can_Sprint", "No")
+	elif Global.Player_Data.Stamina > 0 :
+		Player_Permissions_Setting("Can_Sprint", "Yes")

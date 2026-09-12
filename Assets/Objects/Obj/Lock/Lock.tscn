@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cxgs21xludalx"]
+
+[ext_resource type="Script" uid="uid://de888iotogaqj" path="res://Assets/Objects/Obj/Lock/Lock.gd" id="1_3siqc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_248xu"]
+size = Vector3(1, 0.8821875, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k4mt7"]
+size = Vector3(1, 0.8838501, 1)
+
+[node name="Lock" type="Node3D" unique_id=245041043]
+script = ExtResource("1_3siqc")
+
+[node name="Collision" type="Area3D" parent="." unique_id=710048148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+collision_layer = 5
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" unique_id=529495101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.42609376, 0)
+shape = SubResource("BoxShape3D_248xu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=714740136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45272827, 0)
+mesh = SubResource("BoxMesh_k4mt7")

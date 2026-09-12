@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = 0
 	
 	
-	if Input.is_action_pressed(Global.Player_Data.Un_Sprint): #and PlayerValue.Stamina > 0:
+	if Input.is_action_pressed(Global.Player_Data.Un_Sprint) and Global.Player_Data.Player_Perms["Can_Sprint"] == true: #and PlayerValue.Stamina > 0:
 		Global.Player_Data.Base_Speed = Global.Player_Data.Run # Current speed becomes running speed
 		Running = true
 	else:
@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	var input_dir = Input.get_vector(Global.Player_Data.Un_Left, Global.Player_Data.Un_Right, Global.Player_Data.Un_Forward, Global.Player_Data.Un_Backward)
-	var direction = (Head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = (self.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * Global.Player_Data.Base_Speed
 		velocity.z = direction.z * Global.Player_Data.Base_Speed
@@ -73,27 +73,30 @@ func _input(input: InputEvent) -> void:
 	if Input.is_action_just_pressed(Global.Player_Data.Un_Ready_Menu):
 		if Global.Player_Data.Current_Menu == "null" or Global.Player_Data.Current_Menu == "Ready":
 			SignalBus.emit_signal("Menu_Setting", "Ready")
+			Permission_Checkup()
 	
 	if Input.is_action_just_pressed(Global.Player_Data.Un_LPrimary_Tool_Use):
-		
 		SignalBus.emit_signal("Action_Primary", "Left")
+		Permission_Checkup()
 	if Input.is_action_just_pressed(Global.Player_Data.Un_RPrimary_Tool_Use):
-		
 		SignalBus.emit_signal("Action_Primary", "Right")
+		Permission_Checkup()
 	
 	if Input.is_action_just_pressed(Global.Player_Data.Un_Cycle_UItem):
 		SignalBus.emit_signal("UItem_Cycle")
+		Permission_Checkup()
 	
 	if Input.is_action_just_pressed(Global.Player_Data.Un_Use_UItem):
 		SignalBus.emit_signal("UItem_Use") #UItem_Use
+		Permission_Checkup()
 	
 	if Input.is_action_just_pressed(Global.Player_Data.Un_Tool_Alternive):
 		SignalBus.emit_signal("Tap_Hold_Interval")
-		#print(SignalBus.Tap_Hold_Interval.get_connections())
+		Permission_Checkup()
 	
 	if Global.Player_Data.Control_Mode == "Key" and Global.Player_Data.Context_Debug == 0:
 		if input is InputEventMouseMotion and Global.Player_Data.Player_Perms.Can_Look == true:
-			Head.rotation.y -= input.relative.x * Global.Player_Data.Key_Camera_Sens
+			self.rotation.y -= input.relative.x * Global.Player_Data.Key_Camera_Sens
 			Eyes.rotation.x -= input.relative.y * Global.Player_Data.Key_Camera_Sens
 			Eyes.rotation.x = clamp(Eyes.rotation.x, deg_to_rad(-85), deg_to_rad(85))
 
@@ -104,3 +107,7 @@ func Camera_Tilt(input_x, input_z, delta):
 		%Models.rotation.z = lerp(%Models.rotation.z, -input_x * 0.05, 10 * delta)
 	if Head:
 		Head.rotation.x = lerp(Head.rotation.x, input_z * 0.1, 10 * delta)
+
+func Permission_Checkup():
+	if Global.Player_Data.Free_Cam_Mode == false:
+		SignalBus.emit_signal("Player_Permissions_Conditionals")

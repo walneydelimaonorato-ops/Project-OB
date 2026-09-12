@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c7p0xddbby67c" path="res://Assets/Scenes/Test/TEST MAP0/TST_MAP0_texture_07_2.png" id="3_4jwc8"]
 [ext_resource type="PackedScene" uid="uid://yey3rq0j37ff" path="res://Assets/Player/Player_Model.tscn" id="5_vrmme"]
 [ext_resource type="PackedScene" uid="uid://u0tbg3q3cv3q" path="res://Assets/Objects/Obj/Test cube (physics)/test_cube.tscn" id="8_rdq5i"]
-[ext_resource type="PackedScene" uid="uid://dt014w4ctcem5" path="res://Assets/Objects/Obj/Item/item.tscn" id="8_rj72a"]
+[ext_resource type="PackedScene" uid="uid://dt014w4ctcem5" path="res://Assets/Objects/Obj/Item/Item.tscn" id="8_rj72a"]
 [ext_resource type="PackedScene" uid="uid://cjjbqhue88d3g" path="res://Assets/Objects/Ent/Test/Test.tscn" id="9_rj72a"]
 [ext_resource type="PackedScene" uid="uid://da07xmo2ggvtr" path="res://Assets/Objects/Obj/Tst boxes/hit_box.tscn" id="9_yida7"]
 [ext_resource type="Texture2D" uid="uid://b2154orcqa6ei" path="res://Assets/Scenes/Test/TEST MAP0/TST_PSX_Tree_Image_1.png" id="10_rptus"]
@@ -548,7 +548,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3499169, 1.4885489e-08, -3.
 
 [node name="Item" parent="." unique_id=2044499245 instance=ExtResource("8_rj72a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0588822, -2.9802322e-07, 1.3766923)
-Item = "AssaultRifle"
+CLSS_ITEM_SYS_NAME = "Glass Flask"
+CLSS_ITEM_QUANTITY = 2
+CLSS_ITEM_TYPE = "UItem_ID"
 
 [node name="Hit Box" parent="." unique_id=2040774443 instance=ExtResource("9_yida7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.451529, 1.1122448, 3.8790846)
@@ -626,3 +628,4 @@ mesh = SubResource("ArrayMesh_um7q3")
 
 [editable path="Player"]
 [editable path="Player/Head/Eyes/Models"]
+[editable path="Item"]

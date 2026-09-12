@@ -15,11 +15,11 @@ func HUD_Element():
 
 
 func Object_Interact(LEVER_ID: String, LEVER_Call: String):
+	print("a")
 	if LEVER_ID == CLSS_DOOR_MATCH:
 		call(LEVER_Call)
-	else:
-		print_rich("[color=#ff00ff]MANUAL ERROR: At ", self, " LEVER_ID: ", LEVER_ID, " LEVER_Call: ", LEVER_Call)
-		pass
+	elif LEVER_ID != CLSS_DOOR_MATCH:
+		print_rich("[color=#ff00ff]MANUAL ERROR: At ", self, ". LEVER_ID: ", LEVER_ID, ". LEVER_Call: ", LEVER_Call)
 
 func Open():
 	if Door_State == false:

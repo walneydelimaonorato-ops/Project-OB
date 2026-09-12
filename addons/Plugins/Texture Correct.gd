@@ -26,11 +26,11 @@ func Process_Node(node):
 		Process_Node(child)
 
 func Create_Collision(node):
-	if node.name in ["COLL", "_Collision"]:
+	if node.name in ["COLL", "_COLL", "_Collision", "Collision"]:
 		print_rich("[color=pink]COLLISION SETTUP PROCESS")
 		var Mesh_Instance := node as MeshInstance3D
 		
-		if Mesh_Instance.name in ["COLL", "_Collision"]:
+		if Mesh_Instance.name in ["COLL", "_COLL", "_Collision", "Collision"]:
 			Mesh_Instance.name = "_Collision"
 			print_rich("[color=purple]Collision: [color=red] [", Mesh_Instance.name, "] ", Mesh_Instance)
 			

@@ -42,7 +42,7 @@ signal faultyMenus_Visual_Update(Menu_Slot: String, Item_Texture: String)
 
 #region Side HUD Information
 # Update signal for the visual icons in Side HUD
-signal Side_HUD_Overlay_Update(Menu_Slot: String, Item_Texture: String)
+signal Side_HUD_Overlay_Update()
 # Update signal for the Health and Stamina and etc
 signal Side_Status_Update()
 signal Side_HUD_Update()
@@ -58,6 +58,7 @@ signal Player_Stats_Management_Update_Out()
 # Signal used to actually set the pluer status
 signal Set_Sats(Target: String, Setting: String)
 signal Player_Permissions_Conditionals()
+signal Player_Permissions_Changer(Permission: String, Setting: String)
 #endregion
 
 # Signal used to update the Side HUD and rotate Equipped items in the hand

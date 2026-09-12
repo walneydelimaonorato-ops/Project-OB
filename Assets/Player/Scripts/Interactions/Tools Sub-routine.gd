@@ -19,6 +19,6 @@ func Tool_Subroutine_Sorting(Tool: String, Routine: String):
 	SignalBus.emit_signal("Side_HUD_Update")
 
 func Ammunition_Loss(Tool: String):
-	Global.Player_Data.Tool_ID[Tool]["Ammo"] -= 1
+	Global.Inventory_Data.Tool_ID[Tool]["Ammo"] -= 1
 	
 	

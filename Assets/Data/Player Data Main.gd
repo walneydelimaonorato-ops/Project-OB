@@ -4,6 +4,7 @@ class_name PlayerData
 var test1: bool = false
 var Developer_Mode: bool = true
 var Context_Debug: int = 0
+var Free_Cam_Mode: bool = false
 
 var Player_Position: Vector3
 var Player_Rotation: Vector3
@@ -51,18 +52,6 @@ var Stamina_Regeneration_Active: bool = false # Checks if the stamina regenerati
 var Menu_mode: bool = false # Checks if the player is currently in a menu
 #endregion
 
-#region Signals
-
-
-
-
-
-
-
-
-signal Update_Stats()
-#endregion
-
 #region Static Variables (never change)
 var Control_Mode: String = "Key"
 var Base_Speed: int = 4 # Speed used to move
@@ -82,18 +71,18 @@ var Actionable: bool
 #region Fluid Variables (change)
 # Can / Can't setters
 var Player_Perms = {
-	"Can_Open_Menus": true,
+	"Can_Open_Menus": false,
 	"Can_Use_Sword": false,
 	"Can_Use_Dagger": false,
-	"Can_Use_HandGun": true,
+	"Can_Use_HandGun": false,
 	"Can_Use_AssaultRifle": false,
 	"Can_Show_UI_Side": false,
-	"Can_Show_UI_Stats": true,
+	"Can_Show_UI_Stats": false,
 	"Can_Show_Prompts": false,
 	"Can_Move": false,
 	"Can_Sprint": false,
 	"Can_Look": false,
-	"Can_Use_Menus": true,
+	"Can_Use_Menus": false,
 	"Can_Use_UItems": false,
 }
 
@@ -125,6 +114,7 @@ var Current_SubMenu: String = ""
 var Ready_Menu_Active: bool = false
 var Seletion_Menu_Active: bool = false
 var Choice_Menu_Active: bool = false
+var Keys_Menu_Active: bool = false
 
 # Inventory related variables
 var Inv_Brace_Equiped: String = "null"
@@ -157,216 +147,12 @@ var Heretic_Damage_Bonus: int = 0
 # UItem quantity
 var Glass_flask_quantity: int = 6 # Use quantity of Glass Flask
 var Wild_gold_quantity: int = 10 # Use quantity of Wild Gold
+
+var Current_Map: String = ""
 #endregion
 
 #region IDs
-var Tool_ID = {
-	"Hand": {
-		"dys name": " ", 
-		"sys name": "Hand",
-		"Icon": "",
-		"picked?": true,
-		"equipped?": false, 
-		"damage": 0, 
-		},
-	"HandGun": {
-		"dys name": "Abrams",
-		"sys name": "HandGun",
-		"Icon": "uid://dev6yasoqfrik",
-		"picked?": true,
-		"equipped?": false, 
-		"damage": 6, 
-		"Ammo": 3,
-		"Max Ammo": 12,
-		"Mag": 0,
-		},
-	"AssaultRifle": {
-		"dys name": "AM-16", 
-		"sys name": "AssaultRifle",
-		"Icon": "uid://bpdhkde57ipm",
-		"picked?": true,
-		"equipped?": false, 
-		"damage": 15, 
-		"Ammo": 0,
-		"Max Ammo": 20,
-		"Mag": 0,
-		},
-	"Sword": {
-		"dys name": "E. Trais", 
-		"sys name": "Sword",
-		"Icon": "uid://d3txjn55xf1sw",
-		"picked?": true,
-		"equipped?": false, 
-		"damage": 20, 
-		},
-	"Dagger": {
-		"dys name": " ", 
-		"sys name": "Dagger",
-		"Icon": "uid://cxpllkwkj3coo",
-		"picked?": false,
-		"equipped?": false, 
-		"damage": 10,
-		},
-	"SpecialBow": {
-		"dys name": " ", 
-		"sys name": "SpecialBow",
-		"Icon": "uid://c244x88oddpii",
-		"picked?": false,
-		"equipped?": false, 
-		"damage": 25,
-		},
-}
 
-var Wear_ID = {
-	"Plain": {
-		"dys name": " ", 
-		"sys name": " ",
-		"Icon": "uid://bqi66glri2ec",
-		"picked?": true,
-		"equipped?": false, 
-		"weight": 0,
-		"def. redu.": -5,
-		},
-	"Upper Mewclad Arm.": {
-		"dys name": " ", 
-		"sys name": " ",
-		"Icon": "",
-		"picked?": false,
-		"equipped?": false, 
-		"weight": 20,
-		"def. redu.": 4,
-		},
-	"Lower Mewclad Arm.": {
-		"dys name": " ", 
-		"sys name": " ",
-		"Icon": "",
-		"picked?": false,
-		"equipped?": false, 
-		"weight": 12,
-		"def. redu.": 2,
-		}
-}
-
-var Spell_ID = {
-	"null": {
-		"dys name": " ", 
-		"sys name": " ",
-		"Icon": "",
-		"picked?": true,
-		"equipped?": false, 
-		"quantity": 0,
-		"max quantity": 0,
-		"damage": 0,
-		},
-	"PotentiaSolis": {
-		"dys name": " ", 
-		"sys name": " ",
-		"Icon": "uid://baatlbdf0r5c",
-		"picked?": true,
-		"equipped?": false, 
-		"quantity": 6,
-		"max quantity": 6,
-		"damage": 20 + Divine_Damage_Bonus,
-		},
-	"Misericordia": {
-		"dys name": " ", 
-		"sys name": " ",
-		"Icon": "",
-		"picked?": true,
-		"equipped?": false, 
-		"quantity": 2,
-		"max quantity": 2,
-		"damage": 0,
-		},
-	"Tywyll": {
-		"dys name": " ", 
-		"sys name": " ",
-		"Icon": "",
-		"picked?": true,
-		"equipped?": false, 
-		"quantity": 10,
-		"max quantity": 10,
-		"damage": 10 + Heretic_Damage_Bonus,
-		},
-	"Sunfire": {
-		"dys name": " ", 
-		"sys name": " ",
-		"Icon": "",
-		"picked?": true,
-		"equipped?": false, 
-		"quantity": 99999,
-		"max quantity": 99999,
-		"damage": 99999,
-		}
-}
-
-var Brace_ID = {
-	"Golden Bra.": {
-		"dys name": " ", 
-		"sys name": "Golden Bra.",
-		"Icon": "uid://davke1oama52w",
-		
-		"picked?": true,
-		"equipped?": false, 
-		},
-	"Clorophyl Bra.": {
-		"dys name": " ", 
-		"sys name": "Clorophyl Bra.",
-		"Icon": "",
-		
-		"picked?": true,
-		"equipped?": false, 
-		},
-	"Power Bra.": {
-		"dys name": " ", 
-		"sys name": "Power Bra.",
-		"Icon": "",
-		
-		"picked?": true,
-		"equipped?": false, 
-		}
-}
-
-var UItem_ID = {
-	"null": {
-		"dys name": " ", 
-		"sys name": "null",
-		"Icon": "uid://qua4cq3ubssm",
-	},
-	"Sigil": {
-		"dys name": "Sigil of Violence", 
-		"sys name": "Sigil",
-		"Icon": "uid://di03rqvlhqp7q",
-		"picked?": true,
-		"equipped?": false,
-		
-		"heal_values": 0,
-		"quantity": 0,
-		"special id": ""
-		},
-	"Glass Flask": {
-		"dys name": "Glass Flask", 
-		"sys name": "Glass Flask",
-		"Icon": "uid://13ylgt0ylimp",
-		"picked?": true,
-		"equipped?": false, 
-		
-		"heal_values": Health_Max / 3,
-		"quantity": Glass_flask_quantity,
-		"special id": "renewable"
-		},
-	"Wild Gold": {
-		"dys name": " ", 
-		"sys name": "Wild Gold",
-		"Icon": "uid://v22tjgao7mso",
-		"picked?": true,
-		"equipped?": false, 
-		
-		"heal_values": 2,
-		"quantity": Wild_gold_quantity,
-		"special id": ""
-		}
-}
 #endregion
 
 func _ready() -> void:

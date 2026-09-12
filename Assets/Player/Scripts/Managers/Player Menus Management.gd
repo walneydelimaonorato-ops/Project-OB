@@ -8,6 +8,7 @@ func _ready() -> void:
 	%"Choice Menu".visible = false
 	%"Dialogue Menu".visible = false
 	
+	Ready_Menu_Overlay_Update()
 	SignalBus.Ready_Menu_Overlay_Update.connect(Ready_Menu_Overlay_Update)
 	SignalBus.focus_first_visible.connect(focus_first_visible)
 	
@@ -37,8 +38,21 @@ func Menu_Setting(Menu: String):
 				SignalBus.emit_signal("focus_first_visible", %"Ready Wear and Tool")
 				Global.Player_Data.Current_Menu = "Ready"
 				%"Menu Return".play()
-		"":
-			pass
+		"Keys":
+			Global.Player_Data.Keys_Menu_Active = !Global.Player_Data.Keys_Menu_Active
+			%"Keys Menu".visible = Global.Player_Data.Keys_Menu_Active
+			if Global.Player_Data.Keys_Menu_Active:
+				SignalBus.emit_signal("focus_first_visible", %Keys)
+				Global.Player_Data.Player_Perms.Can_Move = false
+				Global.Player_Data.Player_Perms.Can_Look = false
+				Global.Player_Data.Current_Menu = "Keys"
+				%"Menu Advance".play()
+			elif not Global.Player_Data.Keys_Menu_Active:
+				Global.Player_Data.Player_Perms.Can_Move = true
+				Global.Player_Data.Player_Perms.Can_Look = true
+				Global.Player_Data.Current_Menu = "null"
+				%"Menu Return".play()
+
 		
 		_:
 			print_rich("[color=#ff00ff]MANUAL ERROR: <Attempt to Exit Menu without valid parameters>[/color]")
@@ -62,29 +76,13 @@ func focus_first_visible(container):
 				return
 			focus_first_visible(child)
 
-func Ready_Menu_Overlay_Update(Menu_Slot, Item_Texture):
-	match Menu_Slot:
-		"Ready Inventory":
-			pass
-		"Ready Settings":
-			pass
+func Ready_Menu_Overlay_Update():
+	%"Ready Brace Overlay".texture = load(Global.Inventory_Data.Brace_ID[Global.Player_Data.Inv_Brace_Equiped]["Icon"])
+	%"Ready Wear Overlay".texture = load(Global.Inventory_Data.Wear_ID[Global.Player_Data.Inv_Wear_Equiped]["Icon"])
+	%"Ready Tool Left Overlay".texture = load(Global.Inventory_Data.Tool_ID[Global.Player_Data.Inv_ToolL_Equiped]["Icon"])
+	%"Ready Tool Right Overlay".texture = load(Global.Inventory_Data.Tool_ID[Global.Player_Data.Inv_ToolR_Equiped]["Icon"])
 	
-		"Ready Brace":
-			%"Ready Brace Overlay".texture = load(Item_Texture)
-		"Ready Wear":
-			%"Ready Wear Overlay".texture = load(Item_Texture)
-		"Ready Tool Left":
-			%"Ready Tool Left Overlay".texture = load(Item_Texture)
-		"Ready Tool Right":
-			%"Ready Tool Right Overlay".texture = load(Item_Texture)
-	
-		"Ready Spell":
-			%"Ready Spell Overlay".texture = load(Item_Texture)
-		"Ready UItem 1":
-			%"Ready UItem 1 Overlay".texture = load(Item_Texture)
-		"Ready UItem 2":
-			%"Ready UItem 2 Overlay".texture = load(Item_Texture)
-		"Ready UItem 3":
-			%"Ready UItem 3 Overlay".texture = load(Item_Texture)
-		_:
-			print_rich("[color=#ff00ff]MANUAL ERROR: <Ready_Menu_Visual_Update> Argument out of scope[/color]")
+	#%"Ready Spell Overlay".texture = load(Item_Texture)
+	%"Ready UItem 1 Overlay".texture = load(Global.Inventory_Data.UItem_ID[Global.Player_Data.Inv_Uitem1_Equiped]["Icon"])
+	%"Ready UItem 2 Overlay".texture = load(Global.Inventory_Data.UItem_ID[Global.Player_Data.Inv_Uitem2_Equiped]["Icon"])
+	%"Ready UItem 3 Overlay".texture = load(Global.Inventory_Data.UItem_ID[Global.Player_Data.Inv_Uitem3_Equiped]["Icon"])

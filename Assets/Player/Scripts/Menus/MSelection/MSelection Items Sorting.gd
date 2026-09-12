@@ -10,37 +10,37 @@ func MSelection_Item_Sorting():
 	Item_Availabe_Match()
 
 func Item_Availabe_Match():
-	Item_Availabe_Lookup("Braces", "Golden Bra.", "picked?", "equipped?", %"Brace Golden")
-	Item_Availabe_Lookup("Braces", "Clorophyl Bra.", "picked?", "equipped?", %"Brace Clorophyl")
-	Item_Availabe_Lookup("Braces", "Power Bra.", "picked?", "equipped?", %"Brace Power")
+	Item_Availabe_Lookup("Braces", "Golden Bra.", %"Brace Golden")
+	Item_Availabe_Lookup("Braces", "Clorophyl Bra.", %"Brace Clorophyl")
+	Item_Availabe_Lookup("Braces", "Power Bra.", %"Brace Power")
 	#Item_Availabe_Lookup("Braces", " ", "picked?", "equipped?", %" ")
 	
-	Item_Availabe_Lookup("Wear", "Plain", "picked?", "equipped?", %"Wear Plain Clothes")
+	#Item_Availabe_Lookup("Wear", "Plain", "picked?", "equipped?", %"Wear Plain Clothes")
 	#Item_Availabe_Lookup("Wear", " ", "picked?", "equipped?", %" ")
 	
-	Item_Availabe_Lookup("Tool", "AssaultRifle", "picked?", "equipped?", %"Tool Assault")
-	Item_Availabe_Lookup("Tool", "HandGun", "picked?", "equipped?", %"Tool HandGun")
-	Item_Availabe_Lookup("Tool", "Sword", "picked?", "equipped?", %"Tool Sword")
-	Item_Availabe_Lookup("Tool", "SpecialBow", "picked?", "equipped?", %"Tool Bow")
+	Item_Availabe_Lookup("Tool", "AssaultRifle", %"Tool Assault")
+	Item_Availabe_Lookup("Tool", "HandGun", %"Tool HandGun")
+	Item_Availabe_Lookup("Tool", "Sword", %"Tool Sword")
+	Item_Availabe_Lookup("Tool", "SpecialBow", %"Tool Bow")
 	#Item_Availabe_Lookup("Tool", " ", "picked?", "equipped?", %" ")
 
-func Item_Availabe_Lookup(Type, Item1, Key1, Key2, Item2):
+func Item_Availabe_Lookup(Type, Item1, Item2):
 	Item2.visible = false
 	match Type:
 		"Braces":
-			if Global.Player_Data.Brace_ID[Item1][Key1] == true and Global.Player_Data.Brace_ID[Item1][Key2] == false:
+			if Global.Inventory_Data.Brace_ID[Item1]["picked?"] == true and Global.Inventory_Data.Brace_ID[Item1]["equipped?"] == false:
 				Item2.visible = true
 		"Wear":
-			if Global.Player_Data.Wear_ID[Item1][Key1] == true and Global.Player_Data.Wear_ID[Item1][Key2] == false:
+			if Global.Inventory_Data.Wear_ID[Item1]["picked?"] == true and Global.Inventory_Data.Wear_ID[Item1]["equipped?"] == false:
 				Item2.visible = true
 		"Tool":
-			if Global.Player_Data.Tool_ID[Item1][Key1] == true and Global.Player_Data.Tool_ID[Item1][Key2] == false:
+			if Global.Inventory_Data.Tool_ID[Item1]["picked?"] == true and Global.Inventory_Data.Tool_ID[Item1]["equipped?"] == false:
 				Item2.visible = true
 		"Spell":
-			if Global.Player_Data.Spell_ID[Item1][Key1] == true and Global.Player_Data.Spell_ID[Item1][Key2] == false:
+			if Global.Inventory_Data.Spell_ID[Item1]["picked?"] == true and Global.Inventory_Data.Spell_ID[Item1]["equipped?"] == false:
 				Item2.visible = true
 		"UItem":
-			if Global.Player_Data.UItem_ID[Item1][Key1] == true and Global.Player_Data.UItem_ID[Item1][Key2] == false:
+			if Global.Inventory_Data.UItem_ID[Item1]["picked?"] == true and Global.Inventory_Data.UItem_ID[Item1]["equipped?"] == false:
 				Item2.visible = true
 
 func Menu_Path():

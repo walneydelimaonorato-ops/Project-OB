@@ -24,7 +24,7 @@ func UItem_Activating():
 		3:
 			Global.Player_Data.Cycle_Uitem_Active = Global.Player_Data.Inv_Uitem3_Equiped
 	
-	SignalBus.emit_signal("Side_HUD_Overlay_Update", "Ready UItem 1", Global.Player_Data.UItem_ID[Global.Player_Data.Cycle_Uitem_Active]["Icon"])
+	SignalBus.emit_signal("Side_HUD_Overlay_Update")
 	SignalBus.emit_signal("Side_HUD_Update")
 
 func UItem_Index_Centrilizing():

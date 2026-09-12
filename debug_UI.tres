@@ -25,6 +25,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_illnr")
 Button/styles/normal = SubResource("StyleBoxFlat_k4mt7")
 Button/styles/pressed = SubResource("StyleBoxFlat_wglcv")
 Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("1_b0cg5")
 LineEdit/colors/caret_color = Color(0, 0, 0, 1)
 LineEdit/colors/font_color = Color(1, 1, 1, 1)

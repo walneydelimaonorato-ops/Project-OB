@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://o366wjbero5e"]
+
+[ext_resource type="Script" uid="uid://c5gdfexpybafs" path="res://Assets/Scenes/Utility/Death Place/Undeath Place Script.gd" id="1_5wikf"]
+[ext_resource type="Texture2D" uid="uid://55ntsw7lyr2n" path="res://Assets/Scenes/Utility/Sky boxes/Solid_red.png" id="1_bjfir"]
+[ext_resource type="PackedScene" uid="uid://bhdrplarho5p1" path="res://Assets/Scenes/Utility/Death Place/MAP_BETA_UNDEATH.glb" id="1_f87mn"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3q80w"]
+panorama = ExtResource("1_bjfir")
+
+[sub_resource type="Sky" id="Sky_5wikf"]
+sky_material = SubResource("PanoramaSkyMaterial_3q80w")
+
+[sub_resource type="Environment" id="Environment_bjfir"]
+background_mode = 2
+sky = SubResource("Sky_5wikf")
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.0
+
+[node name="Root" type="Node3D" unique_id=2100971622]
+script = ExtResource("1_5wikf")
+
+[node name="MAP_BETA_UNDEATH" parent="." unique_id=1502979655 instance=ExtResource("1_f87mn")]
+
+[node name="Rock" parent="MAP_BETA_UNDEATH" index="7" unique_id=1650683572]
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=307117598]
+environment = SubResource("Environment_bjfir")
+
+[node name="Lights" type="Node3D" parent="." unique_id=1993440751]
+
+[node name="Door Directional Light" type="SpotLight3D" parent="Lights" unique_id=397466075]
+transform = Transform3D(0.9050641, 0.098168194, -0.41378978, -1.4901161e-08, 0.9729931, 0.2308345, 0.42527515, -0.20892002, 0.8806211, -0.3025228, 1.4337695, 0.5729968)
+visible = false
+light_color = Color(1, 0, 0, 1)
+spot_range = 7.8058033
+
+[node name="Door Omni Light" type="OmniLight3D" parent="Lights" unique_id=1979861588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025408626, 1.7992601, -0.41812325)
+light_color = Color(1, 0, 0, 1)
+omni_range = 2.3917975
+
+[node name="Ruble Directinal Light" type="SpotLight3D" parent="Lights" unique_id=1071219228]
+transform = Transform3D(-0.9985836, -0.042783964, 0.031628363, -0.051828217, 0.91658264, -0.39647183, -0.012027346, -0.3975496, -0.91750175, -1.4132382, 0, -1.6795689)
+light_color = Color(0.5882353, 0, 0, 1)
+spot_range = 1.9278631
+
+[node name="Grass Directional Light 1" type="SpotLight3D" parent="Lights" unique_id=1386394705]
+transform = Transform3D(-0.82412624, 0.2886533, 0.4873351, 0, 0.86039823, -0.5096224, -0.56640637, -0.41999307, -0.70907676, -1.2113307, 0.066635795, -0.7649045)
+visible = false
+light_color = Color(0.5882353, 0, 0, 1)
+spot_range = 0.50611174
+spot_angle = 49.187557
+
+[node name="Grass Directional Light 2" type="SpotLight3D" parent="Lights" unique_id=2011882432]
+transform = Transform3D(-0.96084297, 0.14121312, 0.23841093, -3.684131e-08, 0.86039823, -0.50962234, -0.27709374, -0.489667, -0.8267075, 1.2792236, 0.066635795, -0.9423364)
+visible = false
+light_color = Color(0.5882353, 0, 0, 1)
+spot_range = 0.50611174
+spot_angle = 59.800686
+
+[node name="Grass Directional Light 3" type="SpotLight3D" parent="Lights" unique_id=140179923]
+transform = Transform3D(-0.4703673, 0.44972688, 0.75927633, -3.822536e-08, 0.86039835, -0.5096224, -0.88247085, -0.23970973, -0.40470314, -0.0068430677, 0.066635795, -2.4232335)
+visible = false
+light_color = Color(0.5882353, 0, 0, 1)
+spot_range = 0.50611174
+spot_angle = 56.490993
+
+[node name="Rock Directional Light 1" type="SpotLight3D" parent="Lights" unique_id=1809086021]
+transform = Transform3D(0.97584486, -0.107673, 0.19008781, -0.21846475, -0.48095694, 0.8490899, 0, -0.8701075, -0.4928621, 1.8764786, 0.26891723, -1.5557084)
+visible = false
+light_color = Color(0.5882353, 0, 0, 1)
+spot_range = 0.31620884
+spot_angle = 53.049244
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1173345137]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 3
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1993018017]
+handle_input_locally = false
+size = Vector2i(384, 216)
+render_target_update_mode = 0
+
+[node name="Camera C" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=300940644]
+transform = Transform3D(-0.98162717, -0.095404476, -0.1652454, 0, 0.8660254, -0.5, 0.19080895, -0.49081358, -0.85011405, -1.15, 0.08, -1.63)
+visible = false
+
+[node name="Camera B" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=959385981]
+transform = Transform3D(-0.5007773, 0.8583862, 0.111333124, 0.8110597, 0.42041337, 0.40673664, 0.3023312, 0.2939823, -0.906736, 0.145, 4.17, -3.075)
+visible = false
+
+[node name="Camera A" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=423334961]
+transform = Transform3D(-0.87881714, 0.10083547, 0.46638253, 0, 0.9774159, -0.2113248, -0.47715873, -0.18571585, -0.85896987, 1.675, 0.3, -3.289)
+visible = false
+
+[editable path="MAP_BETA_UNDEATH"]
