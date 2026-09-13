@@ -30,16 +30,6 @@ signal Menu_Setting(Menu: String)
 # Signal for setting the submenus (not to be confused with the menus)
 signal SubMenu_Setting(SubMenu: String)
 
-# Toggles the Ready Menu
-signal faltyReady_Menu_Toggled(active: bool)
-# Toggles the Selection Menu
-signal faltySeletion_Menu_Toggled(active: bool)
-# Toggles the Choice Menu
-signal faltyChoice_Menu_Toggled(active: bool)
-
-# Update signal for the visuals of menus
-signal faultyMenus_Visual_Update(Menu_Slot: String, Item_Texture: String)
-
 #region Side HUD Information
 # Update signal for the visual icons in Side HUD
 signal Side_HUD_Overlay_Update()
@@ -63,7 +53,6 @@ signal Player_Permissions_Changer(Permission: String, Setting: String)
 
 # Signal used to update the Side HUD and rotate Equipped items in the hand
 signal Tool_Rotation()
-signal faultyHUD_Update()
 
 # Makes a request for a choice prompt popup
 signal request_popup(Choice_Names: String, Address_From: String)
@@ -83,6 +72,7 @@ signal SubRoutine_Call(Tool: String, Routine: String)
 signal focus_first_visible(container)
 signal MSelection_Item_Sorting()
 signal FMenu_Return(Return_Path: String)
+signal Notification(Notification_Text: String, Notification_Time: int)
 
 # Interaction related signals
 signal Interaction_Manager_Request(Interaction: String, Address: String, Param1: String, Param2: String)
@@ -92,6 +82,9 @@ signal Interaction_Prompt_Manager_Response(Address: String, Response: bool)
 
 signal NPC_Dialogue(Shelf: String, Book: String)
 signal Object_Interaction(ID: String, To_Call: String)
+
+signal Keys_Recognition(Stamp: String, Keys: String)
+signal Keys_Stamping(Stamp: String)
 
 signal Load_save_Visual_Update()
 #endregion

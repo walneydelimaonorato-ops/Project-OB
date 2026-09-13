@@ -14,6 +14,8 @@ func Bulk_Permission_Assigning():
 			Player_Permissions_Setting("Can_Move", "Yes")
 			Player_Permissions_Setting("Can_Look", "Yes")
 			Player_Permissions_Setting("Can_Show_UI_Side", "Yes")
+			Player_Permissions_Setting("Can_Show_UI_Stats", "Yes")
+			Player_Permissions_Setting("Can_Show_UI_Side", "Yes")
 		"Dead":
 			Player_Permissions_Setting("Can_Menus", "No")
 			Player_Permissions_Setting("Can_Show_UI_Side", "No")

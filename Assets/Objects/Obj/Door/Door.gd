@@ -2,20 +2,23 @@ extends CUS_Door
 
 @export var HUD_Prompt: String = ""
 @export var Door_State: bool = false
+@export var Locked: bool = false
 
 func _ready() -> void:
 	Diagnose_DOOR()
 	SignalBus.Object_Interaction.connect(Object_Interact)
 
 func Interact():
-	SignalBus.emit_signal("Interaction_Manager_Request", "Object", "", CLSS_DOOR_MATCH, "Open")
+	if Locked == false:
+		SignalBus.emit_signal("Interaction_Manager_Request", "Object", "", CLSS_DOOR_MATCH, "Open")
+	elif Locked == true:
+		pass
 
 func HUD_Element():
 	return HUD_Prompt
 
 
 func Object_Interact(LEVER_ID: String, LEVER_Call: String):
-	print("a")
 	if LEVER_ID == CLSS_DOOR_MATCH:
 		call(LEVER_Call)
 	elif LEVER_ID != CLSS_DOOR_MATCH:

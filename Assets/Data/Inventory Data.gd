@@ -148,25 +148,25 @@ var Brace_ID = {
 	"null": {
 		"Icon": "uid://qua4cq3ubssm",
 		},
-	"Golden Bra.": {
+	"Brace Golden": {
 		"dys name": " ", 
-		"sys name": "Golden Bra.",
+		"sys name": "Brace Golden",
 		"Icon": "uid://davke1oama52w",
 		
 		"picked?": true,
 		"equipped?": false, 
 		},
-	"Clorophyl Bra.": {
+	"Brace Clorophyl": {
 		"dys name": " ", 
-		"sys name": "Clorophyl Bra.",
+		"sys name": "Brace Clorophyl",
 		"Icon": "",
 		
 		"picked?": true,
 		"equipped?": false, 
 		},
-	"Power Bra.": {
+	"Brace Power": {
 		"dys name": " ", 
-		"sys name": "Power Bra.",
+		"sys name": "Brace Power",
 		"Icon": "",
 		
 		"picked?": true,

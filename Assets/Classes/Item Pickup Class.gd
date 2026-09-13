@@ -6,12 +6,14 @@ extends Node
 @export_enum("Tool_ID", "Wear_ID", "Spell_ID", "Brace_ID", "UItem_ID", "Key_ID", "Bundle_ID") var CLSS_ITEM_TYPE: String
 
 func Diagnose_ITEM_PICKUP():
-	print_rich("[color=#ffdf00] Door Class Diagnosis: ")
+	print_rich("\r [color=#ffdf00] Item Pickup Class Diagnosis: ")
+	print_rich("[color=#ffdf00]>", "Node: ", self)
 	
 	if CLSS_ITEM_SYS_NAME == "":
-		print_rich("[color=#ffdf00]>", self, " has no assigned Item")
+		print_rich("[color=red]>", "This Item has no assigned Item")
 	else:
-		print_rich("[color=#ffdf00]>", self, " Item Name: ", CLSS_ITEM_SYS_NAME)
+		print_rich("[color=GREEN]>", "Item Name: ", CLSS_ITEM_SYS_NAME)
 	
 	print_rich("[color=#ffdf00]>", "Item Quantity: ", CLSS_ITEM_QUANTITY)
 	print_rich("[color=#ffdf00]>", "Item Type: ", CLSS_ITEM_TYPE)
+	print_rich("[color=#ffdf00]>", "Model: ", Global.Inventory_Data[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["Model"])

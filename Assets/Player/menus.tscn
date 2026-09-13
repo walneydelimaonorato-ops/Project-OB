@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://8o5md3im0fu1" path="res://Assets/Player/Scripts/Managers/Interaction Manager/Dialogue Manager.gd" id="9_5uvif"]
 [ext_resource type="Texture2D" uid="uid://dqjg5u7edkp8i" path="res://Assets/UI/HUD/Item_Frame.png" id="11_3ojjw"]
 [ext_resource type="Script" uid="uid://cwc5kilu2uuql" path="res://Assets/Player/Scripts/Menus/Menu Keys.gd" id="11_gswus"]
+[ext_resource type="Script" uid="uid://c6i0gwgp1cc75" path="res://Assets/Player/Scripts/Menus/Menu Notifications.gd" id="12_rdknm"]
 [ext_resource type="Texture2D" uid="uid://bc1eahxnggs3n" path="res://Assets/UI/HUD/Item Icons/Placeholder_Icon.png" id="15_yi8xc"]
 [ext_resource type="Texture2D" uid="uid://da067puqegj" path="res://Assets/UI/HUD/Item Icons/_Ultilities/Item_Icon_Blank_Mini.png" id="16_iylj0"]
 [ext_resource type="Texture2D" uid="uid://ixbwtpeqnx0w" path="res://Assets/UI/HUD/Item Icons/_Ultilities/Item_Selected_Mini.png" id="17_iylj0"]
@@ -74,6 +75,9 @@ script = ExtResource("3_flw64")
 [node name="Items Sorting" type="Node" parent="Player Menus Management/Menus (Selection)" unique_id=1267405493]
 script = ExtResource("4_olneg")
 
+[node name="Menus (Keys)" type="Node" parent="Player Menus Management" unique_id=1358645476]
+script = ExtResource("11_gswus")
+
 [node name="Interaction Manager" type="Node" parent="Player Menus Management" unique_id=981159296]
 script = ExtResource("8_nouok")
 
@@ -83,8 +87,8 @@ script = ExtResource("3_064ml")
 [node name="Menu (Dialogue)" type="Node" parent="Player Menus Management/Interaction Manager" unique_id=1090605547]
 script = ExtResource("9_5uvif")
 
-[node name="Node" type="Node" parent="Player Menus Management" unique_id=1358645476]
-script = ExtResource("11_gswus")
+[node name="Notifications" type="Node" parent="Player Menus Management" unique_id=1700876121]
+script = ExtResource("12_rdknm")
 
 [node name="Sounds" type="Node" parent="." unique_id=2055616778]
 
@@ -127,7 +131,7 @@ layout_mode = 2
 [node name="Ready Inventory" type="TextureButton" parent="Ready Menu/Ready Menu Grid/Ready Technical" unique_id=247728396]
 unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_left = NodePath("../../../../Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Assault")
+focus_neighbor_left = NodePath("../../../../Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/AssaultRifle")
 focus_neighbor_top = NodePath(".")
 focus_neighbor_right = NodePath("../Ready Settings")
 focus_neighbor_bottom = NodePath("../../Ready Wear and Tool/Ready Brace")
@@ -364,6 +368,7 @@ visible = false
 layout_mode = 2
 
 [node name="Start of Braces" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces" unique_id=154292881]
+unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
@@ -473,6 +478,7 @@ autowrap_mode = 0
 justification_flags = 162
 
 [node name="End of Braces" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces" unique_id=1578425902]
+unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_right = NodePath(".")
@@ -636,6 +642,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Start of Tool" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=2073192380]
+unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath(".")
@@ -657,7 +664,7 @@ scroll_active = false
 autowrap_mode = 0
 justification_flags = 162
 
-[node name="Tool Sword" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=1680521650]
+[node name="Sword" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=1680521650]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
@@ -665,7 +672,7 @@ focus_neighbor_right = NodePath(".")
 texture_normal = ExtResource("18_muclb")
 texture_focused = ExtResource("19_064ml")
 
-[node name="Tool Sword" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Sword" unique_id=1951617220]
+[node name="Tool Sword" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Sword" unique_id=1951617220]
 layout_mode = 1
 offset_right = 648.0
 offset_bottom = 221.0
@@ -679,7 +686,7 @@ scroll_active = false
 autowrap_mode = 0
 justification_flags = 162
 
-[node name="Tool Dagger" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=1556064356]
+[node name="Dagger" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=1556064356]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
@@ -687,7 +694,7 @@ focus_neighbor_right = NodePath(".")
 texture_normal = ExtResource("18_muclb")
 texture_focused = ExtResource("19_064ml")
 
-[node name="Tool Dagger" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Dagger" unique_id=159713139]
+[node name="Tool Dagger" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Dagger" unique_id=159713139]
 layout_mode = 1
 offset_right = 648.0
 offset_bottom = 221.0
@@ -701,7 +708,7 @@ scroll_active = false
 autowrap_mode = 0
 justification_flags = 162
 
-[node name="Tool Assault" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=1759654936]
+[node name="AssaultRifle" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=1759654936]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
@@ -709,7 +716,7 @@ focus_neighbor_right = NodePath(".")
 texture_normal = ExtResource("18_muclb")
 texture_focused = ExtResource("19_064ml")
 
-[node name="Tool Assault" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Assault" unique_id=812443127]
+[node name="Tool Assault" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/AssaultRifle" unique_id=812443127]
 layout_mode = 1
 offset_right = 648.0
 offset_bottom = 221.0
@@ -723,7 +730,7 @@ scroll_active = false
 autowrap_mode = 0
 justification_flags = 162
 
-[node name="Tool HandGun" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=1027093532]
+[node name="HandGun" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=1027093532]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
@@ -731,7 +738,7 @@ focus_neighbor_right = NodePath(".")
 texture_normal = ExtResource("18_muclb")
 texture_focused = ExtResource("19_064ml")
 
-[node name="Tool HandGun" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool HandGun" unique_id=1452100918]
+[node name="Tool HandGun" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/HandGun" unique_id=1452100918]
 layout_mode = 1
 offset_right = 648.0
 offset_bottom = 221.0
@@ -745,7 +752,7 @@ scroll_active = false
 autowrap_mode = 0
 justification_flags = 162
 
-[node name="Tool Bow" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=319975014]
+[node name="SpecialBow" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=319975014]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
@@ -753,7 +760,7 @@ focus_neighbor_right = NodePath(".")
 texture_normal = ExtResource("18_muclb")
 texture_focused = ExtResource("19_064ml")
 
-[node name="Tool Bow" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Bow" unique_id=183556548]
+[node name="Tool Bow" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/SpecialBow" unique_id=183556548]
 layout_mode = 1
 offset_right = 648.0
 offset_bottom = 221.0
@@ -1297,7 +1304,6 @@ autowrap_mode = 0
 
 [node name="Keys Menu" type="Control" parent="." unique_id=1592779621]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1360,15 +1366,53 @@ focus_neighbor_right = NodePath(".")
 texture_normal = ExtResource("18_muclb")
 texture_focused = ExtResource("19_064ml")
 
-[node name="Beta Key 0" type="RichTextLabel" parent="Keys Menu/Selection Scroll/Main List (GRANDNESS!)/Keys/Beta Key 0" unique_id=1108901513]
-layout_mode = 1
-offset_right = 648.0
-offset_bottom = 221.0
+[node name="HBox" type="HBoxContainer" parent="Keys Menu/Selection Scroll/Main List (GRANDNESS!)/Keys/Beta Key 0" unique_id=519751366]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Icon" type="RichTextLabel" parent="Keys Menu/Selection Scroll/Main List (GRANDNESS!)/Keys/Beta Key 0/HBox" unique_id=1108901513]
+unique_name_in_owner = true
+layout_mode = 2
 theme = ExtResource("9_3yn2l")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
-text = "[img=200]uid://cd1ktu764nlb4[/img]: Heavy Stone Key"
+text = "ass"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="VBox" type="VBoxContainer" parent="Keys Menu/Selection Scroll/Main List (GRANDNESS!)/Keys/Beta Key 0/HBox" unique_id=607152975]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 40)
+alignment = 2
+
+[node name="Name" type="RichTextLabel" parent="Keys Menu/Selection Scroll/Main List (GRANDNESS!)/Keys/Beta Key 0/HBox/VBox" unique_id=1416955588]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "aass"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+justification_flags = 162
+
+[node name="Count" type="RichTextLabel" parent="Keys Menu/Selection Scroll/Main List (GRANDNESS!)/Keys/Beta Key 0/HBox/VBox" unique_id=1015899667]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -20)
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "butt"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -1417,6 +1461,47 @@ scroll_active = false
 autowrap_mode = 0
 justification_flags = 162
 
+[node name="Notification" type="Control" parent="." unique_id=34106032]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Notification Backdrop" type="NinePatchRect" parent="Notification" unique_id=158589200]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 515.0
+offset_right = 734.0
+offset_bottom = 583.0
+texture = ExtResource("20_muclb")
+region_rect = Rect2(5, 4, 190, 192)
+
+[node name="Message" type="RichTextLabel" parent="Notification" unique_id=256343182]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 418.0
+offset_top = 515.0
+offset_right = 734.0
+offset_bottom = 583.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+text = "Already has a key..."
+fit_content = true
+scroll_active = false
+scroll_following_visible_characters = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Notification Timer" type="Timer" parent="Notification" unique_id=1463532172]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Technical/Ready Inventory" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_inventory_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Technical/Ready Settings" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_settings_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Wear and Tool/Ready Brace" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_brace_pressed"]
@@ -1430,14 +1515,15 @@ justification_flags = 162
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Golden" to="Player Menus Management/Menus (Selection)/Item Selected" method="brace_golden_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Clorophyl" to="Player Menus Management/Menus (Selection)/Item Selected" method="brace_clorophyl_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Power" to="Player Menus Management/Menus (Selection)/Item Selected" method="brace_power_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Sword" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_sword_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Dagger" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_dagger_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Assault" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_assault_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool HandGun" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_handgun_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Tool Bow" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_bow_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Sword" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_sword_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Dagger" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_dagger_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/AssaultRifle" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_assault_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/HandGun" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_handgun_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/SpecialBow" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_bow_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems/UItem Sigil" to="Player Menus Management/Menus (Selection)/Item Selected" method="uitem_sigil_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems/UItem Green Flask" to="Player Menus Management/Menus (Selection)/Item Selected" method="uitem_green_flask_pressed"]
 [connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Confirm" to="Player Menus Management/Interaction Manager/Menu (Choice)" method="on_confirm"]
 [connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Deny" to="Player Menus Management/Interaction Manager/Menu (Choice)" method="on_deny"]
 [connection signal="finished" from="Dialogue Menu/Dialogue Container/Current Voice" to="Player Menus Management/Interaction Manager/Menu (Dialogue)" method="_current_voice_finished"]
-[connection signal="pressed" from="Keys Menu/Selection Scroll/Main List (GRANDNESS!)/Keys/Beta Key 0" to="Player Menus Management/Node" method="beta_key_0_pressed"]
+[connection signal="pressed" from="Keys Menu/Selection Scroll/Main List (GRANDNESS!)/Keys/Beta Key 0" to="Player Menus Management/Menus (Keys)" method="beta_key_0_pressed"]
+[connection signal="timeout" from="Notification/Notification Timer" to="Player Menus Management/Notifications" method="notification_timer_timeout"]

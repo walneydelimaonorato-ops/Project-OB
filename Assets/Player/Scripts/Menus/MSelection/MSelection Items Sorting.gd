@@ -10,31 +10,23 @@ func MSelection_Item_Sorting():
 	Item_Availabe_Match()
 
 func Item_Availabe_Match():
-	Item_Availabe_Lookup("Braces", "Golden Bra.", %"Brace Golden")
-	Item_Availabe_Lookup("Braces", "Clorophyl Bra.", %"Brace Clorophyl")
-	Item_Availabe_Lookup("Braces", "Power Bra.", %"Brace Power")
-	#Item_Availabe_Lookup("Braces", " ", "picked?", "equipped?", %" ")
+	for Brace: TextureButton in %Braces.get_children():
+		if Brace.name in ["Start of Braces", "End of Braces", "Brace Placeholder"]: 
+			continue
+		if Global.Inventory_Data.Brace_ID[Brace.name]["picked?"] == true and Global.Inventory_Data.Brace_ID[Brace.name]["equipped?"] == false:
+			Brace.visible = true
 	
-	#Item_Availabe_Lookup("Wear", "Plain", "picked?", "equipped?", %"Wear Plain Clothes")
-	#Item_Availabe_Lookup("Wear", " ", "picked?", "equipped?", %" ")
-	
-	Item_Availabe_Lookup("Tool", "AssaultRifle", %"Tool Assault")
-	Item_Availabe_Lookup("Tool", "HandGun", %"Tool HandGun")
-	Item_Availabe_Lookup("Tool", "Sword", %"Tool Sword")
-	Item_Availabe_Lookup("Tool", "SpecialBow", %"Tool Bow")
-	#Item_Availabe_Lookup("Tool", " ", "picked?", "equipped?", %" ")
+	for Tool: TextureButton in %Tools.get_children():
+		if Tool.name in ["Start of Tool", "End of Tool", "Tool Placeholder"]: 
+			continue
+		if Global.Inventory_Data.Tool_ID[Tool.name]["picked?"] == true and Global.Inventory_Data.Tool_ID[Tool.name]["equipped?"] == false:
+			Tool.visible = true
 
 func Item_Availabe_Lookup(Type, Item1, Item2):
 	Item2.visible = false
 	match Type:
-		"Braces":
-			if Global.Inventory_Data.Brace_ID[Item1]["picked?"] == true and Global.Inventory_Data.Brace_ID[Item1]["equipped?"] == false:
-				Item2.visible = true
 		"Wear":
 			if Global.Inventory_Data.Wear_ID[Item1]["picked?"] == true and Global.Inventory_Data.Wear_ID[Item1]["equipped?"] == false:
-				Item2.visible = true
-		"Tool":
-			if Global.Inventory_Data.Tool_ID[Item1]["picked?"] == true and Global.Inventory_Data.Tool_ID[Item1]["equipped?"] == false:
 				Item2.visible = true
 		"Spell":
 			if Global.Inventory_Data.Spell_ID[Item1]["picked?"] == true and Global.Inventory_Data.Spell_ID[Item1]["equipped?"] == false:
