@@ -155,7 +155,6 @@ func add_action_button(action, button):
 	InputMap.action_add_event(action, ev)
 
 func Geneneral_Interaction(Ray, Method):
-	#var Method_String = str(Method) # Transfroms the un-inferred argument into an string
 	if !Ray.is_colliding(): # If ray isnt colidding, nothing happens
 		return
 	elif Ray.is_colliding():
@@ -163,7 +162,6 @@ func Geneneral_Interaction(Ray, Method):
 		if Colidder.get_parent().has_method(Method): # If the collider has the method
 			Colidder.get_parent().call(Method) # Executes the method
 			SignalBus.emit_signal("Sig_Interaction_HUD_Return", Colidder)
-
 
 func Item_Pickup(Item_Sys_Name, Item_Type, Item_Quantity):
 	match Item_Type:

@@ -14,7 +14,7 @@ var Tool_ID = {
 		"damage": 0, 
 		},
 	"HandGun": {
-		"dys name": "Abrams",
+		"dys name": "PISS",
 		"sys name": "HandGun",
 		"Icon": "uid://dev6yasoqfrik",
 		"picked?": true,
@@ -35,16 +35,16 @@ var Tool_ID = {
 		"Max Ammo": 20,
 		"Mag": 0,
 		},
-	"Sword": {
-		"dys name": "E. Trais", 
-		"sys name": "Sword",
-		"Icon": "uid://d3txjn55xf1sw",
+	"Stone Sword": {
+		"dys name": "Stone Sword", 
+		"sys name": "Stone Sword",
+		"Icon": "uid://dxpj1l5ppyrue",
 		"picked?": true,
 		"equipped?": false, 
 		"damage": 20, 
 		},
 	"Dagger": {
-		"dys name": " ", 
+		"dys name": "Le Receveuse", 
 		"sys name": "Dagger",
 		"Icon": "uid://cxpllkwkj3coo",
 		"picked?": false,
@@ -52,7 +52,7 @@ var Tool_ID = {
 		"damage": 10,
 		},
 	"SpecialBow": {
-		"dys name": " ", 
+		"dys name": "Sylvanna's Bow", 
 		"sys name": "SpecialBow",
 		"Icon": "uid://c244x88oddpii",
 		"picked?": false,

@@ -7,9 +7,9 @@ func _ready() -> void:
 
 func MSelection_Item_Sorting():
 	Menu_Path()
-	Item_Availabe_Match()
+	Item_Availabe_Match("Tools")
 
-func Item_Availabe_Match():
+func Item_Availabe_Match(Item_Type: String):
 	for Brace: TextureButton in %Braces.get_children():
 		if Brace.name in ["Start of Braces", "End of Braces", "Brace Placeholder"]: 
 			continue
@@ -21,19 +21,8 @@ func Item_Availabe_Match():
 			continue
 		if Global.Inventory_Data.Tool_ID[Tool.name]["picked?"] == true and Global.Inventory_Data.Tool_ID[Tool.name]["equipped?"] == false:
 			Tool.visible = true
-
-func Item_Availabe_Lookup(Type, Item1, Item2):
-	Item2.visible = false
-	match Type:
-		"Wear":
-			if Global.Inventory_Data.Wear_ID[Item1]["picked?"] == true and Global.Inventory_Data.Wear_ID[Item1]["equipped?"] == false:
-				Item2.visible = true
-		"Spell":
-			if Global.Inventory_Data.Spell_ID[Item1]["picked?"] == true and Global.Inventory_Data.Spell_ID[Item1]["equipped?"] == false:
-				Item2.visible = true
-		"UItem":
-			if Global.Inventory_Data.UItem_ID[Item1]["picked?"] == true and Global.Inventory_Data.UItem_ID[Item1]["equipped?"] == false:
-				Item2.visible = true
+			var Info = Tool.get_child(0)
+			Info.text = str("[img=200]", Global.Inventory_Data.Tool_ID[Tool.name]["Icon"], "[/img]: ", Global.Inventory_Data.Tool_ID[Tool.name]["dys name"])
 
 func Menu_Path():
 	%Braces.visible = false

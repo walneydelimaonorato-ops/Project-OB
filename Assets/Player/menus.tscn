@@ -331,7 +331,6 @@ autowrap_trim_flags = 128
 
 [node name="Selection Menu" type="Control" parent="." unique_id=852856482]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -664,7 +663,7 @@ scroll_active = false
 autowrap_mode = 0
 justification_flags = 162
 
-[node name="Sword" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=1680521650]
+[node name="Stone Sword" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=1680521650]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
@@ -672,7 +671,8 @@ focus_neighbor_right = NodePath(".")
 texture_normal = ExtResource("18_muclb")
 texture_focused = ExtResource("19_064ml")
 
-[node name="Tool Sword" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Sword" unique_id=1951617220]
+[node name="Tool Stone Sword" type="RichTextLabel" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Stone Sword" unique_id=1951617220]
+unique_name_in_owner = true
 layout_mode = 1
 offset_right = 648.0
 offset_bottom = 221.0
@@ -680,7 +680,7 @@ theme = ExtResource("9_3yn2l")
 theme_override_colors/default_color = Color(1, 0.39215687, 0.39215687, 1)
 theme_override_font_sizes/normal_font_size = 80
 bbcode_enabled = true
-text = "[img=200]uid://d3txjn55xf1sw[/img]: E. Trais"
+text = "[img=200]uid://dxpj1l5ppyrue[/img]: E. Trais"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -688,6 +688,7 @@ justification_flags = 162
 
 [node name="Dagger" type="TextureButton" parent="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools" unique_id=1556064356]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_right = NodePath(".")
@@ -1304,6 +1305,7 @@ autowrap_mode = 0
 
 [node name="Keys Menu" type="Control" parent="." unique_id=1592779621]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1515,7 +1517,7 @@ one_shot = true
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Golden" to="Player Menus Management/Menus (Selection)/Item Selected" method="brace_golden_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Clorophyl" to="Player Menus Management/Menus (Selection)/Item Selected" method="brace_clorophyl_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Power" to="Player Menus Management/Menus (Selection)/Item Selected" method="brace_power_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Sword" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_sword_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Stone Sword" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_sword_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Dagger" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_dagger_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/AssaultRifle" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_assault_pressed"]
 [connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/HandGun" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_handgun_pressed"]
