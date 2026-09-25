@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://dorj510gxlm2n"]
+
+[ext_resource type="Script" uid="uid://dm01ime4ldno5" path="res://Assets/UI/Miscelleneous/UI FADE.gd" id="1_2svsk"]
+[ext_resource type="Script" uid="uid://btyg3neo875wr" path="res://Assets/Player/Scripts/Debug Board Manager.gd" id="2_o7hof"]
+[ext_resource type="Theme" uid="uid://buutafly06f6f" path="res://debug_UI.tres" id="3_0q0qs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7hof"]
+
+[node name="Over Canvas" type="CanvasLayer" unique_id=336844627]
+layer = 999
+
+[node name="UI FADE" type="Node" parent="." unique_id=1445361800]
+script = ExtResource("1_2svsk")
+
+[node name="Vignette" type="Control" parent="." unique_id=183827906]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Vignette" type="ColorRect" parent="Vignette" unique_id=972207950]
+layout_mode = 0
+offset_left = -12.0
+offset_top = -17.0
+offset_right = 1166.0
+offset_bottom = 666.0
+color = Color(0.41960785, 1, 1, 1)
+
+[node name="Debug Board" type="Control" parent="." unique_id=857335028]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Debug Board Manager" type="Node" parent="Debug Board" unique_id=1712807322]
+script = ExtResource("2_o7hof")
+
+[node name="Board Tabs" type="TabBar" parent="Debug Board" unique_id=1372604237]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 302.0
+offset_right = 190.0
+offset_bottom = 342.0
+theme = ExtResource("3_0q0qs")
+current_tab = 0
+tab_count = 2
+tab_0/title = "PLAYER"
+tab_1/title = "MAP"
+
+[node name="Debug Board" type="PanelContainer" parent="Debug Board" unique_id=608437493]
+layout_mode = 0
+offset_top = 343.0
+offset_right = 812.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o7hof")
+
+[node name="Player Report" type="TextEdit" parent="Debug Board/Debug Board" unique_id=1967288603]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_0q0qs")
+placeholder_text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+editable = false
+context_menu_enabled = false
+selecting_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="Map Report" type="TextEdit" parent="Debug Board/Debug Board" unique_id=317243196]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("3_0q0qs")
+theme_override_colors/search_result_color = Color(0.3019608, 0.3019608, 0.3019608, 0)
+theme_override_colors/caret_background_color = Color(0, 0, 0, 0.2)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/selection_color = Color(0.5019608, 0.5019608, 0.5019608, 0)
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/current_line_color = Color(0.2509804, 0.2509804, 0.25882354, 0)
+text = "bbbbbbbbbbbbbbbb"
+placeholder_text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+editable = false
+context_menu_enabled = false
+selecting_enabled = false
+empty_selection_clipboard_enabled = false
+
+[node name="Actor Report" type="TextEdit" parent="Debug Board/Debug Board" unique_id=1852897932]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("3_0q0qs")
+theme_override_colors/search_result_color = Color(0.3019608, 0.3019608, 0.3019608, 0)
+theme_override_colors/caret_background_color = Color(0, 0, 0, 0.2)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 0)
+theme_override_colors/selection_color = Color(0.5019608, 0.5019608, 0.5019608, 0)
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/current_line_color = Color(0.2509804, 0.2509804, 0.25882354, 0)
+text = "cccccccccccccccccccccc"
+placeholder_text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+editable = false
+context_menu_enabled = false
+selecting_enabled = false
+empty_selection_clipboard_enabled = false
+
+[connection signal="tab_changed" from="Debug Board/Board Tabs" to="Debug Board/Debug Board Manager" method="board_tabs_changed"]

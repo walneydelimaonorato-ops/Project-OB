@@ -7,15 +7,10 @@ var Colidder
 func _ready() -> void:
 	print_rich("[color=#ffdf00]Player Management Working[/color]")
 	
-	SignalBus.Variable_Operation.connect(Stats_Decrease)
-	SignalBus.Variable_Operation.connect(Stats_Increase)
+	SignalBus.LOC_Value_Operator.connect(Value_Operate)
 	SignalBus.item_transfer.connect(Item_Pickup)
-	SignalBus.player_stat_change.connect(Stats_Decrease)
-	SignalBus.player_stat_change.connect(Stats_Increase)
 	SignalBus.Sig_General_Interaction.connect(Geneneral_Interaction)
-	#SignalBus.Sig_Set_Menu.connect(Set_Menu)
 	
-	# Hold_Tap_Timing(Global.Player_Data.Un_Tool_Alternive, get_process_delta_time())
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
 	
 #region Control Settup
@@ -116,28 +111,27 @@ func _process(delta: float) -> void:
 	Global.Player_Data.Health = clamp(Global.Player_Data.Health, 0, Global.Player_Data.Health_Max)
 	Global.Player_Data.Stamina = clamp(Global.Player_Data.Stamina, 0, Global.Player_Data.Stamina_Max)
 
-func Stats_Decrease(Operation, Type, Value):
-	if Operation == "Decrease":
-		match Type:
+func Value_Operate(Operation: bool, Value: String, Quantity: float):
+	if Operation == false:
+		match Value:
 			"Health":
-				Global.Player_Data.Health -= Value
+				Global.Player_Data.Health -= Quantity
 			"Stamina": 
-				Global.Player_Data.Stamina -= Value
+				Global.Player_Data.Stamina -= Quantity
 				Global.Player_Data.Stamina_Regeneration_Active = false
 				Global.Player_Data.Stamina_Regeneration_Delay_Timer.start()
-	else:
-		pass
-	SignalBus.emit_signal("Side_Status_Update")
-	#SignalBus.emit_signal("Player_Permissions_Conditionals")
-
-func Stats_Increase(Operation, Type, Value):
-	if Operation == "Increase":
-		match Type:
+	elif Operation == true:
+		match Value:
 			"Health":
-				Global.Player_Data.Health += Value
-	else:
-		pass
+				Global.Player_Data.Health += Quantity
+			"Stamina": 
+				Global.Player_Data.Stamina += Quantity
+				Global.Player_Data.Stamina_Regeneration_Active = false
+				Global.Player_Data.Stamina_Regeneration_Delay_Timer.start()
+	
 	SignalBus.emit_signal("Side_Status_Update")
+	SignalBus.emit_signal("Player_Permissions_Conditionals")
+
 
 func _on_focus_changed(node: Control):
 	if node:

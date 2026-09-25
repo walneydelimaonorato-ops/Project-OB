@@ -1,8 +1,6 @@
 extends Node
 
 #region Player related signals
-signal Debug_Sig1()
-
 # Input signal
 signal UItem_Cycle()
 # Input signal
@@ -11,24 +9,32 @@ signal UItem_Use()
 signal Action_Alternative()
 # Input Signal
 signal Action_Primary(Direction: String)
+# Input signal
+signal Tap_Hold_Interval(Release_Input)
 
 
 # Animations signal
 signal Player_Animations(Animation_Name: String)
-#signal Player_Sound(Sound_Name: String)
-signal Tap_Hold_Interval(Release_Input)
-# 
-signal Sig_General_Interaction(Ray: RayCast3D, Method: String)
-signal Sig_Interaction_HUD_Return(Message)
-signal Sig_Set_Menu(Switch: bool, Next_Menu: String)
 
-# Performs operations on determined variables
-signal Variable_Operation(Operation: String, Type: String, Value: int)
+
+# Signal that calls for an universal interaction
+signal Sig_General_Interaction(Ray: RayCast3D, Method: String)
+# Signal that returns the HUD prompt message
+signal Sig_Interaction_HUD_Return(Message)
+
+
+# Performs operations on determined variables LOCALY
+signal LOC_Value_Operator(Operation: bool, Value: String, Quantity: float)
+
+
+#signal Variable_Operation(Operation: String, Type: String, Value: int)
+
 
 # Signal for setting the menus (not to be confused with the submenus)
 signal Menu_Setting(Menu: String)
 # Signal for setting the submenus (not to be confused with the menus)
 signal SubMenu_Setting(SubMenu: String)
+
 
 #region Side HUD Information
 # Update signal for the visual icons in Side HUD
@@ -38,15 +44,12 @@ signal Side_Status_Update()
 signal Side_HUD_Update()
 #endregion
 
+
 signal Ready_Menu_Overlay_Update(Menu_Slot: String, Item_Texture: String)
 
-# Update signal for Status Management
-signal Player_Stats_Management_Update_In()
-signal Player_Stats_Management_Update_Out()
 
 #region New Code Region
 # Signal used to actually set the pluer status
-signal Set_Sats(Target: String, Setting: String)
 signal Player_Permissions_Conditionals()
 signal Player_Permissions_Changer(Permission: String, Setting: String)
 #endregion
@@ -60,8 +63,6 @@ signal request_popup(Choice_Names: String, Address_From: String)
 signal reply_popup(Choice_Answer: String, Address_To: String)
 # Requests dialogue
 signal request_dialogue()
-# Modifies certain player stats
-signal player_stat_change(Operation: String, Stats_Type: String, Damage_Number: String)
 # Carries-over items to the player
 signal item_transfer(Item_Sys_Name: String, Item_Type: String, Item_Quantity: int)
 
@@ -90,8 +91,13 @@ signal Load_save_Visual_Update()
 #endregion
 
 
+#region New Code Region
 # Requests the damage value
-signal request_damage(Damage_Number: int)
+signal Take_Damage(Damage_Number: int)
+
+# Performs operations on determined variables GLOBALY
+signal GLO_Value_Operator(Operation: bool, Value: String, Quantity: float)
+#endregion
 
 func _ready() -> void:
 	print_rich("[color=red]Signal Bus Working[/color]")

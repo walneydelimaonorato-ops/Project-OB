@@ -49,7 +49,7 @@ var UnHUDIcon_Interact: String
 #region Flags
 var Alive: bool = true # Checks if the player is alive
 var Stamina_Regeneration_Active: bool = false # Checks if the stamina regeneration is active
-var Menu_mode: bool = false # Checks if the player is currently in a menu
+var Current_Camera: Camera3D
 #endregion
 
 #region Static Variables (never change)
@@ -71,6 +71,8 @@ var Actionable: bool
 #region Fluid Variables (change)
 # Can / Can't setters
 var Player_Perms = {
+	"Is_Resting": false,
+	"Can_Rest": true,
 	"Can_Open_Menus": false,
 	"Can_Use_Sword": false,
 	"Can_Use_Dagger": false,

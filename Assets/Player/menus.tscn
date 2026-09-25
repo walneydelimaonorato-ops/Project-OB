@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c22fdxmv2autu"]
 
 [ext_resource type="Script" uid="uid://prk7x8scim7a" path="res://Assets/Player/Scripts/Managers/Player Menus Management.gd" id="1_h6ym2"]
-[ext_resource type="Script" uid="uid://iqsk8myqlik5" path="res://Assets/Player/Scripts/Menus/Menu_Ready.gd" id="1_igvox"]
 [ext_resource type="AudioStream" uid="uid://q8d5kc4se4ux" path="res://Assets/Player/Sound effects/Menu/homemade SFX - Menu Advance.mp3" id="2_1mnw2"]
 [ext_resource type="Texture2D" uid="uid://c8t32tkwemh2k" path="res://Assets/UI/HUD/Ready_Menu_Configuration.png" id="2_ctvdn"]
 [ext_resource type="Texture2D" uid="uid://be0g2c660ubnc" path="res://Assets/UI/HUD/Item_Frame_Highlight.png" id="2_p60kn"]
@@ -37,6 +36,8 @@
 [ext_resource type="Texture2D" uid="uid://cx1nu3sc4pfvk" path="res://Assets/UI/HUD/Baggage_Frame_HLine_A.png" id="33_3k277"]
 [ext_resource type="Texture2D" uid="uid://baatlbdf0r5c" path="res://Assets/UI/HUD/Item Icons/Spell Icons/Spell_Electricity.png" id="34_3k277"]
 [ext_resource type="Texture2D" uid="uid://di4su4khg8kcs" path="res://Assets/UI/HUD/Baggage_Tab_Icon.png" id="35_vql6p"]
+[ext_resource type="Script" uid="uid://vwq2hqdedti1" path="res://Assets/Player/Scripts/Menus/Rest Menu.gd" id="37_j7un8"]
+[ext_resource type="Script" uid="uid://1idt8ho8akt" path="res://Assets/Player/Scripts/Menus/MRest Buttons.gd" id="38_wfwv5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qmjen"]
 load_path = "res://.godot/imported/Ready_Menu_Bag.png-ffddf412d1b7c9a7e5e4a5ccb65bda06.ctex"
@@ -59,24 +60,12 @@ script = ExtResource("1_h6ym2")
 script = ExtResource("2_pi4b7")
 
 [node name="Menus (Ready)" type="Node" parent="Player Menus Management" unique_id=1966116628]
-script = ExtResource("1_igvox")
 
 [node name="Menu Redirect" type="Node" parent="Player Menus Management/Menus (Ready)" unique_id=1864969636]
 script = ExtResource("3_sid2l")
 
 [node name="Menu Remove Item" type="Node" parent="Player Menus Management/Menus (Ready)" unique_id=1593901827]
 script = ExtResource("5_xgkss")
-
-[node name="Menus (Selection)" type="Node" parent="Player Menus Management" unique_id=1018472950]
-
-[node name="Item Selected" type="Node" parent="Player Menus Management/Menus (Selection)" unique_id=2138721204]
-script = ExtResource("3_flw64")
-
-[node name="Items Sorting" type="Node" parent="Player Menus Management/Menus (Selection)" unique_id=1267405493]
-script = ExtResource("4_olneg")
-
-[node name="Menus (Keys)" type="Node" parent="Player Menus Management" unique_id=1358645476]
-script = ExtResource("11_gswus")
 
 [node name="Interaction Manager" type="Node" parent="Player Menus Management" unique_id=981159296]
 script = ExtResource("8_nouok")
@@ -86,9 +75,6 @@ script = ExtResource("3_064ml")
 
 [node name="Menu (Dialogue)" type="Node" parent="Player Menus Management/Interaction Manager" unique_id=1090605547]
 script = ExtResource("9_5uvif")
-
-[node name="Notifications" type="Node" parent="Player Menus Management" unique_id=1700876121]
-script = ExtResource("12_rdknm")
 
 [node name="Sounds" type="Node" parent="." unique_id=2055616778]
 
@@ -106,7 +92,6 @@ stream = ExtResource("4_qmjen")
 
 [node name="Ready Menu" type="Control" parent="." unique_id=1970162750]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -331,12 +316,21 @@ autowrap_trim_flags = 128
 
 [node name="Selection Menu" type="Control" parent="." unique_id=852856482]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Menus (Selection)" type="Node" parent="Selection Menu" unique_id=1018472950]
+
+[node name="Item Selected" type="Node" parent="Selection Menu/Menus (Selection)" unique_id=2138721204]
+script = ExtResource("3_flw64")
+
+[node name="Items Sorting" type="Node" parent="Selection Menu/Menus (Selection)" unique_id=1267405493]
+script = ExtResource("4_olneg")
 
 [node name="Selection Backdrop" type="NinePatchRect" parent="Selection Menu" unique_id=1711595593]
 modulate = Color(1, 1, 1, 0.5882353)
@@ -1313,6 +1307,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Menus (Keys)" type="Node" parent="Keys Menu" unique_id=1358645476]
+script = ExtResource("11_gswus")
+
 [node name="Selection Backdrop" type="NinePatchRect" parent="Keys Menu" unique_id=1046666034]
 modulate = Color(1, 1, 1, 0.5882353)
 layout_mode = 0
@@ -1473,6 +1470,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Notifications" type="Node" parent="Notification" unique_id=1700876121]
+script = ExtResource("12_rdknm")
+
 [node name="Notification Backdrop" type="NinePatchRect" parent="Notification" unique_id=158589200]
 layout_mode = 0
 offset_left = 418.0
@@ -1504,6 +1504,93 @@ unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
+[node name="Rest Menu" type="Control" parent="." unique_id=1971896337]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rest" type="Node" parent="Rest Menu" unique_id=726751547]
+script = ExtResource("37_j7un8")
+
+[node name="Rest (Buttons)" type="Node" parent="Rest Menu/Rest" unique_id=98267580]
+script = ExtResource("38_wfwv5")
+
+[node name="Location Name" type="RichTextLabel" parent="Rest Menu" unique_id=1574044810]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 26.0
+offset_right = 149.0
+offset_bottom = 66.0
+theme = ExtResource("9_3yn2l")
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/normal_font_size = 22
+text = "?Location?"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Rest Backdrop" type="NinePatchRect" parent="Rest Menu" unique_id=1564710087]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 55.0
+offset_right = 227.0
+offset_bottom = 203.0
+texture = ExtResource("11_3ojjw")
+region_rect = Rect2(5, 4, 190, 192)
+
+[node name="Rest Buttons" type="VBoxContainer" parent="Rest Menu" unique_id=499265427]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 36.0
+offset_top = 57.0
+offset_right = 199.0
+offset_bottom = 205.0
+
+[node name="Travel" type="Button" parent="Rest Menu/Rest Buttons" unique_id=1977833604]
+layout_mode = 2
+theme = ExtResource("9_3yn2l")
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+disabled = true
+text = "Traverse"
+alignment = 0
+
+[node name="Equipment" type="Button" parent="Rest Menu/Rest Buttons" unique_id=1603153251]
+layout_mode = 2
+theme = ExtResource("9_3yn2l")
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+disabled = true
+text = "Equipment"
+alignment = 0
+
+[node name="Journal" type="Button" parent="Rest Menu/Rest Buttons" unique_id=1902895363]
+layout_mode = 2
+theme = ExtResource("9_3yn2l")
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+disabled = true
+text = "Journal"
+alignment = 0
+
+[node name="Exit" type="Button" parent="Rest Menu/Rest Buttons" unique_id=439860393]
+layout_mode = 2
+theme = ExtResource("9_3yn2l")
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "Exit"
+alignment = 0
+
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Technical/Ready Inventory" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_inventory_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Technical/Ready Settings" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_settings_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Wear and Tool/Ready Brace" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_brace_pressed"]
@@ -1514,18 +1601,19 @@ one_shot = true
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 1" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_u_item_1_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 2" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_u_item_2_pressed"]
 [connection signal="pressed" from="Ready Menu/Ready Menu Grid/Ready Spell and UItem/Ready UItem 3" to="Player Menus Management/Menus (Ready)/Menu Redirect" method="ready_u_item_3_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Golden" to="Player Menus Management/Menus (Selection)/Item Selected" method="brace_golden_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Clorophyl" to="Player Menus Management/Menus (Selection)/Item Selected" method="brace_clorophyl_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Power" to="Player Menus Management/Menus (Selection)/Item Selected" method="brace_power_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Stone Sword" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_sword_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Dagger" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_dagger_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/AssaultRifle" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_assault_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/HandGun" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_handgun_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/SpecialBow" to="Player Menus Management/Menus (Selection)/Item Selected" method="tool_bow_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems/UItem Sigil" to="Player Menus Management/Menus (Selection)/Item Selected" method="uitem_sigil_pressed"]
-[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems/UItem Green Flask" to="Player Menus Management/Menus (Selection)/Item Selected" method="uitem_green_flask_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Golden" to="Selection Menu/Menus (Selection)/Item Selected" method="brace_golden_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Clorophyl" to="Selection Menu/Menus (Selection)/Item Selected" method="brace_clorophyl_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Braces/Brace Power" to="Selection Menu/Menus (Selection)/Item Selected" method="brace_power_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Stone Sword" to="Selection Menu/Menus (Selection)/Item Selected" method="tool_sword_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/Dagger" to="Selection Menu/Menus (Selection)/Item Selected" method="tool_dagger_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/AssaultRifle" to="Selection Menu/Menus (Selection)/Item Selected" method="tool_assault_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/HandGun" to="Selection Menu/Menus (Selection)/Item Selected" method="tool_handgun_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/Tools/SpecialBow" to="Selection Menu/Menus (Selection)/Item Selected" method="tool_bow_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems/UItem Sigil" to="Selection Menu/Menus (Selection)/Item Selected" method="uitem_sigil_pressed"]
+[connection signal="pressed" from="Selection Menu/Selection Scroll/Main List (GRANDNESS!)/UItems/UItem Green Flask" to="Selection Menu/Menus (Selection)/Item Selected" method="uitem_green_flask_pressed"]
 [connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Confirm" to="Player Menus Management/Interaction Manager/Menu (Choice)" method="on_confirm"]
 [connection signal="pressed" from="Choice Menu/Container/Yes_No Choice Box/Deny" to="Player Menus Management/Interaction Manager/Menu (Choice)" method="on_deny"]
 [connection signal="finished" from="Dialogue Menu/Dialogue Container/Current Voice" to="Player Menus Management/Interaction Manager/Menu (Dialogue)" method="_current_voice_finished"]
-[connection signal="pressed" from="Keys Menu/Selection Scroll/Main List (GRANDNESS!)/Keys/Beta Key 0" to="Player Menus Management/Menus (Keys)" method="beta_key_0_pressed"]
-[connection signal="timeout" from="Notification/Notification Timer" to="Player Menus Management/Notifications" method="notification_timer_timeout"]
+[connection signal="pressed" from="Keys Menu/Selection Scroll/Main List (GRANDNESS!)/Keys/Beta Key 0" to="Keys Menu/Menus (Keys)" method="beta_key_0_pressed"]
+[connection signal="timeout" from="Notification/Notification Timer" to="Notification/Notifications" method="notification_timer_timeout"]
+[connection signal="pressed" from="Rest Menu/Rest Buttons/Exit" to="Rest Menu/Rest/Rest (Buttons)" method="exit_pressed"]

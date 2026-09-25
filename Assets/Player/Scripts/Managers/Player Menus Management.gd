@@ -27,6 +27,7 @@ func Menu_Setting(Menu: String):
 			elif not Global.Player_Data.Ready_Menu_Active:
 				Global.Player_Data.Current_Menu = "null"
 				%"Menu Return".play()
+		
 		"Selection":
 			Global.Player_Data.Seletion_Menu_Active = !Global.Player_Data.Seletion_Menu_Active
 			%"Selection Menu".visible = Global.Player_Data.Seletion_Menu_Active
@@ -38,6 +39,7 @@ func Menu_Setting(Menu: String):
 				SignalBus.emit_signal("focus_first_visible", %"Ready Wear and Tool")
 				Global.Player_Data.Current_Menu = "Ready"
 				%"Menu Return".play()
+		
 		"Keys":
 			Global.Player_Data.Keys_Menu_Active = !Global.Player_Data.Keys_Menu_Active
 			%"Keys Menu".visible = Global.Player_Data.Keys_Menu_Active
@@ -52,11 +54,25 @@ func Menu_Setting(Menu: String):
 				Global.Player_Data.Player_Perms.Can_Look = true
 				Global.Player_Data.Current_Menu = "null"
 				%"Menu Return".play()
-
 		
+		"Rest":
+			Global.Player_Data.Player_Perms.Is_Resting = !Global.Player_Data.Player_Perms.Is_Resting
+			%"Rest Menu".visible = Global.Player_Data.Player_Perms.Is_Resting
+			if Global.Player_Data.Player_Perms.Is_Resting:
+				SignalBus.emit_signal("focus_first_visible", %"Rest Buttons")
+				Global.Player_Data.Player_Perms.Can_Move = false
+				Global.Player_Data.Player_Perms.Can_Look = false
+				Global.Player_Data.Current_Menu = "Rest"
+			elif not Global.Player_Data.Player_Perms.Is_Resting:
+				Global.Player_Data.Player_Perms.Can_Move = true
+				Global.Player_Data.Player_Perms.Can_Look = true
+				Global.Player_Data.Current_Menu = "null"
+				%"Menu Return".play()
+				Global.Player_Data.Current_Camera = $"../../../../Head/Eyes"
+				Global.Player_Data.Current_Camera.make_current()
 		_:
 			print_rich("[color=#ff00ff]MANUAL ERROR: <Attempt to Exit Menu without valid parameters>[/color]")
-			#get_tree().quit()
+	SignalBus.emit_signal("Player_Permissions_Conditionals")
 
 func SubMenu_Setting(SubMenu: String):
 	Global.Player_Data.Current_SubMenu = SubMenu

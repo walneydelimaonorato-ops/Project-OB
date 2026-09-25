@@ -17,6 +17,12 @@ bg_color = Color(0.4, 0.4, 0.4, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crbf0"]
 bg_color = Color(0.004019165, 0.004019165, 0.004019165, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lffnb"]
+bg_color = Color(0.5882353, 0.5882353, 0.5882353, 0.39215687)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgxge"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
@@ -65,3 +71,13 @@ RichTextLabel/fonts/normal_font = ExtResource("1_b0cg5")
 RichTextLabel/icons/horizontal_rule = null
 RichTextLabel/styles/focus = null
 RichTextLabel/styles/normal = null
+TabBar/colors/font_hovered_color = Color(0.39308557, 0.39308548, 0.3930857, 0.78431374)
+TabBar/colors/font_selected_color = Color(0.8627451, 0.8627451, 1, 1)
+TabBar/colors/font_unselected_color = Color(0.7, 0.7, 0.7, 1)
+TabBar/fonts/font = ExtResource("1_b0cg5")
+TabBar/styles/tab_hovered = SubResource("StyleBoxFlat_lffnb")
+TabBar/styles/tab_selected = SubResource("StyleBoxFlat_lffnb")
+TabBar/styles/tab_unselected = SubResource("StyleBoxFlat_lffnb")
+TextEdit/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+TextEdit/fonts/font = ExtResource("1_b0cg5")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_wgxge")

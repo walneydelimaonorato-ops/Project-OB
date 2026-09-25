@@ -57,10 +57,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.37822, 0, -5.6756597)
 CLSS_LEVER_ID = "Test Lever"
 CLSS_LEVER_CALL = "Open"
 
-[node name="Lever 2" parent="Levers" unique_id=1650204760 instance=ExtResource("7_aes54")]
+[node name="Lever 2" parent="Levers" unique_id=1650204760 node_paths=PackedStringArray("CLSS_LEVER_CONNECT") instance=ExtResource("7_aes54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.596114, 0, -14.701442)
 CLSS_LEVER_ID = "Balls"
 CLSS_LEVER_CALL = "Open"
+CLSS_LEVER_CONNECT = NodePath("../../Doors/Door")
 
 [node name="Doors" type="Node3D" parent="." unique_id=1223464824]
 
@@ -80,6 +81,16 @@ CLSS_DOOR_MATCH = "Balls"
 [node name="Rest" parent="." unique_id=1692087272 instance=ExtResource("8_lxy1g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.122685, 0.37750053, -4.4325337)
 
+[node name="Rest Camera Axis" parent="Rest" index="4" unique_id=756412666]
+transform = Transform3D(0.76484215, -0.159382, -0.62419045, 0, 0.9689124, -0.24740395, 0.6442176, 0.18922499, 0.7410651, 0, 0.5, 0)
+Cam_X_Rot = 0.25
+Cam_Y_Rot = -0.7
+Cam_Y_Pos = 0.5
+Cam_Distance = 3.0
+
+[node name="Rest Camera" parent="Rest/Rest Camera Axis" index="0" unique_id=1098938831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
 [node name="Item" parent="." unique_id=2044499245 instance=ExtResource("8_ehxm2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8794491, 0.010900135, -10.549142)
 CLSS_ITEM_SYS_NAME = "Beta Key 0"
@@ -96,3 +107,4 @@ CLSS_ACCEPT_KEY = "Beta Key 0"
 [editable path="Doors/Door"]
 [editable path="Doors/Door/Door Model2"]
 [editable path="MAP TEST 1"]
+[editable path="Rest"]

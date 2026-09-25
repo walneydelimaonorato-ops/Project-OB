@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://sy37mogf6jd" path="res://Assets/Objects/Obj/Rest/rest.gd" id="1_g438r"]
 [ext_resource type="AudioStream" uid="uid://bmp8ns334hjfy" path="res://Assets/Objects/Obj/Rest/Rest.mp3" id="2_m1yji"]
+[ext_resource type="Script" uid="uid://dry211tlc50xx" path="res://Assets/Objects/Obj/Rest/Rest Camera.gd" id="3_y1i2l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8njcc"]
 transparency = 1
@@ -41,3 +42,10 @@ shape = SubResource("CylinderShape3D_8njcc")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node" unique_id=319046964]
 unique_name_in_owner = true
 stream = ExtResource("2_m1yji")
+
+[node name="Rest Camera Axis" type="Node3D" parent="." unique_id=756412666]
+script = ExtResource("3_y1i2l")
+Cam_Z_Pos = null
+
+[node name="Rest Camera" type="Camera3D" parent="Rest Camera Axis" unique_id=1098938831]
+unique_name_in_owner = true

@@ -1,8 +1,10 @@
 class_name CUS_Lever
 extends Node
 
+var HUD_Prompt: String = "Pull"
 @export var CLSS_LEVER_ID: String = ""
 @export var CLSS_LEVER_CALL: String = ""
+@export var CLSS_LEVER_CONNECT: Node3D
 
 func Diagnose_LEVER():
 	print_rich("[color=#ffdf00] Lever Class Diagnosis:") 
@@ -15,3 +17,6 @@ func Diagnose_LEVER():
 		print_rich("[color=#ffdf00]>", self, " has no Call")
 	else:
 		print_rich("[color=#ffdf00]>", self, " Call: ", CLSS_LEVER_CALL)
+
+func HUD_Element():
+	return HUD_Prompt

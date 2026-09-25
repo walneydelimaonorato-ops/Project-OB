@@ -92,6 +92,7 @@ shape = SubResource("CapsuleShape3D_2r4ph")
 debug_color = Color(0.6745098, 0.69803923, 0, 1)
 
 [node name="Model" type="MeshInstance3D" parent="." unique_id=1418571723]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_ynrmx")
 

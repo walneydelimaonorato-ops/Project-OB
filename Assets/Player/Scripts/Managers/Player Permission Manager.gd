@@ -85,3 +85,10 @@ func Player_Permissions_Conditionals():
 		Player_Permissions_Setting("Can_Sprint", "No")
 	elif Global.Player_Data.Stamina > 0 :
 		Player_Permissions_Setting("Can_Sprint", "Yes")
+	
+	if Global.Player_Data.Player_Perms.Is_Resting == true:
+		%Models.visible = false
+		%Model.visible = false
+	elif Global.Player_Data.Player_Perms.Is_Resting == false:
+		%Models.visible = true
+		%Model.visible = true

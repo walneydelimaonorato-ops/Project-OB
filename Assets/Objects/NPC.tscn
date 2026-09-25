@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dv0xnwjy3sq7u"]
+
+[ext_resource type="Script" uid="uid://clhk644m3rla2" path="res://Assets/Objects/Ent/NPC Basics.gd" id="1_m0e2r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m0e2r"]
+radius = 0.27148438
+height = 1.4412842
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gfy7k"]
+radius = 0.22607422
+height = 1.4412613
+
+[node name="Entity" type="CharacterBody3D" unique_id=1939579915]
+script = ExtResource("1_m0e2r")
+
+[node name="Model" type="Node3D" parent="." unique_id=920121254]
+unique_name_in_owner = true
+transform = Transform3D(-0.65, 0, -5.6824803e-08, 0, 0.65, 0, 5.6824803e-08, 0, -0.65, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=619288833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7255974, 0)
+collision_layer = 9
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1490997106]
+shape = SubResource("CapsuleShape3D_m0e2r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2073813988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7250786, 0)
+shape = SubResource("CapsuleShape3D_gfy7k")
+debug_color = Color(0, 0, 0.69803923, 0.41960785)
+
+[node name="NavAgen" type="NavigationAgent3D" parent="." unique_id=842277083]
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+debug_path_custom_point_size = 10.0
+
+[connection signal="navigation_finished" from="NavAgen" to="." method="navagen_navigation_finished"]

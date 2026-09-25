@@ -1,7 +1,4 @@
 extends CharacterBody3D
-@onready var PlayerRes: Node = %"Player Stats"
-# STATSMAN Node = %"Stats Management"
-@onready var Action: Node = %Action
 
 @onready var Head: Node3D = %Head
 @onready var Eyes: Camera3D = %Eyes
@@ -12,10 +9,9 @@ var Running: bool
 #var Un_LookLR := Vector2.ZERO
 
 func _ready() -> void:
-	print_rich("[color=green]Player Working[/color] [color=#b76e79]\r========================= \r. \r. \r. \r. \r.[/color]")
+	BugBus.emit_signal("Report", "Player", "Player Working")
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	#Input.mouse_mode = Input.MOUSE_MODE_MAX
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -36,21 +32,23 @@ func _physics_process(delta: float) -> void:
 			velocity.y = 0
 	
 	
-	if Input.is_action_pressed(Global.Player_Data.Un_Sprint) and Global.Player_Data.Player_Perms["Can_Sprint"] == true: #and PlayerValue.Stamina > 0:
-		Global.Player_Data.Base_Speed = Global.Player_Data.Run # Current speed becomes running speed
+	if Input.is_action_pressed(Global.Player_Data.Un_Sprint) and Global.Player_Data.Player_Perms["Can_Sprint"] == true and Global.Player_Data.Stamina > 0:
+		Global.Player_Data.Base_Speed = lerp(Global.Player_Data.Base_Speed, Global.Player_Data.Run, 0.20)
+		#Global.Player_Data.Base_Speed = Global.Player_Data.Run # Current speed becomes running speed
 		Running = true
 	else:
-		Global.Player_Data.Base_Speed = Global.Player_Data.Dummy_Speed # Current speed falls back to a set value
+		Global.Player_Data.Base_Speed = lerp(Global.Player_Data.Base_Speed, Global.Player_Data.Dummy_Speed, 0.20)
+		#Global.Player_Data.Base_Speed = Global.Player_Data.Dummy_Speed # Current speed falls back to a set value
 		Running = false
 	
 	
 	var input_dir = Input.get_vector(Global.Player_Data.Un_Left, Global.Player_Data.Un_Right, Global.Player_Data.Un_Forward, Global.Player_Data.Un_Backward)
 	var direction = (self.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * Global.Player_Data.Base_Speed
-		velocity.z = direction.z * Global.Player_Data.Base_Speed
+		velocity.x = lerp(velocity.x, direction.x * Global.Player_Data.Base_Speed, 0.15)
+		velocity.z = lerp(velocity.z, direction.z * Global.Player_Data.Base_Speed, 0.15)
 		if Running:
-			SignalBus.emit_signal("Variable_Operation", "Decrease", "Stamina", 0.2)
+			SignalBus.emit_signal("LOC_Value_Operator", false, "Stamina", 0.2)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.15)
 		velocity.z = lerp(velocity.z, 0.0, 0.15)
@@ -65,7 +63,7 @@ func _process(_delta: float) -> void:
 	
 	if Global.Player_Data.Control_Mode == "Joy":
 		var look_in = Input.get_vector("In_JoyR_Up", "In_JoyR_Down", "In_JoyR_Left", "In_JoyR_Right")
-		Head.rotation.y -= look_in.y * Global.Player_Data.Joy_Camera_Sens
+		self.rotation.y -= look_in.y * Global.Player_Data.Joy_Camera_Sens
 		Eyes.rotation.x -= look_in.x * Global.Player_Data.Joy_Camera_Sens
 		Eyes.rotation.x = clamp(Eyes.rotation.x, deg_to_rad(-85), deg_to_rad(85))
 

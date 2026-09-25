@@ -2,7 +2,10 @@ class_name InventoryData
 extends Resource
 
 var Wild_Gold_Quantity: int = 0
-var Glass_Flask_Quantity: int = 0
+var Wild_Gold_Quantity_Max: int = 10
+
+var Glass_Flask_Quantity: int = 2
+var Glass_Flask_Quantity_Max: int = 3
 
 var Tool_ID = {
 	"null": {
@@ -189,8 +192,8 @@ var UItem_ID = {
 		
 		"heal_values": 0,
 		"quantity": 1,
-		"special id": ""
 		},
+		
 	"Glass Flask": {
 		"dys name": "Glass Flask", 
 		"sys name": "Glass Flask",
@@ -201,8 +204,8 @@ var UItem_ID = {
 		
 		"heal_values": 8,
 		"quantity": Glass_Flask_Quantity,
-		"special id": "renewable"
 		},
+		
 	"Wild Gold": {
 		"dys name": " ", 
 		"sys name": "Wild Gold",
@@ -212,7 +215,6 @@ var UItem_ID = {
 		
 		"heal_values": 2,
 		"quantity": Wild_Gold_Quantity,
-		"special id": ""
 		}
 }
 

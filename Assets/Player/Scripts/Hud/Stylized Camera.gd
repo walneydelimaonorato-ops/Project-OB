@@ -10,4 +10,5 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if %SubViewport.visible == true:
+		
 		%Style.global_transform = %Eyes.global_transform

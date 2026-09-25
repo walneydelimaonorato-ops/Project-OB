@@ -42,7 +42,7 @@ func UItem_Use():
 				}
 			SignalBus.emit_signal("request_popup", Choice_Names, "Sigil use")
 		"Glass Flask":
-			SignalBus.emit_signal("Variable_Operation", "Increase", "Health", 5) #Global.Player_Data.UItem_ID["Glass Flask"]["heal_values"]
+			SignalBus.emit_signal("LOC_Value_Operator", true, "Health", Global.InventoryData.UItem_ID["Glass Flask"]["heal_value"])
 
 func UItem_Consume_Prompt(Choice_Answer, Address_To):
 	match Address_To:

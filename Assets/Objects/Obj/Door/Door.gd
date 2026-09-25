@@ -17,11 +17,10 @@ func Interact():
 func HUD_Element():
 	return HUD_Prompt
 
-
 func Object_Interact(LEVER_ID: String, LEVER_Call: String):
-	if LEVER_ID == CLSS_DOOR_MATCH:
+	if LEVER_ID == str(self):
 		call(LEVER_Call)
-	elif LEVER_ID != CLSS_DOOR_MATCH:
+	elif LEVER_ID != str(self):
 		print_rich("[color=#ff00ff]MANUAL ERROR: At ", self, ". LEVER_ID: ", LEVER_ID, ". LEVER_Call: ", LEVER_Call)
 
 func Open():
