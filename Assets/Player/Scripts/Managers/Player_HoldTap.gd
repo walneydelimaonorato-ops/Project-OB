@@ -13,7 +13,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print_rich("[color=#ffdf00]Player Hold-Tap Working[/color]")
+	BugBus.emit_signal("Report", "Player", "Player Hold-Tap Working")
 	SignalBus.Tap_Hold_Interval.connect(Hold_Tap_Innitializer)
 
 func Hold_Tap_Innitializer():

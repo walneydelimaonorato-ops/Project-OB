@@ -1,7 +1,7 @@
 extends Node
 
 func _ready() -> void:
-	print("Loaded Save Visual Update Working")
+	BugBus.emit_signal("Report", "Player", "Loaded Save Visual Update Working")
 	SignalBus.Load_save_Visual_Update.connect(Visual_Update)
 
 func Visual_Update():

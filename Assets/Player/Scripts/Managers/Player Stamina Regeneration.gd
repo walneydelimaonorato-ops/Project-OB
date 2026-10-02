@@ -1,7 +1,7 @@
 extends Node
 
 func _ready() -> void:
-	print_rich("[color=#ffdf00]Stamina Regeneration Working[/color]")
+	BugBus.emit_signal("Report", "Player", "Stamina Regeneration Working")
 	Regeneration_Timer_Startup()
 	Global.Player_Data.Stamina_Regeneration_Delay_Timer.timeout.connect(Start_Stamina_Regeneration)
 

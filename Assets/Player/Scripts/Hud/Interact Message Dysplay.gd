@@ -4,7 +4,7 @@ var Interact_Prompt: String = "General"
 var Valid_Prompt: bool = false
 
 func _ready() -> void:
-	print_rich("[color=#ffdf00]Interact Message Working[/color]")
+	BugBus.emit_signal("Report", "Player", "Interact Message Working")
 	SignalBus.Sig_Interaction_HUD_Return.connect(Interact_Message_Display)
 
 func _process(_delta: float) -> void:

@@ -1,7 +1,7 @@
 extends Node
 
 func _ready() -> void:
-	print_rich("[color=#ffdf00]MSelection Items Sorting Working[/color]")
+	BugBus.emit_signal("Report", "Player", "MSelection Items Sorting Working")
 	
 	SignalBus.MSelection_Item_Sorting.connect(MSelection_Item_Sorting)
 

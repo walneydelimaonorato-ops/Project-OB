@@ -1,9 +1,8 @@
 extends Node
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print_rich("[color=#ffdf00]FMenu Return Working[/color]")
+	BugBus.emit_signal("Report", "Player", "FMenu Return Working")
 	
 	SignalBus.FMenu_Return.connect(Menu_Exit)
 

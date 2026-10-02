@@ -8,7 +8,7 @@ var Response: bool = false
 
 
 func _ready() -> void:
-	print_rich("[color=#ffdf00]Choice Menu Working[/color]")
+	BugBus.emit_signal("Report", "Player", "Choice Menu Working")
 	#SignalBus.connect("request_popup", on_request_popup)
 	SignalBus.connect("Interaction_Prompt_Manager", butt)
 

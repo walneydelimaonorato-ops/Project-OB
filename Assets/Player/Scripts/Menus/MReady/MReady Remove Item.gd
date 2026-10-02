@@ -4,7 +4,7 @@ var localfocus: String = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print_rich("[color=#ffdf00]Mready Remove Item Working[/color]")
+	BugBus.emit_signal("Report", "Player", "Mready Remove Item Working")
 	
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
 

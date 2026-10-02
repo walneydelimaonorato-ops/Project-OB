@@ -1,7 +1,7 @@
 extends Node
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	BugBus.emit_signal("Report", "Player", "Side Status Working")
 	Side_Status_Update()
 	SignalBus.Side_Status_Update.connect(Side_Status_Update)
 

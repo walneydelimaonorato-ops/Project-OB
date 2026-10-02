@@ -1,7 +1,7 @@
 extends Node
 
 func _ready() -> void:
-	print_rich("[color=#ffdf00]Items Use & Select Working[/color]")
+	BugBus.emit_signal("Report", "Player", "Items Use & Select Working")
 	SignalBus.UItem_Cycle.connect(UItem_Cycle)
 	SignalBus.UItem_Use.connect(UItem_Use)
 	SignalBus.connect("reply_popup", UItem_Consume_Prompt)

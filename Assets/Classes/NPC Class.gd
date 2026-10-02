@@ -9,7 +9,8 @@ extends CharacterBody3D
 @export var NPC_AI_LVL: int = 1
 
 enum NPC_State {IDLE, WANDER, CHASE}
-var NPC_Wait_Time: int = 0
+var NPC_Wait_Count: bool
+var NPC_Wait_Time: int
 
 func _ready() -> void:
 	NPC_Diagnostic()

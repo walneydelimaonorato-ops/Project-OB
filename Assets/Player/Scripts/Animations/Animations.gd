@@ -1,7 +1,7 @@
 extends Node
 
 func _ready() -> void:
-	print_rich("[color=#ffdf00]Player Animations Working[/color]")
+	BugBus.emit_signal("Report", "Player", "Player Animations Working")
 	Tool_Rotation()
 	SignalBus.Player_Animations.connect(Play_Animation)
 	SignalBus.Tool_Rotation.connect(Tool_Rotation)

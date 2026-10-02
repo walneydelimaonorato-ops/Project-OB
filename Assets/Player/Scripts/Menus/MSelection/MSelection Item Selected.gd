@@ -1,7 +1,7 @@
 extends Node
 
 func _ready() -> void:
-	print_rich("[color=#ffdf00]MSelection Item Selected Working[/color]")
+	BugBus.emit_signal("Report", "Player", "MSelection Item Selected Working")
 
 func exit():
 	SignalBus.emit_signal("FMenu_Return", "Selection")

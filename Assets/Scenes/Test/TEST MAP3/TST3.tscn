@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d2mh0lhxqfc52"]
+
+[ext_resource type="Script" uid="uid://brrxr3gp4g0s2" path="res://Assets/Scenes/Scene Instruction.gd" id="1_nh217"]
+
+[node name="Root" type="Node3D" unique_id=1863820599]
+script = ExtResource("1_nh217")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1003095898]
+
+[node name="Control" type="Control" parent="." unique_id=272977536]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1141532649]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Graves" type="Node3D" parent="." unique_id=739141799]
+
+[node name="test" type="Label3D" parent="Graves" unique_id=1036946458]

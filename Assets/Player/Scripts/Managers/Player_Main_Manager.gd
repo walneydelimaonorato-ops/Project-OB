@@ -5,7 +5,7 @@ var Colidder
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print_rich("[color=#ffdf00]Player Management Working[/color]")
+	BugBus.emit_signal("Report", "Player", "Player Management Working")
 	
 	SignalBus.LOC_Value_Operator.connect(Value_Operate)
 	SignalBus.item_transfer.connect(Item_Pickup)

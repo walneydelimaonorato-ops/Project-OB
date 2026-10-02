@@ -4,6 +4,7 @@ var Key_Selected: String
 var Local_Stamp: String
 
 func _ready() -> void:
+	BugBus.emit_signal("Report", "Player", "Menu Keys Working")
 	SignalBus.MSelection_Item_Sorting.connect(Keys_Organizing)
 	SignalBus.Keys_Stamping.connect(Keys_Stamping)
 	%"Keys Menu".visible = false

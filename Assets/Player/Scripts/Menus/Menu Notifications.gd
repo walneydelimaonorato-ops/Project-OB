@@ -1,6 +1,7 @@
 extends Node
 
 func _ready() -> void:
+	BugBus.emit_signal("Report", "Player", "Menu Notifications")
 	SignalBus.Notification.connect(Notification)
 	%Notification.visible = false
 

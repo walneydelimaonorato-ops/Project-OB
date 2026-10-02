@@ -1,14 +1,18 @@
 extends Node
 
 func _ready() -> void:
+	%"Debug Board".visible = false
 	BugBus.Report.connect(Reporting)
 	%"Player Report".text = "Reporting Player"
 	%"Map Report".text = "Reporting Map"
 	%"Actor Report".text = "Reporting Actor"
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Deb_Context_Menu"):
+		%"Debug Board".visible = !%"Debug Board".visible
+
 func Reporting(Target: String, Report: String):
 	var Repo: TextEdit
-	
 	match Target:
 		"Player":
 			Repo = %"Player Report"
@@ -17,7 +21,7 @@ func Reporting(Target: String, Report: String):
 		"Actor":
 			Repo = %"Actor Report"
 	
-	Repo.text += str("\n|", Engine.get_frames_drawn(), "|", Report)
+	Repo.text += str("\n", Engine.get_frames_drawn(), " | ", Report)
 
 func board_tabs_changed(tab: int) -> void:
 	%"Player Report".visible = false

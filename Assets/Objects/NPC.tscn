@@ -1,6 +1,20 @@
 [gd_scene format=3 uid="uid://dv0xnwjy3sq7u"]
 
 [ext_resource type="Script" uid="uid://clhk644m3rla2" path="res://Assets/Objects/Ent/NPC Basics.gd" id="1_m0e2r"]
+[ext_resource type="PackedScene" uid="uid://eqg64wvvtlpy" path="res://Assets/Objects/Ent/Test/Character.glb" id="2_m0e2r"]
+[ext_resource type="Script" uid="uid://cwce1icretoaw" path="res://Assets/Objects/Ent/NPC Detector.gd" id="3_gfy7k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wglcv"]
+size = Vector3(1, 2, 0.3)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_k4mt7"]
+radius = 1.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wglcv"]
+radius = 10.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wglcv"]
+points = PackedVector3Array(0, 0, 0, -5, 0, 6, 0, 2, 10, 5, 0, 6, 0, -2, 10)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m0e2r"]
 radius = 0.27148438
@@ -13,9 +27,48 @@ height = 1.4412613
 [node name="Entity" type="CharacterBody3D" unique_id=1939579915]
 script = ExtResource("1_m0e2r")
 
+[node name="Hit Detection" type="Node" parent="." unique_id=808018706]
+script = ExtResource("3_gfy7k")
+
 [node name="Model" type="Node3D" parent="." unique_id=920121254]
 unique_name_in_owner = true
 transform = Transform3D(-0.65, 0, -5.6824803e-08, 0, 0.65, 0, 5.6824803e-08, 0, -0.65, 0, 0, 0)
+
+[node name="Place Holder" parent="Model" unique_id=2067591190 instance=ExtResource("2_m0e2r")]
+unique_name_in_owner = true
+
+[node name="Hit Detector" type="ShapeCast3D" parent="Model" unique_id=898592650]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.009563e-08, 1.9974561, 0.5730269)
+visible = false
+shape = SubResource("BoxShape3D_wglcv")
+collision_mask = 2
+collide_with_areas = true
+debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[node name="Close Sphere Detector" type="ShapeCast3D" parent="Model" unique_id=1714537177]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5613623, 0)
+shape = SubResource("SphereShape3D_k4mt7")
+collision_mask = 2
+collide_with_areas = true
+debug_shape_custom_color = Color(0, 0, 1, 1)
+
+[node name="Far Sphere Detector" type="ShapeCast3D" parent="Model" unique_id=1852364837]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5556378, 0)
+shape = SubResource("SphereShape3D_wglcv")
+collision_mask = 2
+collide_with_areas = true
+debug_shape_custom_color = Color(0, 1, 0, 1)
+
+[node name="Line Sight Detector" type="ShapeCast3D" parent="Model" unique_id=442125520]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8049407, 0)
+shape = SubResource("ConvexPolygonShape3D_wglcv")
+collision_mask = 2
+collide_with_areas = true
+debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=619288833]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7255974, 0)
@@ -27,6 +80,7 @@ shape = SubResource("CapsuleShape3D_m0e2r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2073813988]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7250786, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_gfy7k")
 debug_color = Color(0, 0, 0.69803923, 0.41960785)
 

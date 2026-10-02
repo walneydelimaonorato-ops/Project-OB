@@ -2,9 +2,9 @@ extends Node
 
 func _ready() -> void:
 	if %SubViewport.visible == true:
-		print_rich("[color=#ffdf00]Stylized Camera: [/color][color=green]Enabled[/color]")
+		BugBus.emit_signal("Report", "Player", "Stylized Camera: Enabled")
 	else:
-		print_rich("[color=#ffdf00]Stylized Camera: [/color][color=red]Disabled[/color]")
+		BugBus.emit_signal("Report", "Player", "Stylized Camera: Disabled")
 	%Style.visible = %SubViewport.visible
 
 

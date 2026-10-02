@@ -1,9 +1,8 @@
 extends Node
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print_rich("[color=#ffdf00]Mready Redirect Working[/color]")
+	BugBus.emit_signal("Report", "Player", "Mready Redirect Working")
 
 
 #region Technical

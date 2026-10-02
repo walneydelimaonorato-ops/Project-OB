@@ -5,7 +5,7 @@ var Local_Storage_Param2: String
 var Local_Storage_Address: String
 
 func _ready() -> void:
-	print_rich("[color=#ffdf00]Dialogue Manager Working[/color]")
+	BugBus.emit_signal("Report", "Player", "Dialogue Manager Working")
 	SignalBus.NPC_Dialogue.connect(Diag_Play)
 	SignalBus.Interaction_Prompt_Manager_Response.connect(Proceed_SPLIT)
 

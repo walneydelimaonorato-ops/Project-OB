@@ -21,7 +21,7 @@ bg_color = Color(0.004019165, 0.004019165, 0.004019165, 0)
 bg_color = Color(0.5882353, 0.5882353, 0.5882353, 0.39215687)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgxge"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+bg_color = Color(1, 1, 1, 1)
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -78,6 +78,6 @@ TabBar/fonts/font = ExtResource("1_b0cg5")
 TabBar/styles/tab_hovered = SubResource("StyleBoxFlat_lffnb")
 TabBar/styles/tab_selected = SubResource("StyleBoxFlat_lffnb")
 TabBar/styles/tab_unselected = SubResource("StyleBoxFlat_lffnb")
-TextEdit/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+TextEdit/colors/font_color = Color(0, 0, 0, 1)
 TextEdit/fonts/font = ExtResource("1_b0cg5")
 TextEdit/styles/normal = SubResource("StyleBoxFlat_wgxge")

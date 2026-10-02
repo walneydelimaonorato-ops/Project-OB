@@ -1,7 +1,7 @@
 extends Node
 
 func _ready() -> void:
-	print_rich("[color=#ffdf00]Player Menus Management Work[/color]")
+	BugBus.emit_signal("Report", "Player", "Player Menus Management Work")
 	
 	%"Ready Menu".visible = false
 	%"Selection Menu".visible = false

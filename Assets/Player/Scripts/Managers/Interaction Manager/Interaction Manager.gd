@@ -1,7 +1,7 @@
 extends Node
 
 func _ready() -> void:
-	print_rich("[color=#ffdf00]Interaction Manager Working[/color]")
+	BugBus.emit_signal("Report", "Player", "Interaction Manager Working")
 	SignalBus.Interaction_Manager_Request.connect(Interaction_Sorter)
 	SignalBus.Interaction_Prompt_Manager.connect(Interaction_Prompt_Manager)
 

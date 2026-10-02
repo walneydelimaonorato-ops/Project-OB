@@ -3,7 +3,7 @@ extends Node
 # STATSMAN Node = %"Stats Management"
 
 func _ready() -> void:
-	print_rich("[color=#ffdf00]Player Action Working[/color]")
+	BugBus.emit_signal("Report", "Player", "Player Action Working")
 	#SignalBus.Action.connect(Action_Primary)
 	SignalBus.Action_Alternative.connect(Action_Alternative)
 	SignalBus.Action_Primary.connect(Action_Primary)
