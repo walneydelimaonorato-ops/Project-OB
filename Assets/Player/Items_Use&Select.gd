@@ -11,29 +11,29 @@ func _ready() -> void:
 	
 
 func UItem_Cycle():
-	Global.Player_Data.Cycle_Uitem_Index += 1
-	Global.Player_Data.Cycle_Uitem_Index = wrapi(Global.Player_Data.Cycle_Uitem_Index, 1, 4)
+	PLY_Inventory.Cycle_Uitem_Index += 1
+	PLY_Inventory.Cycle_Uitem_Index = wrapi(PLY_Inventory.Cycle_Uitem_Index, 1, 4)
 	UItem_Activating()
 
 func UItem_Activating():
-	match Global.Player_Data.Cycle_Uitem_Index:
+	match PLY_Inventory.Cycle_Uitem_Index:
 		1:
-			Global.Player_Data.Cycle_Uitem_Active = Global.Player_Data.Inv_Uitem1_Equiped
+			PLY_Inventory.Cycle_Uitem_Active = PLY_Inventory.Inv_Uitem1_Equiped
 		2:
-			Global.Player_Data.Cycle_Uitem_Active = Global.Player_Data.Inv_Uitem2_Equiped
+			PLY_Inventory.Cycle_Uitem_Active = PLY_Inventory.Inv_Uitem2_Equiped
 		3:
-			Global.Player_Data.Cycle_Uitem_Active = Global.Player_Data.Inv_Uitem3_Equiped
+			PLY_Inventory.Cycle_Uitem_Active = PLY_Inventory.Inv_Uitem3_Equiped
 	
 	SignalBus.emit_signal("Side_HUD_Overlay_Update")
 	SignalBus.emit_signal("Side_HUD_Update")
 
 func UItem_Index_Centrilizing():
-	#print("Index at: ", str(Global.Player_Data.Cycle_Uitem_Index))
+	#print("Index at: ", str(GLOBAL.Player_Data.Cycle_Uitem_Index))
 	
-	Global.Player_Data.Cycle_Uitem_Index = wrapi(Global.Player_Data.Cycle_Uitem_Index, 1, 4)
+	PLY_Inventory.Cycle_Uitem_Index = wrapi(PLY_Inventory.Cycle_Uitem_Index, 1, 4)
 
 func UItem_Use():
-	match Global.Player_Data.Cycle_Uitem_Active:
+	match PLY_Inventory.Cycle_Uitem_Active:
 		"Sigil":
 			var Choice_Names = {
 					"stance_text": "Forefit?",
@@ -42,14 +42,14 @@ func UItem_Use():
 				}
 			SignalBus.emit_signal("request_popup", Choice_Names, "Sigil use")
 		"Glass Flask":
-			SignalBus.emit_signal("LOC_Value_Operator", true, "Health", Global.InventoryData.UItem_ID["Glass Flask"]["heal_value"])
+			SignalBus.emit_signal("LOC_Value_Operator", true, "Health", GLOBAL.InventoryData.UItem_ID["Glass Flask"]["heal_value"])
 
 func UItem_Consume_Prompt(Choice_Answer, Address_To):
 	match Address_To:
 		"Sigil use":
 			if Choice_Answer == "Give Up":
-				Global.Next_Scene = "uid://1pdtqb482aod"
-				get_tree().change_scene_to_packed(Global.Load_New)
+				GLOBAL.Next_Scene = "uid://1pdtqb482aod"
+				get_tree().change_scene_to_packed(GLOBAL.Load_New)
 			elif Choice_Answer == "Stand Strong":
 				pass
 				#print("Stand Strong")

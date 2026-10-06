@@ -2,35 +2,35 @@ extends Node
 
 func _ready() -> void:
 	BugBus.emit_signal("Report", "Player", "Player Permission Manager Working")
-	Global.Player_Data.Player_Status_Master = "Alive"
+	PLY_Flags.Player_Status_Master = "Alive"
 	Bulk_Permission_Assigning()
 	
 	SignalBus.Player_Permissions_Changer.connect(Player_Permissions_Setting)
 	SignalBus.Player_Permissions_Conditionals.connect(Player_Permissions_Conditionals)
 
 func Bulk_Permission_Assigning():
-	match Global.Player_Data.Player_Status_Master:
+	match PLY_Flags.Player_Status_Master:
 		"Alive":
-			Player_Permissions_Setting("Can_Move", "Yes")
-			Player_Permissions_Setting("Can_Look", "Yes")
-			Player_Permissions_Setting("Can_Show_UI_Side", "Yes")
-			Player_Permissions_Setting("Can_Show_UI_Stats", "Yes")
-			Player_Permissions_Setting("Can_Show_UI_Side", "Yes")
+			Player_Permissions_Setting("Can Move", "Yes")
+			Player_Permissions_Setting("Can Look", "Yes")
+			Player_Permissions_Setting("Can Show UI Side", "Yes")
+			Player_Permissions_Setting("Can Show UI Stats", "Yes")
+			Player_Permissions_Setting("Can Show UI Side", "Yes")
 		"Dead":
-			Player_Permissions_Setting("Can_Menus", "No")
-			Player_Permissions_Setting("Can_Show_UI_Side", "No")
-			Player_Permissions_Setting("Can_Show_UI_Stats", "No")
-			Player_Permissions_Setting("Can_Show_Prompts", "No")
-			Player_Permissions_Setting("Can_Move", "No")
-			Player_Permissions_Setting("Can_Look", "No")
-			Player_Permissions_Setting("Can_Use_UItems", "No")
+			Player_Permissions_Setting("Can Menus", "No")
+			Player_Permissions_Setting("Can Show UI Side", "No")
+			Player_Permissions_Setting("Can Show UI Stats", "No")
+			Player_Permissions_Setting("Can Show Prompts", "No")
+			Player_Permissions_Setting("Can Move", "No")
+			Player_Permissions_Setting("Can Look", "No")
+			Player_Permissions_Setting("Can Use UItems", "No")
 		"Undead":
 			pass
 	
-	match Global.Player_Data.Player_Status_2:
+	match PLY_Flags.Player_Status_2:
 		pass
 	
-	match Global.Player_Data.Player_Status_3:
+	match PLY_Flags.Player_Status_3:
 		pass
 	
 	SignalBus.emit_signal("Side_HUD_Update")
@@ -39,56 +39,56 @@ func Bulk_Permission_Assigning():
 func Stats_Setting(Target, Setting):
 	match Target:
 		"Player Status Master":
-			Global.Player_Data.Player_Status_Master = Setting
+			PLY_Flags.Player_Status_Master = Setting
 		"Player Status 1":
-			Global.Player_Data.Player_Status_1 = Setting
+			PLY_Flags.Player_Status_1 = Setting
 		"Player Status 2":
-			Global.Player_Data.Player_Status_2 = Setting
+			PLY_Flags.Player_Status_2 = Setting
 		"Player Status 3":
-			Global.Player_Data.Player_Status_3 = Setting
+			PLY_Flags.Player_Status_3 = Setting
 
 func Player_Permissions_Setting(Permission: String, Setting: String):
 	
-	if !Global.Player_Data.Player_Perms.has(Permission):
+	if !PLY_Flags.Perms.has(Permission):
 		push_error("Unknown permission: " + Permission)
 		return
 	
 	match Setting:
 		"Flip":
-			Global.Player_Data.Player_Perms[Permission] = !Global.Player_Data.Player_Perms[Permission]
+			PLY_Flags.Perms[Permission] = !PLY_Flags.Perms[Permission]
 		"Yes":
-			Global.Player_Data.Player_Perms[Permission] = true
+			PLY_Flags.Perms[Permission] = true
 		"No":
-			Global.Player_Data.Player_Perms[Permission] = false
+			PLY_Flags.Perms[Permission] = false
 	
 
 func Player_Permissions_Conditionals():
-	if Global.Inventory_Data.Tool_ID["HandGun"]["Ammo"] <= 0:
+	if PLY_Inventory.Tool_ID["HandGun"]["Ammo"] <= 0:
 		Player_Permissions_Setting("Can_Use_HandGun", "No")
-	elif Global.Inventory_Data.Tool_ID["HandGun"]["Ammo"] > 0:
+	elif PLY_Inventory.Tool_ID["HandGun"]["Ammo"] > 0:
 		Player_Permissions_Setting("Can_Use_HandGun", "Yes")
 	
-	if Global.Inventory_Data.Tool_ID["AssaultRifle"]["Ammo"] <= 0:
+	if PLY_Inventory.Tool_ID["AssaultRifle"]["Ammo"] <= 0:
 		Player_Permissions_Setting("Can_Use_AssaultRifle", "No")
-	elif Global.Inventory_Data.Tool_ID["AssaultRifle"]["Ammo"] > 0:
+	elif PLY_Inventory.Tool_ID["AssaultRifle"]["Ammo"] > 0:
 		Player_Permissions_Setting("Can_Use_AssaultRifle", "Yes")
 		
 	
-	if Global.Player_Data.Health <= 0:
-		Global.Player_Data.Player_Status_Master = "Dead"
+	if PLY_Var.Health <= 0:
+		PLY_Flags.Player_Status_Master = "Dead"
 		Bulk_Permission_Assigning()
-	elif Global.Player_Data.Health > 0:
-		Global.Player_Data.Player_Status_Master = "Alive"
+	elif PLY_Var.Health > 0:
+		PLY_Flags.Player_Status_Master = "Alive"
 		Bulk_Permission_Assigning()
 	
-	if Global.Player_Data.Stamina <= 0 :
+	if PLY_Var.Stamina <= 0 :
 		Player_Permissions_Setting("Can_Sprint", "No")
-	elif Global.Player_Data.Stamina > 0 :
+	elif PLY_Var.Stamina > 0 :
 		Player_Permissions_Setting("Can_Sprint", "Yes")
 	
-	if Global.Player_Data.Player_Perms.Is_Resting == true:
+	if PLY_Flags.Perms["Is Resting"] == true:
 		%Models.visible = false
 		%Model.visible = false
-	elif Global.Player_Data.Player_Perms.Is_Resting == false:
+	elif PLY_Flags.Perms["Is Resting"] == false:
 		%Models.visible = true
 		%Model.visible = true

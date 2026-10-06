@@ -1,5 +1,4 @@
 extends Node
-@onready var PlayerRes: Node = %"Player Stats"
 # STATSMAN Node = %"Stats Management"
 
 func _ready() -> void:
@@ -11,7 +10,7 @@ func _ready() -> void:
 func Action_Alternative(Direction):
 	match Direction:
 		"Right":
-			match Global.Player_Data.Inv_ToolR_Equiped:
+			match PLY_Inventory.Inv_ToolR_Equiped:
 				"null":
 					pass
 				"HandGun":
@@ -19,7 +18,7 @@ func Action_Alternative(Direction):
 				"AssaultRifle":
 					AssaultRifle("reload")
 		"Left":
-			match Global.Player_Data.Inv_ToolL_Equiped:
+			match PLY_Inventory.Inv_ToolL_Equiped:
 				"null":
 					Hand("Interact")
 				"HandGun":
@@ -31,7 +30,7 @@ func Action_Primary(Direction):
 	SignalBus.emit_signal("Player_Permissions_Conditionals")
 	match Direction:
 		"Right":
-			match Global.Player_Data.Inv_ToolR_Equiped:
+			match PLY_Inventory.Inv_ToolR_Equiped:
 				"null":
 					pass
 				"HandGun":
@@ -39,7 +38,7 @@ func Action_Primary(Direction):
 				"AssaultRifle":
 					AssaultRifle("Shoot")
 		"Left":
-			match Global.Player_Data.Inv_ToolL_Equiped:
+			match PLY_Inventory.Inv_ToolL_Equiped:
 				"null":
 					pass
 				"HandGun":
@@ -56,11 +55,11 @@ func Hand(Action_Type: String):
 func HandGun(Action_Type: String):
 	match Action_Type:
 		"Shoot":
-			if Global.Player_Data.Player_Perms["Can_Use_HandGun"] == true:
+			if PLY_Flags.Perms["Can Use HandGun"] == true:
 				SignalBus.emit_signal("LOC_Value_Operator", false, "Stamina", 2.0)
 				SignalBus.emit_signal("Player_Animations", "Tools_Anims/HandGun_Shoot")
 				SignalBus.emit_signal("SubRoutine_Call", "HandGun", "Ammunition Loss")
-				SignalBus.emit_signal("request_damage", Global.Inventory_Data.Tool_ID["HandGun"]["damage"])
+				SignalBus.emit_signal("request_damage", PLY_Inventory.Tool_ID["HandGun"]["damage"])
 				SignalBus.emit_signal("Sig_General_Interaction", %Ray1, "Take_Damage")
 			else:
 				# PLay jamming sound
@@ -72,11 +71,11 @@ func HandGun(Action_Type: String):
 func AssaultRifle(Action_Type: String):
 	match Action_Type:
 		"Shoot":
-			if Global.Player_Data.Player_Perms["Can_Use_AssaultRifle"] == true:
+			if PLY_Flags.Perms["Can Use AssaultRifle"] == true:
 				SignalBus.emit_signal("LOC_Value_Operator", false, "Stamina", 3.5)
 				SignalBus.emit_signal("Player_Animations", "Tools_Anims/Assault_Shoot")
 				SignalBus.emit_signal("SubRoutine_Call", "AssaultRifle", "Ammunition Loss")
-				SignalBus.emit_signal("request_damage", Global.Inventory_Data.Tool_ID["AssaultRifle"]["damage"])
+				SignalBus.emit_signal("request_damage", PLY_Inventory.Tool_ID["AssaultRifle"]["damage"])
 				SignalBus.emit_signal("Sig_General_Interaction", %Ray1, "Take_Damage")
 
 func Sword(Action_Type):

@@ -2,8 +2,15 @@ extends CharacterBody3D
 
 var togg: bool = false
 
+var Player_Cam: Camera3D
 var Free_Cam_Speed: float = 4.0
 var Free_Cam_Rise: float = 4.0
+
+func _ready() -> void:
+	%"Free Cam Backdrop".visible = false
+	Player_Cam = get_tree().get_root().find_child("Eyes", true, false)
+	if Player_Cam:
+		Player_Cam.make_current()
 
 func _input(input: InputEvent) -> void:
 	if input is InputEventMouseMotion and %"Free Cam Backdrop".visible == true:
@@ -21,7 +28,6 @@ func _input(input: InputEvent) -> void:
 		velocity.y = 0
 	
 	if Input.is_action_just_pressed("In_Sprint"):
-		
 		togg = !togg
 		if togg == true:
 			Free_Cam_Speed = 20.0

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4shc5vkdc64y"]
 
-[ext_resource type="Script" uid="uid://0nco37m6s8j3" path="res://Assets/Player/Scripts/Managers/DEBUG/Player Debug.gd" id="1_6ms5k"]
+[ext_resource type="Script" uid="uid://0nco37m6s8j3" path="res://Assets/Player/Scripts/Managers/DEBUG/Player Debug Input.gd" id="1_6ms5k"]
 [ext_resource type="Theme" uid="uid://buutafly06f6f" path="res://debug_UI.tres" id="2_bwpwa"]
 [ext_resource type="Script" uid="uid://dq4cglt5dc7ug" path="res://Assets/Player/Scripts/Managers/DEBUG/Player Debug Context.gd" id="3_bwpwa"]
 [ext_resource type="Script" uid="uid://g28uqcc5j40q" path="res://Assets/Player/Scripts/Managers/DEBUG/context_1.gd" id="4_xjamk"]
@@ -19,8 +19,10 @@ material = SubResource("StandardMaterial3D_wglcv")
 
 [node name="Debug Tree" type="Node3D" unique_id=247982300]
 
-[node name="Debug" type="Node" parent="." unique_id=1746655452]
+[node name="Debug Input" type="Node" parent="." unique_id=1746655452]
 script = ExtResource("1_6ms5k")
+
+[node name="Node" type="Node" parent="." unique_id=1700834689]
 
 [node name="Debug Monitoring" type="Node" parent="." unique_id=157878030]
 
@@ -59,26 +61,29 @@ grow_vertical = 2
 [node name="Debug Backdrop" type="PanelContainer" parent="Control" unique_id=861237934]
 unique_name_in_owner = true
 layout_mode = 0
-offset_right = 204.0
-offset_bottom = 29.0
+offset_right = 719.0
+offset_bottom = 54.0
+theme = ExtResource("2_bwpwa")
 
 [node name="Debug Background" type="ColorRect" parent="Control/Debug Backdrop" unique_id=1937789988]
 layout_mode = 2
 color = Color(1, 1, 1, 0.5882353)
 
-[node name="Page Container" type="VBoxContainer" parent="Control/Debug Backdrop" unique_id=1798288647]
+[node name="Debug Cont" type="TabContainer" parent="Control/Debug Backdrop" unique_id=481317465]
+unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("2_bwpwa")
+current_tab = 0
 
-[node name="Page 1" type="RichTextLabel" parent="Control/Debug Backdrop/Page Container" unique_id=2121743531]
+[node name="Ready" type="RichTextLabel" parent="Control/Debug Backdrop/Debug Cont" unique_id=2121743531]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Readily Variables:"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+metadata/_tab_index = 0
 
-[node name="Page 2" type="RichTextLabel" parent="Control/Debug Backdrop/Page Container" unique_id=1159457346]
+[node name="Inventory" type="RichTextLabel" parent="Control/Debug Backdrop/Debug Cont" unique_id=1159457346]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -86,25 +91,18 @@ text = "Invnetory checkup:"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+metadata/_tab_index = 1
 
-[node name="Page 3" type="RichTextLabel" parent="Control/Debug Backdrop/Page Container" unique_id=391801347]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-text = "Miscellaneous checkups:"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Page 4" type="RichTextLabel" parent="Control/Debug Backdrop/Page Container" unique_id=1206817187]
+[node name="Page 4" type="RichTextLabel" parent="Control/Debug Backdrop/Debug Cont" unique_id=1206817187]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+metadata/_tab_index = 2
 
-[node name="Page 5" type="RichTextLabel" parent="Control/Debug Backdrop/Page Container" unique_id=67678832]
+[node name="Page 5" type="RichTextLabel" parent="Control/Debug Backdrop/Debug Cont" unique_id=67678832]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -112,9 +110,26 @@ bbcode_enabled = true
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
+metadata/_tab_index = 3
+
+[node name="Misc" type="RichTextLabel" parent="Control/Debug Backdrop/Debug Cont" unique_id=391801347]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Miscellaneous checkups:"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+metadata/_tab_index = 4
+
+[node name="Page Container" type="VBoxContainer" parent="Control/Debug Backdrop" unique_id=1798288647]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_bwpwa")
 
 [node name="Page 6" type="RichTextLabel" parent="Control/Debug Backdrop/Page Container" unique_id=348934067]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "asss"
 

@@ -6,8 +6,8 @@ func _ready() -> void:
 	$"Debug View".visible = false
 	$Particles.visible = true
 	
-	if Global.Inventory_Data[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["Model"]:
-		var Model = load(Global.Inventory_Data[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["Model"])
+	if PLY_Inventory[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["Model"]:
+		var Model = load(PLY_Inventory[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["Model"])
 		var Loaded_Model = Model.instantiate()
 		%Models.add_child(Loaded_Model)
 	else:
@@ -24,10 +24,10 @@ func Interact():
 	
 	if CLSS_ITEM_SYS_NAME != "":
 		if CLSS_ITEM_TYPE in ["Key_ID", "Bundle_ID", "UItem_ID"]:
-			Global.Inventory_Data[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["quantity"] += CLSS_ITEM_QUANTITY
+			PLY_Inventory[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["quantity"] += CLSS_ITEM_QUANTITY
 		
-		if Global.Inventory_Data[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["picked?"] == false:
-			Global.Inventory_Data[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["picked?"] = true
+		if PLY_Inventory[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["picked?"] == false:
+			PLY_Inventory[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["picked?"] = true
 		
 		%"Pick Up".play()
 	

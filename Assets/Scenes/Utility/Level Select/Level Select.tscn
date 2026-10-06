@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://hdp8cynmfolx" path="res://Assets/Scenes/Utility/Level Select/Scrip/Level Select.gd" id="1_i0rgf"]
 [ext_resource type="Theme" uid="uid://ylysgsmxvcu1" path="res://Assets/UI/Main_UI_Theme.tres" id="2_112qj"]
+[ext_resource type="Script" uid="uid://dqquf3pe4n0t0" path="res://Assets/Scenes/Utility/Level Select/Scrip/Buttons.gd" id="2_natb6"]
+[ext_resource type="Theme" uid="uid://buutafly06f6f" path="res://debug_UI.tres" id="3_8xt04"]
 [ext_resource type="AudioStream" uid="uid://bf63tg8ti5ank" path="res://Assets/Scenes/Utility/Title Screem/SoundTrack/SFX_Select.mp3" id="3_112qj"]
 
 [node name="Stem" type="Control" unique_id=839777387]
@@ -13,6 +15,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i0rgf")
 
+[node name="Buttons" type="Node" parent="." unique_id=1394982744]
+script = ExtResource("2_natb6")
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1923448212]
 layout_mode = 1
 anchors_preset = 15
@@ -22,117 +27,97 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TabBar" type="TabBar" parent="." unique_id=632884811]
-layout_mode = 1
-offset_right = 110.0
-offset_bottom = 31.0
-theme = ExtResource("2_112qj")
-current_tab = 0
-clip_tabs = false
-close_with_middle_mouse = false
-scrolling_enabled = false
-switch_on_drag_hover = false
-scroll_to_selected = false
-tab_count = 3
-tab_0/title = "Test"
-tab_1/title = "Beta"
-tab_2/title = "Final"
-
-[node name="Main Menu" type="Button" parent="." unique_id=439901845]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -25.0
-offset_right = 145.0
-grow_vertical = 0
-theme = ExtResource("2_112qj")
-theme_override_colors/font_color = Color(1, 1, 0, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 0.8862745, 1)
-text = "<Main Menu>"
-
-[node name="Scroller" type="ScrollContainer" parent="." unique_id=1446776452]
+[node name="Level Selector" type="TabContainer" parent="." unique_id=1209649141]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 80.0
-offset_right = 838.0
-offset_bottom = 517.0
+offset_right = 321.0
+offset_bottom = 108.0
+theme = ExtResource("3_8xt04")
+theme_override_colors/font_selected_color = Color(1, 1, 0, 1)
+theme_override_colors/font_unselected_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 25
+current_tab = 0
 
-[node name="Maps" type="VBoxContainer" parent="Scroller" unique_id=1646431294]
+[node name="Test" type="VBoxContainer" parent="Level Selector" unique_id=1885991100]
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(20, 0)
+metadata/_tab_index = 0
 
-[node name="Test" type="VBoxContainer" parent="Scroller/Maps" unique_id=1885991100]
-unique_name_in_owner = true
+[node name="Test 0" type="Button" parent="Level Selector/Test" unique_id=421711111]
 layout_mode = 2
-
-[node name="Test 1" type="Button" parent="Scroller/Maps/Test" unique_id=421711111]
-layout_mode = 2
-theme = ExtResource("2_112qj")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
-text = "//TEST_1 (Test Level 0)"
+text = "//TEST 0"
 alignment = 0
 
-[node name="Test 2" type="Button" parent="Scroller/Maps/Test" unique_id=1560759695]
+[node name="Test 1" type="Button" parent="Level Selector/Test" unique_id=1560759695]
 layout_mode = 2
-theme = ExtResource("2_112qj")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
-text = "//TEST_2 (Test Level 1)"
+text = "//TEST 1"
 alignment = 0
 
-[node name="Test 3" type="Button" parent="Scroller/Maps/Test" unique_id=92398873]
+[node name="Test 2" type="Button" parent="Level Selector/Test" unique_id=92398873]
 layout_mode = 2
-theme = ExtResource("2_112qj")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
-text = "//TEST_3"
+text = "//TEST 2"
 alignment = 0
 
-[node name="Beta" type="VBoxContainer" parent="Scroller/Maps" unique_id=974865761]
-unique_name_in_owner = true
+[node name="Test 3" type="Button" parent="Level Selector/Test" unique_id=279572990]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+text = "//TEST 3"
+alignment = 0
+
+[node name="Beta" type="VBoxContainer" parent="Level Selector" unique_id=974865761]
 visible = false
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(20, 0)
+metadata/_tab_index = 1
 
-[node name="Beta 1" type="Button" parent="Scroller/Maps/Beta" unique_id=1847101641]
+[node name="Beta 1" type="Button" parent="Level Selector/Beta" unique_id=1847101641]
 layout_mode = 2
 theme = ExtResource("2_112qj")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+disabled = true
 text = "//Cliffside"
 alignment = 0
 
-[node name="Beta 2" type="Button" parent="Scroller/Maps/Beta" unique_id=1904118059]
+[node name="Beta 2" type="Button" parent="Level Selector/Beta" unique_id=1904118059]
 layout_mode = 2
 theme = ExtResource("2_112qj")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+disabled = true
 text = "//Elvoria (Lower Forest)"
+alignment = 0
 
-[node name="Beta 3" type="Button" parent="Scroller/Maps/Beta" unique_id=421955768]
+[node name="Beta 3" type="Button" parent="Level Selector/Beta" unique_id=421955768]
 layout_mode = 2
 theme = ExtResource("2_112qj")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+disabled = true
 text = "//BETA 1"
 alignment = 0
 
-[node name="Beta 4" type="Button" parent="Scroller/Maps/Beta" unique_id=1057657141]
-layout_mode = 2
-theme = ExtResource("2_112qj")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-text = "//BETA 2"
-alignment = 0
-
-[node name="Final" type="VBoxContainer" parent="Scroller/Maps" unique_id=1292674909]
-unique_name_in_owner = true
+[node name="Final" type="VBoxContainer" parent="Level Selector" unique_id=1292674909]
 visible = false
 layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(20, 0)
+metadata/_tab_index = 2
 
-[node name="Final 1" type="Button" parent="Scroller/Maps/Final" unique_id=1900129625]
+[node name="Final 1" type="Button" parent="Level Selector/Final" unique_id=1900129625]
 layout_mode = 2
 theme = ExtResource("2_112qj")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
+disabled = true
 text = "//Northen_Station"
+alignment = 0
 
 [node name="Sound" type="Node" parent="." unique_id=1098499567]
 
@@ -140,15 +125,49 @@ text = "//Northen_Station"
 unique_name_in_owner = true
 stream = ExtResource("3_112qj")
 
-[connection signal="tab_clicked" from="TabBar" to="." method="tab_clicked"]
-[connection signal="pressed" from="Main Menu" to="." method="main_menu_pressed"]
-[connection signal="mouse_entered" from="Scroller/Maps" to="." method="Hover_Noise"]
-[connection signal="mouse_entered" from="Scroller/Maps/Test" to="." method="_on_test_mouse_entered"]
-[connection signal="mouse_entered" from="Scroller/Maps/Test/Test 1" to="." method="_on_test_1_mouse_entered"]
-[connection signal="pressed" from="Scroller/Maps/Test/Test 1" to="." method="test_1_pressed"]
-[connection signal="pressed" from="Scroller/Maps/Test/Test 2" to="." method="test_2_pressed"]
-[connection signal="pressed" from="Scroller/Maps/Beta/Beta 1" to="." method="beta_1_pressed"]
-[connection signal="pressed" from="Scroller/Maps/Beta/Beta 2" to="." method="beta_2_pressed"]
-[connection signal="pressed" from="Scroller/Maps/Beta/Beta 3" to="." method="beta_3_pressed"]
-[connection signal="pressed" from="Scroller/Maps/Beta/Beta 4" to="." method="beta_4_pressed"]
-[connection signal="pressed" from="Scroller/Maps/Final/Final 1" to="." method="final_1_pressed"]
+[node name="Utilities" type="HBoxContainer" parent="." unique_id=1986145074]
+layout_mode = 0
+offset_top = 608.0
+offset_right = 145.0
+offset_bottom = 648.0
+theme = ExtResource("3_8xt04")
+
+[node name="Main" type="Button" parent="Utilities" unique_id=1508317551]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+text = "<MMenu>"
+alignment = 0
+
+[node name="Exit" type="Button" parent="Utilities" unique_id=1668083818]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+text = "<Exit>"
+
+[node name="Creep" type="RichTextLabel" parent="." unique_id=1288389574]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.19607843)
+layout_mode = 0
+offset_left = 500.0
+offset_top = 100.0
+offset_right = 564.0
+offset_bottom = 140.0
+theme = ExtResource("3_8xt04")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "[color=red]AAAAAAAA"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="Level Selector/Test/Test 0" to="." method="_on_test_1_mouse_entered"]
+[connection signal="pressed" from="Level Selector/Test/Test 0" to="Buttons" method="test_0"]
+[connection signal="pressed" from="Level Selector/Test/Test 1" to="Buttons" method="test_1"]
+[connection signal="pressed" from="Level Selector/Test/Test 2" to="Buttons" method="test_2"]
+[connection signal="pressed" from="Level Selector/Test/Test 3" to="Buttons" method="test_3"]
+[connection signal="pressed" from="Utilities/Main" to="Buttons" method="main"]
+[connection signal="button_up" from="Utilities/Exit" to="Buttons" method="exit"]

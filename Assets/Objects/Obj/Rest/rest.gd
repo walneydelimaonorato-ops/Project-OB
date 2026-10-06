@@ -8,11 +8,11 @@ func HUD_Element():
 	return HUD_Prompt
 
 func Interact():
-	if Global.Player_Data.Player_Perms.Can_Rest == true:
+	if GLOBAL.Player_Data.Player_Perms.Can_Rest == true:
 		SignalBus.emit_signal("Menu_Setting", "Rest")
 		%AudioStreamPlayer2D.play()
 		PlayerSaveManager.Write_Save()
-		Global.Player_Data.Current_Camera = %"Rest Camera"
-		Global.Player_Data.Current_Camera.make_current()
+		GLOBAL.Player_Data.Current_Camera = %"Rest Camera"
+		GLOBAL.Player_Data.Current_Camera.make_current()
 	else:
 		pass

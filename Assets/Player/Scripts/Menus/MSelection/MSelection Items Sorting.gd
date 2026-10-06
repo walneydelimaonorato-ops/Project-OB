@@ -13,16 +13,16 @@ func Item_Availabe_Match(Item_Type: String):
 	for Brace: TextureButton in %Braces.get_children():
 		if Brace.name in ["Start of Braces", "End of Braces", "Brace Placeholder"]: 
 			continue
-		if Global.Inventory_Data.Brace_ID[Brace.name]["picked?"] == true and Global.Inventory_Data.Brace_ID[Brace.name]["equipped?"] == false:
+		if PLY_Inventory.Brace_ID[Brace.name]["picked?"] == true and PLY_Inventory.Brace_ID[Brace.name]["equipped?"] == false:
 			Brace.visible = true
 	
 	for Tool: TextureButton in %Tools.get_children():
 		if Tool.name in ["Start of Tool", "End of Tool", "Tool Placeholder"]: 
 			continue
-		if Global.Inventory_Data.Tool_ID[Tool.name]["picked?"] == true and Global.Inventory_Data.Tool_ID[Tool.name]["equipped?"] == false:
+		if PLY_Inventory.Tool_ID[Tool.name]["picked?"] == true and PLY_Inventory.Tool_ID[Tool.name]["equipped?"] == false:
 			Tool.visible = true
 			var Info = Tool.get_child(0)
-			Info.text = str("[img=200]", Global.Inventory_Data.Tool_ID[Tool.name]["Icon"], "[/img]: ", Global.Inventory_Data.Tool_ID[Tool.name]["dys name"])
+			Info.text = str("[img=200]", PLY_Inventory.Tool_ID[Tool.name]["Icon"], "[/img]: ", PLY_Inventory.Tool_ID[Tool.name]["dys name"])
 
 func Menu_Path():
 	%Braces.visible = false
@@ -31,7 +31,7 @@ func Menu_Path():
 	%Tools.visible = false
 	%Spells.visible = false
 	%UItems.visible = false
-	match Global.Player_Data.Current_SubMenu:
+	match PLY_Flags.Menus["Current SubMenu"]:
 		"Brace menu":
 			%Braces.visible = true
 			SignalBus.emit_signal("focus_first_visible", %Braces)

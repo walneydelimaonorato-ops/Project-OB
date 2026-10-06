@@ -16,4 +16,4 @@ func Diagnose_ITEM_PICKUP():
 	
 	print_rich("[color=#ffdf00]>", "Item Quantity: ", CLSS_ITEM_QUANTITY)
 	print_rich("[color=#ffdf00]>", "Item Type: ", CLSS_ITEM_TYPE)
-	print_rich("[color=#ffdf00]>", "Model: ", Global.Inventory_Data[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["Model"])
+	print_rich("[color=#ffdf00]>", "Model: ", PLY_Inventory[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["Model"])

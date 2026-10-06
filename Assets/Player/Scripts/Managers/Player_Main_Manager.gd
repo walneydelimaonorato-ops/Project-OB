@@ -1,5 +1,4 @@
 extends Node
-@onready var PlayerRes: Node = %"Player Stats"
 
 var Colidder
 
@@ -21,31 +20,31 @@ func _ready() -> void:
 	InputMap.action_erase_events("ui_left")
 	InputMap.action_erase_events("ui_right")
 	
-	match Global.Player_Data.Control_Mode:
+	match PLY_Var.Control_Mode:
 		"Key":
-			Global.Player_Data.Un_Forward = "In_Forward"
-			Global.Player_Data.Un_Backward = "In_Backward"
-			Global.Player_Data.Un_Left = "In_Left"
-			Global.Player_Data.Un_Right = "In_Right"
-			Global.Player_Data.Un_Jump = "In_Jump"
-			Global.Player_Data.Un_Use_UItem = "In_Use_Item"
-			Global.Player_Data.Un_Cycle_UItem = "In_Cycle_UItem"
-			Global.Player_Data.Un_Sprint = "In_Sprint"
-			Global.Player_Data.Un_Ready_Menu = "In_Pause"
-			Global.Player_Data.Un_RPrimary_Tool_Use = "In_Mouse_R"
-			Global.Player_Data.Un_LPrimary_Tool_Use = "In_Mouse_L"
-			Global.Player_Data.Un_RSecondary_Tool_Use = ""
-			Global.Player_Data.Un_LSecondary_Tool_Use = ""
-			Global.Player_Data.Un_Tool_Alternive = "In_Tool_Alt"
-			Global.Player_Data.Un_2Hand_Toggle = ""
+			PLY_Input.Un_Forward = "In_Forward"
+			PLY_Input.Un_Backward = "In_Backward"
+			PLY_Input.Un_Left = "In_Left"
+			PLY_Input.Un_Right = "In_Right"
+			PLY_Input.Un_Jump = "In_Jump"
+			PLY_Input.Un_Use_UItem = "In_Use_Item"
+			PLY_Input.Un_Cycle_UItem = "In_Cycle_UItem"
+			PLY_Input.Un_Sprint = "In_Sprint"
+			PLY_Input.Un_Ready_Menu = "In_Pause"
+			PLY_Input.Un_RPrimary_Tool_Use = "In_Mouse_R"
+			PLY_Input.Un_LPrimary_Tool_Use = "In_Mouse_L"
+			PLY_Input.Un_RSecondary_Tool_Use = ""
+			PLY_Input.Un_LSecondary_Tool_Use = ""
+			PLY_Input.Un_Tool_Alternive = "In_Tool_Alt"
+			PLY_Input.Un_2Hand_Toggle = ""
 			
-			Global.Player_Data.UnUI_Up = "UI_Up"
-			Global.Player_Data.UnUI_Down = "UI_Down"
-			Global.Player_Data.UnUI_Left = "UI_Left"
-			Global.Player_Data.UnUI_Right = "UI_Right"
-			Global.Player_Data.UnUI_Accept = "UI_Accept"
-			Global.Player_Data.UnUI_Accept = "UI_Accept"
-			Global.Player_Data.UnUI_Unselect = "UI_Unselect"
+			PLY_Input.UnUI_Up = "UI_Up"
+			PLY_Input.UnUI_Down = "UI_Down"
+			PLY_Input.UnUI_Left = "UI_Left"
+			PLY_Input.UnUI_Right = "UI_Right"
+			PLY_Input.UnUI_Accept = "UI_Accept"
+			PLY_Input.UnUI_Accept = "UI_Accept"
+			PLY_Input.UnUI_Unselect = "UI_Unselect"
 			
 			add_action_key("ui_accept", KEY_ENTER)
 			add_action_key("ui_cancel", KEY_DELETE)
@@ -55,39 +54,39 @@ func _ready() -> void:
 			add_action_key("ui_left", KEY_LEFT)
 			add_action_key("ui_right", KEY_RIGHT)
 			
-			Global.Player_Data.UnHUDIcon_Up = "uid://bceq01ccemc8o"
-			Global.Player_Data.UnHUDIcon_Down = "uid://duiy16ed7ovil"
-			Global.Player_Data.UnHUDIcon_Left = "uid://beqbo453gynf1"
-			Global.Player_Data.UnHUDIcon_Right = "uid://cwgfmbtf38n10"
-			Global.Player_Data.UnHUDIcon_Accept = "uid://0cjin76csgan"
-			Global.Player_Data.UnHUDIcon_Return = "uid://d12fq4lnqjl7a"
-			Global.Player_Data.UnHUDIcon_Unselect = "uid://06v660kr4rts"
-			Global.Player_Data.UnHUDIcon_Interact = "uid://b1k76ih5cvb32"
+			PLY_Input.UnHUDIcon_Up = "uid://bceq01ccemc8o"
+			PLY_Input.UnHUDIcon_Down = "uid://duiy16ed7ovil"
+			PLY_Input.UnHUDIcon_Left = "uid://beqbo453gynf1"
+			PLY_Input.UnHUDIcon_Right = "uid://cwgfmbtf38n10"
+			PLY_Input.UnHUDIcon_Accept = "uid://0cjin76csgan"
+			PLY_Input.UnHUDIcon_Return = "uid://d12fq4lnqjl7a"
+			PLY_Input.UnHUDIcon_Unselect = "uid://06v660kr4rts"
+			PLY_Input.UnHUDIcon_Interact = "uid://b1k76ih5cvb32"
 		
 		"Joy":
-			Global.Player_Data.Un_Forward = "In_JoyL_Forward"
-			Global.Player_Data.Un_Backward = "In_JoyL_Backward"
-			Global.Player_Data.Un_Left = "In_JoyL_Left"
-			Global.Player_Data.Un_Right = "In_JoyL_Right"
-			Global.Player_Data.Un_Jump = "In_Joy_Jump"
-			Global.Player_Data.Un_Use_UItem = "In_Joy_Use_Item"
-			Global.Player_Data.Un_Cycle_UItem = "In_Joy_Cycle_UItem"
-			Global.Player_Data.Un_Sprint = "In_Joy_Sprint"
-			Global.Player_Data.Un_Ready_Menu = "In_Joy_Pause"
-			Global.Player_Data.Un_RPrimary_Tool_Use = "In_Joy_R2"
-			Global.Player_Data.Un_LPrimary_Tool_Use = "In_Joy_L2"
-			Global.Player_Data.Un_RSecondary_Tool_Use = ""
-			Global.Player_Data.Un_LSecondary_Tool_Use = ""
-			Global.Player_Data.Un_Tool_Alternive = "In_Joy_Tool_Alt"
-			Global.Player_Data.Un_2Hand_Toggle = ""
+			PLY_Input.Un_Forward = "In_JoyL_Forward"
+			PLY_Input.Un_Backward = "In_JoyL_Backward"
+			PLY_Input.Un_Left = "In_JoyL_Left"
+			PLY_Input.Un_Right = "In_JoyL_Right"
+			PLY_Input.Un_Jump = "In_Joy_Jump"
+			PLY_Input.Un_Use_UItem = "In_Joy_Use_Item"
+			PLY_Input.Un_Cycle_UItem = "In_Joy_Cycle_UItem"
+			PLY_Input.Un_Sprint = "In_Joy_Sprint"
+			PLY_Input.Un_Ready_Menu = "In_Joy_Pause"
+			PLY_Input.Un_RPrimary_Tool_Use = "In_Joy_R2"
+			PLY_Input.Un_LPrimary_Tool_Use = "In_Joy_L2"
+			PLY_Input.Un_RSecondary_Tool_Use = ""
+			PLY_Input.Un_LSecondary_Tool_Use = ""
+			PLY_Input.Un_Tool_Alternive = "In_Joy_Tool_Alt"
+			PLY_Input.Un_2Hand_Toggle = ""
 			
-			Global.Player_Data.UnUI_Up = "UI_Joy_Up"
-			Global.Player_Data.UnUI_Down = "UI_Joy_Down"
-			Global.Player_Data.UnUI_Left = "UI_Joy_Left"
-			Global.Player_Data.UnUI_Right = "UI_Joy_Right"
-			Global.Player_Data.UnUI_Accept = "UI_Joy_Accept"
-			Global.Player_Data.UnUI_Accept = "UI_Joy_Accept"
-			Global.Player_Data.UnUI_Unselect = "UI_Joy_Unselect"
+			PLY_Input.UnUI_Up = "UI_Joy_Up"
+			PLY_Input.UnUI_Down = "UI_Joy_Down"
+			PLY_Input.UnUI_Left = "UI_Joy_Left"
+			PLY_Input.UnUI_Right = "UI_Joy_Right"
+			PLY_Input.UnUI_Accept = "UI_Joy_Accept"
+			PLY_Input.UnUI_Accept = "UI_Joy_Accept"
+			PLY_Input.UnUI_Unselect = "UI_Joy_Unselect"
 			
 			add_action_button("ui_accept", JOY_BUTTON_A)
 			add_action_button("ui_cancel", JOY_BUTTON_X)
@@ -97,37 +96,37 @@ func _ready() -> void:
 			add_action_button("ui_left", JOY_BUTTON_DPAD_LEFT)
 			add_action_button("ui_right", JOY_BUTTON_DPAD_RIGHT)
 			
-			Global.Player_Data.UnHUDIcon_Up = "uid://bumwv083liw5g"
-			Global.Player_Data.UnHUDIcon_Down = "uid://dtmfxjgftvudj"
-			Global.Player_Data.UnHUDIcon_Left = "uid://ovx7jbm3tdnl"
-			Global.Player_Data.UnHUDIcon_Right = "uid://8p350oejc5ln"
-			Global.Player_Data.UnHUDIcon_Accept = "uid://ctvxynwec6rsy"
-			Global.Player_Data.UnHUDIcon_Return = "uid://pnd0l1xdxt3x"
-			Global.Player_Data.UnHUDIcon_Unselect = "uid://sdcs6qj0qc6x"
-			Global.Player_Data.UnHUDIcon_Interact = "uid://sdcs6qj0qc6x"
+			PLY_Input.UnHUDIcon_Up = "uid://bumwv083liw5g"
+			PLY_Input.UnHUDIcon_Down = "uid://dtmfxjgftvudj"
+			PLY_Input.UnHUDIcon_Left = "uid://ovx7jbm3tdnl"
+			PLY_Input.UnHUDIcon_Right = "uid://8p350oejc5ln"
+			PLY_Input.UnHUDIcon_Accept = "uid://ctvxynwec6rsy"
+			PLY_Input.UnHUDIcon_Return = "uid://pnd0l1xdxt3x"
+			PLY_Input.UnHUDIcon_Unselect = "uid://sdcs6qj0qc6x"
+			PLY_Input.UnHUDIcon_Interact = "uid://sdcs6qj0qc6x"
 #endregion
 
 func _process(delta: float) -> void:
-	Global.Player_Data.Health = clamp(Global.Player_Data.Health, 0, Global.Player_Data.Health_Max)
-	Global.Player_Data.Stamina = clamp(Global.Player_Data.Stamina, 0, Global.Player_Data.Stamina_Max)
+	PLY_Var.Health = clamp(PLY_Var.Health, 0, PLY_Var.Health_Max)
+	PLY_Var.Stamina = clamp(PLY_Var.Stamina, 0, PLY_Var.Stamina_Max)
 
 func Value_Operate(Operation: bool, Value: String, Quantity: float):
 	if Operation == false:
 		match Value:
 			"Health":
-				Global.Player_Data.Health -= Quantity
+				PLY_Var.Health -= Quantity
 			"Stamina": 
-				Global.Player_Data.Stamina -= Quantity
-				Global.Player_Data.Stamina_Regeneration_Active = false
-				Global.Player_Data.Stamina_Regeneration_Delay_Timer.start()
+				PLY_Var.Stamina -= Quantity
+				PLY_Var.Stamina_Regeneration_Active = false
+				PLY_Var.Stamina_Regeneration_Delay_Timer.start()
 	elif Operation == true:
 		match Value:
 			"Health":
-				Global.Player_Data.Health += Quantity
+				PLY_Var.Health += Quantity
 			"Stamina": 
-				Global.Player_Data.Stamina += Quantity
-				Global.Player_Data.Stamina_Regeneration_Active = false
-				Global.Player_Data.Stamina_Regeneration_Delay_Timer.start()
+				PLY_Var.Stamina += Quantity
+				PLY_Var.Stamina_Regeneration_Active = false
+				PLY_Var.Stamina_Regeneration_Delay_Timer.start()
 	
 	SignalBus.emit_signal("Side_Status_Update")
 	SignalBus.emit_signal("Player_Permissions_Conditionals")
@@ -136,7 +135,7 @@ func Value_Operate(Operation: bool, Value: String, Quantity: float):
 func _on_focus_changed(node: Control):
 	if node:
 		#print(node.name)
-		Global.Player_Data.Current_Focus = node.name
+		PLY_Var.Current_Focus = node.name
 
 func add_action_key(action, keycode):
 	var ev = InputEventKey.new()
@@ -160,6 +159,6 @@ func Geneneral_Interaction(Ray, Method):
 func Item_Pickup(Item_Sys_Name, Item_Type, Item_Quantity):
 	match Item_Type:
 		"Special":
-			Global.Player_Data.Tool_ID[Item_Sys_Name]["picked?"] = true
+			GLOBAL.Player_Data.Tool_ID[Item_Sys_Name]["picked?"] = true
 		"Ordinary":
 			pass

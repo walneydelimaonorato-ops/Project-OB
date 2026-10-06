@@ -20,8 +20,11 @@ bg_color = Color(0.004019165, 0.004019165, 0.004019165, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lffnb"]
 bg_color = Color(0.5882353, 0.5882353, 0.5882353, 0.39215687)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hh50"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wgxge"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(1, 1, 1, 0)
 
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -65,7 +68,7 @@ RichTextLabel/font_sizes/mono_font_size = 16
 RichTextLabel/font_sizes/normal_font_size = 16
 RichTextLabel/fonts/bold_font = null
 RichTextLabel/fonts/bold_italics_font = null
-RichTextLabel/fonts/italics_font = null
+RichTextLabel/fonts/italics_font = ExtResource("1_b0cg5")
 RichTextLabel/fonts/mono_font = null
 RichTextLabel/fonts/normal_font = ExtResource("1_b0cg5")
 RichTextLabel/icons/horizontal_rule = null
@@ -78,6 +81,19 @@ TabBar/fonts/font = ExtResource("1_b0cg5")
 TabBar/styles/tab_hovered = SubResource("StyleBoxFlat_lffnb")
 TabBar/styles/tab_selected = SubResource("StyleBoxFlat_lffnb")
 TabBar/styles/tab_unselected = SubResource("StyleBoxFlat_lffnb")
-TextEdit/colors/font_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_selected_color = Color(0, 0, 0, 1)
+TabContainer/colors/font_unselected_color = Color(0.27450982, 0.27450982, 0.27450982, 1)
+TabContainer/fonts/font = ExtResource("1_b0cg5")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_5hh50")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_5hh50")
+TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_5hh50")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_5hh50")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_5hh50")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_5hh50")
+TabContainer/styles/tabbar_background = SubResource("StyleBoxFlat_5hh50")
+TextEdit/colors/font_color = Color(0, 0, 1, 1)
+TextEdit/colors/font_readonly_color = Color(0, 0, 0, 1)
 TextEdit/fonts/font = ExtResource("1_b0cg5")
+TextEdit/styles/focus = SubResource("StyleBoxFlat_wgxge")
 TextEdit/styles/normal = SubResource("StyleBoxFlat_wgxge")
+TextEdit/styles/read_only = SubResource("StyleBoxFlat_wgxge")

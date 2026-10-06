@@ -8,10 +8,10 @@ var loading_done: bool = false
 func _ready() -> void:
 	loading_done = false
 	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-	ResourceLoader.load_threaded_request(Global.Next_Scene)
+	ResourceLoader.load_threaded_request(GLOBAL.Next_Scene)
 
 func _process(_delta: float) -> void:
-	var Status = ResourceLoader.load_threaded_get_status(Global.Next_Scene, progress)
+	var Status = ResourceLoader.load_threaded_get_status(GLOBAL.Next_Scene, progress)
 	
 	match Status:
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
@@ -20,14 +20,14 @@ func _process(_delta: float) -> void:
 		ResourceLoader.THREAD_LOAD_LOADED:
 			loading_done = true
 			
-			var scene = ResourceLoader.load_threaded_get(Global.Next_Scene)
+			var scene = ResourceLoader.load_threaded_get(GLOBAL.Next_Scene)
 			
 			get_tree().change_scene_to_packed(scene)
 
 func _on_loading_movie_1_finished() -> void:
 	print("Load finished")
 	#if loading_done == true:
-		#var scene = ResourceLoader.load_threaded_get(Global.Next_Scene)
+		#var scene = ResourceLoader.load_threaded_get(GLOBAL.Next_Scene)
 		#get_tree().change_scene_to_packed(scene)
 	#else:
 		#%"Loading movie 1".play()

@@ -6,11 +6,11 @@ func _ready() -> void:
 	SignalBus.Side_Status_Update.connect(Side_Status_Update)
 
 func Side_Status_Update():
-	%Stamina.visible = Global.Player_Data.Player_Perms.Can_Show_UI_Stats
-	%Health.visible = Global.Player_Data.Player_Perms.Can_Show_UI_Stats
+	%Stamina.visible = PLY_Flags.Perms["Can Show UI Stats"]
+	%Health.visible = PLY_Flags.Perms["Can Show UI Stats"]
 	
-	#Health.value = lerp(Health.value, Global.Player_Data.Health, 0.5)
-	%Health.max_value = Global.Player_Data.Health_Max
-	%Health.value = Global.Player_Data.Health
-	%Stamina.max_value = Global.Player_Data.Stamina_Max
-	%Stamina.value = Global.Player_Data.Stamina
+	#Health.value = lerp(Health.value, PLY_Var.Health, 0.5)
+	%Health.max_value = PLY_Var.Health_Max
+	%Health.value = PLY_Var.Health
+	%Stamina.max_value = PLY_Var.Stamina_Max
+	%Stamina.value = PLY_Var.Stamina

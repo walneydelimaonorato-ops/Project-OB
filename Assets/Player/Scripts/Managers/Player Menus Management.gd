@@ -18,64 +18,64 @@ func _ready() -> void:
 func Menu_Setting(Menu: String):
 	match Menu:
 		"Ready":
-			Global.Player_Data.Ready_Menu_Active = !Global.Player_Data.Ready_Menu_Active
-			%"Ready Menu".visible = Global.Player_Data.Ready_Menu_Active
-			if Global.Player_Data.Ready_Menu_Active:
+			PLY_Flags.Menus["Ready"] = !PLY_Flags.Menus["Ready"]
+			%"Ready Menu".visible = PLY_Flags.Menus["Ready"]
+			if PLY_Flags.Menus["Ready"]:
 				SignalBus.emit_signal("focus_first_visible", %"Ready Technical")
-				Global.Player_Data.Current_Menu = "Ready"
+				PLY_Flags.Menus["Current Menu"] = "Ready"
 				%"Menu Advance".play()
-			elif not Global.Player_Data.Ready_Menu_Active:
-				Global.Player_Data.Current_Menu = "null"
+			elif not PLY_Flags.Menus["Ready"]:
+				PLY_Flags.Menus["Current Menu"] = "null"
 				%"Menu Return".play()
 		
 		"Selection":
-			Global.Player_Data.Seletion_Menu_Active = !Global.Player_Data.Seletion_Menu_Active
-			%"Selection Menu".visible = Global.Player_Data.Seletion_Menu_Active
-			if Global.Player_Data.Seletion_Menu_Active:
+			PLY_Flags.Menus["Selection"] = !PLY_Flags.Menus["Selection"]
+			%"Selection Menu".visible = PLY_Flags.Menus["Selection"]
+			if PLY_Flags.Menus["Selection"]:
 				SignalBus.emit_signal("MSelection_Item_Sorting")
-				Global.Player_Data.Current_Menu = "Selection"
+				PLY_Flags.Menus["Current Menu"] = "Selection"
 				%"Menu Advance".play()
-			elif not Global.Player_Data.Seletion_Menu_Active:
+			elif not PLY_Flags.Menus["Selection"]:
 				SignalBus.emit_signal("focus_first_visible", %"Ready Wear and Tool")
-				Global.Player_Data.Current_Menu = "Ready"
+				PLY_Flags.Menus["Current Menu"] = "Ready"
 				%"Menu Return".play()
 		
 		"Keys":
-			Global.Player_Data.Keys_Menu_Active = !Global.Player_Data.Keys_Menu_Active
-			%"Keys Menu".visible = Global.Player_Data.Keys_Menu_Active
-			if Global.Player_Data.Keys_Menu_Active:
+			PLY_Flags.Menus["Keys"] = !PLY_Flags.Menus["Keys"]
+			%"Keys Menu".visible = PLY_Flags.Menus["Keys"]
+			if PLY_Flags.Menus["Keys"]:
 				SignalBus.emit_signal("focus_first_visible", %Keys)
-				Global.Player_Data.Player_Perms.Can_Move = false
-				Global.Player_Data.Player_Perms.Can_Look = false
-				Global.Player_Data.Current_Menu = "Keys"
+				PLY_Flags.Perms["Can Move"] = false
+				PLY_Flags.Perms["Can Look"] = false
+				PLY_Flags.Menus["Current Menu"] = "Keys"
 				%"Menu Advance".play()
-			elif not Global.Player_Data.Keys_Menu_Active:
-				Global.Player_Data.Player_Perms.Can_Move = true
-				Global.Player_Data.Player_Perms.Can_Look = true
-				Global.Player_Data.Current_Menu = "null"
+			elif not PLY_Flags.Menus["Keys"]:
+				PLY_Flags.Perms["Can Move"] = true
+				PLY_Flags.Perms["Can Look"] = true
+				PLY_Flags.Menus["Current Menu"] = "null"
 				%"Menu Return".play()
 		
 		"Rest":
-			Global.Player_Data.Player_Perms.Is_Resting = !Global.Player_Data.Player_Perms.Is_Resting
-			%"Rest Menu".visible = Global.Player_Data.Player_Perms.Is_Resting
-			if Global.Player_Data.Player_Perms.Is_Resting:
+			PLY_Flags.Perms["Is Resting"] = !PLY_Flags.Perms["Is Resting"]
+			%"Rest Menu".visible = PLY_Flags.Perms["Is Resting"]
+			if PLY_Flags.Perms["Is Resting"]:
 				SignalBus.emit_signal("focus_first_visible", %"Rest Buttons")
-				Global.Player_Data.Player_Perms.Can_Move = false
-				Global.Player_Data.Player_Perms.Can_Look = false
-				Global.Player_Data.Current_Menu = "Rest"
-			elif not Global.Player_Data.Player_Perms.Is_Resting:
-				Global.Player_Data.Player_Perms.Can_Move = true
-				Global.Player_Data.Player_Perms.Can_Look = true
-				Global.Player_Data.Current_Menu = "null"
+				PLY_Flags.Perms["Can Move"] = false
+				PLY_Flags.Perms["Can Look"] = false
+				PLY_Flags.Menus["Current Menu"] = "Rest"
+			elif not PLY_Flags.Perms["Is Resting"]:
+				PLY_Flags.Perms["Can Move"] = true
+				PLY_Flags.Perms["Can Look"] = true
+				PLY_Flags.Menus["Current Menu"] = "null"
 				%"Menu Return".play()
-				Global.Player_Data.Current_Camera = $"../../../../Head/Eyes"
-				Global.Player_Data.Current_Camera.make_current()
+				PLY_Var.Current_Camera = get_tree().get_root().find_child("Eyes", true, false)
+				PLY_Var.Current_Camera.make_current()
 		_:
 			print_rich("[color=#ff00ff]MANUAL ERROR: <Attempt to Exit Menu without valid parameters>[/color]")
 	SignalBus.emit_signal("Player_Permissions_Conditionals")
 
 func SubMenu_Setting(SubMenu: String):
-	Global.Player_Data.Current_SubMenu = SubMenu
+	PLY_Flags.Menus["Current SubMenu"] = SubMenu
 
 func Exit_Menu(Menu_Back_To: String, Focus_First):
 	$"Menu Return".play()
@@ -93,12 +93,12 @@ func focus_first_visible(container):
 			focus_first_visible(child)
 
 func Ready_Menu_Overlay_Update():
-	%"Ready Brace Overlay".texture = load(Global.Inventory_Data.Brace_ID[Global.Player_Data.Inv_Brace_Equiped]["Icon"])
-	%"Ready Wear Overlay".texture = load(Global.Inventory_Data.Wear_ID[Global.Player_Data.Inv_Wear_Equiped]["Icon"])
-	%"Ready Tool Left Overlay".texture = load(Global.Inventory_Data.Tool_ID[Global.Player_Data.Inv_ToolL_Equiped]["Icon"])
-	%"Ready Tool Right Overlay".texture = load(Global.Inventory_Data.Tool_ID[Global.Player_Data.Inv_ToolR_Equiped]["Icon"])
+	%"Ready Brace Overlay".texture = load(PLY_Inventory.Brace_ID[PLY_Inventory.Inv_Brace_Equiped]["Icon"])
+	%"Ready Wear Overlay".texture = load(PLY_Inventory.Wear_ID[PLY_Inventory.Inv_Wear_Equiped]["Icon"])
+	%"Ready Tool Left Overlay".texture = load(PLY_Inventory.Tool_ID[PLY_Inventory.Inv_ToolL_Equiped]["Icon"])
+	%"Ready Tool Right Overlay".texture = load(PLY_Inventory.Tool_ID[PLY_Inventory.Inv_ToolR_Equiped]["Icon"])
 	
 	#%"Ready Spell Overlay".texture = load(Item_Texture)
-	%"Ready UItem 1 Overlay".texture = load(Global.Inventory_Data.UItem_ID[Global.Player_Data.Inv_Uitem1_Equiped]["Icon"])
-	%"Ready UItem 2 Overlay".texture = load(Global.Inventory_Data.UItem_ID[Global.Player_Data.Inv_Uitem2_Equiped]["Icon"])
-	%"Ready UItem 3 Overlay".texture = load(Global.Inventory_Data.UItem_ID[Global.Player_Data.Inv_Uitem3_Equiped]["Icon"])
+	%"Ready UItem 1 Overlay".texture = load(PLY_Inventory.UItem_ID[PLY_Inventory.Inv_Uitem1_Equiped]["Icon"])
+	%"Ready UItem 2 Overlay".texture = load(PLY_Inventory.UItem_ID[PLY_Inventory.Inv_Uitem2_Equiped]["Icon"])
+	%"Ready UItem 3 Overlay".texture = load(PLY_Inventory.UItem_ID[PLY_Inventory.Inv_Uitem3_Equiped]["Icon"])

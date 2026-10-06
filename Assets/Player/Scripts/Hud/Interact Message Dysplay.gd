@@ -8,7 +8,7 @@ func _ready() -> void:
 	SignalBus.Sig_Interaction_HUD_Return.connect(Interact_Message_Display)
 
 func _process(_delta: float) -> void:
-	%"Interact Prompt".text = "[img=30]" + Global.Player_Data.UnHUDIcon_Interact + "[/img]: " + Interact_Prompt
+	%"Interact Prompt".text = "[img=30]" + PLY_Input.UnHUDIcon_Interact + "[/img]: " + Interact_Prompt
 	if %Ray2.is_colliding():
 		SignalBus.emit_signal("Sig_General_Interaction", %Ray2, "HUD_Element")
 	if !%Ray2.is_colliding():

@@ -2,71 +2,30 @@ extends Control
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-	%Test.visible = true
-	%Beta.visible = false
-	%Final.visible = false
+	BugBus.emit_signal("Report", "Map", "\n <LEVEL SELECT> \n")
+	Creep()
 
-func map1_pressed() -> void:
-	pass
-
-func map2_pressed() -> void:
-	pass
-
-func map_3_pressed() -> void:
-	pass
-
-
-func main_menu_pressed() -> void:
-	Global.Next_Scene = "uid://1pdtqb482aod"
-	get_tree().change_scene_to_packed(Global.Load_New)
-
-func tab_clicked(tab: int) -> void:
-	%Test.visible = false
-	%Beta.visible = false
-	%Final.visible = false
-	
-	match tab:
-		0:
-			%Test.visible = true
+func Creep():
+	var creep_txt: String
+	var creep_chance = randi_range(1, 1)
+	var creep_val: int = randi_range(1, 5)
+	%Creep.visible = true
+	match creep_val:
 		1:
-			%Beta.visible = true
+			creep_txt = "DARK PATHS I ROAM IN"
 		2:
-			%Final.visible = true
-
-func Hover_Noise() -> void:
-	%"Debug Clink".play()
-
-
-func test_1_pressed() -> void:
-	Global.Next_Scene = "uid://b02bwoffepy66"
-	get_tree().change_scene_to_packed(Global.Load_New)
-
-
-func beta_1_pressed() -> void:
-	Global.Next_Scene = "uid://cdd50mvv70oa7"
-	get_tree().change_scene_to_packed(Global.Load_New)
-
-
-func final_1_pressed() -> void:
-	Global.Next_Scene = "uid://c47b70iv613lg"
-	get_tree().change_scene_to_packed(Global.Load_New)
-
-
-func test_2_pressed() -> void:
-	Global.Next_Scene = "uid://bvnu5ll1csc13"
-	get_tree().change_scene_to_packed(Global.Load_New)
-
-
-func beta_2_pressed() -> void:
-	Global.Next_Scene = "uid://bale17m85tpdj"
-	get_tree().change_scene_to_packed(Global.Load_New)
-
-
-func beta_3_pressed() -> void:
-	Global.Next_Scene = "uid://l4fompyd1m4k"
-	get_tree().change_scene_to_packed(Global.Load_New)
-
-
-func beta_4_pressed() -> void:
-	Global.Next_Scene = "uid://swg00c6sqsjc"
-	get_tree().change_scene_to_packed(Global.Load_New)
+			creep_txt = "PUTRID AIR I BREATHE IN"
+		3:
+			creep_txt = "TRIAD I BELIEVE IN"
+		4:
+			creep_txt = "MAY RED RAIN"
+		5:
+			creep_txt = "MAY RED REIGN"
+		
+	if creep_chance <= 0:
+		%Creep.visible = false
+	else:
+		%Creep.position.x = randi_range(500, 900)
+		%Creep.position.y = randi_range(100, 600)
+		
+		%Creep.text = str("[color=red]", creep_txt)

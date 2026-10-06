@@ -1,5 +1,15 @@
-class_name InventoryData
-extends Resource
+extends Node
+
+var Inv_Brace_Equiped: String = "null"
+var Inv_Wear_Equiped: String = "null"
+var Inv_ToolL_Equiped: String = "null"
+var Inv_ToolR_Equiped: String = "null"
+var Inv_Spell_Equiped: String = "null"
+var Inv_Uitem1_Equiped: String = "null"
+var Inv_Uitem2_Equiped: String = "null"
+var Inv_Uitem3_Equiped: String = "null"
+var Cycle_Uitem_Active: String = "null"
+var Cycle_Uitem_Index: int = 1
 
 var Wild_Gold_Quantity: int = 0
 var Wild_Gold_Quantity_Max: int = 10
@@ -63,7 +73,6 @@ var Tool_ID = {
 		"damage": 25,
 		},
 }
-
 var Wear_ID = {
 	"null": {
 		"dys name": " ", 
@@ -93,7 +102,6 @@ var Wear_ID = {
 		"def. redu.": 2,
 		}
 }
-
 var Spell_ID = {
 	"null": {
 		"dys name": " ", 
@@ -113,7 +121,7 @@ var Spell_ID = {
 		"equipped?": false, 
 		"quantity": 6,
 		"max quantity": 6,
-		#"damage": 20 + Global.Player_Data.Divine_Damage_Bonus,
+		#"damage": 20 + GLOBAL.Player_Data.Divine_Damage_Bonus,
 		},
 	"Misericordia": {
 		"dys name": " ", 
@@ -133,7 +141,7 @@ var Spell_ID = {
 		"equipped?": false, 
 		"quantity": 10,
 		"max quantity": 10,
-		#"damage": 10 + Global.Player_Data.Heretic_Damage_Bonus,
+		#"damage": 10 + GLOBAL.Player_Data.Heretic_Damage_Bonus,
 		},
 	"Sunfire": {
 		"dys name": " ", 
@@ -146,7 +154,6 @@ var Spell_ID = {
 		"damage": 99999,
 		}
 }
-
 var Brace_ID = {
 	"null": {
 		"Icon": "uid://qua4cq3ubssm",
@@ -176,7 +183,6 @@ var Brace_ID = {
 		"equipped?": false, 
 		}
 }
-
 var UItem_ID = {
 	"null": {
 		"dys name": " ", 
@@ -217,7 +223,6 @@ var UItem_ID = {
 		"quantity": Wild_Gold_Quantity,
 		}
 }
-
 var Key_ID = {
 	"Beta Key 0": {
 		"dys name": "Heavy Stone Key", 
@@ -228,6 +233,5 @@ var Key_ID = {
 		"picked?": false
 	},
 }
-
 var Bundle_ID = {
 }

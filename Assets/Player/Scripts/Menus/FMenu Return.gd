@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
-		Menu_Exit(Global.Player_Data.Current_Menu)
+		Menu_Exit(PLY_Flags.Menus["Current Menu"])
 
 func Menu_Exit(Return_Path: String):
 	%"Menu Return".play()

@@ -18,8 +18,8 @@ func Tool_Rotation():
 	%"Assault Rig".visible = false
 	%"Latern Rig".visible = false
 	
-	if Global.Player_Data.Inv_ToolR_Equiped != "null":
-		match Global.Player_Data.Inv_ToolR_Equiped:
+	if PLY_Inventory.Inv_ToolR_Equiped != "null":
+		match PLY_Inventory.Inv_ToolR_Equiped:
 			"Sword":
 				%"Sword Rig".visible = true
 				%"Sword Rig".scale.x = 1.0
@@ -37,8 +37,8 @@ func Tool_Rotation():
 	else:
 		%"Arm Right Rig".visible = true
 	
-	if Global.Player_Data.Inv_ToolL_Equiped != "null":
-		match Global.Player_Data.Inv_ToolL_Equiped:
+	if PLY_Inventory.Inv_ToolL_Equiped != "null":
+		match PLY_Inventory.Inv_ToolL_Equiped:
 			"Sword":
 				%"Sword Rig".visible = true
 				%"Sword Rig".scale.x = -1.0

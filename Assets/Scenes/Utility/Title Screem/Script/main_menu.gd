@@ -47,7 +47,7 @@ func Menu_Matchup(Switch_To_Menu: String):
 			print("\r")
 
 func Hints_Matchup():
-	match Global.Player_Data.Control_Mode:
+	match GLOBAL.Player_Data.Control_Mode:
 		"Key":
 			Master_Icon = "uid://clom51u3qv08t"
 			Icon1 = "uid://c4pcxjw2avyi8"
@@ -57,7 +57,7 @@ func Hints_Matchup():
 			Icon1 = "uid://dc1xk808sl8if"
 			Icon2 = "uid://b7k14ccnc0d7h"
 	
-	if Global.Player_Data.Control_Mode == "Key" or Global.Player_Data.Control_Mode == "Joy":
+	if GLOBAL.Player_Data.Control_Mode == "Key" or GLOBAL.Player_Data.Control_Mode == "Joy":
 		%Hints.text = "[img=30]" + Icon1 + "[/img]: Select // [img=30]" + Icon2 + "[/img]: Return"
 		%"Control Type Icon".text = "[img=30]" + Master_Icon + "[/img]"
 	
@@ -77,8 +77,8 @@ func _input(event: InputEvent) -> void:
 
 #region Transporting Buttons
 func start_pressed() -> void:
-	Global.Next_Scene = "uid://1vffiiuaho52"
-	get_tree().change_scene_to_packed(Global.Load_New)
+	GLOBAL.Next_Scene = "uid://1vffiiuaho52"
+	get_tree().change_scene_to_packed(GLOBAL.Load_New)
 
 func options_pressed() -> void:
 	Menu_Matchup("Options")
@@ -103,9 +103,9 @@ func _on_title_music_loop_finished() -> void:
 
 func control_type_toggled(toggled_on: bool) -> void:
 	if toggled_on == true:
-		Global.Player_Data.Control_Mode = "Key"
+		GLOBAL.Player_Data.Control_Mode = "Key"
 	elif toggled_on == false:
-		Global.Player_Data.Control_Mode = "Joy"
+		GLOBAL.Player_Data.Control_Mode = "Joy"
 	Hints_Matchup()
 
 func music_toggle(toggled_on: bool) -> void:

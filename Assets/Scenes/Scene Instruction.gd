@@ -21,9 +21,9 @@ func Node_Settup():
 		if child.name in ["Player Position", "Player Pos", "Starting Position", "_Player"]:
 			child.name = "_Default Spawn"
 			var Player = get_tree().get_root().find_child("Player", true, false)
-			if Player.global_position != child.global_position or Player.global_rotation.y != child.global_rotation.y:
-				Player.global_position = child.global_position
-				Player.global_rotation.y = child.global_rotation.y
+			if Player.GLOBAL_position != child.GLOBAL_position or Player.GLOBAL_rotation.y != child.GLOBAL_rotation.y:
+				Player.GLOBAL_position = child.GLOBAL_position
+				Player.GLOBAL_rotation.y = child.GLOBAL_rotation.y
 				print_rich("[color=pink]PLAYER [color=orange]DEFAULT POSITION SET")
 	
 	if Node_Family.has("Graves"):
@@ -75,3 +75,6 @@ func Map_Node_Sweep():
 
 func Nav_Bake_Done():
 	print_rich("[color=pink]NAVEGATION MESH [color=green]BAKED")
+
+func _ready() -> void:
+	BugBus.emit_signal("Report", "Map", "Entering Map:")

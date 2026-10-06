@@ -11,5 +11,5 @@ func _ready() -> void:
 
 
 func area_entered(area: Area3D) -> void:
-	Global.Next_Scene = New_Map
-	get_tree().change_scene_to_packed(Global.Load_New)
+	GLOBAL.Next_Scene = New_Map
+	get_tree().change_scene_to_packed(GLOBAL.Load_New)

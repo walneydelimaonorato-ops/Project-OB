@@ -15,87 +15,79 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor() and Global.Player_Data.Debug_Fly == false:
+	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
 	# Handle jump.
-	if Global.Player_Data.Debug_Fly == false:
-		if Input.is_action_just_pressed(Global.Player_Data.Un_Jump) and is_on_floor():
-			velocity.y = 4.5
-	
-	elif Global.Player_Data.Debug_Fly == true:
-		if Input.is_action_pressed(Global.Player_Data.Un_Jump):
-			position.y += 0.1
-			velocity.y = 0
-		if Input.is_action_pressed(Global.Player_Data.Un_Sprint):
-			position.y -= 0.1
-			velocity.y = 0
+	if Input.is_action_just_pressed(PLY_Input.Un_Jump) and is_on_floor():
+		velocity.y = 4.5
 	
 	
-	if Input.is_action_pressed(Global.Player_Data.Un_Sprint) and Global.Player_Data.Player_Perms["Can_Sprint"] == true and Global.Player_Data.Stamina > 0:
-		Global.Player_Data.Base_Speed = lerp(Global.Player_Data.Base_Speed, Global.Player_Data.Run, 0.20)
-		#Global.Player_Data.Base_Speed = Global.Player_Data.Run # Current speed becomes running speed
+	if Input.is_action_pressed(PLY_Input.Un_Sprint) and PLY_Flags.Perms["Can Sprint"] == true and PLY_Var.Stamina > 0:
+		PLY_Var.Base_Speed = lerp(PLY_Var.Base_Speed, PLY_Var.Run, 0.20)
+		#.Base_Speed = .Run # Current speed becomes running speed
 		Running = true
 	else:
-		Global.Player_Data.Base_Speed = lerp(Global.Player_Data.Base_Speed, Global.Player_Data.Dummy_Speed, 0.20)
-		#Global.Player_Data.Base_Speed = Global.Player_Data.Dummy_Speed # Current speed falls back to a set value
+		PLY_Var.Base_Speed = lerp(PLY_Var.Base_Speed, PLY_Var.Dummy_Speed, 0.20)
+		#.Base_Speed = .Dummy_Speed # Current speed falls back to a set value
 		Running = false
 	
 	
-	var input_dir = Input.get_vector(Global.Player_Data.Un_Left, Global.Player_Data.Un_Right, Global.Player_Data.Un_Forward, Global.Player_Data.Un_Backward)
+	var input_dir = Input.get_vector(PLY_Input.Un_Left, PLY_Input.Un_Right, PLY_Input.Un_Forward, PLY_Input.Un_Backward)
 	var direction = (self.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = lerp(velocity.x, direction.x * Global.Player_Data.Base_Speed, 0.15)
-		velocity.z = lerp(velocity.z, direction.z * Global.Player_Data.Base_Speed, 0.15)
+		velocity.x = lerp(velocity.x, direction.x * PLY_Var.Base_Speed, 0.15)
+		velocity.z = lerp(velocity.z, direction.z * PLY_Var.Base_Speed, 0.15)
 		if Running:
 			SignalBus.emit_signal("LOC_Value_Operator", false, "Stamina", 0.2)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.15)
 		velocity.z = lerp(velocity.z, 0.0, 0.15)
 	
-	if Global.Player_Data.Player_Perms.Can_Move == true:
+	if PLY_Flags.Perms["Can Move"] == true:
 		move_and_slide()
 		Camera_Tilt(input_dir.x, input_dir.y, delta)
 
 func _process(_delta: float) -> void:
-	Global.Player_Data.Player_Position = self.global_position
-	Global.Player_Data.Player_Rotation = self.global_rotation
+	if BugBus.Developer_Mode == true:
+		PLY_Var.Player_Position = self.global_position
+		PLY_Var.Player_Rotation = self.global_rotation
 	
-	if Global.Player_Data.Control_Mode == "Joy":
+	if PLY_Var.Control_Mode == "Joy":
 		var look_in = Input.get_vector("In_JoyR_Up", "In_JoyR_Down", "In_JoyR_Left", "In_JoyR_Right")
-		self.rotation.y -= look_in.y * Global.Player_Data.Joy_Camera_Sens
-		Eyes.rotation.x -= look_in.x * Global.Player_Data.Joy_Camera_Sens
+		self.rotation.y -= look_in.y * PLY_Var.Joy_Camera_Sens
+		Eyes.rotation.x -= look_in.x * PLY_Var.Joy_Camera_Sens
 		Eyes.rotation.x = clamp(Eyes.rotation.x, deg_to_rad(-85), deg_to_rad(85))
 
 func _input(input: InputEvent) -> void:
-	if Input.is_action_just_pressed(Global.Player_Data.Un_Ready_Menu):
-		if Global.Player_Data.Current_Menu == "null" or Global.Player_Data.Current_Menu == "Ready":
+	if Input.is_action_just_pressed(PLY_Input.Un_Ready_Menu):
+		if PLY_Flags.Menus["Current Menu"] == "null" or PLY_Flags.Menus["Current Menu"] == "Ready":
 			SignalBus.emit_signal("Menu_Setting", "Ready")
 			Permission_Checkup()
 	
-	if Input.is_action_just_pressed(Global.Player_Data.Un_LPrimary_Tool_Use):
+	if Input.is_action_just_pressed(PLY_Input.Un_LPrimary_Tool_Use):
 		SignalBus.emit_signal("Action_Primary", "Left")
 		Permission_Checkup()
-	if Input.is_action_just_pressed(Global.Player_Data.Un_RPrimary_Tool_Use):
+	if Input.is_action_just_pressed(PLY_Input.Un_RPrimary_Tool_Use):
 		SignalBus.emit_signal("Action_Primary", "Right")
 		Permission_Checkup()
 	
-	if Input.is_action_just_pressed(Global.Player_Data.Un_Cycle_UItem):
+	if Input.is_action_just_pressed(PLY_Input.Un_Cycle_UItem):
 		SignalBus.emit_signal("UItem_Cycle")
 		Permission_Checkup()
 	
-	if Input.is_action_just_pressed(Global.Player_Data.Un_Use_UItem):
+	if Input.is_action_just_pressed(PLY_Input.Un_Use_UItem):
 		SignalBus.emit_signal("UItem_Use") #UItem_Use
 		Permission_Checkup()
 	
-	if Input.is_action_just_pressed(Global.Player_Data.Un_Tool_Alternive):
+	if Input.is_action_just_pressed(PLY_Input.Un_Tool_Alternive):
 		SignalBus.emit_signal("Tap_Hold_Interval")
 		Permission_Checkup()
 	
-	if Global.Player_Data.Control_Mode == "Key" and Global.Player_Data.Context_Debug == 0:
-		if input is InputEventMouseMotion and Global.Player_Data.Player_Perms.Can_Look == true:
-			self.rotation.y -= input.relative.x * Global.Player_Data.Key_Camera_Sens
-			Eyes.rotation.x -= input.relative.y * Global.Player_Data.Key_Camera_Sens
+	if PLY_Var.Control_Mode == "Key" and BugBus.Context_Debug == 0:
+		if input is InputEventMouseMotion and PLY_Flags.Perms["Can Look"] == true:
+			self.rotation.y -= input.relative.x * PLY_Var.Key_Camera_Sens
+			Eyes.rotation.x -= input.relative.y * PLY_Var.Key_Camera_Sens
 			Eyes.rotation.x = clamp(Eyes.rotation.x, deg_to_rad(-85), deg_to_rad(85))
 
 func Camera_Tilt(input_x, input_z, delta):
@@ -107,5 +99,5 @@ func Camera_Tilt(input_x, input_z, delta):
 		Head.rotation.x = lerp(Head.rotation.x, input_z * 0.1, 10 * delta)
 
 func Permission_Checkup():
-	if Global.Player_Data.Free_Cam_Mode == false:
+	if BugBus.Free_Cam_Mode == false:
 		SignalBus.emit_signal("Player_Permissions_Conditionals")

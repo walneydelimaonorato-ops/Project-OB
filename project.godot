@@ -22,11 +22,15 @@ boot_splash/minimum_display_time=3000
 
 [autoload]
 
-Global="*uid://chd33wii2ykgf"
+GLOBAL="*uid://chd33wii2ykgf"
 SignalBus="*uid://chyio332ihmub"
 PlayerSaveManager="*uid://cjhpqq7jo4sml"
 OverCanvas="*uid://dorj510gxlm2n"
 BugBus="*uid://0fudyrgm7msa"
+PLY_Input="*uid://np3y1iimailr"
+PLY_Flags="*uid://cpbe73aggm56i"
+PLY_Inventory="*uid://bxm6ilugvjags"
+PLY_Var="*uid://c5sgnwyqcn21t"
 
 [debug]
 
@@ -39,8 +43,8 @@ gdscript/warnings/inferred_declaration=2
 
 [display]
 
-window/size/mode=3
 window/size/resizable=false
+window/size/borderless=true
 window/size/minimize_disabled=true
 window/size/maximize_disabled=true
 window/stretch/mode="canvas_items"

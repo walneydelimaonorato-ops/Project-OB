@@ -5,8 +5,8 @@ func _ready() -> void:
 	SignalBus.Load_save_Visual_Update.connect(Visual_Update)
 
 func Visual_Update():
-	$"../..".position = Global.Player_Data.Player_Position
-	$"../..".rotation = Global.Player_Data.Player_Rotation
+	$"../..".position = GLOBAL.Player_Data.Player_Position
+	$"../..".rotation = GLOBAL.Player_Data.Player_Rotation
 	SignalBus.emit_signal("Side_Status_Update")
 	SignalBus.emit_signal("Tool_Rotation")
 	SignalBus.emit_signal("Side_HUD_Update")
