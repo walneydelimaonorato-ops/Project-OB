@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://4tdiqq1xjk6l"]
 
-[ext_resource type="Script" uid="uid://mqnu3pj8hge6" path="res://Assets/Objects/Obj/Door/Door.gd" id="1_bqg5c"]
-[ext_resource type="Script" uid="uid://bsxfsigo7y6lv" path="res://Assets/Objects/Obj/Door/Door Configuration.gd" id="2_8hyck"]
-[ext_resource type="PackedScene" uid="uid://car7lriheins4" path="res://Assets/Objects/Obj/Door/Door Model.glb" id="2_wcpuh"]
+[ext_resource type="Script" uid="uid://mqnu3pj8hge6" path="res://Assets/Actors/Object/Door/Door.gd" id="1_bqg5c"]
+[ext_resource type="Script" uid="uid://bsxfsigo7y6lv" path="res://Assets/Actors/Object/Door/Door Configuration.gd" id="2_8hyck"]
+[ext_resource type="PackedScene" uid="uid://car7lriheins4" path="res://Assets/Actors/Object/Door/Door Model.glb" id="2_wcpuh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k4mt7"]
 size = Vector3(1.2060547, 2.0058594, 0.2998047)

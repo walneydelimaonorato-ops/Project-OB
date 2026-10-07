@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dv0xnwjy3sq7u"]
 
-[ext_resource type="Script" uid="uid://clhk644m3rla2" path="res://Assets/Objects/Ent/NPC Basics.gd" id="1_m0e2r"]
+[ext_resource type="Script" uid="uid://clhk644m3rla2" path="res://Assets/Actors/Entity/Scripts/NPC Basics.gd" id="1_m0e2r"]
 [ext_resource type="PackedScene" uid="uid://eqg64wvvtlpy" path="res://Assets/Objects/Ent/Test/Character.glb" id="2_m0e2r"]
-[ext_resource type="Script" uid="uid://cwce1icretoaw" path="res://Assets/Objects/Ent/NPC Detector.gd" id="3_gfy7k"]
+[ext_resource type="Script" uid="uid://cwce1icretoaw" path="res://Assets/Actors/Entity/Scripts/NPC Detector.gd" id="3_gfy7k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wglcv"]
 size = Vector3(1, 2, 0.3)

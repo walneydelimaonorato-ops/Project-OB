@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c2rgs1dy80e6d" path="res://Assets/Player/hud.tscn" id="3_qe5k5"]
 [ext_resource type="Script" uid="uid://gdmfbg86aicp" path="res://Assets/Player/Scripts/Managers/Player Stamina Regeneration.gd" id="4_7o3jc"]
 [ext_resource type="Script" uid="uid://i4bvsiarcjvi" path="res://Assets/Player/Scripts/Managers/Player Permission Manager.gd" id="4_32kx7"]
-[ext_resource type="Script" uid="uid://bkgvq66k63d3e" path="res://Assets/Player/Items_Use&Select.gd" id="5_2r4ph"]
+[ext_resource type="Script" uid="uid://bkgvq66k63d3e" path="res://Assets/Player/Scripts/Managers/Items_Use&Select.gd" id="5_2r4ph"]
 [ext_resource type="Script" uid="uid://bgad4e5eyo42s" path="res://Assets/Player/Scripts/Interactions/Tools Sub-routine.gd" id="5_32kx7"]
 [ext_resource type="PackedScene" uid="uid://h8wt3hlx4i85" path="res://Assets/Player/Models/Models.tscn" id="5_hs5eg"]
 [ext_resource type="Script" uid="uid://cemp6arjo8v4c" path="res://Assets/Player/Scripts/Managers/Player_HoldTap.gd" id="5_or1rc"]

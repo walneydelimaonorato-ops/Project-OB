@@ -1,20 +1,34 @@
 class_name CUS_Lock
 extends Node
 
+@export var HUD_Prompt: String = "Interact"
+
 @export var CLSS_ACCEPT_KEY: String
 @export var CLSS_KEY_HOLDING: String
+
+@export var CLSS_UNLOCKS: Node3D
+
 var CLSS_KEYHOLE_FILLED: bool
 
+func _ready() -> void:
+	Diagnose_LOCK()
+
 func Diagnose_LOCK():
-	print_rich("\r [color=#ffdf00] Lock Class Diagnosis: ")
-	print_rich("[color=#ffdf00]>", "Node: ", self)
+	var Repo: String
+	Repo = "Lock Class Diagnosis:"
+	Repo += str("\n>", self)
 	
 	if CLSS_ACCEPT_KEY == "":
-		print_rich("[color=red]>", "This Lock has no assigned Key")
+		Repo += "\n>This Lock has no assigned Key"
 	else:
-		print_rich("[color=green]>", "Acceptable Key: ", CLSS_ACCEPT_KEY)
+		Repo += str("\n>Acceptable Key: ", CLSS_ACCEPT_KEY)
 	
 	if CLSS_KEY_HOLDING == "":
-		print_rich("[color=red]>", "Currently not holding a key")
+		Repo += str("\n>Currently not holding a key")
 	else:
-		print_rich("[color=#ffdf00]>", "Currently holding the ", CLSS_KEY_HOLDING, " Key")
+		Repo += str("\n>Currently holding the ", CLSS_KEY_HOLDING, " Key")
+	
+	BugBus.emit_signal("Report", "Map", Repo)
+
+func HUD_Element():
+	return HUD_Prompt

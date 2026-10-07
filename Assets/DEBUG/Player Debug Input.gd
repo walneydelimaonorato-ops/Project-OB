@@ -17,11 +17,7 @@ func _ready() -> void:
 		#
 #
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Deb_Quit"):
-		get_tree().quit()
-	
-	
-	elif Input.is_action_just_pressed("Deb_Toggle"):
+	if Input.is_action_just_pressed("Deb_Toggle"):
 		%"Debug Backdrop".visible = !%"Debug Backdrop".visible
 		%"Focus Inspector".visible = %"Debug Backdrop".visible
 	

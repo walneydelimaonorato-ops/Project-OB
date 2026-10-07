@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://dt014w4ctcem5"]
 
-[ext_resource type="Script" uid="uid://bx4dxcev5ot1x" path="res://Assets/Objects/Obj/Item/Item.gd" id="1_aq6l0"]
-[ext_resource type="Texture2D" uid="uid://bhcfg0jm4x0po" path="res://Assets/Objects/Obj/Item/Item Particle.png" id="2_yfo15"]
-[ext_resource type="AudioStream" uid="uid://drj1ecba7lii4" path="res://Assets/Objects/Obj/Item/Item Pickup.mp3" id="3_42ves"]
+[ext_resource type="Script" uid="uid://bx4dxcev5ot1x" path="res://Assets/Actors/Object/Item/Item.gd" id="1_aq6l0"]
+[ext_resource type="Texture2D" uid="uid://bhcfg0jm4x0po" path="res://Assets/Actors/Object/Item/Item Particle.png" id="2_yfo15"]
+[ext_resource type="AudioStream" uid="uid://drj1ecba7lii4" path="res://Assets/Actors/Object/Item/Item Pickup.mp3" id="3_42ves"]
 [ext_resource type="Texture2D" uid="uid://xpqfsgwbe6ha" path="res://Assets/Player/Models/TST_M14_CODBOW_TEXTURE_2.png" id="4_56gdt"]
 [ext_resource type="Texture2D" uid="uid://b5tee5wwcpbq7" path="res://Assets/Player/Models/TST_M1911_CODBOW_TEXTURE.png" id="5_bqpww"]
 

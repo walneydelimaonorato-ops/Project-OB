@@ -5,7 +5,6 @@ var Fade: bool = false
 var Local_Element: Control
 
 func _ready() -> void:
-	print_rich("Vignette Effect Workingddddddd")
 	Vignette(true, %Vignette)
 
 func _process(delta: float) -> void:

@@ -5,6 +5,10 @@ extends CharacterBody3D
 
 var Running: bool
 
+var HB_Fre: float = 2.0
+var HB_Amp: float = 0.2
+var HB_Tim: float = 0.0
+
 #var Un_LookUD := Vector2.ZERO
 #var Un_LookLR := Vector2.ZERO
 
@@ -46,7 +50,8 @@ func _physics_process(delta: float) -> void:
 	
 	if PLY_Flags.Perms["Can Move"] == true:
 		move_and_slide()
-		Camera_Tilt(input_dir.x, input_dir.y, delta)
+		#Camera_Tilt(input_dir.x, input_dir.y, delta)
+		Camera_Bob(delta)
 
 func _process(_delta: float) -> void:
 	if BugBus.Developer_Mode == true:
@@ -97,6 +102,18 @@ func Camera_Tilt(input_x, input_z, delta):
 		%Models.rotation.z = lerp(%Models.rotation.z, -input_x * 0.05, 10 * delta)
 	if Head:
 		Head.rotation.x = lerp(Head.rotation.x, input_z * 0.1, 10 * delta)
+
+func Camera_Bob(delta: float):
+	HB_Tim += delta * velocity.length() * float(is_on_floor())
+	
+	var HB_Pos: Vector3 = Vector3.ZERO
+	HB_Pos.y = sin(HB_Tim * HB_Fre) * HB_Amp
+	HB_Pos.x = cos(HB_Tim * HB_Fre / 2) * HB_Amp
+	
+	if velocity.length() >= 1.5:
+		Eyes.transform.origin = lerp(Eyes.transform.origin, HB_Pos, 0.1)
+	else:
+		Eyes.transform.origin = lerp(Eyes.transform.origin, Vector3.ZERO, 0.08)
 
 func Permission_Checkup():
 	if BugBus.Free_Cam_Mode == false:

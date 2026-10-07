@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c4p7mlvgrwsjp"]
 
-[ext_resource type="Script" uid="uid://sy37mogf6jd" path="res://Assets/Objects/Obj/Rest/rest.gd" id="1_g438r"]
-[ext_resource type="AudioStream" uid="uid://bmp8ns334hjfy" path="res://Assets/Objects/Obj/Rest/Rest.mp3" id="2_m1yji"]
-[ext_resource type="Script" uid="uid://dry211tlc50xx" path="res://Assets/Objects/Obj/Rest/Rest Camera.gd" id="3_y1i2l"]
+[ext_resource type="Script" uid="uid://sy37mogf6jd" path="res://Assets/Actors/Object/Rest/rest.gd" id="1_g438r"]
+[ext_resource type="AudioStream" uid="uid://bmp8ns334hjfy" path="res://Assets/Actors/Object/Rest/Rest.mp3" id="2_m1yji"]
+[ext_resource type="Script" uid="uid://dry211tlc50xx" path="res://Assets/Actors/Object/Rest/Rest Camera.gd" id="3_y1i2l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8njcc"]
 transparency = 1

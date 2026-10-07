@@ -70,6 +70,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "bbbbbb"
+editable = false
 metadata/_tab_index = 1
 
 [node name="Actor Report" type="TextEdit" parent="Debug Board/Panel/Debug Board" unique_id=343218875]

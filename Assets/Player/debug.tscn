@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://4shc5vkdc64y"]
 
-[ext_resource type="Script" uid="uid://0nco37m6s8j3" path="res://Assets/Player/Scripts/Managers/DEBUG/Player Debug Input.gd" id="1_6ms5k"]
+[ext_resource type="Script" uid="uid://0nco37m6s8j3" path="res://Assets/DEBUG/Player Debug Input.gd" id="1_6ms5k"]
 [ext_resource type="Theme" uid="uid://buutafly06f6f" path="res://debug_UI.tres" id="2_bwpwa"]
-[ext_resource type="Script" uid="uid://dq4cglt5dc7ug" path="res://Assets/Player/Scripts/Managers/DEBUG/Player Debug Context.gd" id="3_bwpwa"]
-[ext_resource type="Script" uid="uid://g28uqcc5j40q" path="res://Assets/Player/Scripts/Managers/DEBUG/context_1.gd" id="4_xjamk"]
-[ext_resource type="Script" uid="uid://b5gahxseugbso" path="res://Assets/Player/Scripts/Managers/DEBUG/Free Camera Controls.gd" id="5_rbdv1"]
+[ext_resource type="Script" uid="uid://dq4cglt5dc7ug" path="res://Assets/DEBUG/Player Debug Context.gd" id="3_bwpwa"]
+[ext_resource type="Script" uid="uid://g28uqcc5j40q" path="res://Assets/DEBUG/context_1.gd" id="4_xjamk"]
+[ext_resource type="Script" uid="uid://b5gahxseugbso" path="res://Assets/DEBUG/Free Camera Controls.gd" id="5_rbdv1"]
 [ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="6_5hh50"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4mt7"]

@@ -8,6 +8,9 @@ func _ready() -> void:
 	%"Actor Report".text = ""
 
 func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Deb_Quit"):
+		get_tree().quit()
+	
 	if Input.is_action_just_pressed("Deb_Context_Menu"):
 		%"Debug Board".visible = !%"Debug Board".visible
 

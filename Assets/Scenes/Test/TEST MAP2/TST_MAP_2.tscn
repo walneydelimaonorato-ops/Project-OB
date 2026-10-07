@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://yey3rq0j37ff" path="res://Assets/Player/Player_Model.tscn" id="1_5xduh"]
 [ext_resource type="Script" uid="uid://brrxr3gp4g0s2" path="res://Assets/Scenes/Scene Instruction.gd" id="1_48w84"]
 [ext_resource type="PackedScene" uid="uid://c2kig2txa1mhx" path="res://Assets/Scenes/Test/TEST MAP2/TST_MAP2.glb" id="2_ixma3"]
-[ext_resource type="PackedScene" uid="uid://dv0xnwjy3sq7u" path="res://Assets/Objects/NPC.tscn" id="3_ixma3"]
+[ext_resource type="PackedScene" uid="uid://dv0xnwjy3sq7u" path="res://Assets/Actors/Entity/NPC.tscn" id="3_ixma3"]
 [ext_resource type="PackedScene" uid="uid://eqg64wvvtlpy" path="res://Assets/Objects/Ent/Test/Character.glb" id="4_igltb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6mqva"]

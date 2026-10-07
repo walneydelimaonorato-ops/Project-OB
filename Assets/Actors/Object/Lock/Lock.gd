@@ -1,14 +1,9 @@
 extends CUS_Lock
-var HUD_Prompt: String = "Interact"
 var Stamp: String
 
 func _ready() -> void:
-	Diagnose_LOCK()
 	Stamp = str(self)
 	SignalBus.Keys_Recognition.connect(Key_Authenticate)
-
-func HUD_Element():
-	return HUD_Prompt
 
 func Interact():
 	if CLSS_KEYHOLE_FILLED == false:

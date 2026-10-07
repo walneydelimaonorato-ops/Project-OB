@@ -2,7 +2,7 @@ extends Control
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-	BugBus.emit_signal("Report", "Map", "\n <LEVEL SELECT> \n")
+	BugBus.emit_signal("Report", "Map", "<LEVEL SELECT> \n")
 	Creep()
 
 func Creep():

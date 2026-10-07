@@ -77,4 +77,6 @@ func Nav_Bake_Done():
 	print_rich("[color=pink]NAVEGATION MESH [color=green]BAKED")
 
 func _ready() -> void:
-	BugBus.emit_signal("Report", "Map", "Entering Map:")
+	var Repo: String
+	Repo = str("Map: ", GLOBAL.Next_Scene["Name"])
+	BugBus.emit_signal("Report", "Map", Repo)

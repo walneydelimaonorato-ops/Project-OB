@@ -5,14 +5,17 @@ extends Node
 @export var CLSS_DOOR_MATCH: String = ""
 
 func Diagnose_DOOR():
-	print_rich("[color=#ffdf00] Door Class Diagnosis: ")
+	var Repo: String
+	Repo = "Door Class Diagnosis: "
+	Repo += str("\n>", self)
 	
 	if CLSS_DOOR_ID == "":
-		print_rich("[color=#ffdf00]>", self, " has no ID")
+		Repo += "\n>Has no ID"
 	else:
-		print_rich("[color=#ffdf00]>", self, " ID: ", CLSS_DOOR_ID)
+		Repo += str("\n>ID: ", CLSS_DOOR_ID)
 	
 	if CLSS_DOOR_MATCH == "":
-		print_rich("[color=#ffdf00]>", self, " has no MATCH")
+		Repo += str("\n>has no MATCH")
 	else:
-		print_rich("[color=#ffdf00]>", self, " MATCH: ", CLSS_DOOR_MATCH)
+		Repo += str("\n>MATCH: ", CLSS_DOOR_MATCH)
+	BugBus.emit_signal("Report", "Map", Repo)

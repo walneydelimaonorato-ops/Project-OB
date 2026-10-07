@@ -34,12 +34,13 @@ func _physics_process(delta: float) -> void:
 	
 	elif Current_State == NPC_State.CHASE:
 		if get_tree().get_root().find_child("Player", true, false):
-			NavAgen.set_target_position(get_tree().get_root().find_child("Player", true, false).GLOBAL_position)
+			NavAgen.set_target_position(get_tree().get_root().find_child("Player", true, false).global_position)
 	
 	Next_Nav_Point = NavAgen.get_next_path_position()
 	velocity = (Next_Nav_Point - global_position).normalized() * SPEED
 	move_and_slide()
-	look_at(Next_Nav_Point)
+	if Next_Nav_Point != self.global_position:
+		look_at(Next_Nav_Point)
 
 func navagen_navigation_finished() -> void:
 	if Current_State == NPC_State.WANDER:
