@@ -5,8 +5,8 @@ func _ready() -> void:
 	PLY_Flags.Player_Status_Master = "Alive"
 	Bulk_Permission_Assigning()
 	
-	SignalBus.Player_Permissions_Changer.connect(Player_Permissions_Setting)
-	SignalBus.Player_Permissions_Conditionals.connect(Player_Permissions_Conditionals)
+	IntSigBus.Player_Permissions_Changer.connect(Player_Permissions_Setting)
+	IntSigBus.Player_Permissions_Conditionals.connect(Player_Permissions_Conditionals)
 
 func Bulk_Permission_Assigning():
 	match PLY_Flags.Player_Status_Master:
@@ -33,7 +33,7 @@ func Bulk_Permission_Assigning():
 	match PLY_Flags.Player_Status_3:
 		pass
 	
-	SignalBus.emit_signal("Side_HUD_Update")
+	IntSigBus.emit_signal("Side_HUD_Update")
 
 
 func Stats_Setting(Target, Setting):

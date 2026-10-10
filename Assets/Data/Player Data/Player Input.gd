@@ -1,5 +1,8 @@
 extends Node
 
+func _ready() -> void:
+	print_rich("[color=red]Player Input")
+
 var Un_Forward: String
 var Un_Backward: String
 var Un_Left: String
@@ -33,12 +36,3 @@ var UnHUDIcon_Accept: String
 var UnHUDIcon_Return: String
 var UnHUDIcon_Unselect: String
 var UnHUDIcon_Interact: String
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

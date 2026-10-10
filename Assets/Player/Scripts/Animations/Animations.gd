@@ -3,8 +3,8 @@ extends Node
 func _ready() -> void:
 	BugBus.emit_signal("Report", "Player", "Player Animations Working")
 	Tool_Rotation()
-	SignalBus.Player_Animations.connect(Play_Animation)
-	SignalBus.Tool_Rotation.connect(Tool_Rotation)
+	IntSigBus.Player_Animations.connect(Play_Animation)
+	IntSigBus.Tool_Rotation.connect(Tool_Rotation)
 
 func Play_Animation(Animation_Name):
 	%"General Animations".play(Animation_Name)

@@ -7,7 +7,7 @@ var HUD_Prompt: String = "TST Modular Choice Prompt"
 @export var No_text: String
 
 func _ready() -> void:
-	SignalBus.connect("reply_popup", on_reply_popup)
+	IntSigBus.connect("reply_popup", on_reply_popup)
 
 func HUD_Element():
 	return HUD_Prompt
@@ -18,7 +18,7 @@ func Interact():
 		"yes_text": Yes_Text,
 		"no_text": No_text
 	}
-	SignalBus.emit_signal("request_popup", Choice_Names, Pop_Up_Adress)
+	IntSigBus.emit_signal("request_popup", Choice_Names, Pop_Up_Adress)
 
 func on_reply_popup(Choice_Answer, Address_To):
 	if Address_To == Pop_Up_Adress:

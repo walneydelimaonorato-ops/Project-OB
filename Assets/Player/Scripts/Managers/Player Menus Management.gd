@@ -9,11 +9,11 @@ func _ready() -> void:
 	%"Dialogue Menu".visible = false
 	
 	Ready_Menu_Overlay_Update()
-	SignalBus.Ready_Menu_Overlay_Update.connect(Ready_Menu_Overlay_Update)
-	SignalBus.focus_first_visible.connect(focus_first_visible)
+	IntSigBus.Ready_Menu_Overlay_Update.connect(Ready_Menu_Overlay_Update)
+	IntSigBus.focus_first_visible.connect(focus_first_visible)
 	
-	SignalBus.Menu_Setting.connect(Menu_Setting)
-	SignalBus.SubMenu_Setting.connect(SubMenu_Setting)
+	IntSigBus.Menu_Setting.connect(Menu_Setting)
+	IntSigBus.SubMenu_Setting.connect(SubMenu_Setting)
 
 func Menu_Setting(Menu: String):
 	match Menu:
@@ -21,7 +21,7 @@ func Menu_Setting(Menu: String):
 			PLY_Flags.Menus["Ready"] = !PLY_Flags.Menus["Ready"]
 			%"Ready Menu".visible = PLY_Flags.Menus["Ready"]
 			if PLY_Flags.Menus["Ready"]:
-				SignalBus.emit_signal("focus_first_visible", %"Ready Technical")
+				IntSigBus.emit_signal("focus_first_visible", %"Ready Technical")
 				PLY_Flags.Menus["Current Menu"] = "Ready"
 				%"Menu Advance".play()
 			elif not PLY_Flags.Menus["Ready"]:
@@ -32,11 +32,11 @@ func Menu_Setting(Menu: String):
 			PLY_Flags.Menus["Selection"] = !PLY_Flags.Menus["Selection"]
 			%"Selection Menu".visible = PLY_Flags.Menus["Selection"]
 			if PLY_Flags.Menus["Selection"]:
-				SignalBus.emit_signal("MSelection_Item_Sorting")
+				IntSigBus.emit_signal("MSelection_Item_Sorting")
 				PLY_Flags.Menus["Current Menu"] = "Selection"
 				%"Menu Advance".play()
 			elif not PLY_Flags.Menus["Selection"]:
-				SignalBus.emit_signal("focus_first_visible", %"Ready Wear and Tool")
+				IntSigBus.emit_signal("focus_first_visible", %"Ready Wear and Tool")
 				PLY_Flags.Menus["Current Menu"] = "Ready"
 				%"Menu Return".play()
 		
@@ -44,7 +44,7 @@ func Menu_Setting(Menu: String):
 			PLY_Flags.Menus["Keys"] = !PLY_Flags.Menus["Keys"]
 			%"Keys Menu".visible = PLY_Flags.Menus["Keys"]
 			if PLY_Flags.Menus["Keys"]:
-				SignalBus.emit_signal("focus_first_visible", %Keys)
+				IntSigBus.emit_signal("focus_first_visible", %Keys)
 				PLY_Flags.Perms["Can Move"] = false
 				PLY_Flags.Perms["Can Look"] = false
 				PLY_Flags.Menus["Current Menu"] = "Keys"
@@ -59,7 +59,7 @@ func Menu_Setting(Menu: String):
 			PLY_Flags.Perms["Is Resting"] = !PLY_Flags.Perms["Is Resting"]
 			%"Rest Menu".visible = PLY_Flags.Perms["Is Resting"]
 			if PLY_Flags.Perms["Is Resting"]:
-				SignalBus.emit_signal("focus_first_visible", %"Rest Buttons")
+				IntSigBus.emit_signal("focus_first_visible", %"Rest Buttons")
 				PLY_Flags.Perms["Can Move"] = false
 				PLY_Flags.Perms["Can Look"] = false
 				PLY_Flags.Menus["Current Menu"] = "Rest"
@@ -72,17 +72,17 @@ func Menu_Setting(Menu: String):
 				PLY_Var.Current_Camera.make_current()
 		_:
 			print_rich("[color=#ff00ff]MANUAL ERROR: <Attempt to Exit Menu without valid parameters>[/color]")
-	SignalBus.emit_signal("Player_Permissions_Conditionals")
+	IntSigBus.emit_signal("Player_Permissions_Conditionals")
 
 func SubMenu_Setting(SubMenu: String):
 	PLY_Flags.Menus["Current SubMenu"] = SubMenu
 
 func Exit_Menu(Menu_Back_To: String, Focus_First):
 	$"Menu Return".play()
-	SignalBus.emit_signal("Tool_Rotation")
-	SignalBus.emit_signal("Side_HUD_Update")
+	IntSigBus.emit_signal("Tool_Rotation")
+	IntSigBus.emit_signal("Side_HUD_Update")
 	Menu_Setting(Menu_Back_To)
-	SignalBus.emit_signal("focus_first_visible", Focus_First)
+	IntSigBus.emit_signal("focus_first_visible", Focus_First)
 
 func focus_first_visible(container):
 	for child in container.get_children():

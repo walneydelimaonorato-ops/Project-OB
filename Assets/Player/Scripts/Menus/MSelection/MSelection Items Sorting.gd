@@ -3,7 +3,7 @@ extends Node
 func _ready() -> void:
 	BugBus.emit_signal("Report", "Player", "MSelection Items Sorting Working")
 	
-	SignalBus.MSelection_Item_Sorting.connect(MSelection_Item_Sorting)
+	IntSigBus.MSelection_Item_Sorting.connect(MSelection_Item_Sorting)
 
 func MSelection_Item_Sorting():
 	Menu_Path()
@@ -34,25 +34,25 @@ func Menu_Path():
 	match PLY_Flags.Menus["Current SubMenu"]:
 		"Brace menu":
 			%Braces.visible = true
-			SignalBus.emit_signal("focus_first_visible", %Braces)
+			IntSigBus.emit_signal("focus_first_visible", %Braces)
 		"Wear menu":
 			%Wear.visible = true
-			SignalBus.emit_signal("focus_first_visible", %Wear)
+			IntSigBus.emit_signal("focus_first_visible", %Wear)
 		"Tool Right menu":
 			%Tools.visible = true
-			SignalBus.emit_signal("focus_first_visible", %Tools)
+			IntSigBus.emit_signal("focus_first_visible", %Tools)
 		"Tool Left menu":
 			%Tools.visible = true
-			SignalBus.emit_signal("focus_first_visible", %Tools)
+			IntSigBus.emit_signal("focus_first_visible", %Tools)
 		"Spell menu":
 			%Spells.visible = true
-			SignalBus.emit_signal("focus_first_visible", %Spells)
+			IntSigBus.emit_signal("focus_first_visible", %Spells)
 		"UItem1 menu":
 			%UItems.visible = true
-			SignalBus.emit_signal("focus_first_visible", %UItems)
+			IntSigBus.emit_signal("focus_first_visible", %UItems)
 		"UItem2 menu":
 			%UItems.visible = true
-			SignalBus.emit_signal("focus_first_visible", %UItems)
+			IntSigBus.emit_signal("focus_first_visible", %UItems)
 		"UItem3 menu":
 			%UItems.visible = true
-			SignalBus.emit_signal("focus_first_visible", %UItems)
+			IntSigBus.emit_signal("focus_first_visible", %UItems)

@@ -22,7 +22,7 @@ func Start_Stamina_Regeneration():
 func Stamina_Regeneration_Process(delta):
 	if PLY_Var.Stamina_Regeneration_Active == true and PLY_Var.Stamina < PLY_Var.Stamina_Max:
 		PLY_Var.Stamina += PLY_Var.Stamina_Regeneration_Rate * delta
-		SignalBus.emit_signal("Side_Status_Update")
+		IntSigBus.emit_signal("Side_Status_Update")
 		if PLY_Var.Stamina >= PLY_Var.Stamina_Max:
 			PLY_Var.Stamina = PLY_Var.Stamina_Max
 			PLY_Var.Stamina_Regeneration_Active = false

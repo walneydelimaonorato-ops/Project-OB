@@ -5,12 +5,12 @@ var Valid_Prompt: bool = false
 
 func _ready() -> void:
 	BugBus.emit_signal("Report", "Player", "Interact Message Working")
-	SignalBus.Sig_Interaction_HUD_Return.connect(Interact_Message_Display)
+	IntSigBus.Sig_Interaction_HUD_Return.connect(Interact_Message_Display)
 
 func _process(_delta: float) -> void:
 	%"Interact Prompt".text = "[img=30]" + PLY_Input.UnHUDIcon_Interact + "[/img]: " + Interact_Prompt
 	if %Ray2.is_colliding():
-		SignalBus.emit_signal("Sig_General_Interaction", %Ray2, "HUD_Element")
+		IntSigBus.emit_signal("Sig_General_Interaction", %Ray2, "HUD_Element")
 	if !%Ray2.is_colliding():
 		Valid_Prompt = false
 	

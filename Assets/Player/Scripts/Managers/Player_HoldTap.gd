@@ -14,7 +14,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	BugBus.emit_signal("Report", "Player", "Player Hold-Tap Working")
-	SignalBus.Tap_Hold_Interval.connect(Hold_Tap_Innitializer)
+	IntSigBus.Tap_Hold_Interval.connect(Hold_Tap_Innitializer)
 
 func Hold_Tap_Innitializer():
 	PLY_Var.TH_Active = true
@@ -35,9 +35,9 @@ func Hold_Tap_Timer(Delta: float):
 func Hold_Tap_Stale(Result: float):
 	if Result < PLY_Var.TH_Threshold:
 		PLY_Var.TH_Tapped = true
-		SignalBus.emit_signal("Action_Alternative", "Left")
+		IntSigBus.emit_signal("Action_Alternative", "Left")
 	elif Result >= PLY_Var.TH_Threshold:
-		SignalBus.emit_signal("Action_Alternative", "Right")
+		IntSigBus.emit_signal("Action_Alternative", "Right")
 		PLY_Var.TH_Held = true
 
 
@@ -67,10 +67,10 @@ func Hold_Tap_Stale(Result: float):
 #func Hold_Tap_Stale(TH_Time: float):
 	#if TH_Time < GLOBAL.Player_Data.TH_Threshold:
 		#GLOBAL.Player_Data.TH_Tapped = true
-		#SignalBus.emit_signal("Action_Alternative", "Left")
+		#IntSigBus.emit_signal("Action_Alternative", "Left")
 	#elif TH_Time >= GLOBAL.Player_Data.TH_Threshold:
 		#GLOBAL.Player_Data.TH_Held = true
-		#SignalBus.emit_signal("Action_Alternative", "Right")
+		#IntSigBus.emit_signal("Action_Alternative", "Right")
 #
 #func Hold_Tap_Timing(delta):
 	##print("TH_Active: ", GLOBAL.Player_Data.TH_Active, " Timing: ", GLOBAL.Player_Data.TH_Timing)

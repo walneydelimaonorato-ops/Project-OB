@@ -6,8 +6,8 @@
 #func _ready() -> void:
 	#print("Save File Manager Working")
 	#Set_Active_Save_File(1)
-	#SignalBus.Save_File_Write.connect(Save_Write)
-	#SignalBus.Save_File_Read.connect(Save_Read)
+	#IntSigBus.Save_File_Write.connect(Save_Write)
+	#IntSigBus.Save_File_Read.connect(Save_Read)
 #
 #func Set_Active_Save_File(Setter: int):
 	#if Setter == 1:

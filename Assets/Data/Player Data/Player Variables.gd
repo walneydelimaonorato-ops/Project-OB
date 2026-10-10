@@ -1,5 +1,8 @@
 extends Node
 
+func _ready() -> void:
+	print_rich("[color=red]Player Variable")
+
 var Player_Position: Vector3
 var Player_Rotation: Vector3
 
@@ -150,6 +153,3 @@ var Current_Map: String = ""
 #region IDs
 
 #endregion
-
-#func _ready() -> void:
-	#print_rich("[color=#ffdf00]Player Stats Working[/color]")

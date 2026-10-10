@@ -5,16 +5,16 @@ var Local_Stamp: String
 
 func _ready() -> void:
 	BugBus.emit_signal("Report", "Player", "Menu Keys Working")
-	SignalBus.MSelection_Item_Sorting.connect(Keys_Organizing)
-	SignalBus.Keys_Stamping.connect(Keys_Stamping)
+	IntSigBus.MSelection_Item_Sorting.connect(Keys_Organizing)
+	IntSigBus.Keys_Stamping.connect(Keys_Stamping)
 	%"Keys Menu".visible = false
 
 func Keys_Stamping(Stamp: String):
 	Local_Stamp = Stamp
 
 func Keys_Used():
-	SignalBus.emit_signal("Keys_Recognition", Local_Stamp, Key_Selected)
-	SignalBus.emit_signal("Menu_Setting", "Keys")
+	IntSigBus.emit_signal("Keys_Recognition", Local_Stamp, Key_Selected)
+	IntSigBus.emit_signal("Menu_Setting", "Keys")
 
 func beta_key_0_pressed() -> void:
 	if PLY_Inventory.Key_ID["Beta Key 0"]["quantity"] >= 1:
@@ -22,8 +22,8 @@ func beta_key_0_pressed() -> void:
 		Keys_Used()
 		PLY_Inventory.Key_ID["Beta Key 0"]["quantity"] -= 1
 	else:
-		SignalBus.emit_signal("Menu_Setting", "Keys")
-		SignalBus.emit_signal("Notification", "No keys in hand", 2)
+		IntSigBus.emit_signal("Menu_Setting", "Keys")
+		IntSigBus.emit_signal("Notification", "No keys in hand", 2)
 
 func Keys_Organizing():
 	for Keys: TextureButton in %Keys.get_children():

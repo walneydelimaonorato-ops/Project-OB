@@ -29,7 +29,7 @@ func Diagnose_LEVER():
 		Repo += str("\n>Has no model")
 	
 	if CLSS_LEVER_ANIMATION == null:
-		Repo += str("\n>Missing Animation Node")
+		Repo += str("\n>Missing animation node")
 	else:
 		Repo += str("\n>Has Animation")
 	

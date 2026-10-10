@@ -6,8 +6,8 @@ var Local_Storage_Address: String
 
 func _ready() -> void:
 	BugBus.emit_signal("Report", "Player", "Dialogue Manager Working")
-	SignalBus.NPC_Dialogue.connect(Diag_Play)
-	SignalBus.Interaction_Prompt_Manager_Response.connect(Proceed_SPLIT)
+	IntSigBus.NPC_Dialogue.connect(Diag_Play)
+	IntSigBus.Interaction_Prompt_Manager_Response.connect(Proceed_SPLIT)
 
 func Diag_Play(Param1: String, Param2: String):
 	Local_Storage_Param1 = Param1
@@ -27,10 +27,10 @@ func _current_voice_finished() -> void:
 func Proceed_Sytem():
 	match GLOBAL.Dialogue.Library[Local_Storage_Param1][Local_Storage_Param2]["PROCEED"]:
 		"NEXT":
-			SignalBus.emit_signal("Interaction_Manager_Request", "Dialogue", "", "NPC_TEST_INTRODUCTION", GLOBAL.Dialogue.Library[Local_Storage_Param1][Local_Storage_Param2]["NEXT"])
+			IntSigBus.emit_signal("Interaction_Manager_Request", "Dialogue", "", "NPC_TEST_INTRODUCTION", GLOBAL.Dialogue.Library[Local_Storage_Param1][Local_Storage_Param2]["NEXT"])
 		"SPLIT":
 			Local_Storage_Address = GLOBAL.Dialogue.Library[Local_Storage_Param1][Local_Storage_Param2]["ADDRESS"]
-			SignalBus.emit_signal("Interaction_Prompt_Manager", Local_Storage_Address, GLOBAL.Dialogue.Library[Local_Storage_Param1][Local_Storage_Param2]["CHOICE NAME"], GLOBAL.Dialogue.Library[Local_Storage_Param1][Local_Storage_Param2]["CONFIRM"], GLOBAL.Dialogue.Library[Local_Storage_Param1][Local_Storage_Param2]["DENY"])
+			IntSigBus.emit_signal("Interaction_Prompt_Manager", Local_Storage_Address, GLOBAL.Dialogue.Library[Local_Storage_Param1][Local_Storage_Param2]["CHOICE NAME"], GLOBAL.Dialogue.Library[Local_Storage_Param1][Local_Storage_Param2]["CONFIRM"], GLOBAL.Dialogue.Library[Local_Storage_Param1][Local_Storage_Param2]["DENY"])
 			%"Dialogue Menu".visible = false
 		"END":
 			%"Dialogue Menu".visible = false
@@ -39,6 +39,6 @@ func Proceed_Sytem():
 func Proceed_SPLIT(Address: String, Response: bool):
 	if Address == Local_Storage_Address:
 		if Response == true:
-			SignalBus.emit_signal("Interaction_Manager_Request", "Dialogue", "", Local_Storage_Address, GLOBAL.Dialogue.Library[Local_Storage_Param1][Local_Storage_Param2]["PASS A"])
+			IntSigBus.emit_signal("Interaction_Manager_Request", "Dialogue", "", Local_Storage_Address, GLOBAL.Dialogue.Library[Local_Storage_Param1][Local_Storage_Param2]["PASS A"])
 		elif Response == false:
-			SignalBus.emit_signal("Interaction_Manager_Request", "Dialogue", "", Local_Storage_Address, GLOBAL.Dialogue.Library[Local_Storage_Param1][Local_Storage_Param2]["PASS B"])
+			IntSigBus.emit_signal("Interaction_Manager_Request", "Dialogue", "", Local_Storage_Address, GLOBAL.Dialogue.Library[Local_Storage_Param1][Local_Storage_Param2]["PASS B"])

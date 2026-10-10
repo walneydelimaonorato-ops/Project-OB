@@ -1,5 +1,8 @@
 extends Node
 
+func  ready() -> void:
+	print_rich("[color=red]Player Flags Working")
+
 var Player_Status_Master: String
 var Player_Status_1: String
 var Player_Status_2: String
@@ -42,12 +45,3 @@ var Perms = {
 	"Can Sprint": false,
 	"Can Look": false,
 }
-
-# Called when the node enters the scene tree for the first time.
-func  ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func  process(delta: float) -> void:
-	pass

@@ -3,7 +3,7 @@ extends Node
 func _ready() -> void:
 	BugBus.emit_signal("Report", "Player", "Side Status Working")
 	Side_Status_Update()
-	SignalBus.Side_Status_Update.connect(Side_Status_Update)
+	IntSigBus.Side_Status_Update.connect(Side_Status_Update)
 
 func Side_Status_Update():
 	%Stamina.visible = PLY_Flags.Perms["Can Show UI Stats"]

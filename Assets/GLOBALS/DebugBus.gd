@@ -1,5 +1,8 @@
 extends Node
 
+func _ready() -> void:
+	print_rich("[color=red]Debug Bus")
+
 signal Report(Target: String, Report: String)
 
 var test1: bool = false

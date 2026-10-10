@@ -18,7 +18,7 @@ script = ExtResource("2_8hyck")
 
 [node name="Door Model2" parent="." unique_id=632454510 instance=ExtResource("2_wcpuh")]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Door Model2/Door Rig" parent_id_path=PackedInt32Array(632454510, 2101970003) index="1" unique_id=1907669569]
+[node name="StaticBody3D" type="StaticBody3D" parent="Door Model2/Door Rig" parent_id_path=PackedInt32Array(632454510, 1224405398) index="1" unique_id=1907669569]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door Model2/Door Rig/StaticBody3D" unique_id=1627859989]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5997788, 1.0051847, 0)

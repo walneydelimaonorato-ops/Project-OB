@@ -73,4 +73,4 @@ func Remove_Item():
 				PLY_Inventory.Inv_Uitem3_Equiped = "null"
 			else:
 				%"Menu Return".play()
-	SignalBus.emit_signal("Tool_Rotation")
+	IntSigBus.emit_signal("Tool_Rotation")

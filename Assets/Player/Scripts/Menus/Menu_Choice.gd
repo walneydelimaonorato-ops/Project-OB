@@ -9,8 +9,8 @@ var Response: bool = false
 
 func _ready() -> void:
 	BugBus.emit_signal("Report", "Player", "Choice Menu Working")
-	#SignalBus.connect("request_popup", on_request_popup)
-	SignalBus.connect("Interaction_Prompt_Manager", butt)
+	#IntSigBus.connect("request_popup", on_request_popup)
+	IntSigBus.connect("Interaction_Prompt_Manager", butt)
 
 func butt(Address: String, Ch_Name: String, Ch_Confirm: String, Ch_Deny: String):
 	Local_Address_Name = Address
@@ -19,7 +19,7 @@ func butt(Address: String, Ch_Name: String, Ch_Confirm: String, Ch_Deny: String)
 	%Stance.text = Ch_Name
 	%Confirm.text = Ch_Confirm
 	%Deny.text = Ch_Deny
-	SignalBus.emit_signal("focus_first_visible", %"Yes_No Choice Box")
+	IntSigBus.emit_signal("focus_first_visible", %"Yes_No Choice Box")
 
 
 
@@ -33,24 +33,24 @@ func butt(Address: String, Ch_Name: String, Ch_Confirm: String, Ch_Deny: String)
 	#%Stance.text = Choice_Names.stance_text
 	#%Confirm.text = Choice_Names.yes_text
 	#%Deny.text = Choice_Names.no_text
-	#SignalBus.emit_signal("focus_first_visible", %"Yes_No Choice Box")
+	#IntSigBus.emit_signal("focus_first_visible", %"Yes_No Choice Box")
 
 func on_confirm() -> void:
 	Response = true
-	SignalBus.emit_signal("Interaction_Prompt_Manager_Response", Local_Address_Name, Response)
+	IntSigBus.emit_signal("Interaction_Prompt_Manager_Response", Local_Address_Name, Response)
 	%"Choice Menu".visible = false
 	
 	#var Choice_Answer: String = Local_Confirm_Name
 	#var Address_To: String = Local_Adress_Name
-	#SignalBus.emit_signal("reply_popup", Choice_Answer, Address_To)
+	#IntSigBus.emit_signal("reply_popup", Choice_Answer, Address_To)
 	#%"Choice Menu".visible = false
 
 func on_deny() -> void:
 	Response = false
-	SignalBus.emit_signal("Interaction_Prompt_Manager_Response", Local_Address_Name, Response)
+	IntSigBus.emit_signal("Interaction_Prompt_Manager_Response", Local_Address_Name, Response)
 	%"Choice Menu".visible = false
 	
 	#var Choice_Answer: String = Local_Deny_Name
 	#var Address_To: String = Local_Adress_Name
-	#SignalBus.emit_signal("reply_popup", Choice_Answer, Address_To)
+	#IntSigBus.emit_signal("reply_popup", Choice_Answer, Address_To)
 	#%"Choice Menu".visible = false

@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, direction.x * PLY_Var.Base_Speed, 0.15)
 		velocity.z = lerp(velocity.z, direction.z * PLY_Var.Base_Speed, 0.15)
 		if Running:
-			SignalBus.emit_signal("LOC_Value_Operator", false, "Stamina", 0.2)
+			IntSigBus.emit_signal("LOC_Value_Operator", false, "Stamina", 0.2)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.15)
 		velocity.z = lerp(velocity.z, 0.0, 0.15)
@@ -67,26 +67,26 @@ func _process(_delta: float) -> void:
 func _input(input: InputEvent) -> void:
 	if Input.is_action_just_pressed(PLY_Input.Un_Ready_Menu):
 		if PLY_Flags.Menus["Current Menu"] == "null" or PLY_Flags.Menus["Current Menu"] == "Ready":
-			SignalBus.emit_signal("Menu_Setting", "Ready")
+			IntSigBus.emit_signal("Menu_Setting", "Ready")
 			Permission_Checkup()
 	
 	if Input.is_action_just_pressed(PLY_Input.Un_LPrimary_Tool_Use):
-		SignalBus.emit_signal("Action_Primary", "Left")
+		IntSigBus.emit_signal("Action_Primary", "Left")
 		Permission_Checkup()
 	if Input.is_action_just_pressed(PLY_Input.Un_RPrimary_Tool_Use):
-		SignalBus.emit_signal("Action_Primary", "Right")
+		IntSigBus.emit_signal("Action_Primary", "Right")
 		Permission_Checkup()
 	
 	if Input.is_action_just_pressed(PLY_Input.Un_Cycle_UItem):
-		SignalBus.emit_signal("UItem_Cycle")
+		IntSigBus.emit_signal("UItem_Cycle")
 		Permission_Checkup()
 	
 	if Input.is_action_just_pressed(PLY_Input.Un_Use_UItem):
-		SignalBus.emit_signal("UItem_Use") #UItem_Use
+		IntSigBus.emit_signal("UItem_Use") #UItem_Use
 		Permission_Checkup()
 	
 	if Input.is_action_just_pressed(PLY_Input.Un_Tool_Alternive):
-		SignalBus.emit_signal("Tap_Hold_Interval")
+		IntSigBus.emit_signal("Tap_Hold_Interval")
 		Permission_Checkup()
 	
 	if PLY_Var.Control_Mode == "Key" and BugBus.Context_Debug == 0:
@@ -117,4 +117,4 @@ func Camera_Bob(delta: float):
 
 func Permission_Checkup():
 	if BugBus.Free_Cam_Mode == false:
-		SignalBus.emit_signal("Player_Permissions_Conditionals")
+		IntSigBus.emit_signal("Player_Permissions_Conditionals")

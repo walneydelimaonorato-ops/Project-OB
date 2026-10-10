@@ -6,9 +6,9 @@ var Colidder
 func _ready() -> void:
 	BugBus.emit_signal("Report", "Player", "Player Management Working")
 	
-	SignalBus.LOC_Value_Operator.connect(Value_Operate)
-	SignalBus.item_transfer.connect(Item_Pickup)
-	SignalBus.Sig_General_Interaction.connect(Geneneral_Interaction)
+	IntSigBus.LOC_Value_Operator.connect(Value_Operate)
+	IntSigBus.item_transfer.connect(Item_Pickup)
+	IntSigBus.Sig_General_Interaction.connect(Geneneral_Interaction)
 	
 	get_viewport().gui_focus_changed.connect(_on_focus_changed)
 	
@@ -128,8 +128,8 @@ func Value_Operate(Operation: bool, Value: String, Quantity: float):
 				PLY_Var.Stamina_Regeneration_Active = false
 				PLY_Var.Stamina_Regeneration_Delay_Timer.start()
 	
-	SignalBus.emit_signal("Side_Status_Update")
-	SignalBus.emit_signal("Player_Permissions_Conditionals")
+	IntSigBus.emit_signal("Side_Status_Update")
+	IntSigBus.emit_signal("Player_Permissions_Conditionals")
 
 
 func _on_focus_changed(node: Control):
@@ -154,7 +154,7 @@ func Geneneral_Interaction(Ray, Method):
 		Colidder = Ray.get_collider()
 		if Colidder.get_parent().has_method(Method): # If the collider has the method
 			Colidder.get_parent().call(Method) # Executes the method
-			SignalBus.emit_signal("Sig_Interaction_HUD_Return", Colidder)
+			IntSigBus.emit_signal("Sig_Interaction_HUD_Return", Colidder)
 
 func Item_Pickup(Item_Sys_Name, Item_Type, Item_Quantity):
 	match Item_Type:

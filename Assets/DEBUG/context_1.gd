@@ -10,19 +10,19 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	%"Context Label".text = str("(", Box, "/", Max, ") Save File Insight")
 	if %"LabelsA Box".visible == true:
-		%LabelA1.text = str("Current Map: ", PlayerSaveManager.Save_Data.Save_List["Current Map"])
-		%LabelA1.text += str("\rPosition: ", PlayerSaveManager.Save_Data.Save_List["GPosition"])
-		%LabelA1.text += str("\rRotation: ", PlayerSaveManager.Save_Data.Save_List["GRotation"])
-		%LabelA1.text += str("\rHealth: ", PlayerSaveManager.Save_Data.Save_List["Health"])
-		%LabelA1.text += str("\rRHand: ", PlayerSaveManager.Save_Data.Save_List["RHand"])
-		%LabelA1.text += str("\rLHand: ", PlayerSaveManager.Save_Data.Save_List["LHand"])
-		%LabelA1.text += str("\rBrace: ", PlayerSaveManager.Save_Data.Save_List["Brace"])
-		%LabelA1.text += str("\rWear: ", PlayerSaveManager.Save_Data.Save_List["Wear"])
-		%LabelA1.text += str("\rSpell: ", PlayerSaveManager.Save_Data.Save_List["Spell"])
-		%LabelA1.text += str("\rUitem 1: ", PlayerSaveManager.Save_Data.Save_List["Uitem 1"])
-		%LabelA1.text += str("\rUitem 2: ", PlayerSaveManager.Save_Data.Save_List["Uitem 2"])
-		%LabelA1.text += str("\rUitem 3: ", PlayerSaveManager.Save_Data.Save_List["Uitem 3"])
-		#%LabelA1.text += str("\r: ", PlayerSaveManager.Save_Data.Save_List[""])
+		%LabelA1.text = str("Current Map: ", PLY_SaveSys.Save_Data.Save_List["Current Map"])
+		%LabelA1.text += str("\rPosition: ", PLY_SaveSys.Save_Data.Save_List["GPosition"])
+		%LabelA1.text += str("\rRotation: ", PLY_SaveSys.Save_Data.Save_List["GRotation"])
+		%LabelA1.text += str("\rHealth: ", PLY_SaveSys.Save_Data.Save_List["Health"])
+		%LabelA1.text += str("\rRHand: ", PLY_SaveSys.Save_Data.Save_List["RHand"])
+		%LabelA1.text += str("\rLHand: ", PLY_SaveSys.Save_Data.Save_List["LHand"])
+		%LabelA1.text += str("\rBrace: ", PLY_SaveSys.Save_Data.Save_List["Brace"])
+		%LabelA1.text += str("\rWear: ", PLY_SaveSys.Save_Data.Save_List["Wear"])
+		%LabelA1.text += str("\rSpell: ", PLY_SaveSys.Save_Data.Save_List["Spell"])
+		%LabelA1.text += str("\rUitem 1: ", PLY_SaveSys.Save_Data.Save_List["Uitem 1"])
+		%LabelA1.text += str("\rUitem 2: ", PLY_SaveSys.Save_Data.Save_List["Uitem 2"])
+		%LabelA1.text += str("\rUitem 3: ", PLY_SaveSys.Save_Data.Save_List["Uitem 3"])
+		#%LabelA1.text += str("\r: ", PLY_SaveSys.Save_Data.Save_List[""])
 
 
 func NEXT() -> void:

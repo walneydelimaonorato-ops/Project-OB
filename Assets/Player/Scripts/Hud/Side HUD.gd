@@ -4,8 +4,8 @@ extends Node
 func _ready() -> void:
 	BugBus.emit_signal("Report", "Player", "Side HUD Working")
 	Side_HUD_Update()
-	SignalBus.Side_HUD_Overlay_Update.connect(Side_Menu_Overlay_Update)
-	SignalBus.Side_HUD_Update.connect(Side_HUD_Update)
+	IntSigBus.Side_HUD_Overlay_Update.connect(Side_Menu_Overlay_Update)
+	IntSigBus.Side_HUD_Update.connect(Side_HUD_Update)
 
 func Side_HUD_Update():
 	%"Side HUD".visible = PLY_Flags.Perms["Can Show UI Stats"]

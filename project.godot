@@ -22,14 +22,15 @@ boot_splash/minimum_display_time=3000
 
 [autoload]
 
-PlayerSaveManager="*uid://cjhpqq7jo4sml"
-SignalBus="*uid://chyio332ihmub"
-OverCanvas="*uid://dorj510gxlm2n"
 BugBus="*uid://0fudyrgm7msa"
+IntSigBus="*uid://chyio332ihmub"
+ExtSigBus="*uid://b4k4gwxb1hoc0"
 PLY_Input="*uid://np3y1iimailr"
 PLY_Flags="*uid://cpbe73aggm56i"
 PLY_Inventory="*uid://bxm6ilugvjags"
 PLY_Var="*uid://c5sgnwyqcn21t"
+PLY_SaveSys="*uid://cjhpqq7jo4sml"
+OverCanvas="*uid://dorj510gxlm2n"
 Map="*uid://bmutlvv0aonko"
 GLOBAL="*uid://chd33wii2ykgf"
 

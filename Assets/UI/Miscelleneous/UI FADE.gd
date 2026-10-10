@@ -5,6 +5,7 @@ var Fade: bool = false
 var Local_Element: Control
 
 func _ready() -> void:
+	ExtSigBus.Viggnette.connect(Vignettaaaa)
 	Vignette(true, %Vignette)
 
 func _process(delta: float) -> void:
@@ -24,8 +25,11 @@ func _process(delta: float) -> void:
 		pass
 
 func Vignette(Param1: bool, Element: Control):
+	Local_Element = Element
+	print(Active)
+	print(Fade)
+	print("\n ")
 	if Param1 == true:
-		Local_Element = Element
 		Active = true
 		
 		Fade = !Fade
@@ -38,3 +42,6 @@ func Vignette(Param1: bool, Element: Control):
 		if Local_Element.modulate.a <= 0.1:
 			Local_Element.visible = false
 		Active = false
+
+func Vignettaaaa(Param1: bool):
+	Vignette(Param1, %Vignette)

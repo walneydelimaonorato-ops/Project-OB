@@ -3,7 +3,7 @@ const Save_Path : String = "user://OB_Save.tres"
 var Save_Data : Save_File
 
 func _ready() -> void:
-	print_rich("[color=red]Save Manager Working")
+	print_rich("[color=red]Player Save Manager Working")
 	Fetch_Save()
 
 func Fetch_Save():
@@ -32,7 +32,7 @@ func Load_Save(Depth: bool):
 	PLY_Inventory.Inv_Uitem3_Equiped = Save_Data.Save_List["Uitem 3"]
 	
 	
-	SignalBus.emit_signal("Load_save_Visual_Update")
+	IntSigBus.emit_signal("Load_save_Visual_Update")
 
 func Save_Settup():
 	Save_Data.Save_List["Current Map"] = PLY_Var.Current_Map

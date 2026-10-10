@@ -2,11 +2,11 @@ extends Node
 
 func _ready() -> void:
 	BugBus.emit_signal("Report", "Player", "Items Use & Select Working")
-	SignalBus.UItem_Cycle.connect(UItem_Cycle)
-	SignalBus.UItem_Use.connect(UItem_Use)
-	SignalBus.connect("reply_popup", UItem_Consume_Prompt)
+	IntSigBus.UItem_Cycle.connect(UItem_Cycle)
+	IntSigBus.UItem_Use.connect(UItem_Use)
+	IntSigBus.connect("reply_popup", UItem_Consume_Prompt)
 	
-	SignalBus.Tool_Rotation.connect(UItem_Activating)
+	IntSigBus.Tool_Rotation.connect(UItem_Activating)
 	
 	
 
@@ -24,8 +24,8 @@ func UItem_Activating():
 		3:
 			PLY_Inventory.Cycle_Uitem_Active = PLY_Inventory.Inv_Uitem3_Equiped
 	
-	SignalBus.emit_signal("Side_HUD_Overlay_Update")
-	SignalBus.emit_signal("Side_HUD_Update")
+	IntSigBus.emit_signal("Side_HUD_Overlay_Update")
+	IntSigBus.emit_signal("Side_HUD_Update")
 
 func UItem_Index_Centrilizing():
 	#print("Index at: ", str(GLOBAL.Player_Data.Cycle_Uitem_Index))
@@ -40,9 +40,9 @@ func UItem_Use():
 					"yes_text": "Give Up",
 					"no_text": "Stand Strong"
 				}
-			SignalBus.emit_signal("request_popup", Choice_Names, "Sigil use")
+			IntSigBus.emit_signal("request_popup", Choice_Names, "Sigil use")
 		"Glass Flask":
-			SignalBus.emit_signal("LOC_Value_Operator", true, "Health", GLOBAL.InventoryData.UItem_ID["Glass Flask"]["heal_value"])
+			IntSigBus.emit_signal("LOC_Value_Operator", true, "Health", GLOBAL.InventoryData.UItem_ID["Glass Flask"]["heal_value"])
 
 func UItem_Consume_Prompt(Choice_Answer, Address_To):
 	match Address_To:

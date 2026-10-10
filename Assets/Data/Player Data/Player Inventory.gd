@@ -1,5 +1,8 @@
 extends Node
 
+func _ready() -> void:
+	print_rich("[color=red]Player Inventory")
+
 var Inv_Brace_Equiped: String = "null"
 var Inv_Wear_Equiped: String = "null"
 var Inv_ToolL_Equiped: String = "null"

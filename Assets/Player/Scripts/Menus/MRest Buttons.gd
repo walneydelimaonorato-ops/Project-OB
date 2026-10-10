@@ -6,4 +6,4 @@ func _ready() -> void:
 
 
 func exit_pressed() -> void:
-	SignalBus.emit_signal("Menu_Setting", "Rest")
+	IntSigBus.emit_signal("Menu_Setting", "Rest")

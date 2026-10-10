@@ -4,9 +4,9 @@ func _ready() -> void:
 	BugBus.emit_signal("Report", "Player", "MSelection Item Selected Working")
 
 func exit():
-	SignalBus.emit_signal("FMenu_Return", "Selection")
-	SignalBus.emit_signal("Side_HUD_Overlay_Update")
-	SignalBus.emit_signal("Ready_Menu_Overlay_Update")
+	IntSigBus.emit_signal("FMenu_Return", "Selection")
+	IntSigBus.emit_signal("Side_HUD_Overlay_Update")
+	IntSigBus.emit_signal("Ready_Menu_Overlay_Update")
 
 #region Tools Region
 func tool_handgun_pressed() -> void:

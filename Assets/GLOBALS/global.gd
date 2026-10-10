@@ -1,7 +1,7 @@
 extends Node
 #========================= 
 func _ready() -> void:
-	print_rich("[color=red]\rGLOBAL Working[/color]")
+	print_rich("[color=red]GLOBAL")
 
 #var Player_Data: PlayerData = preload("res://Assets/Data/Player Data Main.tres").duplicate()
 #var Inventory_Data: InventoryData = preload("res://Assets/Data/Inventory Data.tres").duplicate()

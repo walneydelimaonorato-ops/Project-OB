@@ -82,7 +82,7 @@ signal Interaction_Prompt_Manager(Address: String, Ch_Name: String, Ch_Confirm: 
 signal Interaction_Prompt_Manager_Response(Address: String, Response: bool)
 
 signal NPC_Dialogue(Shelf: String, Book: String)
-signal Object_Interaction(ID: String, To_Call: String)
+signal Object_Interaction(STAMP: String, Call: String)
 
 signal Keys_Recognition(Stamp: String, Keys: String)
 signal Keys_Stamping(Stamp: String)
@@ -100,4 +100,4 @@ signal GLO_Value_Operator(Operation: bool, Value: String, Quantity: float)
 #endregion
 
 func _ready() -> void:
-	print_rich("[color=red]Signal Bus Working[/color]")
+	print_rich("[color=red]Internal (player) Signal Bus Working")
