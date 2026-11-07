@@ -68,8 +68,8 @@ func Menu_Setting(Menu: String):
 				PLY_Flags.Perms["Can Look"] = true
 				PLY_Flags.Menus["Current Menu"] = "null"
 				%"Menu Return".play()
-				PLY_Var.Current_Camera = get_tree().get_root().find_child("Eyes", true, false)
-				PLY_Var.Current_Camera.make_current()
+				#PLY_Var.Current_Camera = get_tree().get_root().find_child("Eyes", true, false)
+				#PLY_Var.Current_Camera.make_current()
 		_:
 			print_rich("[color=#ff00ff]MANUAL ERROR: <Attempt to Exit Menu without valid parameters>[/color]")
 	IntSigBus.emit_signal("Player_Permissions_Conditionals")

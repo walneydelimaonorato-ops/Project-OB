@@ -1,0 +1,346 @@
+[gd_scene format=3 uid="uid://cmld82a6ahrjp"]
+
+[ext_resource type="Script" uid="uid://tmodb2lfusq8" path="res://Assets/Dumah/Scripts/HUD/Vitals/Bars.gd" id="1_tbqu8"]
+[ext_resource type="Texture2D" uid="uid://qjq03yc5xcfc" path="res://Assets/UI/HUD/Side HUD/Stamina_Lines_AA.png" id="2_5xv8n"]
+[ext_resource type="Texture2D" uid="uid://cad1m7t48xa27" path="res://Assets/UI/HUD/Side HUD/Frame_Stamina_AA.png" id="3_277fy"]
+[ext_resource type="Texture2D" uid="uid://crw7mq7c182fr" path="res://Assets/UI/HUD/Side HUD/Stamina_AA.png" id="4_6sd0y"]
+[ext_resource type="Texture2D" uid="uid://denq0vupr60gy" path="res://Assets/UI/HUD/Side HUD/Health_Eyes.png" id="5_tbcbd"]
+[ext_resource type="Texture2D" uid="uid://bsk0xgutv14ex" path="res://Assets/UI/HUD/Side HUD/Frame_Health.png" id="6_td2t4"]
+[ext_resource type="Texture2D" uid="uid://b0b2vsfbxq1a8" path="res://Assets/UI/HUD/Side HUD/Health.png" id="7_lqmt8"]
+[ext_resource type="Texture2D" uid="uid://di03rqvlhqp7q" path="res://Assets/UI/HUD/Item Icons/UItems/UItem_Violence_Sigil.png" id="8_qvgka"]
+[ext_resource type="Texture2D" uid="uid://1gq7ogm65b2r" path="res://Assets/UI/HUD/Ready_Menu_UItem.png" id="9_kmppw"]
+[ext_resource type="Texture2D" uid="uid://dyp1tqlfs1r50" path="res://Assets/UI/HUD/Ready_Menu_Spell.png" id="10_b5k72"]
+[ext_resource type="Texture2D" uid="uid://dokiq8ck7v68y" path="res://Assets/UI/HUD/Ready_Menu_ToolR.png" id="11_4qn27"]
+[ext_resource type="Texture2D" uid="uid://dqctj0g2crmvw" path="res://Assets/UI/HUD/Ready_Menu_ToolL.png" id="12_ya7rp"]
+[ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="13_5xv8n"]
+[ext_resource type="Texture2D" uid="uid://dqjg5u7edkp8i" path="res://Assets/UI/HUD/Item_Frame.png" id="14_6sd0y"]
+
+[sub_resource type="Gradient" id="Gradient_tbqu8"]
+offsets = PackedFloat32Array(0.53571427, 0.536)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k4mt7"]
+gradient = SubResource("Gradient_tbqu8")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_277fy"]
+load_path = "res://.godot/imported/Item_Frame_Highlight.png-d89c2e6bbd2076d5415c27c104639ff1.ctex"
+
+[node name="HUD" type="CanvasLayer" unique_id=1985037759]
+layer = 10
+
+[node name="Additionals" type="Node" parent="." unique_id=90318001]
+
+[node name="Bars" type="Node" parent="Additionals" unique_id=1125461099]
+script = ExtResource("1_tbqu8")
+
+[node name="Root" type="Control" parent="." unique_id=19481968]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Vitals" type="Control" parent="Root" unique_id=1501301880]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(6, -95)
+offset_transform_visual_only = false
+
+[node name="Stamina" type="TextureProgressBar" parent="Root/Vitals" unique_id=105074813]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_top = 66.0
+offset_right = 40.0
+offset_bottom = 211.0
+step = 0.1
+value = 32.0
+fill_mode = 3
+texture_under = ExtResource("2_5xv8n")
+texture_over = ExtResource("3_277fy")
+texture_progress = ExtResource("4_6sd0y")
+
+[node name="Health" type="TextureProgressBar" parent="Root/Vitals" unique_id=742616446]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 211.0
+max_value = 15.0
+step = 0.1
+value = 13.0
+fill_mode = 3
+texture_under = ExtResource("5_tbcbd")
+texture_over = ExtResource("6_td2t4")
+texture_progress = ExtResource("7_lqmt8")
+
+[node name="Bonuses" type="VBoxContainer" parent="Root/Vitals" unique_id=1167346217]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 36.0
+offset_top = 181.0
+offset_right = 236.0
+offset_bottom = 381.0
+scale = Vector2(0.15, 0.15)
+theme_override_constants/separation = -345
+
+[node name="TextureRect" type="TextureRect" parent="Root/Vitals/Bonuses" unique_id=69687156]
+layout_mode = 2
+texture = ExtResource("8_qvgka")
+
+[node name="TextureRect2" type="TextureRect" parent="Root/Vitals/Bonuses" unique_id=1421909037]
+layout_mode = 2
+texture = ExtResource("8_qvgka")
+
+[node name="TextureRect3" type="TextureRect" parent="Root/Vitals/Bonuses" unique_id=133281060]
+layout_mode = 2
+texture = ExtResource("8_qvgka")
+
+[node name="Inspector" type="Control" parent="Root" unique_id=235185214]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Underlay" type="VBoxContainer" parent="Root/Inspector" unique_id=1477508286]
+texture_filter = 1
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 200.0
+scale = Vector2(0.23, 0.23)
+offset_transform_enabled = true
+offset_transform_position = Vector2(45, -130)
+offset_transform_visual_only = false
+theme_override_constants/separation = -420
+
+[node name="UItem" type="TextureRect" parent="Root/Inspector/Underlay" unique_id=228554556]
+layout_mode = 2
+texture = ExtResource("9_kmppw")
+
+[node name="Spell" type="TextureRect" parent="Root/Inspector/Underlay" unique_id=800664029]
+layout_mode = 2
+texture = ExtResource("10_b5k72")
+
+[node name="RHand" type="TextureRect" parent="Root/Inspector/Underlay" unique_id=1339958321]
+layout_mode = 2
+texture = ExtResource("11_4qn27")
+
+[node name="LHand" type="TextureRect" parent="Root/Inspector/Underlay" unique_id=1891928425]
+layout_mode = 2
+texture = ExtResource("12_ya7rp")
+
+[node name="Overlay" type="VBoxContainer" parent="Root/Inspector" unique_id=901855006]
+texture_filter = 1
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 200.0
+scale = Vector2(0.23, 0.23)
+offset_transform_enabled = true
+offset_transform_position = Vector2(45, -150)
+offset_transform_visual_only = false
+theme_override_constants/separation = -420
+
+[node name="UItemO" type="TextureRect" parent="Root/Inspector/Overlay" unique_id=1725316830]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("8_qvgka")
+
+[node name="SpellO" type="TextureRect" parent="Root/Inspector/Overlay" unique_id=10143603]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("8_qvgka")
+
+[node name="RHandO" type="TextureRect" parent="Root/Inspector/Overlay" unique_id=352343202]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("8_qvgka")
+
+[node name="LHandO" type="TextureRect" parent="Root/Inspector/Overlay" unique_id=1105665613]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("8_qvgka")
+
+[node name="Menus" type="CanvasLayer" parent="." unique_id=1695569710]
+layer = 11
+
+[node name="Rest" type="Control" parent="Menus" unique_id=348216002]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Menus/Rest" unique_id=133441654]
+texture_filter = 1
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_k4mt7")
+
+[node name="Label" type="Label" parent="Menus/Rest" unique_id=112505236]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(25, 25)
+theme_override_fonts/font = ExtResource("13_5xv8n")
+theme_override_font_sizes/font_size = 20
+text = "?PLACE_NAME?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Rest" unique_id=377512282]
+layout_mode = 0
+offset_right = 166.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(25, 75)
+offset_transform_visual_only = false
+
+[node name="Button" type="Button" parent="Menus/Rest/VBoxContainer" unique_id=204704956]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_5xv8n")
+text = "TRANSPORT"
+alignment = 0
+
+[node name="Button2" type="Button" parent="Menus/Rest/VBoxContainer" unique_id=569269096]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_5xv8n")
+text = "EQUIPMENT"
+alignment = 0
+
+[node name="Button3" type="Button" parent="Menus/Rest/VBoxContainer" unique_id=1846595240]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_5xv8n")
+text = "INVENTORY"
+alignment = 0
+
+[node name="Button4" type="Button" parent="Menus/Rest/VBoxContainer" unique_id=535626318]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_5xv8n")
+text = "SETTINGS"
+alignment = 0
+
+[node name="Button5" type="Button" parent="Menus/Rest/VBoxContainer" unique_id=748403832]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_5xv8n")
+text = "LEAVE"
+alignment = 0
+
+[node name="Equipment Sorter" type="Control" parent="Menus/Rest" unique_id=1839244447]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(200, 112)
+offset_transform_visual_only = false
+
+[node name="Equipment Scroller" type="ScrollContainer" parent="Menus/Rest/Equipment Sorter" unique_id=1195695279]
+layout_mode = 0
+offset_right = 208.69568
+offset_bottom = 656.5217
+scale = Vector2(0.23, 0.23)
+follow_focus = true
+
+[node name="Equipment List" type="VBoxContainer" parent="Menus/Rest/Equipment Sorter/Equipment Scroller" unique_id=636343643]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="RHand" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=1511297451]
+layout_mode = 2
+texture_normal = ExtResource("9_kmppw")
+
+[node name="LHand" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=1376246027]
+layout_mode = 2
+texture_normal = ExtResource("9_kmppw")
+
+[node name="Spell" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=1009181803]
+layout_mode = 2
+texture_normal = ExtResource("9_kmppw")
+
+[node name="Armor" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=1068102090]
+layout_mode = 2
+texture_normal = ExtResource("9_kmppw")
+
+[node name="Braces" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=368473819]
+layout_mode = 2
+texture_normal = ExtResource("9_kmppw")
+
+[node name="UItem1" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=299849542]
+layout_mode = 2
+texture_normal = ExtResource("9_kmppw")
+
+[node name="UItem2" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=434632434]
+layout_mode = 2
+texture_normal = ExtResource("9_kmppw")
+
+[node name="UItem3" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=803123669]
+layout_mode = 2
+texture_normal = ExtResource("9_kmppw")
+
+[node name="Equipment Selector" type="Control" parent="Menus/Rest" unique_id=1627122665]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(250, 112)
+offset_transform_visual_only = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Rest/Equipment Selector" unique_id=1437383917]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.23, 0.23)
+
+[node name="TextureButton" type="TextureButton" parent="Menus/Rest/Equipment Selector/VBoxContainer" unique_id=942106454]
+z_index = 1
+layout_mode = 2
+texture_normal = ExtResource("14_6sd0y")
+texture_focused = SubResource("CompressedTexture2D_277fy")
+
+[node name="TextureRect" type="TextureRect" parent="Menus/Rest/Equipment Selector/VBoxContainer/TextureButton" unique_id=652181581]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -10)
+texture = ExtResource("8_qvgka")
+
+[node name="TextureRect2" type="TextureRect" parent="Menus/Rest/Equipment Selector/VBoxContainer/TextureButton" unique_id=1502583758]
+z_index = -1
+layout_mode = 0
+offset_left = 147.82605
+offset_right = 1552.1738
+offset_bottom = 200.0
+texture = ExtResource("14_6sd0y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menus/Rest/Equipment Selector/VBoxContainer/TextureButton" unique_id=830721647]
+layout_mode = 0
+offset_left = 221.73912
+offset_right = 644.73914
+offset_bottom = 68.0
+theme_override_fonts/normal_font = ExtResource("13_5xv8n")
+theme_override_font_sizes/normal_font_size = 85
+text = "?ITEM_NAME?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Label" type="Label" parent="Menus/Rest/Equipment Selector/VBoxContainer/TextureButton" unique_id=1692511537]
+layout_mode = 0
+offset_left = 221.73912
+offset_top = 108.69565
+offset_right = 785.73914
+offset_bottom = 199.69565
+theme_override_fonts/font = ExtResource("13_5xv8n")
+theme_override_font_sizes/font_size = 60
+text = "X@"

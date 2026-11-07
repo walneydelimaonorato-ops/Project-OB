@@ -17,10 +17,10 @@ func Write_Save():
 	Save_Settup()
 	ResourceSaver.save(Save_Data, Save_Path)
 func Load_Save(Depth: bool):
-	PLY_Var.Player_Position = Save_Data.Save_List["GPosition"]
-	PLY_Var.Player_Rotation = Save_Data.Save_List["GRotation"]
-	
-	PLY_Var.Health = Save_Data.Save_List["Health"]
+	#PLY_Var.Player_Position = Save_Data.Save_List["GPosition"]
+	#PLY_Var.Player_Rotation = Save_Data.Save_List["GRotation"]
+	#
+	#PLY_Var.Health = Save_Data.Save_List["Health"]
 	
 	PLY_Inventory.Inv_ToolR_Equiped = Save_Data.Save_List["RHand"]
 	PLY_Inventory.Inv_ToolL_Equiped = Save_Data.Save_List["LHand"]
@@ -35,9 +35,9 @@ func Load_Save(Depth: bool):
 	IntSigBus.emit_signal("Load_save_Visual_Update")
 
 func Save_Settup():
-	Save_Data.Save_List["Current Map"] = PLY_Var.Current_Map
-	Save_Data.Save_List["GPosition"] = PLY_Var.Player_Position
-	Save_Data.Save_List["GRotation"] = PLY_Var.Player_Rotation
+	#Save_Data.Save_List["Current Map"] = PLY_Var.Current_Map
+	#Save_Data.Save_List["GPosition"] = PLY_Var.Player_Position
+	#Save_Data.Save_List["GRotation"] = PLY_Var.Player_Rotation
 	
 	Save_Data.Save_List["Health"] = PLY_Flags.Health
 	

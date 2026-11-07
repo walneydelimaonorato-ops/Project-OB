@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dgted5ygjvu5r"]
+
+[ext_resource type="Script" uid="uid://dwq2vnrplf1" path="res://Assets/Dumah/Scripts/Configures/Input Settup.gd" id="1_60xso"]
+[ext_resource type="Script" uid="uid://rasxflad6frf" path="res://Assets/Dumah/Scripts/Buttons.gd" id="2_2wkv5"]
+
+[node name="Additionals" type="Node" unique_id=1337208900]
+
+[node name="Input Settup" type="Node" parent="." unique_id=1800117438]
+script = ExtResource("1_60xso")
+
+[node name="Buttons" type="Node" parent="." unique_id=1438285056]
+script = ExtResource("2_2wkv5")

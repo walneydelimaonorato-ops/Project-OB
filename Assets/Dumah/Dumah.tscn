@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bgq56xbxr8jci"]
+
+[ext_resource type="Script" uid="uid://by2ru04a6nq72" path="res://Assets/Dumah/Scripts/Dumah Control.gd" id="1_lqcc0"]
+[ext_resource type="PackedScene" uid="uid://dgted5ygjvu5r" path="res://Assets/Dumah/SubScenes/Additionals Dumah.tscn" id="2_2jon6"]
+[ext_resource type="PackedScene" uid="uid://cmld82a6ahrjp" path="res://Assets/Dumah/SubScenes/HUD.tscn" id="3_8dvas"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k4mt7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wglcv"]
+size = Vector3(0.6113281, 1.8183594, 0.5817871)
+
+[node name="Dumah" type="CharacterBody3D" unique_id=1425255279]
+script = ExtResource("1_lqcc0")
+
+[node name="Additionals" parent="." unique_id=1337208900 instance=ExtResource("2_2jon6")]
+
+[node name="Character Collision" type="CollisionShape3D" parent="." unique_id=565997943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_k4mt7")
+debug_color = Color(0, 1, 0, 0.41960785)
+debug_fill = false
+
+[node name="Interact Collision" type="Area3D" parent="." unique_id=1662931609]
+
+[node name="Interact Collision" type="CollisionShape3D" parent="Interact Collision" unique_id=462950628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9091797, -0.71325684)
+shape = SubResource("BoxShape3D_wglcv")
+debug_color = Color(1, 1, 0, 0.41960785)
+
+[node name="Head" type="Node3D" parent="." unique_id=1914356651]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Cam" type="Camera3D" parent="Head" unique_id=538738948]
+unique_name_in_owner = true
+
+[node name="Testhand" type="CSGBox3D" parent="Head/Cam" unique_id=1227734071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.399, -0.3, -0.672)
+size = Vector3(0.2, 0.2, 1)
+
+[node name="HUD" parent="." unique_id=1985037759 instance=ExtResource("3_8dvas")]
+
+[editable path="Additionals"]

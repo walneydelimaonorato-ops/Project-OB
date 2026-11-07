@@ -17,6 +17,6 @@ func Diagnose_ITEM_PICKUP():
 	
 	Repo += str("\n>Item Quantity: ", CLSS_ITEM_QUANTITY)
 	Repo += str("\n>Item Type: ", CLSS_ITEM_TYPE)
-	Repo += str("\n>Model: ", PLY_Inventory[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["Model"])
+	#Repo += str("\n>Model: ", PLY_Inventory[CLSS_ITEM_TYPE][CLSS_ITEM_SYS_NAME]["Model"])
 	
 	BugBus.emit_signal("Report", "Map", Repo)

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://7yncmfhipjbi"]
+
+[ext_resource type="PackedScene" uid="uid://bgq56xbxr8jci" path="res://Assets/Dumah/Dumah.tscn" id="1_a4wtg"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8xi4q"]
+sky_top_color = Color(0.28045967, 0.49630553, 0.4515105, 1)
+sky_horizon_color = Color(0.63370097, 0.6878222, 0.65543854, 1)
+ground_bottom_color = Color(0.1806137, 0.18125296, 0.09651319, 1)
+ground_horizon_color = Color(0.63370097, 0.6878222, 0.65543854, 1)
+
+[sub_resource type="Sky" id="Sky_a4wtg"]
+sky_material = SubResource("ProceduralSkyMaterial_8xi4q")
+
+[sub_resource type="Environment" id="Environment_pp044"]
+background_mode = 2
+sky = SubResource("Sky_a4wtg")
+tonemap_mode = 2
+
+[node name="Tst" type="Node3D" unique_id=1422570508]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=804814200]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 0.1
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=837088582]
+environment = SubResource("Environment_pp044")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1842693657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11584473, 0)
+use_collision = true
+size = Vector3(16.445313, 0.18774414, 23.916992)
+
+[node name="Dumah" parent="." unique_id=1425255279 instance=ExtResource("1_a4wtg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2431109, 0, 0.090943575)
