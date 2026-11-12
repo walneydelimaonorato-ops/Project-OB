@@ -39,5 +39,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.399, -0.3, -0.672)
 size = Vector3(0.2, 0.2, 1)
 
 [node name="HUD" parent="." unique_id=1985037759 instance=ExtResource("3_8dvas")]
-
-[editable path="Additionals"]

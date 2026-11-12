@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://tmodb2lfusq8" path="res://Assets/Dumah/Scripts/HUD/Vitals/Bars.gd" id="1_tbqu8"]
 [ext_resource type="Texture2D" uid="uid://qjq03yc5xcfc" path="res://Assets/UI/HUD/Side HUD/Stamina_Lines_AA.png" id="2_5xv8n"]
+[ext_resource type="Script" uid="uid://b6lpjf8gx11n4" path="res://Assets/Dumah/Scripts/Menus/Menuing.gd" id="2_ya7rp"]
 [ext_resource type="Texture2D" uid="uid://cad1m7t48xa27" path="res://Assets/UI/HUD/Side HUD/Frame_Stamina_AA.png" id="3_277fy"]
+[ext_resource type="Script" uid="uid://cd041r36cnhr6" path="res://Assets/Dumah/Scripts/Configures/Menu Manager.gd" id="3_jg3c1"]
 [ext_resource type="Texture2D" uid="uid://crw7mq7c182fr" path="res://Assets/UI/HUD/Side HUD/Stamina_AA.png" id="4_6sd0y"]
 [ext_resource type="Texture2D" uid="uid://denq0vupr60gy" path="res://Assets/UI/HUD/Side HUD/Health_Eyes.png" id="5_tbcbd"]
 [ext_resource type="Texture2D" uid="uid://bsk0xgutv14ex" path="res://Assets/UI/HUD/Side HUD/Frame_Health.png" id="6_td2t4"]
@@ -13,7 +15,18 @@
 [ext_resource type="Texture2D" uid="uid://dokiq8ck7v68y" path="res://Assets/UI/HUD/Ready_Menu_ToolR.png" id="11_4qn27"]
 [ext_resource type="Texture2D" uid="uid://dqctj0g2crmvw" path="res://Assets/UI/HUD/Ready_Menu_ToolL.png" id="12_ya7rp"]
 [ext_resource type="FontFile" uid="uid://bdkxeyxufbjlh" path="res://addons/BelanidiSerif-Regular.otf" id="13_5xv8n"]
+[ext_resource type="Texture2D" uid="uid://be0g2c660ubnc" path="res://Assets/UI/HUD/Item_Frame_Highlight.png" id="14_4qn27"]
 [ext_resource type="Texture2D" uid="uid://dqjg5u7edkp8i" path="res://Assets/UI/HUD/Item_Frame.png" id="14_6sd0y"]
+[ext_resource type="Texture2D" uid="uid://bc5qwrri8hkyi" path="res://Assets/UI/HUD/Ready_Menu_Wear.png" id="14_tbcbd"]
+[ext_resource type="Theme" uid="uid://cbc4ndwyfoloq" path="res://Assets/UI/Buttons.tres" id="15_mlfa3"]
+[ext_resource type="Texture2D" uid="uid://cmwqln80a4gu6" path="res://Assets/UI/HUD/Ready_Menu_Brace.png" id="15_td2t4"]
+[ext_resource type="Texture2D" uid="uid://bcm1rvdpjrgef" path="res://Assets/UI/HUD Icons/Item Selection Backdrop.png" id="17_td2t4"]
+[ext_resource type="Texture2D" uid="uid://davke1oama52w" path="res://Assets/UI/HUD/Item Icons/Brace Icons/Brace_Golden_Icon.png" id="18_b5k72"]
+[ext_resource type="Texture2D" uid="uid://cxpllkwkj3coo" path="res://Assets/UI/HUD/Item Icons/Tool Icons/Tool_Daggger.png" id="19_4qn27"]
+[ext_resource type="Texture2D" uid="uid://baatlbdf0r5c" path="res://Assets/UI/HUD/Item Icons/Spell Icons/Spell_Electricity.png" id="20_ya7rp"]
+[ext_resource type="Texture2D" uid="uid://bqi66glri2ec" path="res://Assets/UI/HUD/Item Icons/Wear Icons/Wear_Plain.png" id="21_mlfa3"]
+[ext_resource type="Texture2D" uid="uid://dxa53qgsswl1u" path="res://Assets/UI/HUD Icons/Item Selection.png" id="26_goj0g"]
+[ext_resource type="Texture2D" uid="uid://bwdo21ut054vp" path="res://Assets/UI/HUD Icons/Item Expended Page Backdrop.png" id="27_goj0g"]
 
 [sub_resource type="Gradient" id="Gradient_tbqu8"]
 offsets = PackedFloat32Array(0.53571427, 0.536)
@@ -26,6 +39,15 @@ fill_to = Vector2(1, 1)
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_277fy"]
 load_path = "res://.godot/imported/Item_Frame_Highlight.png-d89c2e6bbd2076d5415c27c104639ff1.ctex"
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vf5ko"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obppo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tvou"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="HUD" type="CanvasLayer" unique_id=1985037759]
 layer = 10
 
@@ -33,6 +55,12 @@ layer = 10
 
 [node name="Bars" type="Node" parent="Additionals" unique_id=1125461099]
 script = ExtResource("1_tbqu8")
+
+[node name="Menuing" type="Node" parent="Additionals" unique_id=666924088]
+script = ExtResource("2_ya7rp")
+
+[node name="Menu Manager" type="Node" parent="Additionals" unique_id=2124679561]
+script = ExtResource("3_jg3c1")
 
 [node name="Root" type="Control" parent="." unique_id=19481968]
 layout_mode = 3
@@ -175,21 +203,24 @@ texture = ExtResource("8_qvgka")
 
 [node name="Menus" type="CanvasLayer" parent="." unique_id=1695569710]
 layer = 11
+visible = false
 
 [node name="Rest" type="Control" parent="Menus" unique_id=348216002]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="Menus/Rest" unique_id=133441654]
+[node name="Rest Backdrop" type="TextureRect" parent="Menus/Rest" unique_id=133441654]
+z_index = -20
 texture_filter = 1
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 648.0
 texture = SubResource("GradientTexture2D_k4mt7")
 
-[node name="Label" type="Label" parent="Menus/Rest" unique_id=112505236]
+[node name="PLC Name" type="Label" parent="Menus/Rest" unique_id=112505236]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -199,132 +230,158 @@ theme_override_fonts/font = ExtResource("13_5xv8n")
 theme_override_font_sizes/font_size = 20
 text = "?PLACE_NAME?"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Rest" unique_id=377512282]
+[node name="Buttons" type="VBoxContainer" parent="Menus/Rest" unique_id=377512282]
+unique_name_in_owner = true
 layout_mode = 0
 offset_right = 166.0
 offset_bottom = 40.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(25, 75)
 offset_transform_visual_only = false
+theme = ExtResource("15_mlfa3")
 
-[node name="Button" type="Button" parent="Menus/Rest/VBoxContainer" unique_id=204704956]
+[node name="Transport" type="Button" parent="Menus/Rest/Buttons" unique_id=204704956]
 layout_mode = 2
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath("../Equipment")
 theme_override_fonts/font = ExtResource("13_5xv8n")
 text = "TRANSPORT"
 alignment = 0
 
-[node name="Button2" type="Button" parent="Menus/Rest/VBoxContainer" unique_id=569269096]
+[node name="Equipment" type="Button" parent="Menus/Rest/Buttons" unique_id=569269096]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Transport")
+focus_neighbor_bottom = NodePath("../Inventory")
 theme_override_fonts/font = ExtResource("13_5xv8n")
 text = "EQUIPMENT"
 alignment = 0
 
-[node name="Button3" type="Button" parent="Menus/Rest/VBoxContainer" unique_id=1846595240]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("13_5xv8n")
-text = "INVENTORY"
-alignment = 0
-
-[node name="Button4" type="Button" parent="Menus/Rest/VBoxContainer" unique_id=535626318]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("13_5xv8n")
-text = "SETTINGS"
-alignment = 0
-
-[node name="Button5" type="Button" parent="Menus/Rest/VBoxContainer" unique_id=748403832]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("13_5xv8n")
-text = "LEAVE"
-alignment = 0
-
-[node name="Equipment Sorter" type="Control" parent="Menus/Rest" unique_id=1839244447]
+[node name="Equipment Sorter" type="Control" parent="Menus/Rest/Buttons/Equipment" unique_id=1839244447]
+unique_name_in_owner = true
+visible = false
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -58.0
+offset_top = -137.0
+offset_right = -18.0
+offset_bottom = -97.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(200, 112)
 offset_transform_visual_only = false
 
-[node name="Equipment Scroller" type="ScrollContainer" parent="Menus/Rest/Equipment Sorter" unique_id=1195695279]
+[node name="Equipment Scroller" type="ScrollContainer" parent="Menus/Rest/Buttons/Equipment/Equipment Sorter" unique_id=1195695279]
 layout_mode = 0
 offset_right = 208.69568
-offset_bottom = 656.5217
+offset_bottom = 639.1304
 scale = Vector2(0.23, 0.23)
 follow_focus = true
 
-[node name="Equipment List" type="VBoxContainer" parent="Menus/Rest/Equipment Sorter/Equipment Scroller" unique_id=636343643]
+[node name="Equipment List" type="VBoxContainer" parent="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller" unique_id=636343643]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="RHand" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=1511297451]
+[node name="RHand" type="TextureButton" parent="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=1511297451]
+layout_mode = 2
+focus_neighbor_top = NodePath(".")
+texture_normal = ExtResource("11_4qn27")
+texture_focused = ExtResource("14_4qn27")
+
+[node name="LHand" type="TextureButton" parent="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=1376246027]
+layout_mode = 2
+texture_normal = ExtResource("12_ya7rp")
+texture_focused = ExtResource("14_4qn27")
+
+[node name="Spell" type="TextureButton" parent="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=1009181803]
+layout_mode = 2
+texture_normal = ExtResource("10_b5k72")
+texture_focused = ExtResource("14_4qn27")
+
+[node name="Armor" type="TextureButton" parent="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=1068102090]
+layout_mode = 2
+texture_normal = ExtResource("14_tbcbd")
+texture_focused = ExtResource("14_4qn27")
+
+[node name="Braces" type="TextureButton" parent="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=368473819]
+layout_mode = 2
+texture_normal = ExtResource("15_td2t4")
+texture_focused = ExtResource("14_4qn27")
+
+[node name="UItem1" type="TextureButton" parent="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=299849542]
 layout_mode = 2
 texture_normal = ExtResource("9_kmppw")
+texture_focused = ExtResource("14_4qn27")
 
-[node name="LHand" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=1376246027]
+[node name="UItem2" type="TextureButton" parent="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=434632434]
 layout_mode = 2
 texture_normal = ExtResource("9_kmppw")
+texture_focused = ExtResource("14_4qn27")
 
-[node name="Spell" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=1009181803]
+[node name="UItem3" type="TextureButton" parent="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=803123669]
 layout_mode = 2
 texture_normal = ExtResource("9_kmppw")
+texture_focused = ExtResource("14_4qn27")
 
-[node name="Armor" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=1068102090]
-layout_mode = 2
-texture_normal = ExtResource("9_kmppw")
-
-[node name="Braces" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=368473819]
-layout_mode = 2
-texture_normal = ExtResource("9_kmppw")
-
-[node name="UItem1" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=299849542]
-layout_mode = 2
-texture_normal = ExtResource("9_kmppw")
-
-[node name="UItem2" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=434632434]
-layout_mode = 2
-texture_normal = ExtResource("9_kmppw")
-
-[node name="UItem3" type="TextureButton" parent="Menus/Rest/Equipment Sorter/Equipment Scroller/Equipment List" unique_id=803123669]
-layout_mode = 2
-texture_normal = ExtResource("9_kmppw")
-
-[node name="Equipment Selector" type="Control" parent="Menus/Rest" unique_id=1627122665]
+[node name="Equipment Selector" type="Control" parent="Menus/Rest/Buttons/Equipment" unique_id=1627122665]
+unique_name_in_owner = true
+visible = false
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -59.0
+offset_top = -110.0
+offset_right = -19.0
+offset_bottom = -70.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(250, 112)
 offset_transform_visual_only = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Rest/Equipment Selector" unique_id=1437383917]
+[node name="Tab Name" type="Label" parent="Menus/Rest/Buttons/Equipment/Equipment Selector" unique_id=1728968148]
+unique_name_in_owner = true
 layout_mode = 0
-offset_right = 40.0
+offset_left = 5.0
+offset_top = -25.0
+offset_right = 106.0
+offset_bottom = -2.0
+theme_override_fonts/font = ExtResource("13_5xv8n")
+text = "?SUB_MENU?"
+
+[node name="Equipment Tab" type="TabContainer" parent="Menus/Rest/Buttons/Equipment/Equipment Selector" unique_id=1306994733]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 8.0
 offset_bottom = 40.0
 scale = Vector2(0.23, 0.23)
+current_tab = 0
+clip_tabs = false
+tabs_visible = false
 
-[node name="TextureButton" type="TextureButton" parent="Menus/Rest/Equipment Selector/VBoxContainer" unique_id=942106454]
+[node name="Tools" type="VBoxContainer" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab" unique_id=1732285184]
+unique_name_in_owner = true
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ITM" type="TextureButton" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Tools" unique_id=1803289925]
 z_index = 1
 layout_mode = 2
 texture_normal = ExtResource("14_6sd0y")
 texture_focused = SubResource("CompressedTexture2D_277fy")
 
-[node name="TextureRect" type="TextureRect" parent="Menus/Rest/Equipment Selector/VBoxContainer/TextureButton" unique_id=652181581]
+[node name="Backdrop" type="TextureRect" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Tools/ITM" unique_id=1737497999]
+z_index = -1
+layout_mode = 0
+offset_left = 195.6521
+offset_right = 552.6521
+offset_bottom = 46.0
+scale = Vector2(4.35, 4.35)
+texture = ExtResource("17_td2t4")
+
+[node name="ITM Overlay" type="TextureRect" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Tools/ITM" unique_id=1722763907]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 offset_transform_enabled = true
 offset_transform_position = Vector2(0, -10)
-texture = ExtResource("8_qvgka")
+texture = ExtResource("19_4qn27")
 
-[node name="TextureRect2" type="TextureRect" parent="Menus/Rest/Equipment Selector/VBoxContainer/TextureButton" unique_id=1502583758]
-z_index = -1
-layout_mode = 0
-offset_left = 147.82605
-offset_right = 1552.1738
-offset_bottom = 200.0
-texture = ExtResource("14_6sd0y")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Menus/Rest/Equipment Selector/VBoxContainer/TextureButton" unique_id=830721647]
+[node name="ITM Name" type="RichTextLabel" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Tools/ITM" unique_id=1323459361]
 layout_mode = 0
 offset_left = 221.73912
 offset_right = 644.73914
@@ -335,7 +392,7 @@ text = "?ITEM_NAME?"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Label" type="Label" parent="Menus/Rest/Equipment Selector/VBoxContainer/TextureButton" unique_id=1692511537]
+[node name="ITM Quantity" type="Label" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Tools/ITM" unique_id=153648788]
 layout_mode = 0
 offset_left = 221.73912
 offset_top = 108.69565
@@ -344,3 +401,524 @@ offset_bottom = 199.69565
 theme_override_fonts/font = ExtResource("13_5xv8n")
 theme_override_font_sizes/font_size = 60
 text = "X@"
+
+[node name="Braces" type="VBoxContainer" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab" unique_id=1137996407]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ITM" type="TextureButton" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Braces" unique_id=214792683]
+z_index = 1
+layout_mode = 2
+texture_normal = ExtResource("14_6sd0y")
+texture_focused = SubResource("CompressedTexture2D_277fy")
+
+[node name="Backdrop" type="TextureRect" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Braces/ITM" unique_id=1979035733]
+z_index = -1
+layout_mode = 0
+offset_left = 195.6521
+offset_right = 552.6521
+offset_bottom = 46.0
+scale = Vector2(4.35, 4.35)
+texture = ExtResource("17_td2t4")
+
+[node name="ITM Overlay" type="TextureRect" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Braces/ITM" unique_id=654513917]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -10)
+texture = ExtResource("18_b5k72")
+
+[node name="ITM Name" type="RichTextLabel" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Braces/ITM" unique_id=2011045078]
+layout_mode = 0
+offset_left = 221.73912
+offset_right = 644.73914
+offset_bottom = 68.0
+theme_override_fonts/normal_font = ExtResource("13_5xv8n")
+theme_override_font_sizes/normal_font_size = 85
+text = "?ITEM_NAME?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ITM Quantity" type="Label" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Braces/ITM" unique_id=118515153]
+layout_mode = 0
+offset_left = 221.73912
+offset_top = 108.69565
+offset_right = 785.73914
+offset_bottom = 199.69565
+theme_override_fonts/font = ExtResource("13_5xv8n")
+theme_override_font_sizes/font_size = 60
+text = "X@"
+
+[node name="Wear" type="VBoxContainer" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab" unique_id=779380000]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="ITM" type="TextureButton" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Wear" unique_id=22054959]
+z_index = 1
+layout_mode = 2
+texture_normal = ExtResource("14_6sd0y")
+texture_focused = SubResource("CompressedTexture2D_277fy")
+
+[node name="Backdrop" type="TextureRect" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Wear/ITM" unique_id=1830289349]
+z_index = -1
+layout_mode = 0
+offset_left = 195.6521
+offset_right = 552.6521
+offset_bottom = 46.0
+scale = Vector2(4.35, 4.35)
+texture = ExtResource("17_td2t4")
+
+[node name="ITM Overlay" type="TextureRect" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Wear/ITM" unique_id=582833240]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -10)
+texture = ExtResource("21_mlfa3")
+
+[node name="ITM Name" type="RichTextLabel" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Wear/ITM" unique_id=685526767]
+layout_mode = 0
+offset_left = 221.73912
+offset_right = 644.73914
+offset_bottom = 68.0
+theme_override_fonts/normal_font = ExtResource("13_5xv8n")
+theme_override_font_sizes/normal_font_size = 85
+text = "?ITEM_NAME?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ITM Quantity" type="Label" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Wear/ITM" unique_id=868286274]
+layout_mode = 0
+offset_left = 221.73912
+offset_top = 108.69565
+offset_right = 785.73914
+offset_bottom = 199.69565
+theme_override_fonts/font = ExtResource("13_5xv8n")
+theme_override_font_sizes/font_size = 60
+text = "X@"
+
+[node name="Spell" type="VBoxContainer" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab" unique_id=136956330]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="ITM" type="TextureButton" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Spell" unique_id=1645098450]
+z_index = 1
+layout_mode = 2
+texture_normal = ExtResource("14_6sd0y")
+texture_focused = SubResource("CompressedTexture2D_277fy")
+
+[node name="Backdrop" type="TextureRect" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Spell/ITM" unique_id=567760298]
+z_index = -1
+layout_mode = 0
+offset_left = 195.6521
+offset_right = 552.6521
+offset_bottom = 46.0
+scale = Vector2(4.35, 4.35)
+texture = ExtResource("17_td2t4")
+
+[node name="ITM Overlay" type="TextureRect" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Spell/ITM" unique_id=519347070]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -10)
+texture = ExtResource("20_ya7rp")
+
+[node name="ITM Name" type="RichTextLabel" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Spell/ITM" unique_id=1063875489]
+layout_mode = 0
+offset_left = 221.73912
+offset_right = 644.73914
+offset_bottom = 68.0
+theme_override_fonts/normal_font = ExtResource("13_5xv8n")
+theme_override_font_sizes/normal_font_size = 85
+text = "?ITEM_NAME?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ITM Quantity" type="Label" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/Spell/ITM" unique_id=1053770113]
+layout_mode = 0
+offset_left = 221.73912
+offset_top = 108.69565
+offset_right = 785.73914
+offset_bottom = 199.69565
+theme_override_fonts/font = ExtResource("13_5xv8n")
+theme_override_font_sizes/font_size = 60
+text = "X@"
+
+[node name="UItems" type="VBoxContainer" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab" unique_id=152710774]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="ITM" type="TextureButton" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/UItems" unique_id=502292443]
+z_index = 1
+layout_mode = 2
+texture_normal = ExtResource("14_6sd0y")
+texture_focused = SubResource("CompressedTexture2D_277fy")
+
+[node name="Backdrop" type="TextureRect" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/UItems/ITM" unique_id=2143777087]
+z_index = -1
+layout_mode = 0
+offset_left = 195.6521
+offset_right = 552.6521
+offset_bottom = 46.0
+scale = Vector2(4.35, 4.35)
+texture = ExtResource("17_td2t4")
+
+[node name="ITM Overlay" type="TextureRect" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/UItems/ITM" unique_id=1605542746]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -10)
+texture = ExtResource("8_qvgka")
+
+[node name="ITM Name" type="RichTextLabel" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/UItems/ITM" unique_id=1036435983]
+layout_mode = 0
+offset_left = 221.73912
+offset_right = 644.73914
+offset_bottom = 68.0
+theme_override_fonts/normal_font = ExtResource("13_5xv8n")
+theme_override_font_sizes/normal_font_size = 85
+text = "?ITEM_NAME?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ITM Quantity" type="Label" parent="Menus/Rest/Buttons/Equipment/Equipment Selector/Equipment Tab/UItems/ITM" unique_id=1550669251]
+layout_mode = 0
+offset_left = 221.73912
+offset_top = 108.69565
+offset_right = 785.73914
+offset_bottom = 199.69565
+theme_override_fonts/font = ExtResource("13_5xv8n")
+theme_override_font_sizes/font_size = 60
+text = "X@"
+
+[node name="Inventory" type="Button" parent="Menus/Rest/Buttons" unique_id=1846595240]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Equipment")
+focus_neighbor_bottom = NodePath("../Settings")
+theme_override_fonts/font = ExtResource("13_5xv8n")
+text = "INVENTORY"
+alignment = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Menus/Rest/Buttons/Inventory" unique_id=62849202]
+layout_mode = 0
+offset_left = 553.0
+offset_top = -34.0
+offset_right = 796.0
+offset_bottom = 162.0
+texture = ExtResource("27_goj0g")
+
+[node name="Label" type="Label" parent="Menus/Rest/Buttons/Inventory/TextureRect2" unique_id=2019613409]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 133.0
+offset_right = 225.0
+offset_bottom = 194.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("13_5xv8n")
+theme_override_font_sizes/font_size = 11
+text = "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="Menus/Rest/Buttons/Inventory/TextureRect2" unique_id=1049275029]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 33.0
+offset_right = 219.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("13_5xv8n")
+theme_override_font_sizes/font_size = 11
+text = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Menus/Rest/Buttons/Inventory/TextureRect2" unique_id=984673002]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 158.0
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_5xv8n")
+text = "?ITEM_NAME?"
+
+[node name="Control" type="Control" parent="Menus/Rest/Buttons/Inventory" unique_id=2084787352]
+anchors_preset = 0
+offset_left = 120.0
+offset_top = -47.0
+offset_right = 160.0
+offset_bottom = -7.0
+scale = Vector2(0.23, 0.23)
+
+[node name="TabContainer" type="TabContainer" parent="Menus/Rest/Buttons/Inventory/Control" unique_id=908782777]
+layout_mode = 0
+offset_left = 139.0
+offset_top = -51.0
+offset_right = 563.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("13_5xv8n")
+theme_override_font_sizes/font_size = 71
+theme_override_styles/panel = SubResource("StyleBoxFlat_vf5ko")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_obppo")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_6tvou")
+current_tab = 0
+clip_tabs = false
+
+[node name="Story Items" type="HBoxContainer" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer" unique_id=1054151603]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Story Items List" type="VBoxContainer" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items" unique_id=1472258787]
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_constants/separation = 0
+
+[node name="ITM" type="TextureButton" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List" unique_id=997708897]
+z_index = 1
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+texture_normal = ExtResource("14_6sd0y")
+texture_focused = SubResource("CompressedTexture2D_277fy")
+
+[node name="ItemSelection" type="TextureRect" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM" unique_id=884562943]
+layout_mode = 0
+offset_right = 404.0
+offset_bottom = 62.0
+scale = Vector2(4.35, 4.35)
+texture = ExtResource("26_goj0g")
+
+[node name="ITM Overlay" type="TextureRect" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM" unique_id=1406548513]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -10)
+texture = ExtResource("19_4qn27")
+
+[node name="ITM Name" type="RichTextLabel" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM" unique_id=1439127163]
+layout_mode = 0
+offset_left = 221.73912
+offset_right = 644.73914
+offset_bottom = 68.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("13_5xv8n")
+theme_override_font_sizes/normal_font_size = 85
+bbcode_enabled = true
+text = "?ITEM_NAME?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ITM Quantity" type="RichTextLabel" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM" unique_id=499860088]
+layout_mode = 0
+offset_left = 221.73912
+offset_top = 108.69565
+offset_right = 785.73914
+offset_bottom = 199.69565
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("13_5xv8n")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "X@"
+
+[node name="ITM2" type="TextureButton" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List" unique_id=1689636094]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+texture_normal = ExtResource("14_6sd0y")
+texture_focused = SubResource("CompressedTexture2D_277fy")
+
+[node name="ItemSelection" type="TextureRect" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM2" unique_id=858765475]
+layout_mode = 0
+offset_right = 404.0
+offset_bottom = 62.0
+scale = Vector2(4.35, 4.35)
+texture = ExtResource("26_goj0g")
+
+[node name="ITM Overlay" type="TextureRect" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM2" unique_id=1954182913]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -10)
+texture = ExtResource("19_4qn27")
+
+[node name="ITM Name" type="RichTextLabel" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM2" unique_id=1149735680]
+layout_mode = 0
+offset_left = 221.73912
+offset_right = 644.73914
+offset_bottom = 68.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("13_5xv8n")
+theme_override_font_sizes/normal_font_size = 85
+bbcode_enabled = true
+text = "?ITEM_NAME?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ITM Quantity" type="RichTextLabel" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM2" unique_id=1305891998]
+layout_mode = 0
+offset_left = 221.73912
+offset_top = 108.69565
+offset_right = 785.73914
+offset_bottom = 199.69565
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("13_5xv8n")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "X@"
+
+[node name="ITM3" type="TextureButton" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List" unique_id=596145562]
+z_index = -1
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+texture_normal = ExtResource("14_6sd0y")
+texture_focused = SubResource("CompressedTexture2D_277fy")
+
+[node name="ItemSelection" type="TextureRect" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM3" unique_id=1045555881]
+layout_mode = 0
+offset_right = 404.0
+offset_bottom = 62.0
+scale = Vector2(4.35, 4.35)
+texture = ExtResource("26_goj0g")
+
+[node name="ITM Overlay" type="TextureRect" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM3" unique_id=2037551012]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -10)
+texture = ExtResource("19_4qn27")
+
+[node name="ITM Name" type="RichTextLabel" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM3" unique_id=1385184053]
+layout_mode = 0
+offset_left = 221.73912
+offset_right = 644.73914
+offset_bottom = 68.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("13_5xv8n")
+theme_override_font_sizes/normal_font_size = 85
+bbcode_enabled = true
+text = "?ITEM_NAME?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ITM Quantity" type="RichTextLabel" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM3" unique_id=436643327]
+layout_mode = 0
+offset_left = 221.73912
+offset_top = 108.69565
+offset_right = 785.73914
+offset_bottom = 199.69565
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("13_5xv8n")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "X@"
+
+[node name="ITM4" type="TextureButton" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List" unique_id=1917573517]
+z_index = -2
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+texture_normal = ExtResource("14_6sd0y")
+texture_focused = SubResource("CompressedTexture2D_277fy")
+
+[node name="ItemSelection" type="TextureRect" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM4" unique_id=1689542745]
+layout_mode = 0
+offset_right = 404.0
+offset_bottom = 62.0
+scale = Vector2(4.35, 4.35)
+texture = ExtResource("26_goj0g")
+
+[node name="ITM Overlay" type="TextureRect" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM4" unique_id=1614269018]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -10)
+texture = ExtResource("19_4qn27")
+
+[node name="ITM Name" type="RichTextLabel" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM4" unique_id=1374098885]
+layout_mode = 0
+offset_left = 221.73912
+offset_right = 644.73914
+offset_bottom = 68.0
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("13_5xv8n")
+theme_override_font_sizes/normal_font_size = 85
+bbcode_enabled = true
+text = "?ITEM_NAME?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ITM Quantity" type="RichTextLabel" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items/Story Items List/ITM4" unique_id=802348083]
+layout_mode = 0
+offset_left = 221.73912
+offset_top = 108.69565
+offset_right = 785.73914
+offset_bottom = 199.69565
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("13_5xv8n")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "X@"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer/Story Items" unique_id=105173351]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(1545, 0)
+offset_transform_visual_only = false
+
+[node name="Equipment" type="VBoxContainer" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer" unique_id=567951005]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Key Items" type="VBoxContainer" parent="Menus/Rest/Buttons/Inventory/Control/TabContainer" unique_id=1813280368]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Settings" type="Button" parent="Menus/Rest/Buttons" unique_id=535626318]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Inventory")
+focus_neighbor_bottom = NodePath("../Leave")
+theme_override_fonts/font = ExtResource("13_5xv8n")
+text = "SETTINGS"
+alignment = 0
+
+[node name="Leave" type="Button" parent="Menus/Rest/Buttons" unique_id=748403832]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Settings")
+focus_neighbor_bottom = NodePath(".")
+theme_override_fonts/font = ExtResource("13_5xv8n")
+text = "LEAVE"
+alignment = 0
+
+[connection signal="pressed" from="Menus/Rest/Buttons/Transport" to="Additionals/Menuing" method="Transport"]
+[connection signal="pressed" from="Menus/Rest/Buttons/Equipment" to="Additionals/Menuing" method="Equipment"]
+[connection signal="pressed" from="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List/RHand" to="Additionals/Menuing" method="RHand"]
+[connection signal="pressed" from="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List/LHand" to="Additionals/Menuing" method="LHand"]
+[connection signal="pressed" from="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List/Spell" to="Additionals/Bars" method="Spell"]
+[connection signal="pressed" from="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List/Spell" to="Additionals/Menuing" method="Spell"]
+[connection signal="pressed" from="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List/Armor" to="Additionals/Menuing" method="Armor"]
+[connection signal="pressed" from="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List/Braces" to="Additionals/Menuing" method="Braces"]
+[connection signal="pressed" from="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List/UItem1" to="Additionals/Menuing" method="UItem1"]
+[connection signal="pressed" from="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List/UItem2" to="Additionals/Menuing" method="UItem2"]
+[connection signal="pressed" from="Menus/Rest/Buttons/Equipment/Equipment Sorter/Equipment Scroller/Equipment List/UItem3" to="Additionals/Menuing" method="UItem3"]
+[connection signal="pressed" from="Menus/Rest/Buttons/Inventory" to="Additionals/Menuing" method="Inventory"]
+[connection signal="pressed" from="Menus/Rest/Buttons/Settings" to="Additionals/Menuing" method="Settings"]
+[connection signal="pressed" from="Menus/Rest/Buttons/Leave" to="Additionals/Menuing" method="Leave"]

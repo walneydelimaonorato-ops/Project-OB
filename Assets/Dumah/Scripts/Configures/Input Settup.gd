@@ -9,7 +9,7 @@ func _ready() -> void:
 	PLY_Input.Un_Right = "In_Right"
 	PLY_Input.Un_Jump = "In_Jump"
 	PLY_Input.Un_Use_UItem = "In_Use_Item"
-	PLY_Input.Un_Interact = "In"
+	#PLY_Input.Un_Interact = "In"
 	PLY_Input.Un_Cycle_UItem = "In_Cycle_UItem"
 	PLY_Input.Un_Sprint = "In_Sprint"
 	PLY_Input.Un_Ready_Menu = "In_Pause"

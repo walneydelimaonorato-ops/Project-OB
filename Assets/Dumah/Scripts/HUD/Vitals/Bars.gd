@@ -4,6 +4,9 @@ var Can_Update: bool = true
 @onready var Sta_Bar: TextureProgressBar = %Stamina
 @onready var Hea_Bar: TextureProgressBar = %Health
 
+func _ready() -> void:
+	GLOBAL.Focus($"../../Menus/Rest/Buttons")
+
 func _process(delta: float) -> void:
 	if Can_Update == false:
 		return
