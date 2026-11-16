@@ -16,7 +16,13 @@ signal Tool_Action(Direction: bool, Action: String)
 # Default (0.0. Modifies the waiting time period)
 signal Interaction_Wait(Active: bool, Modifier: float)
 
-
+## Updates the player inventory [INTERNAL]
+# Item (Current item being assigned into an inventory slot)
+# Inventory_Slot ("". What Inventory slot is being update. Ex: PLY_Inventory.Inv_ToolL_Equiped = Item)
+# Hand (Null. Determines what hand the item is being equipped into. LEFT[false] or RIGHT[true])
+signal INT_Inventory_Update(Item: String, Inventory_Slot: String, Hand: Variant)
+## Updates the player inventory [VISUAL]
+signal VIS_Inventory_Update()
 
 ##region Player related signals
 ## Input signal

@@ -355,6 +355,19 @@ Deb_Free_Cam={
 
 occlusion_culling/bvh_build_quality=1
 textures/canvas_textures/default_texture_filter=0
+shading/overrides/force_vertex_shading=true
+anti_aliasing/screen_space_roughness_limiter/enabled=false
 textures/decals/filter=0
 textures/light_projectors/filter=0
 occlusion_culling/use_occlusion_culling=true
+
+[shader_globals]
+
+Resolution={
+"type": "vec2",
+"value": Vector2(360, 240)
+}
+ColorDepth={
+"type": "float",
+"value": 0.0
+}

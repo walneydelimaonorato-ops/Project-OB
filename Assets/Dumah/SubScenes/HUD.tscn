@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://qjq03yc5xcfc" path="res://Assets/UI/HUD/Side HUD/Stamina_Lines_AA.png" id="2_5xv8n"]
 [ext_resource type="Script" uid="uid://b6lpjf8gx11n4" path="res://Assets/Dumah/Scripts/Menus/Menuing.gd" id="2_ya7rp"]
 [ext_resource type="Texture2D" uid="uid://cad1m7t48xa27" path="res://Assets/UI/HUD/Side HUD/Frame_Stamina_AA.png" id="3_277fy"]
-[ext_resource type="Script" uid="uid://cd041r36cnhr6" path="res://Assets/Dumah/Scripts/Configures/Menu Manager.gd" id="3_jg3c1"]
+[ext_resource type="Script" uid="uid://cd041r36cnhr6" path="res://Assets/Dumah/Scripts/Menus/Equipment Selector Buttons.gd" id="3_jg3c1"]
 [ext_resource type="Texture2D" uid="uid://crw7mq7c182fr" path="res://Assets/UI/HUD/Side HUD/Stamina_AA.png" id="4_6sd0y"]
 [ext_resource type="Texture2D" uid="uid://denq0vupr60gy" path="res://Assets/UI/HUD/Side HUD/Health_Eyes.png" id="5_tbcbd"]
 [ext_resource type="Texture2D" uid="uid://bsk0xgutv14ex" path="res://Assets/UI/HUD/Side HUD/Frame_Health.png" id="6_td2t4"]
@@ -203,7 +203,6 @@ texture = ExtResource("8_qvgka")
 
 [node name="Menus" type="CanvasLayer" parent="." unique_id=1695569710]
 layer = 11
-visible = false
 
 [node name="Rest" type="Control" parent="Menus" unique_id=348216002]
 unique_name_in_owner = true
@@ -611,6 +610,7 @@ text = "INVENTORY"
 alignment = 0
 
 [node name="TextureRect2" type="TextureRect" parent="Menus/Rest/Buttons/Inventory" unique_id=62849202]
+visible = false
 layout_mode = 0
 offset_left = 553.0
 offset_top = -34.0
@@ -655,6 +655,7 @@ theme_override_fonts/font = ExtResource("13_5xv8n")
 text = "?ITEM_NAME?"
 
 [node name="Control" type="Control" parent="Menus/Rest/Buttons/Inventory" unique_id=2084787352]
+visible = false
 anchors_preset = 0
 offset_left = 120.0
 offset_top = -47.0

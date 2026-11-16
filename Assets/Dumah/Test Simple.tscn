@@ -33,3 +33,8 @@ size = Vector3(16.445313, 0.18774414, 23.916992)
 
 [node name="Dumah" parent="." unique_id=1425255279 instance=ExtResource("1_a4wtg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2431109, 0, 0.090943575)
+
+[editable path="Dumah"]
+[editable path="Dumah/Head/Cam/First Person Models"]
+[editable path="Dumah/Head/Cam/First Person Models/Left Rig/First Person Dumah"]
+[editable path="Dumah/Head/Cam/First Person Models/Right Rig/First Person Dumah"]
