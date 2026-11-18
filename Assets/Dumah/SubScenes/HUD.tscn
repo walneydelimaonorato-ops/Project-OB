@@ -59,7 +59,7 @@ script = ExtResource("1_tbqu8")
 [node name="Menuing" type="Node" parent="Additionals" unique_id=666924088]
 script = ExtResource("2_ya7rp")
 
-[node name="Menu Manager" type="Node" parent="Additionals" unique_id=2124679561]
+[node name="Equipment Selector Buttons" type="Node" parent="Additionals" unique_id=2124679561]
 script = ExtResource("3_jg3c1")
 
 [node name="Root" type="Control" parent="." unique_id=19481968]
@@ -206,6 +206,7 @@ layer = 11
 
 [node name="Rest" type="Control" parent="Menus" unique_id=348216002]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

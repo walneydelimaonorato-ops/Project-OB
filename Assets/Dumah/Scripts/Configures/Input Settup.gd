@@ -27,3 +27,4 @@ func _ready() -> void:
 	PLY_Input.UnUI_Accept = "UI_Accept"
 	PLY_Input.UnUI_Accept = "UI_Accept"
 	PLY_Input.UnUI_Unselect = "UI_Unselect"
+	PLY_Input.UnUI_Esc = "UI_Esc"

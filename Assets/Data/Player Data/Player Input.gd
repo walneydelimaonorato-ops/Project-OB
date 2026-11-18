@@ -27,6 +27,7 @@ var UnUI_Right: String
 var UnUI_Accept: String
 var UnUI_Return: String
 var UnUI_Unselect: String
+var UnUI_Esc: String
 
 var UnHUDIcon_Up: String
 var UnHUDIcon_Down: String

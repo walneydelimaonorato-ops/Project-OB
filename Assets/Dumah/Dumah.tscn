@@ -4,21 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://dgted5ygjvu5r" path="res://Assets/Dumah/SubScenes/Additionals Dumah.tscn" id="2_2jon6"]
 [ext_resource type="PackedScene" uid="uid://cmld82a6ahrjp" path="res://Assets/Dumah/SubScenes/HUD.tscn" id="3_8dvas"]
 [ext_resource type="PackedScene" uid="uid://bx2oepewh53m7" path="res://Assets/Dumah/SubScenes/First Person Models.tscn" id="3_gh7ol"]
-[ext_resource type="Shader" uid="uid://cxjd8qojupyg0" path="res://Assets/Dumah/Post Process.gdshader" id="5_uthw2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_k4mt7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wglcv"]
 size = Vector3(0.6113281, 1.8183594, 0.5817871)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wglcv"]
-render_priority = 0
-shader = ExtResource("5_uthw2")
-shader_parameter/dither = 0.5
-
-[sub_resource type="QuadMesh" id="QuadMesh_k4mt7"]
-flip_faces = true
-size = Vector2(2, 2)
 
 [node name="Dumah" type="CharacterBody3D" unique_id=1425255279]
 script = ExtResource("1_lqcc0")
@@ -53,12 +43,6 @@ size = Vector3(0.2, 0.2, 1)
 [node name="First Person Models" parent="Head/Cam" unique_id=1442657988 instance=ExtResource("3_gh7ol")]
 
 [node name="HUD" parent="." unique_id=1985037759 instance=ExtResource("3_8dvas")]
-
-[node name="Post Process" type="MeshInstance3D" parent="." unique_id=321299775]
-visible = false
-material_override = SubResource("ShaderMaterial_wglcv")
-extra_cull_margin = 16384.0
-mesh = SubResource("QuadMesh_k4mt7")
 
 [editable path="Head/Cam/First Person Models"]
 [editable path="Head/Cam/First Person Models/Left Rig/First Person Dumah"]

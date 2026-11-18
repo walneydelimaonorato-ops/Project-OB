@@ -38,6 +38,6 @@ func Inputs():
 	#if Input.is_action_just_pressed(PLY_Input.Un):
 		#return
 	
-	if Input.is_action_just_pressed(PLY_Input.Un_RPrimary_Tool_Use):
+	if Input.is_action_just_pressed(PLY_Input.UnUI_Esc):
 		#IntSigBus.emit_signal("INT_Inventory_Update", "Ass", "Inv_Uitem1_Equiped", true)
 		IntSigBus.emit_signal("Menu_Update", PLY_Data.MRest)

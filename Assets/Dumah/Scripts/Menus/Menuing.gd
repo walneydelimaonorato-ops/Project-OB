@@ -8,23 +8,15 @@ extends Node
 
 @onready var To_Fix_Buttons: Array = [%Buttons, %"Equipment List", %Tools, %Braces, %Wear, %Spell, %UItems]
 
-#@onready var Menus_Minor: Array[Control] = [Equipment_Sorter, Equipment_Selector]#, Equipment_Tab]
-#@onready var Major_Menus: Array[Control] = [%Rest]
-#@onready var All_Menus: Array[Array] = [Menus_Minor, Major_Menus]
-
 func _ready() -> void:
 	IntSigBus.Menu_Update.connect(Menu_Movement)
 	Button_Path_Fix(To_Fix_Buttons)
 	
 	PLY_Data.MRest = %Rest
 	
-	PLY_Data.Menus_Minor = [Equipment_Sorter, Equipment_Selector]#, Equipment_Tab]
+	PLY_Data.Menus_Minor = [Equipment_Sorter, Equipment_Selector]
 	PLY_Data.Menus_Major = [%Rest]
 	PLY_Data.Menus_All = [PLY_Data.Menus_Minor, PLY_Data.Menus_Major]
-
-#func _input(event: InputEvent) -> void:
-	#if Input.is_action_just_pressed(PLY_Input.Un_Ready_Menu):
-		#Menu_Movement($"../../Menus/Rest/Buttons")
 
 func Button_Path_Fix(Path: Array, Index_Mod: int = 0):
 	var Index = Index_Mod
